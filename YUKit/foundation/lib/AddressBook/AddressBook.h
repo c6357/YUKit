@@ -13,7 +13,7 @@
 
 
 
-YUSingletonH(AddressBook)
+//YUSingletonH(AddressBook)
 
 /**
  * 返回通讯录对象

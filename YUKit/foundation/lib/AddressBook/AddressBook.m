@@ -17,7 +17,7 @@
 @end
 
 @implementation AddressBook
-YUSingletonM(AddressBook)
+//YUSingletonM(AddressBook)
 
 - (instancetype)init
 {
@@ -83,7 +83,7 @@ YUSingletonM(AddressBook)
         
         _addressBooksArr = [NSMutableArray array];
         
-        NSArray *contacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople([AddressBook sharedAddressBook].addressBooksRef);
+        NSArray *contacts = (__bridge NSArray *)ABAddressBookCopyArrayOfAllPeople(self.addressBooksRef);
         
         NSInteger contactsCount = [contacts count];
         
@@ -142,21 +142,21 @@ YUSingletonM(AddressBook)
 }
 
 
-+(NSMutableArray*)addressBooks{
-    
-    return [AddressBook sharedAddressBook].addressBooksArr;
-    
-}
-
-
-+(BOOL)containPhoneNum:(NSString*)phoneNum{
-    
-    for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
-        
-        return obj.phoneInfo[phoneNum];
-        
-    }
-    return NO;
-}
+//+(NSMutableArray*)addressBooks{
+//    
+//    return [AddressBook sharedAddressBook].addressBooksArr;
+//    
+//}
+//
+//
+//+(BOOL)containPhoneNum:(NSString*)phoneNum{
+//    
+//    for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
+//        
+//        return obj.phoneInfo[phoneNum];
+//        
+//    }
+//    return NO;
+//}
 @end
 
