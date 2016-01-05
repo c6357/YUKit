@@ -26,6 +26,7 @@ static int  sfd;
     self.textView = ({
         UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
         textView.editable = NO;
+        textView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         textView.font = [UIFont boldSystemFontOfSize:16];
         textView.textColor = [UIColor colorWithHexString:@"#0c6ce2"];
         textView.backgroundColor = [UIColor blackColor];

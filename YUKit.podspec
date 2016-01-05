@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
     s.version      = '0.0.1'
     s.summary      = 'YUKit IOS轻量级快速开发框架（开发语言 objective-c 、c++）'
     s.homepage     = 'https://github.com/c6357/YUKit'
-    s.license      = { :type => 'MIT', :file => 'LICENSE' }  
+    s.license      = "MIT (example)"  
     s.authors      = { "BruceYu" => "c6357@outlook.com" }
     s.platform     = :ios, '7.0'
     s.ios.deployment_target = '7.0'
