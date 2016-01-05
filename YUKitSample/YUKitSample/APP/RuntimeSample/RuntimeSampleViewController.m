@@ -70,7 +70,7 @@
     
     
     AddressBook *obj = [[AddressBook alloc] init];
-    obj.addressBo = @"hello";
+
     
     
     ////    https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW1

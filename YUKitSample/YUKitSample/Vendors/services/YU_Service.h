@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPRequestSerializer+YUService.h"
 #import "YU_HTTPRequestOperationManager.h"
 #import "NSString+Json.h"
 #import "NSObject+Json.h"

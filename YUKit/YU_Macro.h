@@ -9,34 +9,11 @@
 #ifndef YUKit_YUMacro_h
 #define YUKit_YUMacro_h
 
-
-
-
-
-
-
-
-
-
-
 /*
  
- 这个文件待废弃
+ 待废弃
  
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #define PRODUCER_IOS__CAPTURE (__IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_1 )
@@ -50,18 +27,9 @@
 
 
 
-
-
 //G－C－D
 #define BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
 #define MAIN(block) dispatch_async(dispatch_get_main_queue(),block)
-
-
-
-
-//设置需要粘贴的文字或图片
-#define PasteString(string)   [[UIPasteboard generalPasteboard] setString:string];
-#define PasteImage(image)     [[UIPasteboard generalPasteboard] setImage:image];
 
 
 //---------------------打印日志--------------------------

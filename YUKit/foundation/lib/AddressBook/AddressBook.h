@@ -10,7 +10,8 @@
 #import "AddressBookObj.h"
 
 @interface AddressBook : NSObject
-@property (strong,nonatomic)NSString *addressBo;
+
+
 
 YUSingletonH(AddressBook)
 

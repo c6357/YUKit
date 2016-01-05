@@ -10,6 +10,7 @@
 #define YUKit_YUKit_h
 
 #include <stdio.h>
+#import <UIKit/UIKit.h>
 
 #ifdef __cplusplus
 #define YUKIT_EXTERN		extern "C" __attribute__((visibility ("default")))
@@ -221,10 +222,6 @@ YUKIT_EXTERN NSString * const  YU_DateFormat二;
 
 // MARK: - base
 #import "YU_Base.h"
-
-
-// MARK: - services
-#import "YU_Service.h"
 
 
 #endif

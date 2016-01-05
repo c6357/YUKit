@@ -24,7 +24,7 @@ static int  sfd;
     self.fileHandleForWritingDescriptor = [self.fileHandleForWriting fileDescriptor];
     
     self.textView = ({
-        UITextView *textView = [UITextView new];
+        UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
         textView.editable = NO;
         textView.font = [UIFont boldSystemFontOfSize:16];
         textView.textColor = [UIColor colorWithHexString:@"#0c6ce2"];
@@ -32,9 +32,6 @@ static int  sfd;
         textView;
     });
     [self.view addSubview:self.textView];
-    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
 
     [self addBack];
     
@@ -46,18 +43,12 @@ static int  sfd;
 
 -(void)addBack{
     self.button = ({
-        UIButton *button = [UIButton new];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
         button;
     });
     [self.view addSubview:self.button];
-    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.and.left.equalTo(self.view);
-        make.width.offset(100);
-        make.height.offset(60);
-    }];
-
 }
 
 

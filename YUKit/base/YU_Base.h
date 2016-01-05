@@ -12,7 +12,6 @@
 //#define CustomNavigationBar
 
 #import "NavigationController.h"
-#import "BaseTableViewController.h"
 #import "BaseView.h"
 #import "BaseViewModel.h"
 #import "BaseViewController.h"

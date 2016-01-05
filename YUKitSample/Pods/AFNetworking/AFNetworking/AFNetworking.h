@@ -24,7 +24,7 @@
 #import <Availability.h>
 
 #ifndef _AFNETWORKING_
-    #define _AFNETWORKING_
+    #define _AFNETWORKIN
 
     #import "AFURLRequestSerialization.h"
     #import "AFURLResponseSerialization.h"

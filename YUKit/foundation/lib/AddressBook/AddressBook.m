@@ -28,31 +28,31 @@ YUSingletonM(AddressBook)
     return self;
 }
 
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
-{
-    NSMethodSignature* signature = [super methodSignatureForSelector:aSelector];
-    if (signature==nil) {
-        signature = [_addressBooksArr methodSignatureForSelector:aSelector];
-    }
-    NSUInteger argCount = [signature numberOfArguments];
-    for (NSInteger i=0 ; i<argCount ; i++) {
-        NSLog(@"%s" , [signature getArgumentTypeAtIndex:i]);
-    }
-    NSLog(@"returnType:%s ,returnLen:%lu" , [signature methodReturnType] , (unsigned long)[signature methodReturnLength]);
-    NSLog(@"signature:%@" , signature);
-    return signature;
-}
-
-- (void)forwardInvocation:(NSInvocation *)anInvocation
-{
-    NSLog(@"forwardInvocation:%@" , anInvocation);
-    SEL seletor = [anInvocation selector];
-    
-    if ([_addressBooksArr respondsToSelector:seletor]) {
-        [anInvocation invokeWithTarget:_addressBooksArr];
-    }
-    
-}
+//- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
+//{
+//    NSMethodSignature* signature = [super methodSignatureForSelector:aSelector];
+//    if (signature==nil) {
+//        signature = [_addressBooksArr methodSignatureForSelector:aSelector];
+//    }
+//    NSUInteger argCount = [signature numberOfArguments];
+//    for (NSInteger i=0 ; i<argCount ; i++) {
+//        NSLog(@"%s" , [signature getArgumentTypeAtIndex:i]);
+//    }
+//    NSLog(@"returnType:%s ,returnLen:%lu" , [signature methodReturnType] , (unsigned long)[signature methodReturnLength]);
+//    NSLog(@"signature:%@" , signature);
+//    return signature;
+//}
+//
+//- (void)forwardInvocation:(NSInvocation *)anInvocation
+//{
+//    NSLog(@"forwardInvocation:%@" , anInvocation);
+//    SEL seletor = [anInvocation selector];
+//    
+//    if ([_addressBooksArr respondsToSelector:seletor]) {
+//        [anInvocation invokeWithTarget:_addressBooksArr];
+//    }
+//    
+//}
 
 
 #pragma mark -
