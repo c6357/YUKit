@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
     #s.public_header_files = 'YUKit/**/*.{h}'
 
     s.source_files = 'YUKit/YU*.{h}'
-
     s.requires_arc = true
+
 
 pch_AF = <<-EOS
 #ifdef DEBUG
@@ -88,10 +88,15 @@ s.subspec 'services' do |ss|
  	end
 
 	ss.subspec 'Reachability' do |sss|
- 		sss.source_files = 'YUKit/services/Reachability/**/*.{h,m,cpp,mm,c}'
+		sss.requires_arc            = false
+  		sss.source_files = 'YUKit/services/Reachability/**/*.{h,m,cpp,mm,c}'
  	end
 
- 	ss.source_files = 'YUKit/services/YU_*.{h,m}'
+ 	#ss.source_files = 'YUKit/services/YU_*.{h,m}'
+	#ss.dependency 'YUDBFramework/'
+	ss.compiler_flags          = '-ObjC'
+
+
 end
 
 
@@ -104,17 +109,23 @@ end
 # end
 
 
+#待第二个版本维护
+  #s.ios.vendored_frameworks = 'YUKit/YUDBFramework/YUDBFramework.framework'
 
-  s.ios.vendored_frameworks = 'YUDBFramework/YUDBFramework.framework'
-  s.frameworks = 'UIKit', 'QuartzCore', 'Foundation' 
+  s.frameworks = 'UIKit', 'QuartzCore', 'Foundation'
+
+#spec.libraries = [
+#      "stdc++",
+#     "stdc++.6"
+#    ]
 
 
 
+  #s.libraries = “XXX”, "xml2"
   s.dependency 'MJRefresh', '~> 2.2.0'
   s.dependency 'Masonry', '~> 0.6.2'
   s.dependency 'AFNetworking' , '~>2.5.4'
-  s.dependency 'BlocksKit', '~> 2.2.5'
-  
+  #s.dependency 'BlocksKit', '~> 2.2.5'
 
 
 end
