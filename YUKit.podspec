@@ -13,10 +13,10 @@ Pod::Spec.new do |s|
 
     s.source       = {:git => 'https://github.com/c6357/YUKit.git', :tag => 	s.version}
 
-    #s.source_files = 'YUKit/**/*.{h,m}'
+    #s.source_files = 'YUKit/**/*.{h,m,cpp,mm}'
     #s.public_header_files = 'YUKit/**/*.{h}'
 
-    s.public_header_files = 'YUKit/*.{h}'
+    #s.public_header_files = 'YUKit/*.{h}'
 
     s.requires_arc = true
 
@@ -32,33 +32,15 @@ EOS
 s.prefix_header_contents = pch_AF
 
  s.subspec 'uikit' do |ss|
- 	ss.source_files = 'YUKit/uikit/**/*'
+	#ss.dependency 'YUKit'
+ 	ss.source_files = 'YUKit/uikit/**/*.{h,m,cpp,mm}'
+	#ss.public_header_files = 'YU_UI/*.h'
+	#ss.public_header_files = 'YU_Core/*.h'
+
 	#ss.dependency 'YUKit/foundation'
-	#ss.dependency 'YUKit/YUKit.{h}’
+	
  end
 
- s.subspec 'foundation' do |ss|
- 	ss.source_files = 'YUKit/foundation/**/*'
-	#ss.dependency 'YUKit/YUKit.h’
-	#ss.dependency 'YUKit/uikit'
-
- end
-
- s.subspec 'base' do |ss|
- 	ss.source_files = 'YUKit/base/**/*'
-	#ss.dependency 'YUKit/YUKit.h’
-       #ss.dependency 'YUKit/foundation'
-	#ss.dependency 'YUKit/uikit'
- end
-
- s.subspec 'services' do |ss|
-        
- 	ss.source_files = 'YUKit/services/**/*'
-	#ss.dependency 'YUKit/YUKit.h’
-      #ss.dependency 'YUKit/foundation'
-	#ss.dependency 'YUKit/uikit'
- 	ss.ios.vendored_frameworks = 'YUDBFramework/YUDBFramework.framework'
- end
 
 
 #non_arc_files = 'YUKit/foundation/lib/Reachability/Reachability.{h,m}'
@@ -73,8 +55,9 @@ s.prefix_header_contents = pch_AF
   s.dependency 'MJRefresh', '~> 2.2.0'
   s.dependency 'Masonry', '~> 0.6.2'
   s.dependency 'AFNetworking' , '~>2.5.4'
+  
 
-  #s.ios.vendored_frameworks = 'YUDBFramework/YUDBFramework.framework'
+  s.ios.vendored_frameworks = 'YUDBFramework/YUDBFramework.framework'
   s.frameworks = 'UIKit', 'QuartzCore', 'Foundation' 
 
 end

@@ -10,6 +10,7 @@
 #import "UIColor+YU.h"
 #import "NSObject+YU.h"
 #import "NSNumber+YU.h"
+#import <Masonry/Masonry.h>
 
 static char fileHandleForReadingKey;
 static char fileHandleForWritingKey;
@@ -28,15 +29,17 @@ static int  sfd;
     self.fileHandleForWritingDescriptor = [self.fileHandleForWriting fileDescriptor];
     
     self.textView = ({
-        UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
+        UITextView *textView = [UITextView new];
         textView.editable = NO;
-        textView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         textView.font = [UIFont boldSystemFontOfSize:16];
         textView.textColor = [UIColor colorWithHexString:@"#0c6ce2"];
         textView.backgroundColor = [UIColor blackColor];
         textView;
     });
     [self.view addSubview:self.textView];
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 
     [self addBack];
     
@@ -48,12 +51,17 @@ static int  sfd;
 
 -(void)addBack{
     self.button = ({
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
+        UIButton *button = [UIButton new];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
         button;
     });
     [self.view addSubview:self.button];
+    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.left.equalTo(self.view);
+        make.width.offset(100);
+        make.height.offset(60);
+    }];
 }
 
 
