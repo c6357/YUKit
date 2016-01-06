@@ -7,6 +7,8 @@
 //
 
 #import "YUService+Sample.h"
+#import "NSDate+YU.h"
+#import "NSString+YU.h"
 
 @implementation YUService (Sample)
 + (void)login:(NSDictionary*)info success:(void (^)(UserModel *user))successBlock failure:(NillBlock_Error)failureBlock

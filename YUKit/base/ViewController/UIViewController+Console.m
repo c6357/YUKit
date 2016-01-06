@@ -7,6 +7,10 @@
 //
 
 #import "UIViewController+Console.h"
+#import "UIColor+YU.h"
+#import "NSObject+YU.h"
+#import "NSNumber+YU.h"
+
 static char fileHandleForReadingKey;
 static char fileHandleForWritingKey;
 static char pipeKey;

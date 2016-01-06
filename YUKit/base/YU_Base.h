@@ -10,7 +10,7 @@
 #define YU_Base_h
 
 //#define CustomNavigationBar
-
+#import "BaseTableViewController.h"
 #import "NavigationController.h"
 #import "BaseView.h"
 #import "BaseViewModel.h"

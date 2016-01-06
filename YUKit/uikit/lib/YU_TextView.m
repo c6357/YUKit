@@ -7,6 +7,7 @@
 //
 
 #import "YU_TextView.h"
+#import "YUKit.h"
 
 @interface YUTextView()
 @property (nonatomic, strong) UIToolbar *toolBar;

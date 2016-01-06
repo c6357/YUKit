@@ -8,6 +8,8 @@
 
 #import <AddressBook/AddressBook.h>
 #import <UIKit/UIKit.h>
+#import "AddressBook.h"
+#import "YUKit.h"
 
 @interface AddressBook(){
     NSString *_privateName;
@@ -17,7 +19,7 @@
 @end
 
 @implementation AddressBook
-//YUSingletonM(AddressBook)
+YUSingletonM(AddressBook)
 
 - (instancetype)init
 {
@@ -142,21 +144,21 @@
 }
 
 
-//+(NSMutableArray*)addressBooks{
-//    
-//    return [AddressBook sharedAddressBook].addressBooksArr;
-//    
-//}
-//
-//
-//+(BOOL)containPhoneNum:(NSString*)phoneNum{
-//    
-//    for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
-//        
-//        return obj.phoneInfo[phoneNum];
-//        
-//    }
-//    return NO;
-//}
++(NSMutableArray*)addressBooks{
+    
+    return [AddressBook sharedAddressBook].addressBooksArr;
+    
+}
+
+
++(BOOL)containPhoneNum:(NSString*)phoneNum{
+    
+    for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
+        
+        return obj.phoneInfo[phoneNum];
+        
+    }
+    return NO;
+}
 @end
 

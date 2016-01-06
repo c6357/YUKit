@@ -8,8 +8,10 @@
 
 #import "UIView+YU.h"
 #import "UINavigationController+YU.h"
+#import "NSString+YU.h"
 #import <objc/runtime.h>
 #import "NSObject+YU.h"
+#import "YUKit.h"
 
 #define CMM_AnimatePerior   0.35f
 #define kAnimationPerior 0.35f

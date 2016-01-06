@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <YUDBFramework/DBObject.h>
 #import "YU_HTTPRequestOperationManager.h"
 #import "NSString+Json.h"
 #import "NSObject+Json.h"
-
 
 #define SAFE_BLOCK_CALL(b,p)        (b==nil?:b(p))
 #define SAFE_BLOCK_CALL_VOID(b)     (b==nil?:b())

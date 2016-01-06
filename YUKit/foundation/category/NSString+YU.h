@@ -227,7 +227,7 @@
  * @param str 需要加密的内容
  * @return 加密后的字符串
  **/
-- (NSString *)md5:(NSString *)str;
+- (NSString *)md5;
 
 /*****
  * 去掉字符串左右空格

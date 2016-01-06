@@ -75,11 +75,6 @@ NSString *APP_BundleSeedID()
     return bundleSeedID;
 }
 
-NSString *APP_Schema()
-{
-    return APP_SchemaWithName(nil);
-}
-
 NSString *APP_SchemaWithName(NSString *name)
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
@@ -116,6 +111,11 @@ NSString *APP_SchemaWithName(NSString *name)
 #else
     return nil;
 #endif
+}
+
+NSString *APP_Schema()
+{
+    return APP_SchemaWithName(nil);
 }
 
 NSURL *APP_DocumentsURL(){

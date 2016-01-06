@@ -7,6 +7,7 @@
 //
 
 #import "YU_Runtime.h"
+#import <objc/runtime.h>
 
 @implementation YURuntime
 + (void)swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector {

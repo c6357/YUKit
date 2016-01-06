@@ -7,6 +7,7 @@
 //
 
 #import "YU_AmountTextField.h"
+#import "NSString+YUCheck.h"
 
 @implementation YUAmountTextField
 

@@ -7,6 +7,7 @@
 //
 
 #import "NSString+YUCheck.h"
+#import "YUKit.h"
 
 @implementation NSString (YUCheck)
 -(BOOL)checkPhoneLength{

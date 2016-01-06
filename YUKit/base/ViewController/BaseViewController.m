@@ -7,10 +7,8 @@
 //
 
 #import "BaseViewController.h"
-//#import "Toast+UIView.h"
-//#import <IQKeyboardManager.h>
-//#import <IQKeyboardReturnKeyHandler.h>
-//#import "SettingViewController.h"
+#import "YUKit.h"
+
 
 @interface BaseViewController ()
 //@property (nonatomic, strong) IQKeyboardReturnKeyHandler    *returnKeyHandler;

@@ -7,6 +7,8 @@
 //
 
 #import "UIBarButtonItem+YU.h"
+#import "UIView+YU.h"
+#import "NSString+YU.h"
 
 @implementation UIBarButtonItem (YU)
 +(UIBarButtonItem*)buttonItemWith:(id)VC sel:(SEL)sel

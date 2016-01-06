@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YUKit.h"
 
 typedef void (^runtime_Block_KeyForArray)(NSString *key,BOOL *stop);
 typedef void (^runtime_Block_KeyValueForArray)(NSString *key,NSString *value,BOOL *stop);

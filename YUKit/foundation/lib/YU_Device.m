@@ -420,16 +420,7 @@ NSInteger Device_CpuCount()
 {
     return [NSProcessInfo processInfo].activeProcessorCount;
 }
-float Device_CpuUsage()
-{
-    float cpu = 0;
-    NSArray *cpus = Device_CpuUsagePerProcessor();
-    if (cpus.count == 0) return -1;
-    for (NSNumber *n in cpus) {
-        cpu += n.floatValue;
-    }
-    return cpu;
-}
+
 NSArray *Device_CpuUsagePerProcessor()
 {
     processor_info_array_t _cpuInfo, _prevCPUInfo = nil;
@@ -477,7 +468,16 @@ NSArray *Device_CpuUsagePerProcessor()
         return nil;
     }
 }
-
+float Device_CpuUsage()
+{
+    float cpu = 0;
+    NSArray *cpus = Device_CpuUsagePerProcessor();
+    if (cpus.count == 0) return -1;
+    for (NSNumber *n in cpus) {
+        cpu += n.floatValue;
+    }
+    return cpu;
+}
 
 #pragma mark -
 #pragma marrk - check sysInfo
@@ -632,21 +632,8 @@ BOOL isiOS9()
 BOOL isRequiresPhoneOS(){
     return [[[NSBundle mainBundle].infoDictionary objectForKey:@"LSRequiresIPhoneOS"] boolValue];
 }
+BOOL isScreenSizeEqualTo(CGSize size);
 
-BOOL isScreen320x480(){
-    if ( isiPad())
-    {
-        if (isRequiresPhoneOS() && isScreen768x1024() )
-        {
-            return YES;
-        }
-        return NO;
-    }
-    else
-    {
-        return isScreenSizeEqualTo(CGSizeMake(320, 480));
-    }
-}
 
 BOOL isScreen640x960(){
     return isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(640, 960));
@@ -681,10 +668,24 @@ BOOL isScreen1536x2048(){
 #endif
     return NO;
 }
+BOOL isScreen320x480(){
+    if ( isiPad())
+    {
+        if (isRequiresPhoneOS() && isScreen768x1024() )
+        {
+            return YES;
+        }
+        return NO;
+    }
+    else
+    {
+        return isScreenSizeEqualTo(CGSizeMake(320, 480));
+    }
+}
 
 #pragma mark -
 #pragma mark - private
-YUKIT_STATIC_INLINE BOOL isScreenSizeEqualTo(CGSize size)
+BOOL isScreenSizeEqualTo(CGSize size)
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     CGSize size2 = CGSizeMake( size.height, size.width );

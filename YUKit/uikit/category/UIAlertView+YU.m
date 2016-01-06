@@ -7,6 +7,7 @@
 //
 
 #import "UIAlertView+YU.h"
+#import "NSObject+YU.h"
 
 
 @implementation UIAlertView (YU)

@@ -7,6 +7,10 @@
 //
 
 #import "YU_Service.h"
+#import "YUKit.h"
+#import "UIAlertView+YU.h"
+#import "NSError+YU.h"
+
 //Custom sample
 typedef enum : NSUInteger {
     HTTPStatusCode_200 = 200,

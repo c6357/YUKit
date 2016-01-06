@@ -15,7 +15,7 @@
 //https://github.com/c6357/YUDBObjectSample
 
 #import <UIKit/UIKit.h>
-
+#import "AppDelegate.h"
 @interface DBObjectSampleViewController: UIViewController
 
 @end

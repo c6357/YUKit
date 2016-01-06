@@ -9,8 +9,9 @@
 #ifndef YUKit_YUKit_h
 #define YUKit_YUKit_h
 
-#include <stdio.h>
+#import <stdio.h>
 #import <UIKit/UIKit.h>
+#import "YUMacro.h"
 
 #ifdef __cplusplus
 #define YUKIT_EXTERN		extern "C" __attribute__((visibility ("default")))
@@ -206,22 +207,5 @@ YUKIT_EXTERN NSString * const  YU_DateFormat05;
 
 YUKIT_EXTERN NSString * const  YU_DateFormat一;
 YUKIT_EXTERN NSString * const  YU_DateFormat二;
-
-
-// MARK: - CMM
-#import "YU_Macro.h"
-
-
-// MARK: - core
-#import "YU_Core.h"
-
-
-// MARK: - UI
-#import "YU_UI.h"
-
-
-// MARK: - base
-#import "YU_Base.h"
-
 
 #endif

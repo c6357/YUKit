@@ -6,8 +6,26 @@ Pod::Spec.new do |s|
     s.license      = "MIT (example)"  
     s.authors      = { "BruceYu" => "c6357@outlook.com" }
     s.platform     = :ios, '7.0'
-    s.ios.deployment_target = '7.0'
+
+    #s.ios.deployment_target = '7.0'
+
     s.source       = {:git => 'https://github.com/c6357/YUKit.git', :tag => 	s.version}
-    s.source_files = 'YUKit/**/*.{h,m}'
+
+    #s.source_files = 'YUKit/**/*.{h,m}'
+    #s.public_header_files = 'YUKit/**/*.{h}'
+
     s.requires_arc = true
+
+
+
+  non_arc_files = 'YUKit/foundation/lib/Reachability/Reachability.{h,m}'
+  s.ios.exclude_files = non_arc_files
+  s.subspec 'no-arc' do |sna|
+    sna.requires_arc = false
+    sna.source_files = non_arc_files
+  end
+
+
+#s.dependency 'MJRefresh', '~> 2.2.0'
+
 end

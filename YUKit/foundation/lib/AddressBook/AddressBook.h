@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "AddressBookObj.h"
+#import "YU_Singleton.h"
 
 @interface AddressBook : NSObject
 
 
 
-//YUSingletonH(AddressBook)
+YUSingletonH(AddressBook)
 
 /**
  * 返回通讯录对象

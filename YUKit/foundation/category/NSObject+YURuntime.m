@@ -10,6 +10,8 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <execinfo.h>
+#import "NSObject+YU.h"
+#import "YU_Runtime.h"
 
 #undef	MAX_CALLSTACK_DEPTH
 #define MAX_CALLSTACK_DEPTH	(64)

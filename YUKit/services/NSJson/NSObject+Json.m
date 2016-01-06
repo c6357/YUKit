@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+Json.h"
+#import "YUKit.h"
 
 @implementation NSObject (Json)
 

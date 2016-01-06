@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+YULog.h"
+#import "YUKit.h"
 
 
 #define LOGRETURN @": "

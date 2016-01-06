@@ -7,6 +7,8 @@
 //
 
 #import "UIWindow+YU.h"
+#import "NSObject+YURuntime.h"
+#import "NSObject+YU.h"
 
 @implementation UIWindow (YU)
 + (void)load

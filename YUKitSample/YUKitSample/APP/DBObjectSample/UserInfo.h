@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <YUDBFramework/DBObject.h>
 
-
-@interface UserInfo : DBObject 
+@interface UserInfo : DBObject
 
 YU_STATEMENT_Strong NSString *name;
 

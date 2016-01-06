@@ -7,6 +7,7 @@
 //
 
 #import "NSArray+YU.h"
+#import "YUKit.h"
 
 @implementation NSArray (YU)
 -(id)objAtIndex:(NSUInteger)index

@@ -7,6 +7,7 @@
 //
 
 #import "UITableView+YU.h"
+#import "YUKit.h"
 
 #define KBOUNCE_DISTANCE 7.
 //#define KANIMATION_DURATION .7

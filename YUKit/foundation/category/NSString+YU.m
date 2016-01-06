@@ -6,10 +6,13 @@
 //  Copyright (c) 2015年 BruceYu. All rights reserved.
 //
 
+#import <CommonCrypto/CommonDigest.h>
 #import "NSString+YU.h"
 #import "NSData+YU.h"
 #import "UIApplication+YUShare.h"
-#import <CommonCrypto/CommonDigest.h>
+#import "YUKit.h"
+#import "NSDate+YU.h"
+
 
 
 @implementation NSString (YU)
