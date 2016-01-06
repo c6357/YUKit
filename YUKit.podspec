@@ -15,34 +15,47 @@ Pod::Spec.new do |s|
 
     #s.source_files = 'YUKit/**/*.{h,m}'
     #s.public_header_files = 'YUKit/**/*.{h}'
+
     s.public_header_files = 'YUKit/*.{h}'
 
     s.requires_arc = true
 
+  pch_AF = <<-EOS
 
+
+#ifdef DEBUG
+#define TBMB_DEBUG
+#endif
+
+EOS
+
+s.prefix_header_contents = pch_AF
 
  s.subspec 'uikit' do |ss|
  	ss.source_files = 'YUKit/uikit/**/*'
 	#ss.dependency 'YUKit/foundation'
-
+	#ss.dependency 'YUKit/YUKit.{h}’
  end
 
  s.subspec 'foundation' do |ss|
  	ss.source_files = 'YUKit/foundation/**/*'
+	#ss.dependency 'YUKit/YUKit.h’
 	#ss.dependency 'YUKit/uikit'
+
  end
 
  s.subspec 'base' do |ss|
  	ss.source_files = 'YUKit/base/**/*'
+	#ss.dependency 'YUKit/YUKit.h’
        #ss.dependency 'YUKit/foundation'
-	ss.dependency 'YUKit/uikit'
+	#ss.dependency 'YUKit/uikit'
  end
 
  s.subspec 'services' do |ss|
         
  	ss.source_files = 'YUKit/services/**/*'
-       #ss.dependency 'YUKit'
-      ss.dependency 'YUKit/foundation'
+	#ss.dependency 'YUKit/YUKit.h’
+      #ss.dependency 'YUKit/foundation'
 	#ss.dependency 'YUKit/uikit'
  	ss.ios.vendored_frameworks = 'YUDBFramework/YUDBFramework.framework'
  end
