@@ -96,7 +96,7 @@ end
 
 
 
-#non_arc_files = 'YUKit/foundation/lib/Reachability/Reachability.{h,m}'
+#non_arc_files = 'YUKit/services/Reachability/Reachability.{h,m}'
 #s.ios.exclude_files = non_arc_files
 #s.subspec 'no-arc' do |sna|
 #   sna.requires_arc = false
@@ -110,10 +110,10 @@ end
 
 
 
-  #s.dependency 'MJRefresh', '~> 2.2.0'
-  #s.dependency 'Masonry', '~> 0.6.2'
-  #s.dependency 'AFNetworking' , '~>2.5.4'
-  #s.dependency 'BlocksKit', '~> 2.2.5'
+  s.dependency 'MJRefresh', '~> 2.2.0'
+  s.dependency 'Masonry', '~> 0.6.2'
+  s.dependency 'AFNetworking' , '~>2.5.4'
+  s.dependency 'BlocksKit', '~> 2.2.5'
   
 
 
