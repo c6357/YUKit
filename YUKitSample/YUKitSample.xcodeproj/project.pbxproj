@@ -90,7 +90,7 @@
 		18D230321C3BC4FE00BB8AD9 /* UIAlertView+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D2302F1C3BC4FE00BB8AD9 /* UIAlertView+YU.m */; };
 		677D1E111C3D356E00AF69F5 /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E071C3D356E00AF69F5 /* NSObject+Json.m */; };
 		677D1E121C3D356E00AF69F5 /* NSString+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E091C3D356E00AF69F5 /* NSString+Json.m */; };
-		677D1E131C3D356E00AF69F5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E0C1C3D356E00AF69F5 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		677D1E131C3D356E00AF69F5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E0C1C3D356E00AF69F5 /* Reachability.m */; };
 		677D1E141C3D356E00AF69F5 /* YU_HTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E0E1C3D356E00AF69F5 /* YU_HTTPRequestOperationManager.m */; };
 		677D1E151C3D356E00AF69F5 /* YU_Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E101C3D356E00AF69F5 /* YU_Service.m */; };
 		FB29100CA2C285108D210D33 /* libPods-YUKitSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B22D85E72658111A3D1E19AA /* libPods-YUKitSample.a */; };
