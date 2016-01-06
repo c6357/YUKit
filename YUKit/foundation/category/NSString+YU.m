@@ -199,7 +199,7 @@ NSMutableData* receivedData;
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     //    self.title ＝  [webViewstringByEvaluatingJavaScriptFromString:@"document.title"];//获取当前页面的title
     [UIApplication sharedApplication].networkActivityIndicatorVisible =NO;
-    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];//获取当前页面的title
+//    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];//获取当前页面的title
     [webView removeFromSuperview];
 }
 
@@ -910,9 +910,7 @@ NSMutableData* receivedData;
 
 +(NSString*)CUfilterPhone :(NSString*)_phone{
     
-    return _phone;
-    
-    NSMutableString *_tempStr = [[NSMutableString alloc] init];
+    NSMutableString *_tempStr = [NSMutableString new];
     
     if (IsSafeString(_phone)) {
         
@@ -923,10 +921,9 @@ NSMutableData* receivedData;
         
         NSString *lastStr = [_phone substringFromIndex:[_phone length]-3];
         [_tempStr appendString:lastStr];
-        
-        return _tempStr;
     }
-    return @"";
+    
+    return _tempStr;
 }
 
 +(NSString*)GetString :(NSInteger)Num{

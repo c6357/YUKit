@@ -22,7 +22,7 @@
     
     CGPoint originPoint = cell.center;
     CGPoint beginPoint,endBounce1Point,endBounce2Point;
-    CFTimeInterval d1=0,d2=0,d3=0,d4=0;
+    CFTimeInterval d1=0,d4=0;
     
 
     if (animation == AnimationToLeft) {

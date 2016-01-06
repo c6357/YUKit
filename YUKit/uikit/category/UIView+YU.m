@@ -540,7 +540,7 @@ static char kIndexPath;
 }
 
 static char KYu_Obj;
--(id)yu_Obj
+-(id)Obj
 {
     return (NSIndexPath*)objc_getAssociatedObject(self, &KYu_Obj);
 }

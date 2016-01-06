@@ -8,7 +8,7 @@
 
 #import "YU_HTTPRequestOperationManager.h"
 
-NSString * const RelativePathTransformerName = @"RelativePathTransformerName";
+//NSString * const RelativePathTransformerName = @"RelativePathTransformerName";
 @interface YUHTTPRequestOperationManager()
 @end
 
@@ -45,7 +45,7 @@ static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
     
     self.responseSerializer.acceptableContentTypes = newSet;
     
-    [self setupValueTransformer:basePath];
+//    [self setupValueTransformer:basePath];
 }
 
 - (void)setupHttpRequestManager:(NSString *)basePath
@@ -60,7 +60,7 @@ static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
     
     self.responseSerializer.acceptableContentTypes = newSet;
     
-    [self setupValueTransformer:basePath];
+//    [self setupValueTransformer:basePath];
 }
 
 
@@ -90,9 +90,9 @@ static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
 
 // setup the value transformer
 // NSURL 与 NSString 互相转换
-#warning NSValueTransformer
-- (void)setupValueTransformer:(NSString *)basePath
-{
+//#warning NSValueTransformer
+//- (void)setupValueTransformer:(NSString *)basePath
+//{
 //        MTLValueTransformer *relativePathTransformer = [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSURL *(NSString *relativePath) {
 //            NSURL *baseURL = [NSURL URLWithString:basePath];
 //            return [NSURL URLWithString:relativePath relativeToURL:baseURL];
@@ -101,6 +101,6 @@ static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
 //        }];
 //    
 //        [NSValueTransformer setValueTransformer:relativePathTransformer forName:RelativePathTransformerName];
-}
+//}
 
 @end

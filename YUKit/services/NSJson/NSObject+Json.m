@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+Json.h"
-#import "YUKit.h"
+
 
 @implementation NSObject (Json)
 
@@ -20,9 +20,7 @@
     
 //    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    
-    
-    
+
     NSError *__autoreleasing error = nil;
     NSData *result = [NSJSONSerialization dataWithJSONObject:self
                                                 options:kNilOptions error:&error];
@@ -34,7 +32,7 @@
     NSLog(@"jsonStr  3 %@",jsonStr);
     
     
-    return SafeString(jsonStr);
+    return jsonStr;
 }
 
 @end

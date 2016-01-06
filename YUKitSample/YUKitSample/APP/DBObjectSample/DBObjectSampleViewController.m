@@ -29,7 +29,7 @@ __LINE__, __func__);                                                       \
 fprintf(stderr, "");                                              \
 }
 
-#warning 控制台日志
+//#warning 控制台日志
 #define openDebugLog 1 //Default 1
 
 /**

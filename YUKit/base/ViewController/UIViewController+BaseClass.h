@@ -22,9 +22,9 @@
 /****************   顶部提示框  **********************/
 -(void)showMessage:(NSString*)msg;
 
--(void)showWithStatus:(NSString*)str;
-
--(void)dismiss:(void(^)())block;
+//-(void)showWithStatus:(NSString*)str;
+//
+//-(void)dismiss:(void(^)())block;
 
 /**
  *  <#Description#>

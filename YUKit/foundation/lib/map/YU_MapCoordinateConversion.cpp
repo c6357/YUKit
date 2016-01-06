@@ -6,8 +6,10 @@
 //  Copyright © 2015年 BruceYu. All rights reserved.
 //
 
-#include "YU_MapCoordinateConversion.hpp"
+#include <stdio.h>
 #include <math.h>
+#include "YU_MapCoordinateConversion.h"
+
 
 /*
  1.国内各地图API坐标系统比较

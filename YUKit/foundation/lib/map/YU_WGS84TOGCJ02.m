@@ -7,6 +7,7 @@
 //
 
 #import "YU_WGS84TOGCJ02.h"
+//#include "YU_MapCoordinateConversion.h"
 #import <stdlib.h>
 
 const double a = 6378245.0;

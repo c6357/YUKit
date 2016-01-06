@@ -17,3 +17,8 @@
 -(void)dismissSemiModalView;
 
 @end
+
+
+@interface UIViewController (KNSemiModal)
+
+@end

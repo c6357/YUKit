@@ -75,7 +75,7 @@
         // Calulate all frames
         CGRect sf = vc.frame;
         CGRect vf = target.frame;
-        CGRect f  = CGRectMake(0, vf.size.height-sf.size.height, vf.size.width, sf.size.height);
+//        CGRect f  = CGRectMake(0, vf.size.height-sf.size.height, vf.size.width, sf.size.height);
         CGRect of = CGRectMake(0, 0, vf.size.width, vf.size.height-sf.size.height);
         
         // Add semi overlay

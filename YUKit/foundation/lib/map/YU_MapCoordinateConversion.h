@@ -9,8 +9,6 @@
 #ifndef YU_MapCoordinateConversion_hpp
 #define YU_MapCoordinateConversion_hpp
 
-#include <stdio.h>
-
 
 void bd_encrypt(double gg_lat, double gg_lon, double &bd_lat, double &bd_lon);
 

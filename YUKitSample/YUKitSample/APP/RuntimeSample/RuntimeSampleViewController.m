@@ -97,7 +97,7 @@
     }];
     
     
-    NSArray *arr = [NSObject classesWithProtocol:@"NSCoding"];
+//    NSArray *arr = [NSObject classesWithProtocol:@"NSCoding"];
     
     
     NSLog(@" allIvar] %@",[AddressBook allIvar]);
