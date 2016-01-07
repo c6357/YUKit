@@ -87,11 +87,11 @@
 		18D230271C3BC18700BB8AD9 /* YU_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D2300D1C3BC18700BB8AD9 /* YU_TableViewCell.m */; };
 		18D230281C3BC18700BB8AD9 /* YU_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D2300F1C3BC18700BB8AD9 /* YU_TextView.m */; };
 		18D230321C3BC4FE00BB8AD9 /* UIAlertView+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D2302F1C3BC4FE00BB8AD9 /* UIAlertView+YU.m */; };
+		18F5CA241C3DF99A000E2FD1 /* YUDBFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F5CA231C3DF99A000E2FD1 /* YUDBFramework.framework */; };
 		677D1E111C3D356E00AF69F5 /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E071C3D356E00AF69F5 /* NSObject+Json.m */; };
 		677D1E121C3D356E00AF69F5 /* NSString+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E091C3D356E00AF69F5 /* NSString+Json.m */; };
 		677D1E131C3D356E00AF69F5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E0C1C3D356E00AF69F5 /* Reachability.m */; };
 		677D1E6A1C3D672800AF69F5 /* YUDBFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677D1E691C3D672800AF69F5 /* YUDBFramework.framework */; };
-		677D1E6D1C3D6B9D00AF69F5 /* YUDBFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677D1E6C1C3D6B9D00AF69F5 /* YUDBFramework.framework */; };
 		677D1E731C3D772900AF69F5 /* YU_HTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E701C3D772900AF69F5 /* YU_HTTPRequestOperationManager.m */; };
 		677D1E741C3D772900AF69F5 /* YU_Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E721C3D772900AF69F5 /* YU_Service.m */; };
 		FB29100CA2C285108D210D33 /* libPods-YUKitSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B22D85E72658111A3D1E19AA /* libPods-YUKitSample.a */; };
@@ -278,6 +278,7 @@
 		18D2302E1C3BC4FE00BB8AD9 /* UIAlertView+YU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+YU.h"; sourceTree = "<group>"; };
 		18D2302F1C3BC4FE00BB8AD9 /* UIAlertView+YU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+YU.m"; sourceTree = "<group>"; };
 		18D230361C3BC54200BB8AD9 /* vendors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vendors.h; sourceTree = "<group>"; };
+		18F5CA231C3DF99A000E2FD1 /* YUDBFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YUDBFramework.framework; sourceTree = "<group>"; };
 		3B47BDF7595D264EC97A5875 /* Pods-YUKitSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YUKitSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YUKitSample/Pods-YUKitSample.debug.xcconfig"; sourceTree = "<group>"; };
 		677D1E061C3D356E00AF69F5 /* NSObject+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Json.h"; sourceTree = "<group>"; };
 		677D1E071C3D356E00AF69F5 /* NSObject+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Json.m"; sourceTree = "<group>"; };
@@ -286,7 +287,6 @@
 		677D1E0B1C3D356E00AF69F5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		677D1E0C1C3D356E00AF69F5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		677D1E691C3D672800AF69F5 /* YUDBFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YUDBFramework.framework; sourceTree = "<group>"; };
-		677D1E6C1C3D6B9D00AF69F5 /* YUDBFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YUDBFramework.framework; sourceTree = "<group>"; };
 		677D1E6F1C3D772900AF69F5 /* YU_HTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YU_HTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		677D1E701C3D772900AF69F5 /* YU_HTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YU_HTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		677D1E711C3D772900AF69F5 /* YU_Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YU_Service.h; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				677D1E6A1C3D672800AF69F5 /* YUDBFramework.framework in Frameworks */,
-				677D1E6D1C3D6B9D00AF69F5 /* YUDBFramework.framework in Frameworks */,
+				18F5CA241C3DF99A000E2FD1 /* YUDBFramework.framework in Frameworks */,
 				18D22F881C3BA5A800BB8AD9 /* libsqlite3.tbd in Frameworks */,
 				FB29100CA2C285108D210D33 /* libPods-YUKitSample.a in Frameworks */,
 			);
@@ -471,7 +471,7 @@
 				18B4EE1B1C3CAA7A00C95464 /* YUKitHeader.h */,
 				18D22F431C3BA57500BB8AD9 /* YUMacro.h */,
 				18D22F441C3BA57500BB8AD9 /* YUKit.h */,
-				677D1E6B1C3D6B9D00AF69F5 /* YUDBFramework */,
+				18F5CA221C3DF99A000E2FD1 /* YUDBFramework */,
 				677D1E041C3D356E00AF69F5 /* services */,
 				18D22FDC1C3BC18700BB8AD9 /* uikit */,
 				18D22F8C1C3BC15700BB8AD9 /* foundation */,
@@ -729,6 +729,14 @@
 			path = category;
 			sourceTree = "<group>";
 		};
+		18F5CA221C3DF99A000E2FD1 /* YUDBFramework */ = {
+			isa = PBXGroup;
+			children = (
+				18F5CA231C3DF99A000E2FD1 /* YUDBFramework.framework */,
+			);
+			path = YUDBFramework;
+			sourceTree = "<group>";
+		};
 		62078817C087D716A0B5E29B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,14 +779,6 @@
 			isa = PBXGroup;
 			children = (
 				677D1E691C3D672800AF69F5 /* YUDBFramework.framework */,
-			);
-			path = YUDBFramework;
-			sourceTree = "<group>";
-		};
-		677D1E6B1C3D6B9D00AF69F5 /* YUDBFramework */ = {
-			isa = PBXGroup;
-			children = (
-				677D1E6C1C3D6B9D00AF69F5 /* YUDBFramework.framework */,
 			);
 			path = YUDBFramework;
 			sourceTree = "<group>";
