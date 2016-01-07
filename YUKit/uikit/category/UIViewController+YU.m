@@ -9,11 +9,6 @@
 #import "UIViewController+YU.h"
 #define kSemiModalAnimationDuration   0.5
 
-@interface UIViewController (YU)
--(UIView*)parentTarget;
--(CAAnimationGroup*)animationGroupForward:(BOOL)_forward;
-@end
-
 
 @implementation UIViewController (YU)
 -(UIView*)parentTarget {

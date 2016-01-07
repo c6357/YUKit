@@ -12,6 +12,5 @@
 
 -(void)disablePaste;
 
-#warning 小数点
 
 @end

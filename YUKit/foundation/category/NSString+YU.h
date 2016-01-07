@@ -194,7 +194,7 @@
  
  @return String contained in `base64String`
  */
-+ (NSString *)stringWithBase64String:(NSString *)base64String;
+//+ (NSString *)stringWithBase64String:(NSString *)base64String;
 
 -(NSDate*)dateFromSql;
 -(NSDate*)dateFromString;

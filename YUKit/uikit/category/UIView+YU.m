@@ -473,19 +473,21 @@ static char kClickGecognizer;
     return objc_getAssociatedObject(self, &kClickGecognizer);
 }
 
-//-(void)removeClickGesture
-//{
-//    if([self clickGesture]){
-//#if 1
-//        UIControl *v = [self clickGesture];
-//        [v bk_removeEventHandlersForControlEvents:UIControlEventAllTouchEvents];
-//        [v removeFromSuperview];
-//        objc_setAssociatedObject(self, &kClickGecognizer, nil, OBJC_ASSOCIATION_ASSIGN);
-//#else
-//        [self removeGestureRecognizer:[self clickGesture]];
-//#endif
-//    }
-//}
+-(void)removeClickGesture
+{
+#if 0
+    if([self clickGesture]){
+#if 1
+        UIControl *v = [self clickGesture];
+        [v bk_removeEventHandlersForControlEvents:UIControlEventAllTouchEvents];
+        [v removeFromSuperview];
+        objc_setAssociatedObject(self, &kClickGecognizer, nil, OBJC_ASSOCIATION_ASSIGN);
+#else
+        [self removeGestureRecognizer:[self clickGesture]];
+#endif
+    }
+#endif
+}
 
 -(void)setWidth:(float)width
 {
@@ -745,7 +747,6 @@ static CGRect oldframe;
     [_spinnerView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
     
     
-#warning <#message#>
     //    NSString *headUrl = [NSString stringWithFormat:DownloadHeadUrl,[SDataCenter userLogonInfo].accessToken,headBtn.OBJ];
     //    [imageView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:headBtn.currentBackgroundImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
     //        image = headBtn.currentBackgroundImage;
