@@ -9,7 +9,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "NSString+YU.h"
 #import "NSData+YU.h"
-#import "UIApplication+YUShare.h"
+//#import "UIApplication+YUShare.h"
 #import "YUKit.h"
 #import "NSDate+YU.h"
 
@@ -198,7 +198,7 @@ NSMutableData* receivedData;
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     //    self.title ＝  [webViewstringByEvaluatingJavaScriptFromString:@"document.title"];//获取当前页面的title
-    [UIApplication sharedApplication].networkActivityIndicatorVisible =NO;
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible =NO;
 //    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];//获取当前页面的title
     [webView removeFromSuperview];
 }

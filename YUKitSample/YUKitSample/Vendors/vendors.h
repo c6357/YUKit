@@ -13,9 +13,6 @@
 
 
 // MARK: - category
-#import "UIAlertView+YU.h"
-
-
 
 
 #endif /* vendors_h */
