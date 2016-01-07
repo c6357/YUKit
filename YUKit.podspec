@@ -7,8 +7,8 @@ s.summary      = 'YUKit for iOS.(objective-c 、c++）'
 s.homepage     = 'https://github.com/c6357/YUKit'
 s.license      = "MIT"
 s.authors      = { "BruceYu" => "c6357@outlook.com" }
-s.platform     = :ios, '8.0'
-s.ios.deployment_target = '7.0'
+s.platform     = :ios, '7.0'
+#s.ios.deployment_target = '7.0'
 s.source       = {:git => 'https://github.com/c6357/YUKit.git', :tag => s.version}
 
 #s.source_files = 'YUKit/**/*.{h,m,cpp,mm,c}'
