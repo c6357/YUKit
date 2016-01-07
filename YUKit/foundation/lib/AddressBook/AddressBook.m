@@ -144,21 +144,21 @@ YUSingletonM(AddressBook)
 }
 
 
-+(NSMutableArray*)addressBooks{
-    
-    return [AddressBook sharedAddressBook].addressBooksArr;
-    
-}
-
-
-+(BOOL)containPhoneNum:(NSString*)phoneNum{
-    
-    for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
-        
-        return [obj.phoneInfo[phoneNum] boolValue];
-        
-    }
-    return NO;
-}
+//+(NSMutableArray*)addressBooks{
+//    
+//    return [AddressBook sharedAddressBook].addressBooksArr;
+//    
+//}
+//
+//
+//+(BOOL)containPhoneNum:(NSString*)phoneNum{
+//    
+//    for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
+//        
+//        return [obj.phoneInfo[phoneNum] boolValue];
+//        
+//    }
+//    return NO;
+//}
 @end
 

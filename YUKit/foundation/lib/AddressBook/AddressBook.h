@@ -14,7 +14,7 @@
 
 
 
-YUSingletonH(AddressBook)
+//YUSingletonH(AddressBook)
 
 /**
  * 返回通讯录对象
@@ -22,7 +22,7 @@ YUSingletonH(AddressBook)
  * @return (AddressBookObj)
  **/
 
-+(NSMutableArray*)addressBooks;
+//+(NSMutableArray*)addressBooks;
 
 
 /**
@@ -33,7 +33,7 @@ YUSingletonH(AddressBook)
  * @return (NSMutableArray)
  **/
 
-+(BOOL)containPhoneNum:(NSString*)phoneNum;
+//+(BOOL)containPhoneNum:(NSString*)phoneNum;
 
 
 @end
