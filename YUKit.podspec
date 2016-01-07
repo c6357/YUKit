@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 s.name         = 'YUKit'
 s.module_name  = 'YUKit'
-s.version      = '0.0.5'
+s.version      = '0.0.6'
 s.summary      = 'YUKit for iOS.(objective-c 、c++）'
 s.homepage     = 'https://github.com/c6357/YUKit'
 s.license      = "MIT"
@@ -15,7 +15,7 @@ s.source       = {:git => 'https://github.com/c6357/YUKit.git', :tag => s.versio
 #s.public_header_files = 'YUKit/**/*.{h}'
 
 #s.public_header_files = 'YUKit/YUKitHeader.h'
-#s.source_files = 'YUKit/YU*.{h}'
+s.source_files = 'YUKit/YUKitHeader.h'
 
 s.requires_arc = true
 
