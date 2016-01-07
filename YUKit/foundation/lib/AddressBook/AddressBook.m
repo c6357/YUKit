@@ -21,7 +21,7 @@
 @implementation AddressBook
 YUSingletonM(AddressBook)
 
-- (instancetype)init
+- (id)init
 {
     self = [super init];
     if (self) {
@@ -155,7 +155,7 @@ YUSingletonM(AddressBook)
     
     for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
         
-        return obj.phoneInfo[phoneNum];
+        return [obj.phoneInfo[phoneNum] boolValue];
         
     }
     return NO;

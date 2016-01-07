@@ -51,7 +51,7 @@ s.subspec 'foundation' do |ss|
     ss.subspec 'lib' do |sss|
         sss.ios.dependency 'YUKit/header'
         sss.ios.dependency 'YUKit/services/Reachability'
-        sss.source_files = 'YUKit/foundation/lib/**/*.{h,m,cpp,mm,c}'
+        sss.source_files = 'YUKit/foundation/lib/**/*.{h,m}'
     end
 
     ss.subspec 'category' do |sss|
@@ -154,19 +154,5 @@ s.dependency 'AFNetworking' , '~>2.5.4'
 #s.dependency 'BlocksKit', '~> 2.2.5'
 
 
-
-#non_arc_files = 'YUKit/services/Reachability/Reachability.{h,m}'
-#s.ios.exclude_files = non_arc_files
-#s.subspec 'no-arc' do |sna|
-#   sna.requires_arc = false
-#   sna.source_files = non_arc_files
-# end
-
-
-#ss.compiler_flags          = '-ObjC
-#s.ios.vendored_frameworks = 'YUKit/framework/YUDBFramework.framework'
-#s.vendored_libraries  = "xx.a"
-#s.libraries = "sqlite3", "xml2"
-#s.library="sqlite3","c++","z"
 
 end
