@@ -75,9 +75,11 @@
     AddressBook *obj = [[AddressBook alloc] init];
 
     
-    
+    //属性编码 查阅官方文档
     ////    https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW1
-        id LenderClass = objc_getClass("AddressBook");
+    
+    //或者打印出来 一目了然
+    id LenderClass = objc_getClass("AddressBook");
     unsigned int outCount, i;
     objc_property_t *properties = class_copyPropertyList(LenderClass, &outCount);
     for (i = 0; i < outCount; i++) {
