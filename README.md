@@ -85,9 +85,7 @@ framework
 
 * 手动复制文件YUKit到指定目录
 
-
 ##Podfile
-=================
     pod 'YUKit', '~> 1.0.0'
 
 ##内部集成 
@@ -98,10 +96,3 @@ framework
     pod 'AFNetworking' , '~>2.5.4'
 
     pod 'BlocksKit', '~> 2.2.5'
-
-
-
-
-
-
-
