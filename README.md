@@ -88,7 +88,7 @@ framework
 ##Podfile
     pod 'YUKit', '~> 1.0.0'
 
-##YUKit 项目依赖
+##dependency
     pod 'MJRefresh', '~> 2.2.0'
 
     pod 'Masonry', '~> 0.6.2'
