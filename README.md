@@ -79,10 +79,13 @@ framework
  
 
 
-使用
+安装使用
 =================
 
 
-pod search YUKit
+Podfile
+=================
+
+pod 'YUKit', '~> 1.0.0'
 
 
