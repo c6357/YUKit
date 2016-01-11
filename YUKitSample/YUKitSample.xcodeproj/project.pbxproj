@@ -89,6 +89,7 @@
 		18F5CA4B1C3E601D000E2FD1 /* YU_Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F5CA471C3E601D000E2FD1 /* YU_Service.m */; };
 		18F5CA4C1C3E601D000E2FD1 /* YU_HTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F5CA481C3E601D000E2FD1 /* YU_HTTPRequestOperationManager.m */; };
 		18F5CA4F1C3E60FD000E2FD1 /* YUDBFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F5CA4E1C3E60FD000E2FD1 /* YUDBFramework.framework */; };
+		18F6E9EF1C437B860000B3C5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 18F6E9EE1C437B860000B3C5 /* README.md */; };
 		677D1E111C3D356E00AF69F5 /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E071C3D356E00AF69F5 /* NSObject+Json.m */; };
 		677D1E121C3D356E00AF69F5 /* NSString+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E091C3D356E00AF69F5 /* NSString+Json.m */; };
 		677D1E131C3D356E00AF69F5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E0C1C3D356E00AF69F5 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -280,6 +281,7 @@
 		18F5CA491C3E601D000E2FD1 /* YU_HTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YU_HTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		18F5CA4A1C3E601D000E2FD1 /* YU_Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YU_Service.h; sourceTree = "<group>"; };
 		18F5CA4E1C3E60FD000E2FD1 /* YUDBFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YUDBFramework.framework; sourceTree = "<group>"; };
+		18F6E9EE1C437B860000B3C5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3B47BDF7595D264EC97A5875 /* Pods-YUKitSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YUKitSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YUKitSample/Pods-YUKitSample.debug.xcconfig"; sourceTree = "<group>"; };
 		677D1E061C3D356E00AF69F5 /* NSObject+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Json.h"; sourceTree = "<group>"; };
 		677D1E071C3D356E00AF69F5 /* NSObject+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Json.m"; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		18D22D591C3BA1AB00BB8AD9 = {
 			isa = PBXGroup;
 			children = (
+				18F6E9EE1C437B860000B3C5 /* README.md */,
 				677D1E681C3D669000AF69F5 /* YUDBFramework */,
 				18D22EAC1C3BA57500BB8AD9 /* YUKit */,
 				18D22D641C3BA1AB00BB8AD9 /* YUKitSample */,
@@ -1035,6 +1038,7 @@
 				18D230141C3BC18700BB8AD9 /* UIBarButtonItem+YU.m in Sources */,
 				18D22FD21C3BC15700BB8AD9 /* NSString+YUCheck.m in Sources */,
 				18D22FD31C3BC15700BB8AD9 /* NSString+YUJSON.m in Sources */,
+				18F6E9EF1C437B860000B3C5 /* README.md in Sources */,
 				18B4EE381C3CC02000C95464 /* AddressBook.m in Sources */,
 				18D22FCF1C3BC15700BB8AD9 /* NSObject+YULog.m in Sources */,
 				18D22DCC1C3BA24100BB8AD9 /* SampleListViewController.m in Sources */,
