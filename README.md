@@ -34,9 +34,11 @@ uikit
 * category (Objective-C 之 UIKit框架的类别)
 
 * lib (Objective-C 之 UIKit框架的扩展)
-   * AddressBook       简单获取手机通讯录
-   * map                 地图常用转换
-   * runtime             runtime常用方法
+   * YUSettingCell            自定义cell (仿系统设置)
+   * YUTextView               支持placeholder 自适应高度
+   * YUAmountTextField        金额输入TextField
+   * YUTableViewCell          支持编辑模式
+
 
 
 base
@@ -76,6 +78,9 @@ framework
     7.支持数据解析序列化、反序列化、json -> model  and  model ->json
  
 
+
+使用
+=================
 
 
 pod search YUKit
