@@ -80,6 +80,9 @@ framework
     依赖库：sqlite3
 
  
+
+ 
+ 
 安装使用
 =================
 
@@ -87,12 +90,12 @@ framework
 
 * 使用Cocoapods管理
 
-##Podfile
+###Podfile
     pod 'YUKit', '~> 1.0.0'
 
     pod 'YUKit', '~> 1.0.0', :inhibit_warnings => true
 
-##dependency
+###dependency
     pod 'MJRefresh', '~> 2.2.0'
 
     pod 'Masonry', '~> 0.6.2'
@@ -100,3 +103,13 @@ framework
     pod 'AFNetworking' , '~>2.5.4'
 
     pod 'BlocksKit', '~> 2.2.5'
+
+ 系统要求
+ =================
+ 最低支持 iOS 7.0
+ 
+ 
+ 关于
+ =================
+ 
+ 
