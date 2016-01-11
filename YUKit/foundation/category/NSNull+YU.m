@@ -8,6 +8,9 @@
 
 #import "NSNull+YU.h"
 
+//原文资料
+//http://www.cocoachina.com/industry/20140424/8225.html
+
 #define NSNullObjects @[@"",@0,@{},@[]]
 
 @implementation NSNull (YU)

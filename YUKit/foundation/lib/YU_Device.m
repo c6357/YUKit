@@ -6,6 +6,9 @@
 //  Copyright © 2015年 BruceYu. All rights reserved.
 //
 
+//参考
+//https://github.com/c6357/ALSystemUtilities
+
 #include "YU_Device.h"
 #import <ifaddrs.h>
 #import <arpa/inet.h>
