@@ -80,9 +80,7 @@ static inline NSDictionary *HttpCodesDic(){
         NSLog(@"statusCode-->%@",@(statusCode));
         NSLog(@"result-->%@",responseObject);
         NSLog(@"response.responseString-->%@",response.responseString);
-        //服务返回参数的方式五花八门 so不能轻易断言
-        //        NSParameterAssert(response);
-        //        NSParameterAssert(responseObject);
+
         
         if(class){
             NSParameterAssert([class  isSubclassOfClass:[DBObject class]]);
