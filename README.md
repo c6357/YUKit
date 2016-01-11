@@ -1,6 +1,6 @@
 
 YUKit
-
+- ```+ (NSInteger)processorsNumber;```
     -header\n
     |----foundation
     |----uikit
