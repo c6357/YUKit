@@ -76,10 +76,14 @@ framework
     6.一键保存、修改、删除、查找、多级关联查询解析、反序列化
  
     7.支持数据解析序列化、反序列化、json -> model  and  model ->json
+    
+    依赖库：sqlite3
+
  
-
-
 安装使用
+=================
+
+手动复制文件YUKit到指定目录
 =================
 
 
@@ -87,5 +91,16 @@ Podfile
 =================
 
 pod 'YUKit', '~> 1.0.0'
+
+##内部集成 
+s.dependency 'MJRefresh', '~> 2.2.0'
+s.dependency 'Masonry', '~> 0.6.2'
+s.dependency 'AFNetworking' , '~>2.5.4'
+s.dependency 'BlocksKit', '~> 2.2.5'
+
+
+
+
+
 
 
