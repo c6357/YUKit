@@ -84,9 +84,34 @@ framework
 =================
 
 * 手动复制文件YUKit到指定目录
+* 使用Cocoapods管理
 
 ##Podfile
     pod 'YUKit', '~> 1.0.0'
+    
+       YUKit for iOS.(objective-c 、c++）
+   pod 'YUKit', '~> 1.0.0'
+   - Homepage: https://github.com/c6357/YUKit
+   - Source:   https://github.com/c6357/YUKit.git
+   - Versions: 1.0.0, 0.0.9 [master repo]
+   - Subspecs:
+     - YUKit/header (1.0.0)
+     - YUKit/foundation (1.0.0)
+     - YUKit/foundation/lib (1.0.0)
+     - YUKit/foundation/category (1.0.0)
+     - YUKit/uikit (1.0.0)
+     - YUKit/uikit/lib (1.0.0)
+     - YUKit/uikit/category (1.0.0)
+     - YUKit/services (1.0.0)
+     - YUKit/services/NSJson (1.0.0)
+     - YUKit/services/Reachability (1.0.0)
+     - YUKit/base (1.0.0)
+     - YUKit/base/NavigationController (1.0.0)
+     - YUKit/base/ViewController (1.0.0)
+     - YUKit/base/TableView (1.0.0)
+     - YUKit/base/View (1.0.0)
+     - YUKit/base/ViewModel (1.0.0)
+     -
 
 ##dependency
     pod 'MJRefresh', '~> 2.2.0'
