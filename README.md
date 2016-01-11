@@ -93,10 +93,13 @@ Podfile
 pod 'YUKit', '~> 1.0.0'
 
 ##内部集成 
-s.dependency 'MJRefresh', '~> 2.2.0'
-s.dependency 'Masonry', '~> 0.6.2'
-s.dependency 'AFNetworking' , '~>2.5.4'
-s.dependency 'BlocksKit', '~> 2.2.5'
+pod 'MJRefresh', '~> 2.2.0'
+
+pod 'Masonry', '~> 0.6.2'
+
+pod 'AFNetworking' , '~>2.5.4'
+
+pod 'BlocksKit', '~> 2.2.5'
 
 
 
