@@ -83,23 +83,21 @@ framework
 安装使用
 =================
 
-手动复制文件YUKit到指定目录
+* 手动复制文件YUKit到指定目录
+
+
+##Podfile
 =================
-
-
-Podfile
-=================
-
-pod 'YUKit', '~> 1.0.0'
+    pod 'YUKit', '~> 1.0.0'
 
 ##内部集成 
-pod 'MJRefresh', '~> 2.2.0'
+    pod 'MJRefresh', '~> 2.2.0'
 
-pod 'Masonry', '~> 0.6.2'
+    pod 'Masonry', '~> 0.6.2'
 
-pod 'AFNetworking' , '~>2.5.4'
+    pod 'AFNetworking' , '~>2.5.4'
 
-pod 'BlocksKit', '~> 2.2.5'
+    pod 'BlocksKit', '~> 2.2.5'
 
 
 
