@@ -88,7 +88,7 @@ framework
 * 使用Cocoapods管理
 
 ##Podfile
-    pod 'YUKit', '~> 1.0.0'
+    pod 'YUKit', '~> 1.0.0', :inhibit_warnings => true
 
 ##dependency
     pod 'MJRefresh', '~> 2.2.0'
