@@ -88,7 +88,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    NSString *cellIdentifier = [NSString stringWithFormat:@"%ld-%ld",(long)indexPath.section,(long)indexPath.row];
     SettingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     if(cell == nil){
         [tableView registerNib:[UINib nibWithNibName:@"SettingCell" bundle:Nil] forCellReuseIdentifier:@"cellIdentifier"];
