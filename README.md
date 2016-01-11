@@ -1,6 +1,7 @@
 
 YUKit
-    |----header
+
+    -header\n
     |----foundation
     |----uikit
     |----base
