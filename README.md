@@ -30,10 +30,10 @@ YUKit.h
 foundation
 =================
 ###category   
-   *Objective-C 之 Foundation框架的类别
+####Objective-C 之 Foundation框架的类别
 
 ###lib            
-   *Objective-C 之 Foundation框架的扩展
+####Objective-C 之 Foundation框架的扩展
 
 
     *AddressBook    简单获取手机通讯录
@@ -47,10 +47,10 @@ foundation
 uikit
 =================
 ###category       
-*Objective-C 之 UIKit框架的类别
+####Objective-C 之 UIKit框架的类别
 
 ###lib            
-*Objective-C 之 UIKit框架的扩展
+####Objective-C 之 UIKit框架的扩展
 
 
 base
