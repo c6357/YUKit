@@ -29,9 +29,9 @@ YUKit.h
 
 foundation
 =================
-##category (Objective-C 之 Foundation框架的类别)
+*category (Objective-C 之 Foundation框架的类别)
 
-##lib (Objective-C 之 Foundation框架的扩展)
+*lib (Objective-C 之 Foundation框架的扩展)
 
     *AddressBook    简单获取手机通讯录
 
