@@ -4,7 +4,6 @@ YUKit
 * IOS快速开发框架
 * 针对常用开发框架的一些类别和扩展，方便快速开发
 * 本库采用ARC
-* 
 =================
 * header
 * foundation
@@ -12,15 +11,11 @@ YUKit
 * base
 * services
 * framework
-
-
 YUKit.h
 =================
 * 设备信息
 * APP信息
 * 通用模板
-
-
 foundation
 =================
 * category (Objective-C 之 Foundation框架的类别)
