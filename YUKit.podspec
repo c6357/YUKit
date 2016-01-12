@@ -75,7 +75,6 @@ s.subspec 'uikit' do |ss|
     ss.subspec 'category' do |sss|
       	sss.ios.dependency 'YUKit/header'
        	sss.ios.dependency 'YUKit/foundation'
-	#sss.ios.dependency 'BlocksKit/UIKit'
       	sss.source_files = 'YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
     end
 
@@ -152,7 +151,7 @@ s.library = 'sqlite3'
 s.dependency 'MJRefresh', '~> 2.2.0'
 s.dependency 'Masonry', '~> 0.6.2'
 s.dependency 'AFNetworking' , '~>2.5.4'
-s.dependency 'BlocksKit', '~> 2.2.5'
+#s.dependency 'BlocksKit', '~> 2.2.5'
 
 
 
