@@ -40,6 +40,7 @@
         tableView.dataSource = self;
         tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [SettingCell registerForTable:tableView];
     }];
     [self.view addSubview:self.tableView];
     
@@ -88,13 +89,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SettingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    if(cell == nil){
-        [tableView registerNib:[UINib nibWithNibName:@"SettingCell" bundle:Nil] forCellReuseIdentifier:@"cellIdentifier"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    }
-    
-    
+    SettingCell *cell = [SettingCell XIBCellFor:tableView];
     SettingInfo *setInfo = [[self.settingInfoMarry objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     [cell setSetInfo:setInfo];
     return cell;
