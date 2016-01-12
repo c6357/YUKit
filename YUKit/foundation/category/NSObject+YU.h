@@ -26,7 +26,7 @@ typedef void (^NSObjectPerformBlock)(id userObject);
 - (void)performBlockInBackground:(NSObjectPerformBlock)performBlock completion:(NSObjectPerformBlock)completionBlock userObject:(id)userObject;
 
 
-- (void)countdDown:(NSInteger)timeOut Done:(NillBlock_Nill)done Time:(NillBlock_Integer)time NS_DEPRECATED_IOS(8_0,10_0,"IOS8.0之后使用");
+- (void)countdDown:(NSInteger)timeOut Done:(NillBlock_Nill)done Time:(NillBlock_Integer)time NS_DEPRECATED_IOS(8_0,10_0,"iOS8.0之后使用");
 
 
 - (id)getAssociatedObjectForKey:(const char *)key;
