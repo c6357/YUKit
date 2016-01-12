@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 s.name         = 'YUKit'
 s.module_name  = 'YUKit'
-s.version      = '1.0.0'
+s.version      = ‘1.0.2’
 s.summary      = 'YUKit for iOS.(objective-c 、c++）'
 s.homepage     = 'https://github.com/c6357/YUKit'
 s.license      = "MIT"
