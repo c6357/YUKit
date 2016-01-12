@@ -1,7 +1,7 @@
 
 YUKit
 =================
-* YUKit for IOS
+* YUKit for iOS
 * 针对常用开发框架的一些类别和扩展，方便快速开发
 * 本库采用ARC
 
