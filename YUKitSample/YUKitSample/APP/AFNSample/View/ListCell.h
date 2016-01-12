@@ -6,7 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListModel.h"
+
 
 @interface ListCell : UITableViewCell
+
+@property (nonatomic,strong)ListModel *model;
 
 @end

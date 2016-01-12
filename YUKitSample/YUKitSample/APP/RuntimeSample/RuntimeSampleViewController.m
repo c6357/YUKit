@@ -123,7 +123,7 @@
 //        //获取实例
 //        id instance = [[Person alloc] init];
 //        NSLog(@"%@", instance);
-//        [instance setName:@"hxn"];
+//        [instance setName:@"hello world"];
 //         NSLog(@"name:%@", [instance name]);
 
 //        objc_disposeClassPair(Person);
@@ -141,7 +141,7 @@
         
         id o = [AddressBook new];
         NSLog(@"%@", [o name]);
-        [o setName:@"Jobs"];
+        [o setName:@"hello world"];
         NSLog(@"%@", [o name]);
     }
 }

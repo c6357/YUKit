@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 s.name         = 'YUKit'
 s.module_name  = 'YUKit'
-s.version      = ‘1.0.2’
+s.version      = ‘1.0.3’
 s.summary      = 'YUKit for iOS.(objective-c 、c++）'
 s.homepage     = 'https://github.com/c6357/YUKit'
 s.license      = "MIT"
@@ -73,9 +73,10 @@ s.subspec 'uikit' do |ss|
     end
 
     ss.subspec 'category' do |sss|
-        sss.ios.dependency 'YUKit/header'
-        sss.ios.dependency 'YUKit/foundation'
-        sss.source_files = 'YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
+      	sss.ios.dependency 'YUKit/header'
+       	sss.ios.dependency 'YUKit/foundation'
+	#sss.ios.dependency 'BlocksKit/UIKit'
+      	sss.source_files = 'YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
     end
 
     ss.source_files = 'YUKit/uikit/YU_UI.{h}'

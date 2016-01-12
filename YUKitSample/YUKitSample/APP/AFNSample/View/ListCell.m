@@ -20,4 +20,10 @@
     // Configure the view for the selected state
 }
 
+-(void)setModel:(ListModel *)model{
+    if (nil != model) {
+        self.textLabel.text = model.title;
+    }
+}
+
 @end

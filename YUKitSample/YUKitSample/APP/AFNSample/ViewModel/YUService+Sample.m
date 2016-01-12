@@ -68,11 +68,3 @@
 }
 @end
 
-
-@implementation UserModel
-
-@end
-
-@implementation ListModel
-
-@end

@@ -7,12 +7,12 @@
 //
 #import <YUDBFramework/DBObject.h>
 #import "YU_Service.h"
-#import "YUKit.h"
-
-@class UserModel;
-@class ListModel;
+#import "YUKitHeader.h"
+#import "ListModel.h"
+#import "UserModel.h"
 
 @interface YUService (Sample)
+
 
 //API Sample
 + (void)login:(NSDictionary*)info success:(void (^)(UserModel *user))successBlock failure:(NillBlock_Error)failureBlock;
@@ -23,15 +23,3 @@
 
 @end
 
-
-//Model Sample
-@interface UserModel : DBObject
-@property (copy, nonatomic, readonly) NSString *userName;
-@property (copy, nonatomic, readonly) NSString *password;
-@end
-
-
-@interface ListModel : DBObject
-@property (assign, nonatomic, readonly) long listId;
-@property (copy, nonatomic, readonly) NSString *title;
-@end

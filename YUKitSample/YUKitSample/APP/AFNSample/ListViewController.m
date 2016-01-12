@@ -89,8 +89,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ListCell *cell = [ListCell XIBCellFor:tableView];
-    ListModel *obj = self.cellDataList[indexPath.row];
-    cell.textLabel.text = obj.title;
+    [cell setModel:self.cellDataList[indexPath.row]];
+    
     return cell;
 }
 
