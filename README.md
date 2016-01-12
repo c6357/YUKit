@@ -102,7 +102,7 @@ framework
 
     pod 'AFNetworking' , '~>2.5.4'
 
-    pod 'BlocksKit', '~> 2.2.5'
+    #pod 'BlocksKit', '~> 2.2.5'
 
 
 系统要求
