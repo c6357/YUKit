@@ -88,7 +88,7 @@ framework
 
 * 手动复制文件YUKit到指定目录
 
-* 使用Cocoapods管理
+* 使用CocoaPods管理
 
 ###Podfile
     pod 'YUKit', '~> 1.0.0'
