@@ -91,7 +91,7 @@ framework
 * 使用Cocoapods管理
 
     pod search YUKit  
-![image](YUKit/install.png)
+![image](https://github.com/c6357/YUKit/blob/master/install.png)
 
 ###Podfile
     pod 'YUKit', '~> 1.0.0'
