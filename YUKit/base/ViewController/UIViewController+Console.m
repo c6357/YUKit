@@ -38,14 +38,16 @@ static int  sfd;
     });
     [self.view addSubview:self.textView];
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.top.offset(64);
+        make.left.and.right.bottom.equalTo(self.view);
+        //        make.edges.equalTo(self.view);
     }];
 
-    [self addBack];
+//    [self addBack];
     
     [self showDebug];
     
-    [self setLandscape];
+//    [self setLandscape];
 }
 
 
@@ -66,7 +68,7 @@ static int  sfd;
 
 
 -(void)closeConsole{
-    [self resume];
+//    [self resume];
     
     if (self.pipe) {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleReadCompletionNotification object:self.fileHandleForReading];
