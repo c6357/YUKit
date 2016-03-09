@@ -1,3 +1,4 @@
+![image](https://github.com/c6357/YUKit/blob/master/sample.gif)
 
 YUKit
 =================
@@ -91,7 +92,7 @@ framework
 * 使用Cocoapods管理
 
     pod search YUKit  
-    
+  
 ![image](https://github.com/c6357/YUKit/blob/master/install.png)
 
 ###Podfile
