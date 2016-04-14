@@ -13,12 +13,12 @@
 @implementation UIWindow (YU)
 + (void)load
 {
-#if 0
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self swizzleSelectorWithClass:[UIWindow class] originalSelector:@selector(sendEvent:)  withSelector:@selector(mySendEvent:)];
-    });
-#endif
+//#ifdef TOUCHDEBUG
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self swizzleSelectorWithClass:[UIWindow class] originalSelector:@selector(sendEvent:)  withSelector:@selector(mySendEvent:)];
+//    });
+//#endif
 }
 
 - (void)mySendEvent:(UIEvent *)event
