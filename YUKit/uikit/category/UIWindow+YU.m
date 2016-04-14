@@ -11,6 +11,7 @@
 #import "NSObject+YU.h"
 
 @implementation UIWindow (YU)
+/*
 + (void)load
 {
 //#ifdef TOUCHDEBUG
@@ -104,6 +105,7 @@
         
     }];
 }
+ */
 @end
 
 @implementation UIView (Debug)
