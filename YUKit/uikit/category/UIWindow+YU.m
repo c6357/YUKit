@@ -11,7 +11,7 @@
 #import "NSObject+YU.h"
 
 @implementation UIWindow (YU)
-#if 0
+#if 1
 + (void)load
 {
 #ifdef TOUCHDEBUG
