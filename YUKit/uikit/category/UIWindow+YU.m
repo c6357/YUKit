@@ -11,15 +11,15 @@
 #import "NSObject+YU.h"
 
 @implementation UIWindow (YU)
-/*
+#if 0
 + (void)load
 {
-//#ifdef TOUCHDEBUG
+#ifdef TOUCHDEBUG
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self swizzleSelectorWithClass:[UIWindow class] originalSelector:@selector(sendEvent:)  withSelector:@selector(mySendEvent:)];
     });
-//#endif
+#endif
 }
 
 - (void)mySendEvent:(UIEvent *)event
@@ -105,7 +105,7 @@
         
     }];
 }
- */
+#endif
 @end
 
 @implementation UIView (Debug)
