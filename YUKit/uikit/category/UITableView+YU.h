@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger,YUAnimation) {
 
 @interface UITableView (YU)
 
+-(void)yuScrollViewDidScroll:(UIScrollView *)scrollView Animation:(BOOL)animation;
+
 - (CAAnimationGroup*)reloadDataAnimate:(YUAnimation)animation willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath duration:(CFTimeInterval)duration completion:(void(^)())completion;
 
 -(void)yuReloadData;

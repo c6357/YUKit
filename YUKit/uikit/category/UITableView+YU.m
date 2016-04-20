@@ -8,12 +8,90 @@
 
 #import "UITableView+YU.h"
 #import "YUKit.h"
+#import "UIView+YU.h"
 
 #define KBOUNCE_DISTANCE 7.
 //#define KANIMATION_DURATION .7
 #define YURoloadCellKey @"YURoloadCellKey"
 
 @implementation UITableView (YU)
+
+float oldOffset;
+static float offsetX = 25;
+
+-(void)yuScrollViewDidScroll:(UIScrollView *)scrollView Animation:(BOOL)animation{
+    
+    NSArray *cellArry = [self visibleCells];
+    UITableViewCell *cellFirst = [cellArry firstObject];
+    UITableViewCell *cellLast  = [cellArry lastObject];
+    
+    for (UITableViewCell *cell in cellArry) {
+        
+        {
+            CGRect frame = cell.contentView.frame;
+            frame.origin.y = 0;
+            cell.contentView.frame = frame;
+            cell.layer.zPosition = 0;
+            cell.alpha = 1;
+        };
+        
+        {
+            CGRect frame = cell.frame;
+            frame.origin.x = 0;
+            frame.size.width = APP_WIDTH();
+            cell.frame = frame;
+        };
+    }
+    
+    
+    cellFirst.layer.zPosition = -1;
+    cellLast.layer.zPosition = -1;
+    
+    
+    if(!(scrollView.contentOffset.y <= 0 || scrollView.contentOffset.y >= (scrollView.contentSize.height-scrollView.frame.size.height)))
+    {
+        CGPoint point = [self convertPoint:[self rectForRowAtIndexPath:[self indexPathForCell:cellFirst]].origin toView:[self superview]];
+        if(animation)
+        {
+            double py =  fabs(point.y);
+            float scale;
+            
+            //if (scrollView.contentOffset.y > oldOffset)
+            {
+                scale = (py/cellFirst.H);
+                cellFirst.alpha = 1-scale;
+                
+                CGRect frame = cellFirst.frame;
+                frame.origin.x = offsetX*scale;
+                frame.size.width = APP_WIDTH()-2*(offsetX*scale);
+                cellFirst.frame = frame;
+            }
+            
+            {
+                scale = ((cellFirst.H-py)/cellFirst.H);
+                cellLast.alpha = 1-scale;
+                
+                CGRect frame = cellLast.frame;
+                frame.origin.x = offsetX*scale;
+                frame.size.width = APP_WIDTH()-2*(offsetX*scale);
+                cellLast.frame = frame;
+            }
+        }
+        
+        if(0 != point.y)
+        {
+            CGRect frame = cellFirst.contentView.frame;
+            frame.origin.y = -point.y;
+            cellFirst.contentView.frame = frame;
+            
+            frame = cellLast.contentView.frame;
+            frame.origin.y = - frame.size.height - point.y;
+            cellLast.contentView.frame = frame;
+        }
+    }
+    
+    oldOffset = scrollView.contentOffset.y;
+}
 
 - (CAAnimationGroup*)reloadDataAnimate:(YUAnimation)animation willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath duration:(CFTimeInterval)duration completion:(void(^)())completion{
 
