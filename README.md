@@ -1,5 +1,5 @@
 ![image](https://github.com/c6357/YUKit/blob/master/sample.gif)
-
+![image](https://github.com/c6357/YUKit/blob/master/sample 2.gif)
 YUKit
 =================
 * YUKit for iOS
