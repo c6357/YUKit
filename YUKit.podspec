@@ -149,8 +149,8 @@ s.library = 'sqlite3'
 
 
 s.dependency 'MJRefresh', '~> 2.2.0'
-s.dependency 'Masonry', '~> 0.6.2'
-s.dependency 'AFNetworking' , '~>2.5.4'
+s.dependency 'Masonry', '~> 1.0.0'
+s.dependency 'AFNetworking' , '~>3.1.0'
 #s.dependency 'BlocksKit', '~> 2.2.5'
 
 
