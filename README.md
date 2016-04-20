@@ -104,9 +104,9 @@ framework
 ###dependency
     pod 'MJRefresh', '~> 2.2.0'
 
-    pod 'Masonry', '~> 0.6.2'
+    pod 'Masonry', '~> 1.0.0'
 
-    pod 'AFNetworking' , '~>2.5.4'
+    pod 'AFNetworking' , '~>3.1.0'
 
     #pod 'BlocksKit', '~> 2.2.5'
 
