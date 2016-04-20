@@ -1,6 +1,4 @@
 ![image](https://github.com/c6357/YUKit/blob/master/sample.gif)
-<br/>
-<br/>
 ![image](https://github.com/c6357/YUKit/blob/master/sample2.gif)
 YUKit
 =================
