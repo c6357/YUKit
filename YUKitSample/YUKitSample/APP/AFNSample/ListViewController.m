@@ -37,15 +37,15 @@
     }];
     [self.view addSubview:self.tableView];
     
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self setupCellData:self.startIndex];
     }];
     
-    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self setupCellData:self.currentPageIndex+1];
     }];
 
-    [self.tableView.header beginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)setupCellData:(NSUInteger)pageNum

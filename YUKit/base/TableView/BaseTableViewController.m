@@ -57,11 +57,11 @@
         
         if (dataList && dataList.count > 0) {
             self.cellDataList = dataList;
-             [self.tableView.footer resetNoMoreData];
-            self.tableView.footer.hidden = NO;
+             [self.tableView.mj_footer resetNoMoreData];
+            self.tableView.mj_footer.hidden = NO;
         } else {
             self.cellDataList = @[];
-            self.tableView.footer.hidden = YES;
+            self.tableView.mj_footer.hidden = YES;
         }
         
         
@@ -90,7 +90,7 @@
 {
     return ^(NSArray *dataList) {
         
-        self.tableView.footer.hidden = NO;
+        self.tableView.mj_footer.hidden = NO;
         
         if (dataList && dataList.count > 0) {
                 
@@ -101,7 +101,7 @@
             self.currentPageIndex++;
             [tableView reloadData];
         }else{
-              [self.tableView.footer noticeNoMoreData];
+              [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
         
         [self endRefreshing:tableView];
@@ -125,11 +125,11 @@
 
 - (void)endRefreshing:(UITableView *)tableView
 {
-    if (tableView.header.isRefreshing) {
-        [tableView.header endRefreshing];
+    if (tableView.mj_header.isRefreshing) {
+        [tableView.mj_header endRefreshing];
     }
-    if (tableView.footer.isRefreshing) {
-        [tableView.footer endRefreshing];
+    if (tableView.mj_footer.isRefreshing) {
+        [tableView.mj_footer endRefreshing];
     }
     
 }

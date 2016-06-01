@@ -39,10 +39,10 @@
     }];
     [self.view addSubview:self.tableView];
     
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self setupCellData:self.startIndex];
     }];
-    [self.tableView.header beginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 
@@ -117,7 +117,7 @@
 #pragma mark - view event
 #pragma mark 1 target-action
 - (IBAction)refreshAction:(id)sender {
-    [self.tableView.header beginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark 2 delegate dataSource protocol
