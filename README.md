@@ -97,12 +97,12 @@ framework
 ![image](https://github.com/c6357/YUKit/blob/master/install.png)
 
 ###Podfile
-    pod 'YUKit', '~> 1.2.0'
+    pod 'YUKit', '~> 1.2.2'
 
-    pod 'YUKit', '~> 1.2.0', :inhibit_warnings => true
+    pod 'YUKit', '~> 1.2.2', :inhibit_warnings => true
 
 ###dependency
-    pod 'MJRefresh', '~> 2.2.0'
+    pod 'MJRefresh', '~> 3.1.0'
 
     pod 'Masonry', '~> 1.0.0'
 
