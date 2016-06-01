@@ -50,7 +50,7 @@ s.subspec 'foundation' do |ss|
 
     ss.subspec 'lib' do |sss|
         sss.ios.dependency 'YUKit/header'
-        sss.ios.dependency 'YUKit/services/Reachability'
+        #sss.ios.dependency 'YUKit/services/Reachability'
         sss.source_files = 'YUKit/foundation/lib/**/*.{h,m,cpp,mm,c}'
     end
 
