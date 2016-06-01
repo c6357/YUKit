@@ -15,6 +15,14 @@
 
 @implementation MJRefreshBackFooter
 
+#pragma mark - 初始化
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    [super willMoveToSuperview:newSuperview];
+    
+    [self scrollViewContentSizeDidChange:nil];
+}
+
 #pragma mark - 实现父类的方法
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change
 {
@@ -65,10 +73,9 @@
     [super scrollViewContentSizeDidChange:change];
     
     // 内容的高度
-    CGFloat contentHeight = self.scrollView.mj_contentH;
+    CGFloat contentHeight = self.scrollView.mj_contentH + self.ignoredScrollViewContentInsetBottom;
     // 表格的高度
-    CGFloat scrollHeight = self.scrollView.mj_h - self.scrollViewOriginalInset.top - self.scrollViewOriginalInset.bottom;
-    // 这里一定是用：self.scrollView.mj_insetT 和 self.scrollViewOriginalInset.bottom;
+    CGFloat scrollHeight = self.scrollView.mj_h - self.scrollViewOriginalInset.top - self.scrollViewOriginalInset.bottom + self.ignoredScrollViewContentInsetBottom;
     // 设置位置和尺寸
     self.mj_y = MAX(contentHeight, scrollHeight);
 }
@@ -85,21 +92,20 @@
                 self.scrollView.mj_insetB -= self.lastBottomDelta;
                 
                 // 自动调整透明度
-                if (self.isAutoChangeAlpha) self.alpha = 0.0;
+                if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
             } completion:^(BOOL finished) {
                 self.pullingPercent = 0.0;
             }];
         }
         
         CGFloat deltaH = [self heightForContentBreakView];
-        NSInteger currentCount = [self totalDataCountInScrollView];
         // 刚刷新完毕
-        if (MJRefreshStateRefreshing == oldState && deltaH > 0 && currentCount != self.lastRefreshCount) {
+        if (MJRefreshStateRefreshing == oldState && deltaH > 0 && self.scrollView.mj_totalDataCount != self.lastRefreshCount) {
             self.scrollView.mj_offsetY = self.scrollView.mj_offsetY;
         }
     } else if (state == MJRefreshStateRefreshing) {
         // 记录刷新前的数量
-        self.lastRefreshCount = [self totalDataCountInScrollView];
+        self.lastRefreshCount = self.scrollView.mj_totalDataCount;
         
         [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
             CGFloat bottom = self.mj_h + self.scrollViewOriginalInset.bottom;
@@ -128,6 +134,17 @@
     }
 }
 
+- (void)noticeNoMoreData
+{
+    if ([self.scrollView isKindOfClass:[UICollectionView class]]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [super noticeNoMoreData];
+        });
+    } else {
+        [super noticeNoMoreData];
+    }
+}
+
 #pragma mark - 私有方法
 #pragma mark 获得scrollView的内容 超出 view 的高度
 - (CGFloat)heightForContentBreakView
@@ -145,24 +162,5 @@
     } else {
         return - self.scrollViewOriginalInset.top;
     }
-}
-
-- (NSInteger)totalDataCountInScrollView
-{
-    NSInteger totalCount = 0;
-    if ([self.scrollView isKindOfClass:[UITableView class]]) {
-        UITableView *tableView = (UITableView *)self.scrollView;
-        
-        for (NSInteger section = 0; section<tableView.numberOfSections; section++) {
-            totalCount += [tableView numberOfRowsInSection:section];
-        }
-    } else if ([self.scrollView isKindOfClass:[UICollectionView class]]) {
-        UICollectionView *collectionView = (UICollectionView *)self.scrollView;
-        
-        for (NSInteger section = 0; section<collectionView.numberOfSections; section++) {
-            totalCount += [collectionView numberOfItemsInSection:section];
-        }
-    }
-    return totalCount;
 }
 @end

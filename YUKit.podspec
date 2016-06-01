@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 s.name         = 'YUKit'
 s.module_name  = 'YUKit'
-s.version      = '1.2.0'
+s.version      = '1.2.1'
 s.summary      = 'YUKit for iOS.(objective-c 、c++）'
 s.homepage     = 'https://github.com/c6357/YUKit'
 s.license      = "MIT"
@@ -88,10 +88,10 @@ s.subspec 'services' do |ss|
         sss.source_files = 'YUKit/services/NSJson/**/*.{h,m,cpp,mm,c}'
     end
 
-    ss.subspec 'Reachability' do |sss|
-        sss.requires_arc            = false
-        sss.source_files = 'YUKit/services/Reachability/**/*.{h,m,cpp,mm,c}'
-    end
+    #ss.subspec 'Reachability' do |sss|
+    #    sss.requires_arc            = false
+    #    sss.source_files = 'YUKit/services/Reachability/**/*.{h,m,cpp,mm,c}'
+    #end
 
 #ss.ios.dependency 'YUKit/services/NSJson'
 #ss.ios.dependency 'YUKit/header'
@@ -148,7 +148,7 @@ s.frameworks = 'UIKit', 'QuartzCore', 'Foundation'
 s.library = 'sqlite3'
 
 
-s.dependency 'MJRefresh', '~> 2.2.0'
+s.dependency 'MJRefresh', '~> 3.1.0'
 s.dependency 'Masonry', '~> 1.0.0'
 s.dependency 'AFNetworking' , '~>3.1.0'
 #s.dependency 'BlocksKit', '~> 2.2.5'

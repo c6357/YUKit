@@ -93,7 +93,6 @@
 		18F60D241C44D07000DB1A03 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F60D221C44D07000DB1A03 /* UserInfo.m */; };
 		677D1E111C3D356E00AF69F5 /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E071C3D356E00AF69F5 /* NSObject+Json.m */; };
 		677D1E121C3D356E00AF69F5 /* NSString+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E091C3D356E00AF69F5 /* NSString+Json.m */; };
-		677D1E131C3D356E00AF69F5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 677D1E0C1C3D356E00AF69F5 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		677D1E6A1C3D672800AF69F5 /* YUDBFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677D1E691C3D672800AF69F5 /* YUDBFramework.framework */; };
 		FB29100CA2C285108D210D33 /* libPods-YUKitSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B22D85E72658111A3D1E19AA /* libPods-YUKitSample.a */; };
 /* End PBXBuildFile section */
@@ -291,8 +290,6 @@
 		677D1E071C3D356E00AF69F5 /* NSObject+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Json.m"; sourceTree = "<group>"; };
 		677D1E081C3D356E00AF69F5 /* NSString+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Json.h"; sourceTree = "<group>"; };
 		677D1E091C3D356E00AF69F5 /* NSString+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Json.m"; sourceTree = "<group>"; };
-		677D1E0B1C3D356E00AF69F5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		677D1E0C1C3D356E00AF69F5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		677D1E691C3D672800AF69F5 /* YUDBFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YUDBFramework.framework; sourceTree = "<group>"; };
 		B22D85E72658111A3D1E19AA /* libPods-YUKitSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YUKitSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -806,7 +803,6 @@
 				18F5CA491C3E601D000E2FD1 /* YU_HTTPRequestOperationManager.h */,
 				18F5CA481C3E601D000E2FD1 /* YU_HTTPRequestOperationManager.m */,
 				677D1E051C3D356E00AF69F5 /* NSJson */,
-				677D1E0A1C3D356E00AF69F5 /* Reachability */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -820,15 +816,6 @@
 				677D1E091C3D356E00AF69F5 /* NSString+Json.m */,
 			);
 			path = NSJson;
-			sourceTree = "<group>";
-		};
-		677D1E0A1C3D356E00AF69F5 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				677D1E0B1C3D356E00AF69F5 /* Reachability.h */,
-				677D1E0C1C3D356E00AF69F5 /* Reachability.m */,
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 		677D1E681C3D669000AF69F5 /* YUDBFramework */ = {
@@ -859,7 +846,6 @@
 				18D22D5E1C3BA1AB00BB8AD9 /* Sources */,
 				18D22D5F1C3BA1AB00BB8AD9 /* Frameworks */,
 				18D22D601C3BA1AB00BB8AD9 /* Resources */,
-				F5402430B57849550F18CA66 /* Embed Pods Frameworks */,
 				AA06DC4764C4E35BD38E4050 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1014,21 +1000,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YUKitSample/Pods-YUKitSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F5402430B57849550F18CA66 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YUKitSample/Pods-YUKitSample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1071,7 +1042,6 @@
 				18D22F491C3BA57500BB8AD9 /* BaseViewController.m in Sources */,
 				18D22FD81C3BC15700BB8AD9 /* YU_Runtime.m in Sources */,
 				18D22FCC1C3BC15700BB8AD9 /* NSObject+YU.m in Sources */,
-				677D1E131C3D356E00AF69F5 /* Reachability.m in Sources */,
 				18D22DCE1C3BA24100BB8AD9 /* UIDebugSampleViewController.m in Sources */,
 				18F60D1C1C44CDAD00DB1A03 /* ListModel.m in Sources */,
 				18D22FDA1C3BC15700BB8AD9 /* YU_Device.m in Sources */,

@@ -13,19 +13,20 @@
 @implementation YUService (Sample)
 + (void)login:(NSDictionary*)info success:(void (^)(UserModel *user))successBlock failure:(NillBlock_Error)failureBlock
 {
-    [[YUHTTPRequestOperationManager sharedManagerOfServer] POST:@"employee/login.json" parameters:info success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[YUHTTPSessionManager sharedManagerOfServer] POST:@"employee/login.json" parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [self checkHTTPStatusCodeWithModel:^(BOOL success, NSError *error, id model) {
             
             success?SAFE_BLOCK_CALL(successBlock, model):SAFE_BLOCK_CALL(failureBlock, error);
             
-        }](operation,responseObject,[UserModel class]);
+        }](task,responseObject,[UserModel class]);
         
-    } failure:[self checkHTTPErrorStatusCode:^(NSError *error) {
-        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         SAFE_BLOCK_CALL(failureBlock, error);
-        
-    }]];
+    }];
+    
 }
 
 
@@ -50,19 +51,7 @@
     successBlock(responseObject);
     
 #else
-    [[YUHTTPRequestOperationManager sharedManagerOfServer] POST:@"Sample/Sample.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        [self checkHTTPStatusCodeWithModel:^(BOOL success, NSError *error, id model) {
-            
-            success?SAFE_BLOCK_CALL(successBlock, model):SAFE_BLOCK_CALL(failureBlock, error);
-            
-        }](operation,responseObject[@"list"],[ListModel class]);
-        
-    } failure:[self checkHTTPErrorStatusCode:^(NSError *error) {
-        
-        SAFE_BLOCK_CALL(failureBlock, error);
-        
-    }]];
+
 #endif
     
 }

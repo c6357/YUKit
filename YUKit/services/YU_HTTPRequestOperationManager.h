@@ -22,7 +22,7 @@
 // The name for a value transform that converts image relative path string into URLs and back.
 //extern NSString * const RelativePathTransformerName;
 
-@interface YUHTTPRequestOperationManager : AFHTTPRequestOperationManager
+@interface YUHTTPSessionManager : AFHTTPSessionManager
 
 + (instancetype)sharedManagerOfServer;
 

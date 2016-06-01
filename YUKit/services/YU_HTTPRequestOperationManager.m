@@ -9,12 +9,12 @@
 #import "YU_HTTPRequestOperationManager.h"
 
 //NSString * const RelativePathTransformerName = @"RelativePathTransformerName";
-@interface YUHTTPRequestOperationManager()
+@interface YUHTTPSessionManager()
 @end
 
 static dispatch_once_t onceToken;
-static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
-@implementation YUHTTPRequestOperationManager
+static YUHTTPSessionManager *sharedManagerOfMyserver = nil;
+@implementation YUHTTPSessionManager
 
 + (instancetype)sharedManagerOfServer
 {
@@ -27,7 +27,7 @@ static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
 }
 
 +(void)resetManagerOfServer{
-    YUHTTPRequestOperationManager *instance = [YUHTTPRequestOperationManager sharedManagerOfServer];
+    YUHTTPSessionManager *instance = [YUHTTPSessionManager sharedManagerOfServer];
     onceToken = 0;
     instance = nil;
     sharedManagerOfMyserver = nil;
@@ -64,10 +64,10 @@ static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
 }
 
 
-- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
-{
-    return [super HTTPRequestOperationWithRequest:request success:success failure:failure];
-    
+//- (AFHTTPRequestOperation *)HTTPRequestOperationWithRequest:(NSURLRequest *)request success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
+//{
+//    return [super HTTPRequestOperationWithRequest:request success:success failure:failure];
+//    
 //    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
 //    operation.responseSerializer = self.responseSerializer;
 //    operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
@@ -86,7 +86,7 @@ static YUHTTPRequestOperationManager *sharedManagerOfMyserver = nil;
 //    }];
 //
 //    return operation;
-}
+//}
 
 // setup the value transformer
 // NSURL 与 NSString 互相转换

@@ -44,13 +44,13 @@ static inline NSDictionary *HttpCodesDic(){
 @implementation YUService
 + (void (^)())checkHTTPStatusCodeRequestSucceed :(void(^)(BOOL success))_success{
     
-    return ^(AFHTTPRequestOperation* response,id responseObject) {
+    return ^(NSURLSessionDataTask* task,id responseObject) {
         
         [self checkHTTPStatusCodeWithModel:^(BOOL success, NSError *error,Class class) {
             
             _success(success);
             
-        }](response,responseObject,nil);
+        }](task,responseObject,nil);
         
     };
 }
@@ -58,13 +58,13 @@ static inline NSDictionary *HttpCodesDic(){
 
 + (void (^)())checkHTTPStatusCode :(void(^)(BOOL success,NSError *error))_success{
     
-    return ^(AFHTTPRequestOperation* response,id responseObject) {
+    return ^(NSURLSessionDataTask* task,id responseObject) {
         
         [self checkHTTPStatusCodeWithModel:^(BOOL success, NSError *error,Class class) {
             
             _success(success,error);
             
-        }](response,responseObject,nil);
+        }](task,responseObject,nil);
         
     };
 }
@@ -72,14 +72,16 @@ static inline NSDictionary *HttpCodesDic(){
 
 + (void (^)())checkHTTPStatusCodeWithModel :(void(^)(BOOL success,NSError *error,id model))success{
     
-    return ^(AFHTTPRequestOperation* response,id responseObject,Class class) {
+    return ^(NSURLSessionDataTask* task,id responseObject,Class class) {
         NSError *error;
         
-        NSInteger statusCode = response.response.statusCode;
-        NSLog(@"URL-->%@",response.response.URL.absoluteString);
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)task.response;
+        NSInteger statusCode = [httpResponse statusCode];
+        
+    
+        NSLog(@"URL-->%@",task.response.URL.absoluteString);
         NSLog(@"statusCode-->%@",@(statusCode));
-        NSLog(@"result-->%@",responseObject);
-        NSLog(@"response.responseString-->%@",response.responseString);
+        //        NSLog(@"response-->%@",httpResponse.);
 
         
         if(class){
@@ -93,9 +95,9 @@ static inline NSDictionary *HttpCodesDic(){
         if (statusCode == 200) {
             NSDictionary *responseDic = responseObject;
             if (!responseDic) {
-                responseDic = (NSDictionary*)response.responseString;
+                responseDic = (NSDictionary*)task.response.URL.absoluteString;
                 if ([responseDic isKindOfClass:[NSString class]]) {
-                    responseDic = [response.responseString jsonDictionary];
+                    responseDic = [task.response.URL.absoluteString jsonDictionary];
                 }
             }
         
@@ -139,7 +141,7 @@ static inline NSDictionary *HttpCodesDic(){
             
             [self checkHTTPErrorStatusCode:^(NSError *error) {
                 success(false,error,returnModel);
-            }](response,error);
+            }](task,error);
 
         }else{
             NSLog(@"Warning：未知statusCode: %@未处理",@(statusCode));
@@ -150,18 +152,20 @@ static inline NSDictionary *HttpCodesDic(){
 
 + (void (^)())checkHTTPErrorStatusCode :(void(^)(NSError *error))success{
     
-    return ^(AFHTTPRequestOperation* response, NSError *error) {
+    return ^(NSURLSessionDataTask* task, NSError *error) {
         
-        NSInteger errorCode = response.response.statusCode;
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)task.response;
+        NSInteger errorCode = [httpResponse statusCode];
+        
         NSString *msg;
         
-        NSLog(@"URL-->%@",response.response.URL.absoluteString);
+        NSLog(@"URL-->%@",task.response.URL.absoluteString);
         NSLog(@"statusCode-->%@",@(errorCode));
-        NSLog(@"response-->%@",response.responseString);
+//        NSLog(@"response-->%@",httpResponse.);
         
-        NSDictionary *messageDic = (NSDictionary*)response.responseString;
+        NSDictionary *messageDic = (NSDictionary*)task.response.URL.absoluteString;//httpResponse.allHeaderFields;//(NSDictionary*)response.responseString;
         if (![messageDic isKindOfClass:[NSDictionary class]]) {
-            messageDic = [(NSString*)response.responseString jsonDictionary];
+            messageDic = [(NSString*)task.response.URL.absoluteString jsonDictionary];
         }
         
         if ([messageDic isKindOfClass:[NSDictionary class]]) {

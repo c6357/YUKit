@@ -17,7 +17,6 @@
 #import <objc/runtime.h>
 #include <net/if.h>
 #include <net/if_dl.h>
-#import "Reachability.h"
 
 NSString *Device_CurrentLanguage()
 {
@@ -275,22 +274,22 @@ NSString *Device_IpAddressCell()
 }
 
 BOOL isConnectedViaWiFi () {
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
-    NetworkStatus status = [reachability currentReachabilityStatus];
-    if (status == ReachableViaWiFi)
-        return YES;
-    else
+//    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+//    [reachability startNotifier];
+//    NetworkStatus status = [reachability currentReachabilityStatus];
+//    if (status == ReachableViaWiFi)
+//        return YES;
+//    else
         return NO;
 }
 
 BOOL isConnectedVia3G (){
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
-    NetworkStatus status = [reachability currentReachabilityStatus];
-    if (status == ReachableViaWWAN)
-        return YES;
-    else
+//    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+//    [reachability startNotifier];
+//    NetworkStatus status = [reachability currentReachabilityStatus];
+//    if (status == ReachableViaWWAN)
+//        return YES;
+//    else
         return NO;
 }
 
