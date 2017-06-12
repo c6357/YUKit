@@ -7,8 +7,7 @@
 //
 
 #import "YUService+Sample.h"
-#import "NSDate+YU.h"
-#import "NSString+YU.h"
+
 
 @implementation YUService (Sample)
 + (void)login:(NSDictionary*)info success:(void (^)(UserModel *user))successBlock failure:(NillBlock_Error)failureBlock
@@ -37,15 +36,15 @@
     //sample json data
     NSMutableArray *list = [NSMutableArray new];
     for (int i=0; i<20; i++) {
-        [list addObject:@{@"listId":[NSString uuid],
-                          @"title":ComboString(@"测试数据%@",[NSDate currentDate:@"HH:mm.ss"]),
+        [list addObject:@{@"listId":[NSString uuidString],
+                          @"title":ComboString(@"测试数据%@",[[NSDate date]stringFromDateWithFormat:@"HH:mm.ss"]),
                           }];
     }
     //json 转 model
     NSMutableArray *responseObject = [NSMutableArray new];
     for (NSDictionary *info in list) {
         ListModel *data = [[ListModel alloc] init];
-        [data Deserialize:info];
+        [data deserialize:info];
         [responseObject addObject:data];
     }
     successBlock(responseObject);

@@ -1,0 +1,6 @@
+framework module YUKit {
+  umbrella header "YUKit.h"
+
+  export *
+  module * { export * }
+}

@@ -9,6 +9,8 @@
 #ifndef vendors_h
 #define vendors_h
 
+#import "SettingCell.h"
+
 // MARK: - base
 
 

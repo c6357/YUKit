@@ -55,7 +55,7 @@
 //    
     NSLog(@" allMethods] %@",[NSObject allMethods]);
 
-    NSLog(@" callstack] %@",[DBObject callstack:64]);
+    NSLog(@" callstack] %@",[NSObject callstack:64]);
     
     NSLog(@" allProperties] %@",[DBObj allProperties]);
     

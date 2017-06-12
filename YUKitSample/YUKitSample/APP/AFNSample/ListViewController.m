@@ -103,7 +103,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ListModel *obj = self.cellDataList[indexPath.row];
-    [UIAlertView ShowInfo:ComboString(@"%@", [obj dictory]) time:3];
+    [UIAlertView showInfo:ComboString(@"%@", [obj dictionary]) time:3];
 }
 
 #pragma mark - private

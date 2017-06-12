@@ -1,0 +1,6 @@
+framework module YUDBModel {
+  umbrella header "YUDBModel.h"
+
+  export *
+  module * { export * }
+}

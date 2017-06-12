@@ -34,13 +34,15 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - YUDBModel (1.0.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.1.0)
-  - BlocksKit (~> 2.2.5)
-  - Masonry (~> 1.0.0)
-  - MJRefresh (~> 3.1.0)
-  - SDWebImage (~> 3.7.5)
+  - AFNetworking
+  - BlocksKit
+  - Masonry
+  - MJRefresh
+  - SDWebImage
+  - YUDBModel
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -48,5 +50,8 @@ SPEC CHECKSUMS:
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  YUDBModel: 14f9f99497e331f1a5f12b05ffc98082c1dfbb35
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: bf4e3011a41b898950754cde5bdcd8cc80f6cc2c
+
+COCOAPODS: 1.2.1

@@ -5,9 +5,7 @@
 //  Created by BruceYu on 15/12/14.
 //  Copyright © 2015年 BruceYu. All rights reserved.
 //
-#import <YUDBFramework/DBObject.h>
 #import "YU_Service.h"
-#import "YUKitHeader.h"
 #import "ListModel.h"
 #import "UserModel.h"
 

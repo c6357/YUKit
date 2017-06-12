@@ -1,54 +1,65 @@
 //
 //  DBObj.m
-//  YUDBObject
+//  https://github.com/c6357/YUDBModel
 //
 //  Created by BruceYu on 15/8/18.
 //  Copyright (c) 2015年 BruceYu. All rights reserved.
 //
+
 
 #import "DBObj.h"
 
 @implementation DBObj
 
 /**
- *  数据库名
- *
- *  @return <#return value description#>
- */
-+(NSString *)dbName{
-    return @"Base.db";
-}
-
-/**
- *  数据库路径
- *
- *  @return <#return value description#>
- */
-+(NSString *)dbFolder{
-    return [NSObject createFileDirectories:@"base"];
-}
-
-
-/**
  *  需要过滤的数据库字段
  *
- *  @return <#return value description#>
+ *  @return bool
  */
-+(NSArray *)dbIgnoreFields{
-    return @[];
++(NSArray *)YUDBModel_IgnoreFields{
+    //数据库不会存储的字段
+//    return @[];
+    return @[@"point",@"user",@"method",@"ivar",@"category",@"property",@"classz"];
 }
 
-/**
- *  Deserialize json -> Class
- *
- *  @param _dict <#_dict description#>
- */
--(void)Deserialize:(NSDictionary *)_dict
+///设置主键
+//+(NSString*)YUDBModel_PrimaryKey{
+//    return @"myPrimaryKey";
+//}
+
+
+///json key字段替换
++(NSDictionary *)YUDBModel_ReplacePropertyKey{
+    return @{
+             @"objId":@"id",
+             };
+}
+
+
+-(void)deserialize:(NSDictionary *)dictionary
 {
-    [super Deserialize:_dict arrayParserObj:^Class(NSString *field) {
-        if ([field isEqualToString:@"infoArry"]) {
-            return [UserInfo class];
+    [super deserialize:dictionary arrayParser:^id(NSString *key,id value) {
+
+        if ([key isEqualToString:@"dict"]) {
+//            return @"自定义dict";
+//            return @{@"hello":@"world"};
         }
+        
+        if ([key isEqualToString:@"list"]) {
+//            return @"自定义list对象";
+            return [UserInfoLevel6 class];
+        }
+        
+        else if ([key isEqualToString:@"array"]) {
+//            return @"自定义array";
+            return @[@"1",@"2",@"3"];
+        }
+        
+        else if ([key isEqualToString:@"name"]) {
+//            return @[@"name"];
+//            return @"自定义name";
+        }
+        
         return nil;
     }];
 }

@@ -119,32 +119,32 @@
 #pragma mark -
 -(void)configSetInfo{
     NSArray *setInfoArry = @[
-                            [SettingInfo initWithTitle:@"CurrentLanguage" desrc:Device_CurrentLanguage()],
-                            [SettingInfo initWithTitle:@"Model" desrc:Device_Model()],
+                            [SettingInfo initWithTitle:@"CurrentLanguage" desrc:DeviceCurrentLanguage()],
+                            [SettingInfo initWithTitle:@"Model" desrc:DeviceModel()],
                             
-                            [SettingInfo initWithTitle:@"MacAddress" desrc:Device_MacAddress()],
+                            [SettingInfo initWithTitle:@"MacAddress" desrc:DeviceMacAddress()],
                             
-                            [SettingInfo initWithTitle:@"LocalHost" desrc:Device_LocalHost()],
-                            [SettingInfo initWithTitle:@"IpAddressCell" desrc:Device_IpAddressCell()],
-                            [SettingInfo initWithTitle:@"MachineModel" desrc:Device_MachineModel()],
-                            [SettingInfo initWithTitle:@"MachineModelName" desrc:Device_MachineModelName()],
-                            [SettingInfo initWithTitle:@"SystemUptime" desrc:Device_SystemUptime()],
+                            [SettingInfo initWithTitle:@"LocalHost" desrc:DeviceLocalhost()],
+                            [SettingInfo initWithTitle:@"IpAddressCell" desrc:DeviceIpAddressCell()],
+                            [SettingInfo initWithTitle:@"MachineModel" desrc:DeviceMachineModel()],
+                            [SettingInfo initWithTitle:@"MachineModelName" desrc:DeviceMachineModelName()],
+                            [SettingInfo initWithTitle:@"SystemUptime" desrc:DeviceSystemUptime()],
                             ];
     [self.settingInfoMarry addObject:setInfoArry];
     
     
     setInfoArry = @[
-                    [SettingInfo initWithTitle:@"APP_CpuUsage" desrc:[self longFormatter:APP_CpuUsage()]],
-                    [SettingInfo initWithTitle:@"APP_MemoryUsage" desrc:[self longFormatter:APP_MemoryUsage()]],
+                    [SettingInfo initWithTitle:@"AppCpuUsage" desrc:[self longFormatter:AppCpuUsage()]],
+                    [SettingInfo initWithTitle:@"AppMemoryUsage" desrc:[self longFormatter:AppMemoryUsage()]],
                     ];
     [self.settingInfoMarry addObject:setInfoArry];
     
     
     
     setInfoArry = @[
-                   [SettingInfo initWithTitle:@"DiskSpace" desrc:[self longFormatter:Device_DiskSpace()]],
-                   [SettingInfo initWithTitle:@"DiskSpaceFree" desrc:[self longFormatter:Device_DiskSpaceFree()]],
-                   [SettingInfo initWithTitle:@"DiskSpaceUsed" desrc:[self longFormatter:Device_DiskSpaceUsed()]],
+                   [SettingInfo initWithTitle:@"DiskSpace" desrc:[self longFormatter:DeviceDiskSpace()]],
+                   [SettingInfo initWithTitle:@"DiskSpaceFree" desrc:[self longFormatter:DeviceDiskSpaceFree()]],
+                   [SettingInfo initWithTitle:@"DiskSpaceUsed" desrc:[self longFormatter:DeviceDiskSpaceUsed()]],
                    ];
     [self.settingInfoMarry addObject:setInfoArry];
     
@@ -152,13 +152,13 @@
     
     
     setInfoArry = @[
-                    [SettingInfo initWithTitle:@"MemoryTotal" desrc:[self longFormatter:Device_MemoryTotal()]],
-                   [SettingInfo initWithTitle:@"MemoryUsed" desrc:[self longFormatter:Device_MemoryUsed()]],
-                   [SettingInfo initWithTitle:@"MemoryFree" desrc:[self longFormatter:Device_MemoryFree()]],
-                   [SettingInfo initWithTitle:@"MemoryActive" desrc:[self longFormatter:Device_MemoryActive()]],
-                   [SettingInfo initWithTitle:@"MemoryInactive" desrc:[self longFormatter:Device_MemoryInactive()]],
-                   [SettingInfo initWithTitle:@"MemoryWired" desrc:[self longFormatter:Device_MemoryWired()]],
-                   [SettingInfo initWithTitle:@"MemoryPurgable" desrc:[self longFormatter:Device_MemoryPurgable()]],
+                    [SettingInfo initWithTitle:@"MemoryTotal" desrc:[self longFormatter:DeviceMemoryTotal()]],
+                   [SettingInfo initWithTitle:@"MemoryUsed" desrc:[self longFormatter:DeviceMemoryUsed()]],
+                   [SettingInfo initWithTitle:@"MemoryFree" desrc:[self longFormatter:DeviceMemoryFree()]],
+                   [SettingInfo initWithTitle:@"MemoryActive" desrc:[self longFormatter:DeviceMemoryActive()]],
+                   [SettingInfo initWithTitle:@"MemoryInactive" desrc:[self longFormatter:DeviceMemoryInactive()]],
+                   [SettingInfo initWithTitle:@"MemoryWired" desrc:[self longFormatter:DeviceMemoryWired()]],
+                   [SettingInfo initWithTitle:@"MemoryPurgable" desrc:[self longFormatter:DeviceMemoryPurgable()]],
                    ];
     [self.settingInfoMarry addObject:setInfoArry];
 }

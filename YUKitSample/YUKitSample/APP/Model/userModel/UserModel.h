@@ -6,9 +6,8 @@
 //  Copyright © 2016年 BruceYu. All rights reserved.
 //
 
-#import <YUDBFramework/DBObject.h>
 
-@interface UserModel : DBObject
+@interface UserModel : NSObject
 @property (copy, nonatomic, readonly) NSString *userName;
 @property (copy, nonatomic, readonly) NSString *password;
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2016年 BruceYu. All rights reserved.
 //
 
-#import <YUDBFramework/DBObject.h>
 
-@interface ListModel : DBObject
+
+@interface ListModel : NSObject
 @property (assign, nonatomic, readonly) long listId;
 @property (copy, nonatomic, readonly) NSString *title;
 @end

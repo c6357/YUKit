@@ -6,15 +6,13 @@
 //  Copyright © 2016年 BruceYu. All rights reserved.
 //
 
-#ifndef YUKitSample_pch
-#define YUKitSample_pch
-
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 
 #ifdef __OBJC__
 
+#import <YUKit/YUKitHeader.h>
 /**
  *  pods
  */
@@ -22,6 +20,13 @@
 //#import <BlocksKit.h>
 //#import <BlocksKit+UIKit.h>
 #import <Masonry.h>
+
+#import <YUDBModel/YUDBModel.h>
+
+
+#import "vendors.h"
+#import "BaseTableViewController.h"
+#import "YU_Base.h"
 
 /**
  *  YUKit
@@ -40,5 +45,3 @@
 #endif
 
 
-
-#endif /* YUKitSample_pch */

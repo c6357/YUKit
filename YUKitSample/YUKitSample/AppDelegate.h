@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "vendors.h"
-#import "YUKitHeader.h"
-#import "BaseTableViewController.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
