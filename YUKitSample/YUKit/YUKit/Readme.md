@@ -14,3 +14,39 @@ hmeiOS  header search path
 
 Other Linker Flags
 -ObjC
+
+
+
+#---uikit
+s.subspec 'uikit' do |ss|
+ss.subspec 'lib' do |sss|
+sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
+sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
+sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}'
+end
+
+ss.subspec 'category' do |sss|
+sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
+sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
+sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
+end
+
+ss.source_files = 'YUKitSample/YUKit/YUKit/uikit/YU_UIKit.{h}'
+end
+
+#---uikit
+s.subspec 'uikit' do |ss|
+ss.subspec 'lib' do |sss|
+#sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
+sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
+sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}'
+end
+
+ss.subspec 'category' do |sss|
+#sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
+sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
+sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
+end
+
+ss.source_files = 'YUKitSample/YUKit/YUKit/uikit/YU_UIKit.{h}'
+end
