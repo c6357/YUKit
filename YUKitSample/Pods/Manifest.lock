@@ -35,6 +35,99 @@ PODS:
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
   - YUDBModel (1.0.1)
+  - YUKit (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/base (= 1.2.2)
+    - YUKit/foundation (= 1.2.2)
+    - YUKit/header (= 1.2.2)
+    - YUKit/services (= 1.2.2)
+    - YUKit/uikit (= 1.2.2)
+  - YUKit/base (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/base/NavigationController (= 1.2.2)
+    - YUKit/base/TableView (= 1.2.2)
+    - YUKit/base/View (= 1.2.2)
+    - YUKit/base/ViewController (= 1.2.2)
+    - YUKit/base/ViewModel (= 1.2.2)
+  - YUKit/base/NavigationController (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+  - YUKit/base/TableView (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/base/ViewController
+    - YUKit/foundation
+    - YUKit/header
+    - YUKit/uikit
+  - YUKit/base/View (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+  - YUKit/base/ViewController (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/foundation
+    - YUKit/header
+    - YUKit/uikit
+  - YUKit/base/ViewModel (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+  - YUKit/foundation (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/foundation/category (= 1.2.2)
+    - YUKit/foundation/lib (= 1.2.2)
+  - YUKit/foundation/category (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/foundation/lib
+    - YUKit/header
+  - YUKit/foundation/lib (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/header
+  - YUKit/header (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+  - YUKit/services (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/services/NSJson (= 1.2.2)
+  - YUKit/services/NSJson (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+  - YUKit/uikit (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/uikit/category (= 1.2.2)
+    - YUKit/uikit/lib (= 1.2.2)
+  - YUKit/uikit/category (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/foundation
+    - YUKit/header
+  - YUKit/uikit/lib (1.2.2):
+    - AFNetworking (~> 3.1.0)
+    - Masonry (~> 1.0.0)
+    - MJRefresh (~> 3.1.0)
+    - YUKit/foundation
+    - YUKit/header
 
 DEPENDENCIES:
   - AFNetworking
@@ -43,6 +136,7 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - YUDBModel
+  - YUKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -51,7 +145,8 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   YUDBModel: 14f9f99497e331f1a5f12b05ffc98082c1dfbb35
+  YUKit: 58fb9133c2d0e723404cb72464215b25117e8071
 
-PODFILE CHECKSUM: bf4e3011a41b898950754cde5bdcd8cc80f6cc2c
+PODFILE CHECKSUM: ffeff57674252f64d1be4a0677971b863a7ccabe
 
 COCOAPODS: 1.2.1

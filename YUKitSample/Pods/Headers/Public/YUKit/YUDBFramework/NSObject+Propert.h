@@ -1,0 +1,1 @@
+../../../../YUKit/YUKit/framework/YUDBFramework.framework/Headers/NSObject+Propert.h
