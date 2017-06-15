@@ -1,8 +1,15 @@
+YUKit
+=========
+iOS轻量级快速开发基础框架
+
+[![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)](https://github.com/c6357/YUKit)
+[![CocoaPods](https://img.shields.io/cocoapods/v/YUKit.svg)](https://github.com/c6357/YUKit)
+
+
 ![image](https://github.com/c6357/YUKit/blob/master/sample.gif)
 </br>
 #![image](https://github.com/c6357/YUKit/blob/master/sample2.gif)
-YUKit
-================= 
+
 ##### YUKit.h (c++封装的常用基础工具)
 ----
 

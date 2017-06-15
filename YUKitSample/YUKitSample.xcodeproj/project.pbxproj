@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		183AB1CB1EEE65A8005E17E7 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1C81EEE65A7005E17E7 /* SettingCell.m */; };
 		183AB1CC1EEE65A8005E17E7 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AB1C91EEE65A7005E17E7 /* SettingCell.xib */; };
-		183AB1D21EEE6B52005E17E7 /* YUKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183AB1D11EEE6B52005E17E7 /* YUKit.framework */; };
 		183AB2151EEE6B5E005E17E7 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1D61EEE6B5D005E17E7 /* NavigationController.m */; };
 		183AB2161EEE6B5E005E17E7 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1D91EEE6B5D005E17E7 /* BaseTableViewController.m */; };
 		183AB2171EEE6B5E005E17E7 /* UITableView+BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1DB1EEE6B5D005E17E7 /* UITableView+BaseClass.m */; };
@@ -146,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183AB1D21EEE6B52005E17E7 /* YUKit.framework in Frameworks */,
 				18D22F881C3BA5A800BB8AD9 /* libsqlite3.tbd in Frameworks */,
 				BDD60275015D27D67208CE62 /* libPods-YUKitSample.a in Frameworks */,
 			);
@@ -836,7 +834,6 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"\"${PODS_ROOT}/../YUKit/**",
 				);
 				INFOPLIST_FILE = YUKitSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -869,7 +866,6 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"\"${PODS_ROOT}/../YUKit/**",
 				);
 				INFOPLIST_FILE = YUKitSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

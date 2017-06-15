@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 s.name         = 'YUKit'
 s.module_name  = 'YUKit'
-s.version      = '2.0.2'
+s.version      = '2.0.3'
 s.summary      = 'YUKit for iOS.(objective-c 、c++）'
 s.homepage     = 'https://github.com/c6357/YUKit'
 s.license      = "MIT"
@@ -36,12 +36,12 @@ s.subspec 'foundation' do |ss|
     ss.subspec 'lib' do |sss|
 	sss.ios.dependency 'YUKit/foundation/category'
         sss.ios.dependency 'YUKit/header'
+	sss.ios.dependency 'YUKit/frameworks/Reachability'
         sss.source_files = 'YUKit/foundation/lib/**/*.{h,m,cpp,mm,c}'
     end
 
     ss.subspec 'category' do |sss|
         sss.ios.dependency 'YUKit/header'
-        sss.ios.dependency 'YUKit/foundation'
         sss.source_files = 'YUKit/foundation/category/**/*.{h,m,cpp,mm,c}'
     end
 
@@ -71,15 +71,22 @@ end
 
 #———frameworks
 
-#s.subspec 'frameworks' do |ss|
-#	ss.source_files = 'YUKit/frameworks/**/*.{h,m,cpp,mm,c}'
-#end
+s.subspec 'frameworks' do |ss|
+
+	ss.subspec 'Reachability' do |sss|
+		sss.ios.dependency 'YUKit/header'
+		sss.source_files = 'YUKit/frameworks/Reachability/*.{h,m,cpp,mm,c}'
+	end
+
+
+	ss.subspec 'YUKeychain' do |sss|
+		sss.ios.dependency 'YUKit/header'
+		ss.source_files = 'YUKit/frameworks/YUKeychain/**/*.{h,m,cpp,mm,c}'
+	end
+end
 
 
 #s.frameworks = 'UIKit', 'QuartzCore', 'Foundation','AssetsLibrary','AudioToolbox','CoreTelephony'
-
-
-
 
 
 end
