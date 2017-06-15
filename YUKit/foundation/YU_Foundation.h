@@ -34,6 +34,8 @@
 #import "NSTimer+YU.h"
 #import "NSNotificationCenter+YU.h"
 #import "NSFileManager+YU.h"
+#import "NSString+YUBase64.h"
+#import "NSData+YUBase64.h"
 #
 
 #pragma mark - lib

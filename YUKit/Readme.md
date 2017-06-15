@@ -17,36 +17,20 @@ Other Linker Flags
 
 
 
-#---uikit
+#———uikit
 s.subspec 'uikit' do |ss|
 ss.subspec 'lib' do |sss|
-sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
-sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
-sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}'
+sss.ios.dependency 'YUKit/header'
+sss.ios.dependency 'YUKit/foundation'
+sss.source_files = 'YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}'
 end
 
 ss.subspec 'category' do |sss|
-sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
-sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
-sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
+sss.ios.dependency 'YUKit/header'
+sss.ios.dependency 'YUKit/foundation'
+sss.source_files = 'YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
 end
 
-ss.source_files = 'YUKitSample/YUKit/YUKit/uikit/YU_UIKit.{h}'
+ss.source_files = 'YUKit/uikit/YU_UIKit.{h}'
 end
 
-#---uikit
-s.subspec 'uikit' do |ss|
-ss.subspec 'lib' do |sss|
-#sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
-sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
-sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}'
-end
-
-ss.subspec 'category' do |sss|
-#sss.ios.dependency 'YUKitSample/YUKit/YUKit/header'
-sss.ios.dependency 'YUKitSample/YUKit/YUKit/foundation'
-sss.source_files = 'YUKitSample/YUKit/YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
-end
-
-ss.source_files = 'YUKitSample/YUKit/YUKit/uikit/YU_UIKit.{h}'
-end

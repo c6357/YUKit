@@ -10,8 +10,9 @@
 #import "NSString+YU.h"
 #import "NSData+YU.h"
 #import "NSString+YUCheck.h"
-#import "Base64.h"
 #import "NSNumber+YU.h"
+#import "NSString+YUBase64.h"
+#import "NSData+YUBase64.h"
 
 @implementation NSString (YU)
 

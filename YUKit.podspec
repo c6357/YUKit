@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 s.name         = 'YUKit'
 s.module_name  = 'YUKit'
-s.version      = '2.0.1'
+s.version      = '2.0.2'
 s.summary      = 'YUKit for iOS.(objective-c 、c++）'
 s.homepage     = 'https://github.com/c6357/YUKit'
 s.license      = "MIT"
@@ -13,12 +13,12 @@ s.source_files = 'YUKit/YUKitHeader.h'
 s.requires_arc = true
 
 
-pch_AF = <<-EOS
+#pch_AF = <<-EOS
 #ifdef DEBUG
 #define TBMB_DEBUG
 #endif
-EOS
-s.prefix_header_contents = pch_AF
+#EOS
+#s.prefix_header_contents = pch_AF
 
 
 #———header
@@ -26,19 +26,22 @@ s.subspec 'header' do |ss|
     ss.source_files  = 'YUKit/*.{h}'
 end
 
+
 #ios.dependency
 #import
 
-#———foundation
+#---foundation
 s.subspec 'foundation' do |ss|
+
     ss.subspec 'lib' do |sss|
-        #sss.ios.dependency 'YUKit/header'
+	sss.ios.dependency 'YUKit/foundation/category'
+        sss.ios.dependency 'YUKit/header'
         sss.source_files = 'YUKit/foundation/lib/**/*.{h,m,cpp,mm,c}'
     end
 
     ss.subspec 'category' do |sss|
-        #sss.ios.dependency 'YUKit/header'
-        #sss.ios.dependency 'YUKit/foundation/lib'
+        sss.ios.dependency 'YUKit/header'
+        sss.ios.dependency 'YUKit/foundation'
         sss.source_files = 'YUKit/foundation/category/**/*.{h,m,cpp,mm,c}'
     end
 
@@ -48,20 +51,22 @@ end
 
 #———uikit
 s.subspec 'uikit' do |ss|
+
 	ss.subspec 'lib' do |sss|
 		sss.ios.dependency 'YUKit/header'
-		#sss.ios.dependency 'YUKit/foundation'
+		sss.ios.dependency 'YUKit/foundation'
 		sss.source_files = 'YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}'
-	end
+end
 
 	ss.subspec 'category' do |sss|
 		sss.ios.dependency 'YUKit/header'
-		#sss.ios.dependency 'YUKit/foundation'
+		sss.ios.dependency 'YUKit/foundation'
 		sss.source_files = 'YUKit/uikit/category/**/*.{h,m,cpp,mm,c}'
-	end
-
-	ss.source_files = 'YUKit/uikit/YU_UIKit.{h}'
 end
+
+ss.source_files = 'YUKit/uikit/YU_UIKit.{h}'
+end
+
 
 
 #———frameworks
@@ -71,7 +76,7 @@ end
 #end
 
 
-s.frameworks = 'UIKit', 'QuartzCore', 'Foundation'
+#s.frameworks = 'UIKit', 'QuartzCore', 'Foundation','AssetsLibrary','AudioToolbox','CoreTelephony'
 
 
 
