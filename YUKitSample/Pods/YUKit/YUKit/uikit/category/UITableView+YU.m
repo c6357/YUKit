@@ -8,7 +8,8 @@
 
 #import "UITableView+YU.h"
 #import "YUKit.h"
-#import "UIView+YU.h"
+#import "UIView+YUFrame.h"
+#import "NSString+YU.h"
 
 #define KBOUNCE_DISTANCE 7.
 //#define KANIMATION_DURATION .7
@@ -38,7 +39,7 @@ static float offsetX = 25;
         {
             CGRect frame = cell.frame;
             frame.origin.x = 0;
-            frame.size.width = APP_WIDTH();
+            frame.size.width = AppWidth();
             cell.frame = frame;
         };
     }
@@ -63,7 +64,7 @@ static float offsetX = 25;
                 
                 CGRect frame = cellFirst.frame;
                 frame.origin.x = offsetX*scale;
-                frame.size.width = APP_WIDTH()-2*(offsetX*scale);
+                frame.size.width = AppWidth()-2*(offsetX*scale);
                 cellFirst.frame = frame;
             }
             
@@ -73,7 +74,7 @@ static float offsetX = 25;
                 
                 CGRect frame = cellLast.frame;
                 frame.origin.x = offsetX*scale;
-                frame.size.width = APP_WIDTH()-2*(offsetX*scale);
+                frame.size.width = AppWidth()-2*(offsetX*scale);
                 cellLast.frame = frame;
             }
         }
@@ -195,7 +196,7 @@ static float offsetX = 25;
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 2;
-        if (IsSafeString(message)) {
+        if (isSafeString(message)) {
             label.text = message;
         }else{
             label.text = @"亲,没有数据可以显示哦!";

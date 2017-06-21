@@ -27,32 +27,24 @@ lineBreakMode:mode] : CGSizeZero;
 
 
 @implementation UIView (YU)
--(CGFloat)W{
-    return self.frame.size.width;
+
++(UIView *)viewWithTitle:(NSString*)title{
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, title.length*24, 44)];
+    lab.text = title;
+    lab.font = [UIFont boldSystemFontOfSize:16];
+    lab.textAlignment = NSTextAlignmentCenter;
+    return lab;
 }
 
--(CGFloat)H{
-    return self.frame.size.height;
-}
-
--(CGFloat)TX{
-    return self.frame.origin.x;
-}
-
--(CGFloat)TY{
-    return self.frame.origin.y;
-}
-
--(CGFloat)BX{
-    return (self.frame.origin.x + self.frame.size.width);
-}
-
--(CGFloat)BY{
-    return (self.frame.origin.y + self.frame.size.height );
+- (UIImage *)imageFromView{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 
-static CGRect oldframe;
 - (CAGradientLayer *)addLinearGradientWithColor:(UIColor *)theColor transparentToOpaque:(BOOL)transparentToOpaque
 {
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -360,72 +352,72 @@ static CGRect oldframe;
     }
 }
 
--(float)reAliginFollow:(UILabel*)label direct:(Direction)direction
-{
-    float offset = 0;
-    float lableOffset = 0;
-    
-    switch (direction) { //self相对label的方位
-        case Direct_Down:
-        {
-            if (IsSafeString(label.text) && !label.hidden) {
-#if 1
-                CGSize labsize = WP_MULTILINE_TEXTSIZE(label.text, label.font, CGSizeMake(label.frame.size.width, 9999), NSLineBreakByWordWrapping);
-#else
-                CGSize labsize = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(label.frame.size.width, 9999) lineBreakMode:NSLineBreakByWordWrapping];
-#endif
-                offset = lableOffset = labsize.height  - label.frame.size.height ;
-            } else {
-                offset = label.frame.origin.y - self.frame.origin.y;
-                lableOffset = 0 - label.frame.size.height ;
-            }
-            
-            [label strechTo:CGSizeMake(label.frame.size.width, label.frame.size.height + lableOffset) animation:false];
-            [self moveDown:[NSNumber numberWithFloat:offset] animation:false];
-            break;
-        }
-        case Direct_Up:
-            break;
-        case Direct_Left:
-        {
-            if (IsSafeString(label.text) && !label.hidden) {
-#if 1
-                CGSize labsize = WP_MULTILINE_TEXTSIZE(label.text, label.font, CGSizeMake(9999,label.frame.size.width), NSLineBreakByWordWrapping);
-#else
-                CGSize labsize = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(9999, label.frame.size.height) lineBreakMode:NSLineBreakByWordWrapping];
-#endif
-                offset = lableOffset = labsize.width  - label.frame.size.width ;
-            } else {
-                offset = label.frame.origin.x - self.frame.origin.x;
-                lableOffset = 0 - label.frame.size.width ;
-            }
-            
-            [label strechTo:CGSizeMake(label.frame.size.width + lableOffset, label.frame.size.height) animation:false];
-            [label move:-lableOffset direct:Direct_Right animation:false];
-            [self move:-offset direct:Direct_Right animation:false];
-            break;
-        }
-        case Direct_Right:
-        {
-            if (IsSafeString(label.text) && !label.hidden) {
-#if 1
-                CGSize labsize = WP_MULTILINE_TEXTSIZE(label.text, label.font, CGSizeMake(9999,label.frame.size.width), NSLineBreakByWordWrapping);
-#else
-                CGSize labsize = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(9999, label.frame.size.height) lineBreakMode:NSLineBreakByWordWrapping];
-#endif
-                offset = lableOffset = labsize.width  - label.frame.size.width ;
-            } else {
-                offset = label.frame.origin.x - self.frame.origin.x;
-                lableOffset = 0 - label.frame.size.width ;
-            }
-            
-            [label strechTo:CGSizeMake(label.frame.size.width + lableOffset, label.frame.size.height) animation:false];
-            [self move:offset direct:Direct_Right animation:false];
-            break;
-        }
-    }
-    return offset;
-}
+//-(float)reAliginFollow:(UILabel*)label direct:(Direction)direction
+//{
+//    float offset = 0;
+//    float lableOffset = 0;
+//    
+//    switch (direction) { //self相对label的方位
+//        case Direct_Down:
+//        {
+//            if (isSafeString(label.text) && !label.hidden) {
+//#if 1
+//                CGSize labsize = WP_MULTILINE_TEXTSIZE(label.text, label.font, CGSizeMake(label.frame.size.width, 9999), NSLineBreakByWordWrapping);
+//#else
+//                CGSize labsize = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(label.frame.size.width, 9999) lineBreakMode:NSLineBreakByWordWrapping];
+//#endif
+//                offset = lableOffset = labsize.height  - label.frame.size.height ;
+//            } else {
+//                offset = label.frame.origin.y - self.frame.origin.y;
+//                lableOffset = 0 - label.frame.size.height ;
+//            }
+//            
+//            [label strechTo:CGSizeMake(label.frame.size.width, label.frame.size.height + lableOffset) animation:false];
+//            [self moveDown:[NSNumber numberWithFloat:offset] animation:false];
+//            break;
+//        }
+//        case Direct_Up:
+//            break;
+//        case Direct_Left:
+//        {
+//            if (isSafeString(label.text) && !label.hidden) {
+//#if 1
+//                CGSize labsize = WP_MULTILINE_TEXTSIZE(label.text, label.font, CGSizeMake(9999,label.frame.size.width), NSLineBreakByWordWrapping);
+//#else
+//                CGSize labsize = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(9999, label.frame.size.height) lineBreakMode:NSLineBreakByWordWrapping];
+//#endif
+//                offset = lableOffset = labsize.width  - label.frame.size.width ;
+//            } else {
+//                offset = label.frame.origin.x - self.frame.origin.x;
+//                lableOffset = 0 - label.frame.size.width ;
+//            }
+//            
+//            [label strechTo:CGSizeMake(label.frame.size.width + lableOffset, label.frame.size.height) animation:false];
+//            [label move:-lableOffset direct:Direct_Right animation:false];
+//            [self move:-offset direct:Direct_Right animation:false];
+//            break;
+//        }
+//        case Direct_Right:
+//        {
+//            if (isSafeString(label.text) && !label.hidden) {
+//#if 1
+//                CGSize labsize = WP_MULTILINE_TEXTSIZE(label.text, label.font, CGSizeMake(9999,label.frame.size.width), NSLineBreakByWordWrapping);
+//#else
+//                CGSize labsize = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(9999, label.frame.size.height) lineBreakMode:NSLineBreakByWordWrapping];
+//#endif
+//                offset = lableOffset = labsize.width  - label.frame.size.width ;
+//            } else {
+//                offset = label.frame.origin.x - self.frame.origin.x;
+//                lableOffset = 0 - label.frame.size.width ;
+//            }
+//            
+//            [label strechTo:CGSizeMake(label.frame.size.width + lableOffset, label.frame.size.height) animation:false];
+//            [self move:offset direct:Direct_Right animation:false];
+//            break;
+//        }
+//    }
+//    return offset;
+//}
 
 static char kClickGecognizer;
 
@@ -700,70 +692,5 @@ static char kBorderStyle,kBorderWidth;
 }
 
 
-static CGRect oldframe;
-+(void)showImage:(UIButton*)headBtn{
-    
-    UIImage *image = headBtn.currentBackgroundImage;
-    UIWindow *window=[UIApplication sharedApplication].keyWindow;
-    
-    UIView *backgroundView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    backgroundView.backgroundColor=[UIColor blackColor];
-    backgroundView.alpha=0;
-    
-    
-    oldframe=[headBtn convertRect:headBtn.bounds toView:window];
-    
-    
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:oldframe];
-    imageView.tag=1;
-    [backgroundView addSubview:imageView];
-    [window addSubview:backgroundView];
-    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideImage:)];
-    [backgroundView addGestureRecognizer: tap];
-    
-    
-    
-    NillBlock_Nill ShowImg = ^{
-        imageView.frame=CGRectMake(imageView.frame.origin.x,imageView.frame.origin.y, 0, 0);
-        [UIView animateWithDuration:0.35 animations:^{
-            imageView.frame=CGRectMake(0,([UIScreen mainScreen].bounds.size.height-image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width)/2, [UIScreen mainScreen].bounds.size.width, image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width);
-            backgroundView.alpha = 1;
-            imageView.alpha = 0.5;
-        } completion:^(BOOL finished) {
-            
-        }];
-    };
-    
-    
-    ShowImg();
-    
-    
-#define SP_width 60.f
-    UIActivityIndicatorView* _spinnerView  = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _spinnerView.frame = CGRectMake((backgroundView.W - SP_width)/2, (backgroundView.H - SP_width)/2, SP_width, SP_width);
-    [backgroundView addSubview:_spinnerView];
-    [_spinnerView startAnimating];
-    
-    [_spinnerView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-    
-    
-    //    NSString *headUrl = [NSString stringWithFormat:DownloadHeadUrl,[SDataCenter userLogonInfo].accessToken,headBtn.OBJ];
-    //    [imageView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:headBtn.currentBackgroundImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-    //        image = headBtn.currentBackgroundImage;
-    //        [_spinnerView stopAnimating];
-    //        imageView.alpha = 1 ;
-    //    }];
-}
 
-
-+(void)hideImage:(UITapGestureRecognizer*)tap{
-    UIView *backgroundView=tap.view;
-    UIButton *imageView=(UIButton*)[tap.view viewWithTag:1];
-    [UIView animateWithDuration:0.3 animations:^{
-        imageView.frame=oldframe;
-        backgroundView.alpha=0;
-    } completion:^(BOOL finished) {
-        [backgroundView removeFromSuperview];
-    }];
-}
 @end

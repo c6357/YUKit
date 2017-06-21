@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		183AB1CB1EEE65A8005E17E7 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1C81EEE65A7005E17E7 /* SettingCell.m */; };
-		183AB1CC1EEE65A8005E17E7 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AB1C91EEE65A7005E17E7 /* SettingCell.xib */; };
 		183AB2151EEE6B5E005E17E7 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1D61EEE6B5D005E17E7 /* NavigationController.m */; };
 		183AB2161EEE6B5E005E17E7 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1D91EEE6B5D005E17E7 /* BaseTableViewController.m */; };
 		183AB2171EEE6B5E005E17E7 /* UITableView+BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB1DB1EEE6B5D005E17E7 /* UITableView+BaseClass.m */; };
@@ -36,6 +34,8 @@
 		183AB2361EEE80C5005E17E7 /* DBObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB2321EEE80C5005E17E7 /* DBObj.m */; };
 		183AB2371EEE80C5005E17E7 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 183AB2331EEE80C5005E17E7 /* img.png */; };
 		183AB2381EEE80C5005E17E7 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB2351EEE80C5005E17E7 /* UserInfo.m */; };
+		183D054B1EFA1F01007E475E /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183D05481EFA1F01007E475E /* SettingCell.m */; };
+		183D054C1EFA1F01007E475E /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183D05491EFA1F01007E475E /* SettingCell.xib */; };
 		18D22D671C3BA1AB00BB8AD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D22D661C3BA1AB00BB8AD9 /* main.m */; };
 		18D22D6A1C3BA1AB00BB8AD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D22D691C3BA1AB00BB8AD9 /* AppDelegate.m */; };
 		18D22D801C3BA1AC00BB8AD9 /* YUKitSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D22D7F1C3BA1AC00BB8AD9 /* YUKitSampleTests.m */; };
@@ -65,9 +65,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		183AB1C71EEE65A7005E17E7 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
-		183AB1C81EEE65A7005E17E7 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
-		183AB1C91EEE65A7005E17E7 /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		183AB1D11EEE6B52005E17E7 /* YUKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YUKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/YUKitSample-bjonjdehmojysrhfomvwsaklxbxw/Build/Products/Debug-iphonesimulator/YUKit.framework"; sourceTree = "<group>"; };
 		183AB1D51EEE6B5D005E17E7 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		183AB1D61EEE6B5D005E17E7 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
@@ -118,6 +115,9 @@
 		183AB2331EEE80C5005E17E7 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		183AB2341EEE80C5005E17E7 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		183AB2351EEE80C5005E17E7 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		183D05471EFA1F01007E475E /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
+		183D05481EFA1F01007E475E /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
+		183D05491EFA1F01007E475E /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		18D22D621C3BA1AB00BB8AD9 /* YUKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YUKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D22D661C3BA1AB00BB8AD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18D22D681C3BA1AB00BB8AD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,16 +167,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		183AB1C61EEE65A7005E17E7 /* SettingCell */ = {
-			isa = PBXGroup;
-			children = (
-				183AB1C71EEE65A7005E17E7 /* SettingCell.h */,
-				183AB1C81EEE65A7005E17E7 /* SettingCell.m */,
-				183AB1C91EEE65A7005E17E7 /* SettingCell.xib */,
-			);
-			path = SettingCell;
-			sourceTree = "<group>";
-		};
 		183AB1D31EEE6B5D005E17E7 /* base */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +349,24 @@
 			path = UIDebugSample;
 			sourceTree = "<group>";
 		};
+		183D05461EFA1F01007E475E /* SettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				183D05471EFA1F01007E475E /* SettingCell.h */,
+				183D05481EFA1F01007E475E /* SettingCell.m */,
+				183D05491EFA1F01007E475E /* SettingCell.xib */,
+				183D054A1EFA1F01007E475E /* YUTextView */,
+			);
+			path = SettingCell;
+			sourceTree = "<group>";
+		};
+		183D054A1EFA1F01007E475E /* YUTextView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YUTextView;
+			sourceTree = "<group>";
+		};
 		18D22D591C3BA1AB00BB8AD9 = {
 			isa = PBXGroup;
 			children = (
@@ -445,7 +453,7 @@
 		18D230291C3BC3A700BB8AD9 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				183AB1C61EEE65A7005E17E7 /* SettingCell */,
+				183D05461EFA1F01007E475E /* SettingCell */,
 				18D230361C3BC54200BB8AD9 /* vendors.h */,
 				18D2302D1C3BC4FE00BB8AD9 /* category */,
 			);
@@ -589,9 +597,9 @@
 				183AB2221EEE6B5E005E17E7 /* ListCell.xib in Resources */,
 				183AB22B1EEE6B5E005E17E7 /* RuntimeSampleViewController.storyboard in Resources */,
 				18D22D991C3BA1E600BB8AD9 /* Assets.xcassets in Resources */,
-				183AB1CC1EEE65A8005E17E7 /* SettingCell.xib in Resources */,
 				183AB2371EEE80C5005E17E7 /* img.png in Resources */,
 				18D22D9C1C3BA22B00BB8AD9 /* Main.storyboard in Resources */,
+				183D054C1EFA1F01007E475E /* SettingCell.xib in Resources */,
 				183AB2251EEE6B5E005E17E7 /* DBObjectSampleViewController.storyboard in Resources */,
 				183AB2201EEE6B5E005E17E7 /* ListViewController.storyboard in Resources */,
 				183AB22E1EEE6B5E005E17E7 /* UIDebugSampleViewController.storyboard in Resources */,
@@ -667,7 +675,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183AB1CB1EEE65A8005E17E7 /* SettingCell.m in Sources */,
 				183AB21D1EEE6B5E005E17E7 /* YU_Service.m in Sources */,
 				183AB2291EEE6B5E005E17E7 /* UserModel.m in Sources */,
 				183AB21F1EEE6B5E005E17E7 /* ListViewController.m in Sources */,
@@ -682,6 +689,7 @@
 				18D22D6A1C3BA1AB00BB8AD9 /* AppDelegate.m in Sources */,
 				183AB2231EEE6B5E005E17E7 /* YUService+Sample.m in Sources */,
 				183AB22C1EEE6B5E005E17E7 /* SampleListViewController.m in Sources */,
+				183D054B1EFA1F01007E475E /* SettingCell.m in Sources */,
 				18D22D671C3BA1AB00BB8AD9 /* main.m in Sources */,
 				183AB2381EEE80C5005E17E7 /* UserInfo.m in Sources */,
 				183AB2161EEE6B5E005E17E7 /* BaseTableViewController.m in Sources */,
@@ -834,6 +842,8 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/YUKit\"",
+					"\"${PODS_ROOT}/Headers/Public/YUDBModel\"",
 				);
 				INFOPLIST_FILE = YUKitSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -866,6 +876,8 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/YUKit\"",
+					"\"${PODS_ROOT}/Headers/Public/YUDBModel\"",
 				);
 				INFOPLIST_FILE = YUKitSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

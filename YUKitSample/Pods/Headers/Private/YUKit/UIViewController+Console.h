@@ -1,1 +1,1 @@
-../../../YUKit/YUKit/base/ViewController/UIViewController+Console.h
+../../../YUKit/YUKit/uikit/category/UIViewController+Console.h

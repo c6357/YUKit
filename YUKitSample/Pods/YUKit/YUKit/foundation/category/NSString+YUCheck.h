@@ -10,30 +10,53 @@
 
 @interface NSString (YUCheck)
 
--(BOOL)checkPhoneLength;
--(BOOL)isPhoneNo;
--(BOOL)is400PhoneNo;
--(BOOL)isLocateCallNo;
--(BOOL)isCallNo;
--(BOOL)isEmailStr;
--(BOOL)isPwd;
--(BOOL)isNumberic;
--(BOOL)isDecimal;
+/**
+ *是否可以使用 空字符串也允许
+ */
+-(BOOL)isCanBeUse;
 
+/**
+ *判断字符串是否为空，以及是否全是空格或者换行
+ */
+- (BOOL)isBlankString;
 
-- (BOOL)isWhitespaceAndNewlines;
-
+/*
+ *是否全是空格或者换行
+ */
 - (BOOL)isEmptyOrWhitespace;
+
+- (BOOL)isNormal;
+
+- (BOOL)isMobilephone;
+
+- (BOOL)isTelephone;
 
 - (BOOL)isEmail;
 
-- (BOOL)isURLString;
+- (BOOL)isUrl;
 
-- (BOOL)isHasString:(NSString*)substring;
+- (BOOL)isNumber;
 
-//非法字符
--(BOOL)isIncludeSpecialCharact;
 
-//纯数字
--(BOOL)isValidateTelNumber;
+- (BOOL)isChinese;
+
+
+- (BOOL)isDecimal;
+
+/**
+ *是否包含字符串substring
+ */
+- (BOOL)isContainString:(NSString*)substring;
+
+
+/**
+ *有非法字符
+ */
+- (BOOL)isContainSpecialCharact;
+
+/**
+ *
+ */
+- (BOOL)isIPAddress;
+
 @end

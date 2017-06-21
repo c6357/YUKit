@@ -7,9 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//static inline NSString* __intToString(NSInteger num){
+//    return num==-1?@"":[NSString stringWithFormat:@"%@",@(num)];
+//}
+
+static inline NSString* numberToString(NSUInteger num){
+    
+    return num==-1?@"":[NSString stringWithFormat:@"%@",@(num)];
+    
+}
+
+
+static inline NSString* stringWithFormat(id obj){
+    
+    return (obj==nil||[obj isEqual:[NSNull null]])?@"":[NSString stringWithFormat:@"%@",obj];
+}
+
+
 @interface NSNumber (YU)
 
-NSNumber*   __INT(int __x);
+NSNumber*   __INT(NSInteger __x);
 
 NSNumber*   __UINT(NSUInteger __x);
 
@@ -18,5 +36,8 @@ NSNumber*   __FLOAT(float __x);
 NSNumber*   __DOUBLE(double __x);
 
 NSNumber*   __BOOL(BOOL __x);
+
+
+- (NSString*)toString;
 
 @end

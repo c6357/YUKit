@@ -11,7 +11,6 @@
 #import <objc/message.h>
 #import <execinfo.h>
 #import "NSObject+YU.h"
-#import "YU_Runtime.h"
 
 #undef	MAX_CALLSTACK_DEPTH
 #define MAX_CALLSTACK_DEPTH	(64)
@@ -31,7 +30,7 @@ static char dictCustomerPropertyKey;
 
 
 - (void)swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector {
-    [YURuntime swizzleSelectorWithClass:clazz originalSelector:originalSelector withSelector:swizzledSelector];
+    [NSObject swizzleSelectorWithClass:clazz originalSelector:originalSelector withSelector:swizzledSelector];
 }
 
 + (NSArray *)callstack:(NSUInteger)depth

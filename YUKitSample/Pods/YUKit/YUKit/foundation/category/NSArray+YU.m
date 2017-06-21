@@ -10,19 +10,15 @@
 #import "YUKit.h"
 
 @implementation NSArray (YU)
--(id)objAtIndex:(NSUInteger)index
-{
-    if([self count]> index)
-    {
-        return [self objectAtIndex:index];
-    
-    }else{
-        [NSException raise:@"NSArray error" format:@"%@", @"exception:NSArray越界"];
-        NSLog(@"\nException:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/ --NSArray越界---\\\\\\\\\\\\\\\\\\\\\\\\\\n");
-        return nil;
-    }
+
+BOOL isSafeArray(NSArray *arry){
+    return  ((arry)&&(![(arry) isEqual:[NSNull null]]) &&((arry).count>0));
 }
 
+
+- (BOOL)isEmpty {
+    return [self count] == 0 ? YES : NO;
+}
 
 -(NSMutableArray*)arrayWithKey:(NSString*)key
 {
@@ -39,7 +35,7 @@
 
 -(NSMutableDictionary*)dictionaryWithKey:(NSString*)key
 {
-    if (!IsSafeArray(self)) {
+    if (!isSafeArray(self)) {
         return nil;
     }
     
@@ -57,7 +53,7 @@
 
 -(NSMutableDictionary*)dictionaryWithIntKey:(NSString*)key
 {
-    if (!IsSafeArray(self)) {
+    if (!isSafeArray(self)) {
         return nil;
     }
     
@@ -83,4 +79,36 @@
 }
 
 
+@end
+
+@implementation NSMutableArray (YU)
+
+- (id)firstObject {
+    if ([self count] == 0)
+        return nil;
+    return [self objectAtIndex:0];
+}
+
+
+- (NSMutableArray *) removeFirstObject
+{
+    if (self.count) {
+       [self removeObjectAtIndex:0];
+    }
+    return self;
+}
+
+- (NSMutableArray*)addObject:(id)object,...{
+    if (!object) return self;
+    id obj = object;
+    va_list objects;
+    va_start(objects, object);
+    do
+    {
+        [self addObject:obj];
+        obj = va_arg(objects, id);
+    } while (obj);
+    va_end(objects);
+    return self;
+}
 @end

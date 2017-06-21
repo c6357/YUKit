@@ -10,6 +10,14 @@
 
 @interface NSDictionary (YU)
 
+/*
+ * Checks to see if the dictionary is empty
+ */
+@property(nonatomic,readonly,getter=isEmpty) BOOL empty;
+
+
+-(NSDictionary*)copyToSelf:(NSDictionary*)dic;
+
 - (NSDictionary *)dictionaryByReplacingNullsWithStrings;
 
 - (BOOL)getBoolValueForKey:(NSString *)key defaultValue:(BOOL)defaultValue;

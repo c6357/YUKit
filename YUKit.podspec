@@ -13,17 +13,18 @@ s.source_files = 'YUKit/YUKitHeader.h'
 s.requires_arc = true
 
 
-#pch_AF = <<-EOS
+pch_AF = <<-EOS
 #ifdef DEBUG
 #define TBMB_DEBUG
 #endif
-#EOS
-#s.prefix_header_contents = pch_AF
+EOS
+s.prefix_header_contents = pch_AF
 
 
 #———header
 s.subspec 'header' do |ss|
-    ss.source_files  = 'YUKit/*.{h}'
+    #ss.source_files  = 'YUKit/*.{h}'
+	ss.source_files  = 'YUKit/*'
 end
 
 
@@ -81,7 +82,7 @@ s.subspec 'frameworks' do |ss|
 
 	ss.subspec 'YUKeychain' do |sss|
 		sss.ios.dependency 'YUKit/header'
-		ss.source_files = 'YUKit/frameworks/YUKeychain/**/*.{h,m,cpp,mm,c}'
+		ss.source_files = 'YUKit/frameworks/YUKeychain/*.{h,m,cpp,mm,c}'
 	end
 end
 

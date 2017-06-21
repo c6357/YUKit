@@ -7,7 +7,6 @@
 //
 
 
-#import <YUDBModel/YUDBModel.h>
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 #import "UserInfo.h"

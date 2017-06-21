@@ -15,10 +15,11 @@
     return [self dateComponentsWithDate:[NSDate date]];
 }
 
+static NSDateComponents *comps;
 +(NSDateComponents*)dateComponentsWithDate:(NSDate*)date{
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear ;
     NSCalendar *gregorian = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [gregorian components:unitFlags fromDate:date];
+    comps = [gregorian components:unitFlags fromDate:date];
     return comps;
 }
 
@@ -27,14 +28,12 @@
  *  @return (NSDateComponents)
  */
 +(NSDateComponents*)GetDateComponentsWithDate2:(NSDate*)date{
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear ;
     
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear ;//IOS7
-    
-    
-    //    unsigned unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday;//IOS8
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     [gregorian setFirstWeekday:2];//周一为一周开始
     NSDateComponents *comps = [gregorian components:unitFlags fromDate:date];
+    
     return comps;
 }
 
@@ -178,7 +177,7 @@
 /**
  * 得到当前年份某月有多少天
  *
- * @param month
+ * @param month 某月
  *
  * @return (NSInteger)
  **/
@@ -191,9 +190,9 @@
 /**
  * 得到某年某月有多少天
  *
- * @param month
- *
- * @param year
+ * @param month 月
+ * 
+ * @param year 年
  *
  * @return (NSInteger)
  **/

@@ -20,6 +20,20 @@ BOOL isSafeArray(NSArray *arry){
     return [self count] == 0 ? YES : NO;
 }
 
+- (NSString *)descriptionWithLocale:(id)locale
+{
+    NSMutableString *strM = [NSMutableString stringWithString:@"(\n"];
+    
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [strM appendFormat:@"\t%@,\n", obj];
+    }];
+    
+    [strM appendString:@")"];
+    
+    return strM;
+}
+
+
 -(NSMutableArray*)arrayWithKey:(NSString*)key
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];

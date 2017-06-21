@@ -8,44 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+UIKIT_EXTERN UIColor* RGB(CGFloat red, CGFloat green, CGFloat blue);
 
-UIColor* UIColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue);
+UIKIT_EXTERN UIColor* RGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha);
 
-#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+UIKIT_EXTERN UIColor* UIColorWithRGB(CGFloat red, CGFloat green, CGFloat blue);
+
+UIKIT_EXTERN UIColor* UIColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha);
+
+UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
+
 
 @interface UIColor (YU)
-
-
-+ (UIColor*)whiteColorWithAlpha:(CGFloat)alphaValue;
-
-
-+ (UIColor*)blackColorWithAlpha:(CGFloat)alphaValue;
-
-
-+(UIColor*)colorWithHexString:(NSString *)colorString;
-
-
-
-+ (UIColor *)colorWithHex:(unsigned int)hex;
-
-
-+ (UIColor *)colorWithHex:(unsigned int)hex alpha:(CGFloat)alpha;
-
-
-+ (UIColor *)randomColor;
-
-
-//颜色代码转RGB(如:ff9ab00)
-+ (UIColor *)colorFromHexRGB:(NSString *)inColorString;
-
-
-/**
- * 16进制颜色(html颜色值)字符串转为UIColor
- **/
-+(UIColor *)hexStringToColor: (NSString *) stringToConvert;
-
-
 /**
  The receiver's red component value. (read-only)
  
@@ -77,5 +51,47 @@ UIColor* UIColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue);
  transparent and `1.0` represents totally opaque.
  */
 @property (nonatomic, assign, readonly) CGFloat alpha;
+
+
+
+/**
+ <#Description#>
+
+ @param alphaValue <#alphaValue description#>
+ @return <#return value description#>
+ */
++ (UIColor*)whiteColorWithAlpha:(CGFloat)alphaValue;
+
+
+/**
+ <#Description#>
+
+ @param alphaValue <#alphaValue description#>
+ @return <#return value description#>
+ */
++ (UIColor*)blackColorWithAlpha:(CGFloat)alphaValue;
+
+
+/**
+ *十六进制取颜色（0xFF0000）
+ @param hex 十六进制
+ */
++ (UIColor*) colorWithHex:(unsigned int)hex;
+
++ (UIColor*) colorWithHex:(unsigned int)hex alpha:(CGFloat)alpha;
+
+/**
+ *十六进制字符串取颜色（@"#0xFF0000"）
+ @param colorString 十六进制
+ */
++ (UIColor*)colorWithHexString:(NSString *)colorString;
+
+
+/**
+ <#Description#>
+
+ @return <#return value description#>
+ */
++ (UIColor*) randomColor;
 
 @end

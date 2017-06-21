@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <YUDBModel/YUDBModel.h>
 
 
 @interface UserInfoLevel6: NSObject

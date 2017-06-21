@@ -10,34 +10,56 @@
 #import <objc/runtime.h>
 #import "YUKit.h"
 
-typedef void (^NSObjectPerformBlock)(id userObject);
+typedef void (^NSObjectPerformBlock)(_Nonnull id userObject);
 
 @interface NSObject (YU)
 
-- (void)afterBlock:(dispatch_block_t)block after:(float)time;
+- (BOOL)runUntilBlock:(nullable BOOL(^)())block timeout:(NSTimeInterval)timeout;
+
+- (void)afterBlock:(nullable dispatch_block_t)block after:(float)time;
+
++ (void)afterBlock:(nullable dispatch_block_t)block after:(float)time;
+
+- (void)performBlock:(nullable void (^)(void))block afterDelay:(NSTimeInterval)delay;
+
+- (void)performAfterDelay:(float)delay thisBlock:(nullable void (^)(BOOL finished))completion;
+
+- (void)performBlockInBackground:(nullable NSObjectPerformBlock)performBlock completion:(nullable NSObjectPerformBlock)completionBlock userObject:(nullable id)userObject;
+
+- (void)countdDown:(NSInteger)timeOut Done:(nullable NillBlock_Nill)done Time:(nullable NillBlock_Integer)time NS_DEPRECATED_IOS(8_0,10_0,"iOS8.0之后使用");
 
 
-- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
+#pragma mark -
+#pragma mark - NSNotification
+- (void)addNotification:(nullable SEL)aSelector name:(nullable NSNotificationName)aName;
 
+- (void)addNotification:(nullable SEL)aSelector name:(nullable NSNotificationName)aName object:(nullable id)anObject;
 
-- (void)performAfterDelay:(float)delay thisBlock:(void (^)(BOOL finished))completion;
+- (void)postNotificationName:(_Nonnull NSNotificationName)aName;
 
+- (void)postNotificationName:(nullable NSNotificationName)aName object:(nullable id)anObject;
 
-- (void)performBlockInBackground:(NSObjectPerformBlock)performBlock completion:(NSObjectPerformBlock)completionBlock userObject:(id)userObject;
+- (void)postNotificationName:(nullable NSNotificationName)aName object:(nullable id)anObject userInfo:(nullable NSDictionary *)aUserInfo;
 
+- (void)removeNotification:(nullable NSNotificationName)aName;
 
-- (void)countdDown:(NSInteger)timeOut Done:(NillBlock_Nill)done Time:(NillBlock_Integer)time NS_DEPRECATED_IOS(8_0,10_0,"iOS8.0之后使用");
+- (void)removeNotification:(nullable NSNotificationName)aName object:(nullable id)anObject;
 
+- (void)removeAllNotification;
 
-- (id)getAssociatedObjectForKey:(const char *)key;
-- (id)setAssociatedObject:(id)obj forKey:(const char *)key policy:(objc_AssociationPolicy)policy;
-- (void)removeAssociatedObjectForKey:(const char *)key policy:(objc_AssociationPolicy)policy;
+#pragma mark -
+#pragma mark - runtime
++ (void)swizzleSelectorWithClass:(_Nonnull Class)clazz originalSelector:(_Nonnull SEL)originalSelector withSelector:(_Nonnull SEL)swizzledSelector ;
+
+- (_Nonnull id)getAssociatedObjectForKey:( const char * _Nonnull )key;
+- (_Nonnull id)setAssociatedObject:(_Nonnull id)obj forKey:( const char * _Nonnull )key policy:(objc_AssociationPolicy)policy;
+- (void)removeAssociatedObjectForKey:(const char * _Nonnull )key policy:(objc_AssociationPolicy)policy;
 - (void)removeAllAssociatedObjects;
 
 
-+ (id)getAssociatedObjectForKey:(const char *)key;
-+ (id)setAssociatedObject:(id)obj forKey:(const char *)key policy:(objc_AssociationPolicy)policy;
-+ (void)removeAssociatedObjectForKey:(const char *)key policy:(objc_AssociationPolicy)policy;
++ (_Nonnull id)getAssociatedObjectForKey:(const char *_Nonnull )key;
++ (_Nonnull id)setAssociatedObject:(_Nonnull id)obj forKey:(const char *_Nonnull )key policy:(objc_AssociationPolicy)policy;
++ (void)removeAssociatedObjectForKey:(const char *_Nonnull )key policy:(objc_AssociationPolicy)policy;
 + (void)removeAllAssociatedObjects;
 
 @end

@@ -18,13 +18,11 @@
     
     UIAlertAction *submit = [UIAlertAction actionWithTitle:submitTitle style:UIAlertActionStyleDefault handler:submitBlock];
     
-    // 先加入的在左边
     [alertController addAction:cancel];
     [alertController addAction:submit];
     
     [alertController presentViewController:[self lastPresentedViewController] animated:YES completion:completedBlock];
 }
-
 
 + (void)defaultAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void (^)(UIAlertAction * ))cancelBlock completedBlock:(void (^)(void))completedBlock
 {
@@ -35,7 +33,6 @@
     [alertController addAction:cancel];
     
     [alertController presentViewController:[self lastPresentedViewController] animated:YES completion:completedBlock];
-    
 }
 
 + (UIViewController*)lastPresentedViewController

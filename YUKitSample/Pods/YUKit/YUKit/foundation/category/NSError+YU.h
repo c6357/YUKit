@@ -15,8 +15,6 @@
 + (NSError *)errorWithMsg:(NSString *)msg;
 + (NSError *)errorWithMsg:(NSString*)msg obj:(id)obj;
 
-
-
 + (NSError *)errorWithCode:(int)code;
 + (NSError *)errorWithCode:(NSString*)code msg:(NSString*)msg;
 + (NSError *)errorWithCode:(NSString*)code msg:(NSString*)msg obj:(id)obj;

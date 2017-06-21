@@ -13,7 +13,7 @@
 //  Copyright © 2015年 BruceYu. All rights reserved.
 //
 
-#import "LIstViewController.h"
+#import "ListViewController.h"
 #import "YUService+Sample.h"
 #import "ListCell.h"
 

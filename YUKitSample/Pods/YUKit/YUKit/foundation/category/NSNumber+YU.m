@@ -10,8 +10,8 @@
 
 @implementation NSNumber (YU)
 
-NSNumber*   __INT(int __x){
-    return [NSNumber numberWithInt:__x];
+NSNumber*   __INT(NSInteger __x){
+    return [NSNumber numberWithInteger:__x];
 }
 
 NSNumber*   __UINT(NSUInteger __x){
@@ -28,6 +28,10 @@ NSNumber*   __DOUBLE(double __x){
 
 NSNumber*  __BOOL(BOOL __x){
     return [NSNumber numberWithBool:__x];
+}
+
+-(NSString*)toString{
+    return [NSString stringWithFormat:@"%@",self];
 }
 
 @end

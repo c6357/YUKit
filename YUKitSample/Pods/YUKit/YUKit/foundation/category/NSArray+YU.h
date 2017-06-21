@@ -10,8 +10,11 @@
 
 @interface NSArray (YU)
 
+/*
+ * Checks to see if the array is empty
+ */
+@property(nonatomic,readonly,getter=isEmpty) BOOL empty;
 
--(id)objAtIndex:(NSUInteger)index;
 
 -(NSMutableArray*)arrayWithKey:(NSString*)key;
 
@@ -20,5 +23,16 @@
 -(NSMutableDictionary*)dictionaryWithIntKey:(NSString*)key;
 
 +(id)arrayWithCArray:(char**)strs len:(NSInteger)length;
+
+@end
+
+
+@interface NSMutableArray(YU)
+
+- (id)firstObject;
+
+- (NSMutableArray *) removeFirstObject;
+
+- (NSMutableArray*)addObject:(id)object,...;
 
 @end

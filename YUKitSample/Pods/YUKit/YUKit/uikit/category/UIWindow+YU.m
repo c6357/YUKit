@@ -12,15 +12,16 @@
 
 @implementation UIWindow (YU)
 #if 1
+
+#ifdef TOUCHDEBUG
 + (void)load
 {
-#ifdef TOUCHDEBUG
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self swizzleSelectorWithClass:[UIWindow class] originalSelector:@selector(sendEvent:)  withSelector:@selector(mySendEvent:)];
     });
-#endif
 }
+#endif
 
 - (void)mySendEvent:(UIEvent *)event
 {
@@ -110,6 +111,7 @@
 
 @implementation UIView (Debug)
 
+   #if 0
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -123,6 +125,7 @@
         [self swizzleSelectorWithClass:[self class] originalSelector:@selector(setFrame:) withSelector:@selector(setFrame_debug:)];
     });
 }
+#endif
 
 -(id)init_debug{
     

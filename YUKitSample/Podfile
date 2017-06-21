@@ -9,6 +9,6 @@ target 'YUKitSample' do
     pod 'MJRefresh'#, '~> 3.1.0'
     pod 'Masonry'#, '~> 1.0.0'
     pod 'YUDBModel'#, '~> 1.0.0'
-    pod 'YUKit'
+    pod 'YUKit'#, '~> 2.0.3'
 end
 

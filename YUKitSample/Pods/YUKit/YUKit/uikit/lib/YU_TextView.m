@@ -119,13 +119,9 @@
     CGRect TitleRect = self.frame;
     CGSize actualsize;
     
-    if(isiOS7()){
-        NSDictionary * attribute = [NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName,nil];
-        actualsize = [currentText boundingRectWithSize:CGSizeMake(self.frame.size.width, 980) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-        
-    }else{
-        WarnIgnore_Deprecate(actualsize = [currentText sizeWithFont:self.font constrainedToSize:CGSizeMake(self.frame.size.width, 980)lineBreakMode:NSLineBreakByWordWrapping];);
-    }
+    NSDictionary * attribute = [NSDictionary dictionaryWithObjectsAndKeys:self.font,NSFontAttributeName,nil];
+    actualsize = [currentText boundingRectWithSize:CGSizeMake(self.frame.size.width, 980) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+    
     TitleRect.size.height = actualsize.height+10;
     self.frame = TitleRect;
 }

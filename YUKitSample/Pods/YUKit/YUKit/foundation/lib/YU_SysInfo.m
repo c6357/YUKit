@@ -7,54 +7,98 @@
 //
 
 #import "YU_SysInfo.h"
+#import "YUKit.h"
 #import <sys/sysctl.h>
 #import <mach/mach.h>
 #import <objc/runtime.h>
 
 #pragma mark -
-CGSize APP_ScreenSize(){
-    return [UIScreen mainScreen].currentMode.size;
-}
 
-CGFloat APP_Screen_Width(){
-    return [UIScreen mainScreen].bounds.size.width;
-}
 
-CGFloat APP_Screen_Height(){
-    return [UIScreen mainScreen].bounds.size.height;
-}
+//CGFloat AppScreenScale(){
+//    return [UIScreen mainScreen].scale;
+//}
+
+//CGFloat AppOnePhysicalPx(){
+//    return (CGFloat)1.f/AppScreenScale();
+//}
+
+//CGSize AppScreenSize(){
+//    return [UIScreen mainScreen].currentMode.size;
+//}
+
+//CGFloat AppScreenWidth(){
+//    return [UIScreen mainScreen].bounds.size.width;
+//}
+//
+//CGFloat AppScreenHeight(){
+//    return [UIScreen mainScreen].bounds.size.height;
+//}
 
 #pragma mark -
-CGFloat APP_WIDTH(){
-    return [[UIScreen mainScreen]applicationFrame].size.width;
-}
 
-CGFloat APP_HEIGHT(){
-    return [[UIScreen mainScreen]applicationFrame].size.height;
-}
+//CGFloat AppWidth(){
+//    return [[UIScreen mainScreen]applicationFrame].size.width;
+//}
+//
+//CGFloat AppHeight(){
+//    return [[UIScreen mainScreen]applicationFrame].size.height;
+//}
 
 #pragma mark -
-NSString *APP_Version()
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-}
+//NSString *AppVersion()
+//{
+//    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//}
+//
+//NSString *AppBuildVersion()
+//{
+//    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+//}
+//
+//
+//NSString *AppBundleName()
+//{
+//    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+//}
+//
+//NSString *AppIdentifier()
+//{
+//    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+//}
 
-NSString *APP_BuildVersion()
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-}
+//NSURL *AppDocumentsURL(){
+//    return [[[NSFileManager defaultManager]
+//             URLsForDirectory:NSDocumentDirectory
+//             inDomains:NSUserDomainMask] lastObject];
+//}
+//
+//NSString *AppDocumentsPath(){
+//    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//}
+//
+//NSURL *AppCachesURL(){
+//    return [[[NSFileManager defaultManager]
+//             URLsForDirectory:NSCachesDirectory
+//             inDomains:NSUserDomainMask] lastObject];
+//}
+//
+//NSString *AppCachesPath(){
+//    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+//}
+//
+//NSURL *AppLibraryURL(){
+//    return [[[NSFileManager defaultManager]
+//             URLsForDirectory:NSLibraryDirectory
+//             inDomains:NSUserDomainMask] lastObject];
+//}
+//
+//NSString *AppLibraryPath(){
+//    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
+//}
 
-NSString *APP_BundleName()
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
-}
 
-NSString *APP_Identifier()
-{
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-}
-
-NSString *APP_BundleSeedID()
+NSString *AppBundleSeedID()
 {
     NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
                            (__bridge id)(kSecClassGenericPassword), kSecClass,
@@ -75,7 +119,7 @@ NSString *APP_BundleSeedID()
     return bundleSeedID;
 }
 
-NSString *APP_SchemaWithName(NSString *name)
+NSString *AppSchemaWithName(NSString *name)
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     NSArray * array = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
@@ -113,42 +157,14 @@ NSString *APP_SchemaWithName(NSString *name)
 #endif
 }
 
-NSString *APP_Schema()
+NSString *AppSchema()
 {
-    return APP_SchemaWithName(nil);
+    return AppSchemaWithName(nil);
 }
 
-NSURL *APP_DocumentsURL(){
-    return [[[NSFileManager defaultManager]
-             URLsForDirectory:NSDocumentDirectory
-             inDomains:NSUserDomainMask] lastObject];
-}
 
-NSString *APP_DocumentsPath(){
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-}
 
-NSURL *APP_CachesURL(){
-    return [[[NSFileManager defaultManager]
-             URLsForDirectory:NSCachesDirectory
-             inDomains:NSUserDomainMask] lastObject];
-}
-
-NSString *APP_CachesPath(){
-    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-}
-
-NSURL *APP_LibraryURL(){
-    return [[[NSFileManager defaultManager]
-             URLsForDirectory:NSLibraryDirectory
-             inDomains:NSUserDomainMask] lastObject];
-}
-
-NSString *APP_LibraryPath(){
-    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
-}
-
-int64_t APP_MemoryUsage()
+int64_t AppMemoryUsage()
 {
     struct task_basic_info info;
     mach_msg_type_number_t size = sizeof(info);
@@ -157,7 +173,7 @@ int64_t APP_MemoryUsage()
     return info.resident_size;
 }
 
-float APP_CpuUsage()
+CGFloat AppCpuUsage()
 {
     kern_return_t kr;
     task_info_data_t tinfo;
@@ -184,7 +200,7 @@ float APP_CpuUsage()
     
     long tot_sec = 0;
     long tot_usec = 0;
-    float tot_cpu = 0;
+    double tot_cpu = 0;
     int j;
     
     for (j = 0; j < thread_count; j++) {
@@ -200,7 +216,7 @@ float APP_CpuUsage()
         if (!(basic_info_th->flags & TH_FLAGS_IDLE)) {
             tot_sec = tot_sec + basic_info_th->user_time.seconds + basic_info_th->system_time.seconds;
             tot_usec = tot_usec + basic_info_th->system_time.microseconds + basic_info_th->system_time.microseconds;
-            tot_cpu = tot_cpu + basic_info_th->cpu_usage / (float)TH_USAGE_SCALE;
+            tot_cpu = tot_cpu + basic_info_th->cpu_usage / (double)TH_USAGE_SCALE;
         }
     }
     

@@ -13,9 +13,9 @@
 
 +(void)showMsg:(NSString*)msg;
 
-+(void)ShowInfo:(NSString*)info time:(CGFloat)time;
++(void)showInfo:(NSString*)title time:(CGFloat)time;
 
-+(UIAlertView*)ShowConfirmInfo:(NSString*)info delegate:(id)delegate;
++(UIAlertView*)showConfirmInfo:(NSString*)title delegate:(id)delegate;
 
 //+ (void)alertView:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void(^)())cancelBlock;
 //

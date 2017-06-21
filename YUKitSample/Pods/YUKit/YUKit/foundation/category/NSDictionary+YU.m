@@ -9,6 +9,22 @@
 #import "NSDictionary+YU.h"
 
 @implementation NSDictionary (YU)
+
+- (BOOL)isEmpty {
+    return [self count] == 0 ? YES : NO;
+}
+
+
+-(NSDictionary*)copyToSelf:(NSDictionary*)dic{
+    NSMutableDictionary *returnDic = [NSMutableDictionary new];
+    for (NSString *key in dic.allKeys) {
+        if ([self.allKeys containsObject:key]) {
+            [returnDic setObject:dic[key] forKey:key];
+        };
+    }
+    return returnDic;
+}
+
 - (NSDictionary *)dictionaryByReplacingNullsWithStrings {
     
     const NSMutableDictionary *replaced = [NSMutableDictionary dictionaryWithDictionary: self];

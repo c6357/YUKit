@@ -9,11 +9,56 @@
 #import "UIButton+YU.h"
 #import <objc/runtime.h>
 
-@implementation UIButton (YU)
 static char topNameKey;
 static char rightNameKey;
 static char bottomNameKey;
 static char leftNameKey;
+@implementation UIButton (YU)
+
++(UIButton*)buttonWithImage:(UIImage*)image  target:(id)target action:(SEL)action
+{
+   return [self buttonWithImage:image frame:CGRectMake(0, 0, image.size.width, image.size.height) target:target action:action];
+}
+
++(UIButton*)buttonWithImage:(UIImage*)image frame:(CGRect)frame  target:(id)target action:(SEL)action
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = frame;
+    [button setImage:image forState:UIControlStateNormal];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
++(UIButton *)buttonWithTitle:(NSString*)title target:(id)target action:(SEL)action{
+    
+    return [self buttonWithTitle:title titleColor:[UIColor blackColor] target:target action:action];
+}
+
++(UIButton *)buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor target:(id)target action:(SEL)action
+{
+    return [self buttonWithFrame:CGRectMake(0, 0, 22*title.length, 44) title:title titleColor:titleColor font:[UIFont systemFontOfSize:13] target:target action:action];
+}
+
++(UIButton *)buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action
+{
+    return [self buttonWithFrame:CGRectMake(0, 0, 22*title.length, 44) title:title titleColor:titleColor font:font target:target action:action];
+}
+
++(UIButton*)buttonWithFrame:(CGRect)frame title:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = frame;
+    [button setTitle:title forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:13];
+    [button setTitleColor:titleColor forState:UIControlStateNormal];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
+
 
 - (void)setEnlargeEdge:(CGFloat) size
 {

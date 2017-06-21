@@ -35,16 +35,19 @@
 - (NSString *)SHA256Sum;
 
 
+
+
 - (NSData *)AES128Operation:(CCOperation)operation key:(NSString *)key;
 
 
-
-- (NSString *)base64EncodedString;
-+ (NSData *)dataFromBase64String:(NSString *)aString;
-
-
 - (NSData *)DESEncryptWithKey:(NSString *)key;
+
+
 - (NSData *)DESDecryptWithKey:(NSString *)key;
 
 
 @end
+
+
+
+

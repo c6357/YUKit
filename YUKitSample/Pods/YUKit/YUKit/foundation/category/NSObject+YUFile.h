@@ -21,7 +21,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  *  @return <#return value description#>
  */
-+(NSString*)fileString:(NSString*)name ext:(NSString*)ext;
++(NSString*)fileStringWithName:(NSString*)name ext:(NSString*)ext;
 
 
 /**
@@ -32,7 +32,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  *  @return <#return value description#>
  */
-+(NSDictionary*)fileDictionary:(NSString*)name ext:(NSString*)ext;
++(NSDictionary*)fileDictionaryWithName:(NSString*)name ext:(NSString*)ext;
 
 
 /**
@@ -43,26 +43,8 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  *  @return <#return value description#>
  */
-+(NSArray*)FileArray:(NSString*)name ext:(NSString*)ext;
++(NSArray*)fileArrayWithName:(NSString*)name ext:(NSString*)ext;
 
-
-/**
- *  <#Description#>
- *
- *  @param Obj <#Obj description#>
- *  @param Key <#Key description#>
- */
-+(void)setUserDefaults :(id)Obj forKey:(NSString*)Key;
-
-
-/**
- *  <#Description#>
- *
- *  @param Key <#Key description#>
- *
- *  @return <#return value description#>
- */
-+(id)userDefaultsForKey:(NSString*)Key;
 
 
 /**
@@ -92,7 +74,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
 /**
  *  遍历文件夹获得文件夹大小，
  *
- *  @param filePath 文件夹的的路径
+ *  @param folderPath 文件夹的的路径
  *
  *  @return 返回文件夹大小(多少M)
  */
@@ -105,7 +87,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回所有文件属性dic
  **/
-+ (NSMutableArray*)getFilePathInDocumentsDir:(NSString*)path;
++ (NSMutableArray*)filePathInDocumentsDir:(NSString*)path;
 
 
 
@@ -116,7 +98,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回创建成功的文件夹路径
  **/
-+ (NSString*)createFileDirectories:(NSString*)Directories;
++ (NSString*)createDocumentsDirectoryWithName:(NSString*)Directories;
 
 
 
@@ -127,7 +109,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回创建成功的文件夹路径
  **/
-+ (NSString*)createTempDirectories:(NSString*)Directories;
++ (NSString*)createTempDirectoriesWithName:(NSString*)Directories;
 
 
 
@@ -138,7 +120,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回操作结果(bool)
  **/
-+ (BOOL)removeItemAtPath:(NSString*)FilePath;
++ (BOOL)removeFileAtPath:(NSString*)FilePath;
 
 
 @end

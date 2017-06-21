@@ -10,4 +10,19 @@
 
 @interface UIResponder (YU)
 
+/**
+ recently Controller;
+
+ @return <#return value description#>
+ */
+- (UIViewController*)recentlyController;
+
+
+/**
+ recently NavigationContoller
+
+ @return <#return value description#>
+ */
+- (UINavigationController*)recentlyNavigationContoller;
+
 @end

@@ -17,8 +17,8 @@
  
  @return `nil` in an application extension, otherwise the app instance is created in the `UIApplicationMain` function.
  */
-+ (UIApplication *)yu_sharedApplication;
-
-+ (void)load;
+//+ (UIApplication *)yu_sharedApplication;
+//
+//+ (void)load;
 
 @end

@@ -1,1 +1,1 @@
-../../../YUKit/YUKit/base/ViewController/UIViewController+Storyboard.h
+../../../YUKit/YUKit/uikit/category/UIViewController+Storyboard.h

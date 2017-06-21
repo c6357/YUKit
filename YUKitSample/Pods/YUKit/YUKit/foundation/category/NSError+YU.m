@@ -59,8 +59,4 @@
     return [NSError errorWithDomain:YU_ERROR_DOMAIN code:code ? [code integerValue] : NOT_DEFINED userInfo:userInfo];
 }
 
-
-
-
-
 @end

@@ -20,8 +20,8 @@ typedef enum : NSUInteger {
     Input_TextView
 } Input_TextType;
 
-typedef void (^NillBlock_OBJ)(id obj);
-typedef void (^NillBlock_Nill)(void);
+//typedef void (^NillBlock_OBJ)(id obj);
+//typedef void (^NillBlock_Nill)(void);
 
 
 

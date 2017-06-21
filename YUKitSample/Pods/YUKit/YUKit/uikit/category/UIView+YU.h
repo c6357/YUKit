@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (YU)
--(CGFloat)W;
--(CGFloat)H;
--(CGFloat)TX;
--(CGFloat)TY;
--(CGFloat)BX;
--(CGFloat)BY;
+
+
++(UIView *)viewWithTitle:(NSString*)title;
+
+
+- (UIImage *)imageFromView;
+
+
 
 /**
  Method that adds a gradient sublayer inthat view
@@ -93,9 +95,5 @@ enum {
 -(void)setViewBorderStyle:(NSInteger)viewBorderStyle;
 -(void)setViewBorderLineWidth:(NSInteger)viewBorderLineWidth;
 
-/**
- *	@brief	浏览头像
- *	@param 	imageView 	头像所在的View
- */
-+(void)showImage:(UIButton*)headBtn;
+
 @end

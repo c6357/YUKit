@@ -132,7 +132,7 @@ YUSingletonM(AddressBook)
             if(phones != NULL) CFRelease(phones);
             
             
-            if (IsSafeString(addressBookObj.pbone)) {
+            if (isSafeString(addressBookObj.pbone)) {
                 [_addressBooksArr addObject:addressBookObj];
             }
             

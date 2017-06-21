@@ -10,12 +10,16 @@
 
 @interface UIBarButtonItem (YU)
 
-+(UIBarButtonItem*)buttonItemWith:(id)VC sel:(SEL)sel;
++(UIBarButtonItem *)buttonItemWithImage:(UIImage*)image target:(id)target action:(SEL)action;
 
++(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)rightTitleBtn:(id)VC Title:(NSString *)Title;
++(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor  target:(id)target action:(SEL)action;
 
++(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title font:(UIFont*)font target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)leftTitleBtn:(id)VC Title:(NSString *)Title;
++(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action;
+
++(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment;
 
 @end

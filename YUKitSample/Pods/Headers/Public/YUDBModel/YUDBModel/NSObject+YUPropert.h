@@ -1,1 +1,1 @@
-../../../../YUDBModel/YUDBModel/YUDBModel.framework/Headers/NSObject+YUPropert.h
+../../../../YUDBModel/YUDBModel.framework/Headers/NSObject+YUPropert.h

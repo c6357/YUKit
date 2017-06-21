@@ -7,7 +7,7 @@
 //
 
 #import "SettingCell.h"
-#import <Masonry/Masonry.h>
+
 
 @interface SettingCell()<UITextViewDelegate>
 @property (strong, nonatomic)UISwitch *accessorySwitch;

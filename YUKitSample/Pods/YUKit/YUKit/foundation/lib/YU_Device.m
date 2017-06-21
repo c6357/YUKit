@@ -13,17 +13,21 @@
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 #import <sys/sysctl.h>
+#import <sys/utsname.h>
 #import <mach/mach.h>
 #import <objc/runtime.h>
 #include <net/if.h>
 #include <net/if_dl.h>
+#import <UIKit/UIKit.h>
+#import "YUKit.h"
+#import "Reachability.h"
 
-NSString *Device_CurrentLanguage()
+NSString *DeviceCurrentLanguage()
 {
     return [[NSLocale preferredLanguages] objectAtIndex:0];
 }
 
-NSString *Device_Model()
+NSString *DeviceModel()
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     return [UIDevice currentDevice].model;
@@ -32,12 +36,12 @@ NSString *Device_Model()
 #endif
 }
 
-NSString *Device_UUID()
+NSString *DeviceUuid()
 {
     return nil;
 }
 
-NSString *Device_LocalHost(){
+NSString *DeviceLocalhost(){
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
@@ -68,7 +72,7 @@ NSString *Device_LocalHost(){
     return address;
 }
 
-NSString *Device_MachineModel()
+NSString *DeviceMachineModel()
 {
     static dispatch_once_t one;
     static NSString *model;
@@ -83,12 +87,19 @@ NSString *Device_MachineModel()
     return model;
 }
 
-NSString *Device_MachineModelName()
+//Models
+//https://www.theiphonewiki.com/wiki/Models
+NSString *DeviceMachineModelName()
 {
+//    struct utsname systemInfo;
+//    uname(&systemInfo);
+//    
+//    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
+
     static dispatch_once_t one;
     static NSString *name;
     dispatch_once(&one, ^{
-        NSString *model = Device_MachineModel();
+        NSString *model = DeviceMachineModel();
         if (!model) return;
         NSDictionary *dic = @{
                               @"Watch1,1" : @"Apple Watch",
@@ -117,7 +128,11 @@ NSString *Device_MachineModelName()
                               @"iPhone7,1" : @"iPhone 6 Plus",
                               @"iPhone7,2" : @"iPhone 6",
                               @"iPhone8,1" : @"iPhone 6s",
-                              @"iPhone8,2" : @"iPhone 6s Plus",
+                              @"iPhone9,1" : @"iPhone 7",
+                              @"iPhone9,3" : @"iPhone 7",
+                              @"iPhone9,2" : @"iPhone 7 Plus",
+                              @"iPhone9,4" : @"iPhone 7 Plus",
+                              
                               
                               @"iPad1,1" : @"iPad 1",
                               @"iPad2,1" : @"iPad 2 (WiFi)",
@@ -146,6 +161,11 @@ NSString *Device_MachineModelName()
                               @"iPad5,2" : @"iPad mini 4",
                               @"iPad5,3" : @"iPad Air 2",
                               @"iPad5,4" : @"iPad Air 2",
+                              @"iPad6,3" : @"iPad pro",
+                              @"iPad6,4" : @"iPad pro",
+                              @"iPad6,7" : @"iPad pro",
+                              @"iPad6,8" : @"iPad pro",
+                              
                               
                               @"i386" : @"Simulator x86",
                               @"x86_64" : @"Simulator x64",
@@ -156,7 +176,7 @@ NSString *Device_MachineModelName()
     return name;
 }
 
-NSString *Device_SystemUptime()
+NSString *DeviceSystemUptime()
 {
     NSInteger ti = (NSInteger)[[NSProcessInfo processInfo] systemUptime];
     NSInteger seconds = ti % 60;
@@ -170,7 +190,7 @@ NSString *Device_SystemUptime()
 
 #pragma mark -
 #pragma mark - Network Information
-NSString *Device_MacAddress(){
+NSString *DeviceMacAddress(){
     int                 mgmtInfoBase[6];
     char                *msgBuffer = NULL;
     size_t              length;
@@ -232,7 +252,7 @@ NSString *Device_MacAddress(){
     return macAddressString;
 }
 
-NSString *Device_IpAddressWIFI()
+NSString *DeviceIpAddressWifi()
 {
     NSString *address = nil;
     struct ifaddrs *addrs = NULL;
@@ -252,7 +272,7 @@ NSString *Device_IpAddressWIFI()
     freeifaddrs(addrs);
     return address;
 }
-NSString *Device_IpAddressCell()
+NSString *DeviceIpAddressCell()
 {
     NSString *address = nil;
     struct ifaddrs *addrs = NULL;
@@ -274,28 +294,28 @@ NSString *Device_IpAddressCell()
 }
 
 BOOL isConnectedViaWiFi () {
-//    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-//    [reachability startNotifier];
-//    NetworkStatus status = [reachability currentReachabilityStatus];
-//    if (status == ReachableViaWiFi)
-//        return YES;
-//    else
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    if (status == ReachableViaWiFi)
+        return YES;
+    else
         return NO;
 }
 
 BOOL isConnectedVia3G (){
-//    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-//    [reachability startNotifier];
-//    NetworkStatus status = [reachability currentReachabilityStatus];
-//    if (status == ReachableViaWWAN)
-//        return YES;
-//    else
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    if (status == ReachableViaWWAN)
+        return YES;
+    else
         return NO;
 }
 
 #pragma mark -
 #pragma mark - Disk Space
-int64_t Device_DiskSpace()
+int64_t DeviceDiskSpace()
 {
     NSError *error = nil;
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
@@ -304,7 +324,7 @@ int64_t Device_DiskSpace()
     if (space < 0) space = -1;
     return space;
 }
-int64_t Device_DiskSpaceFree()
+int64_t DeviceDiskSpaceFree()
 {
     NSError *error = nil;
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
@@ -313,10 +333,10 @@ int64_t Device_DiskSpaceFree()
     if (space < 0) space = -1;
     return space;
 }
-int64_t Device_DiskSpaceUsed()
+int64_t DeviceDiskSpaceUsed()
 {
-    int64_t total = Device_DiskSpace();
-    int64_t free = Device_DiskSpaceFree();
+    int64_t total = DeviceDiskSpace();
+    int64_t free = DeviceDiskSpaceFree();
     if (total < 0 || free < 0) return -1;
     int64_t used = total - free;
     if (used < 0) used = -1;
@@ -325,13 +345,13 @@ int64_t Device_DiskSpaceUsed()
 
 #pragma mark -
 #pragma mark - Memory Information
-int64_t Device_MemoryTotal()
+int64_t DeviceMemoryTotal()
 {
     int64_t mem = [[NSProcessInfo processInfo] physicalMemory];
     if (mem < -1) mem = -1;
     return mem;
 }
-int64_t Device_MemoryUsed()
+int64_t DeviceMemoryUsed()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -345,7 +365,7 @@ int64_t Device_MemoryUsed()
     if (kern != KERN_SUCCESS) return -1;
     return page_size * (vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count);
 }
-int64_t Device_MemoryFree()
+int64_t DeviceMemoryFree()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -359,7 +379,7 @@ int64_t Device_MemoryFree()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.free_count * page_size;
 }
-int64_t Device_MemoryActive()
+int64_t DeviceMemoryActive()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -373,7 +393,7 @@ int64_t Device_MemoryActive()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.active_count * page_size;
 }
-int64_t Device_MemoryInactive()
+int64_t DeviceMemoryInactive()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -387,7 +407,7 @@ int64_t Device_MemoryInactive()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.inactive_count * page_size;
 }
-int64_t Device_MemoryWired()
+int64_t DeviceMemoryWired()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -401,7 +421,7 @@ int64_t Device_MemoryWired()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.wire_count * page_size;
 }
-int64_t Device_MemoryPurgable()
+int64_t DeviceMemoryPurgable()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -418,12 +438,12 @@ int64_t Device_MemoryPurgable()
 
 #pragma mark -
 #pragma mark - CPU Information
-NSInteger Device_CpuCount()
+NSInteger DeviceCpuCount()
 {
     return [NSProcessInfo processInfo].activeProcessorCount;
 }
 
-NSArray *Device_CpuUsagePerProcessor()
+NSArray *DeviceCpuUsagePerProcessor()
 {
     processor_info_array_t _cpuInfo, _prevCPUInfo = nil;
     mach_msg_type_number_t _numCPUInfo, _numPrevCPUInfo = 0;
@@ -470,31 +490,31 @@ NSArray *Device_CpuUsagePerProcessor()
         return nil;
     }
 }
-float Device_CpuUsage()
+CGFloat DeviceCpuUsage()
 {
     float cpu = 0;
-    NSArray *cpus = Device_CpuUsagePerProcessor();
+    NSArray *cpus = DeviceCpuUsagePerProcessor();
     if (cpus.count == 0) return -1;
     for (NSNumber *n in cpus) {
-        cpu += n.floatValue;
+        cpu += n.doubleValue;
     }
     return cpu;
 }
 
-#pragma mark -
-#pragma marrk - check sysInfo
-NSString *Device_SystemVersion()
+NSString *DeviceSystemVersion()
 {
     return [[UIDevice currentDevice] systemVersion];
 }
 
 static const char * __jb_app = NULL;
-NSString *jailBreaker()NS_AVAILABLE_IOS(4_0){
+NSString *JailbreakerString()NS_AVAILABLE_IOS(4_0){
 #if (TARGET_OS_IPHONE)
     return __jb_app?[NSString stringWithUTF8String:__jb_app]:@"";
 #endif
 }
 
+#pragma mark -
+#pragma marrk - check sysInfo
 BOOL isJailbrokenUser()NS_AVAILABLE_IOS(4_0)
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
@@ -573,7 +593,7 @@ BOOL isSimulator()
     static dispatch_once_t one;
     static BOOL simu = NO;
     dispatch_once(&one, ^{
-        NSString *model = Device_MachineModel();
+        NSString *model = DeviceMachineModel();
         if ([model isEqualToString:@"x86_64"] || [model isEqualToString:@"i386"]) {
             simu = YES;
         }
@@ -591,49 +611,57 @@ BOOL canMakePhoneCalls()
     return can;
 }
 
-BOOL isiTV()NS_ENUM_AVAILABLE_IOS(9_0)
-{
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomTV);
-}
 
-BOOL isiPad()NS_ENUM_AVAILABLE_IOS(3_2)
-{
-    static dispatch_once_t one;
-    static BOOL pad;
-    dispatch_once(&one, ^{
-        pad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-    });
-    return pad;
-}
 
-BOOL isiPhone()NS_ENUM_AVAILABLE_IOS(3_2)
-{
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
-}
+//BOOL isiTV()NS_ENUM_AVAILABLE_IOS(9_0)
+//{
+//    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomTV);
+//}
+//
+//BOOL isiPad()NS_ENUM_AVAILABLE_IOS(3_2)
+//{
+//    static dispatch_once_t one;
+//    static BOOL pad;
+//    dispatch_once(&one, ^{
+//        pad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+//    });
+//    return pad;
+//}
+//
+//BOOL isiPhone()NS_ENUM_AVAILABLE_IOS(3_2)
+//{
+//    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
+//}
 
-BOOL isRtina()NS_ENUM_AVAILABLE_IOS(4_0)
-{
-    return ([[UIScreen mainScreen] scale] >= 2.0);
-}
+//BOOL isRtina()NS_ENUM_AVAILABLE_IOS(4_0)
+//{
+//    return ([[UIScreen mainScreen] scale] >= 2.0);
+//}
 
-BOOL isiOS7()
-{
-    return Device_SystemVersion().floatValue >= 7.0;
-}
-
-BOOL isiOS8()
-{
-    return Device_SystemVersion().floatValue >= 8.0;
-}
-
-BOOL isiOS9()
-{
-    return Device_SystemVersion().floatValue >= 9.0;
-}
+//BOOL isiOS7()
+//{
+//    return SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
+//}
+//
+//BOOL isiOS8()
+//{
+//   return SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0");
+//}
+//
+//BOOL isiOS9()
+//{
+//    return SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0");
+//}
+//
+//BOOL isiOS10()
+//{
+//    return SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0");
+//}
 
 BOOL isRequiresPhoneOS(){
     return [[[NSBundle mainBundle].infoDictionary objectForKey:@"LSRequiresIPhoneOS"] boolValue];
 }
+
 BOOL isScreenSizeEqualTo(CGSize size);
 
 

@@ -46,7 +46,7 @@
 + (int)getWeekOfYearWithDate2:(NSDate*)date;
 
 
-+ (int)numberOfDaysInMonth;
++ (int)getNumberOfDaysInMonth;
 
 + (int)getNumberOfDaysInMonth:(NSInteger)month;
 

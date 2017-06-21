@@ -2,13 +2,18 @@
 </br>
 #![image](https://github.com/c6357/YUKit/blob/master/sample2.gif)
 YUKit
-=================
+================= 
+##### YUKit.h (c++封装的常用基础工具)
+----
+
 * YUKit for iOS
 * 针对常用开发框架的一些类别和扩展，方便快速开发
 * 本库采用ARC
 
-目录
+
+目录介绍
 =================
+
 * header
 * foundation
 * uikit
@@ -61,25 +66,8 @@ services
 
 framework
 =================
-* YUDBFramework
-
-   DBOBject 使用runtime + fmdb 封装
- 
-    1.自动建表
- 
-    2.自动检查增删表字段
- 
-    3.自定义数据库名，文件路径
- 
-    4.支持一对一对象数据库存储，清缓存简单方便
- 
-    5.支持多路径，多数据库关联查询
- 
-    6.一键保存、修改、删除、查找、多级关联查询解析、反序列化
- 
-    7.支持数据解析序列化、反序列化、json -> model  and  model ->json
-    
-    依赖库：sqlite3
+* YUDBMOdel.Framework
+https://github.com/c6357/YUDBModel
 
  
 
@@ -97,12 +85,12 @@ framework
 ![image](https://github.com/c6357/YUKit/blob/master/install.png)
 
 ###Podfile
-    pod 'YUKit', '~> 1.2.0'
+    pod 'YUKit', '~> 1.2.2'
 
-    pod 'YUKit', '~> 1.2.0', :inhibit_warnings => true
+    pod 'YUKit', '~> 1.2.2', :inhibit_warnings => true
 
 ###dependency
-    pod 'MJRefresh', '~> 2.2.0'
+    pod 'MJRefresh', '~> 3.1.0'
 
     pod 'Masonry', '~> 1.0.0'
 

@@ -10,31 +10,18 @@
 
 @implementation NSObject (YUFile)
 
-+(NSString*)fileString:(NSString*)name ext:(NSString*)ext{
++(NSString*)fileStringWithName:(NSString*)name ext:(NSString*)ext{
     return [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(name) ofType:(ext)] encoding:NSUTF8StringEncoding error:nil];
 }
 
 
-+(NSDictionary*)fileDictionary:(NSString*)name ext:(NSString*)ext{
++(NSDictionary*)fileDictionaryWithName:(NSString*)name ext:(NSString*)ext{
     return [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(name) ofType:(ext)]];
 }
 
 
-+(NSArray*)FileArray:(NSString*)name ext:(NSString*)ext{
++(NSArray*)fileArrayWithName:(NSString*)name ext:(NSString*)ext{
     return [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(name) ofType:(ext)]];
-}
-
-
-+(void)setUserDefaults :(id)Obj forKey:(NSString*)Key{
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:Obj forKey:Key];
-    [userDefault synchronize];
-}
-
-
-+(id)userDefaultsForKey:(NSString*)Key{
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    return [userDefault objectForKey:Key];
 }
 
 
@@ -62,7 +49,7 @@
 }
 
 
-+ (long long) fileSizeAtPath:(NSString*) filePath{
++ (long long)fileSizeAtPath:(NSString*)filePath{
 
     NSFileManager* manager             = [NSFileManager defaultManager];
 
@@ -76,7 +63,7 @@
 
 
 
-+ (float ) folderSizeAtPath:(NSString*) folderPath{
++ (float )folderSizeAtPath:(NSString*)folderPath{
 
     NSFileManager* manager             = [NSFileManager defaultManager];
 
@@ -100,7 +87,7 @@
 }
 
 
-+ (NSMutableArray*)getFilePathInDocumentsDir:(NSString*)path{
++ (NSMutableArray*)filePathInDocumentsDir:(NSString*)path{
 
     NSMutableArray *fileArray          = [[NSMutableArray alloc] init];
 
@@ -147,7 +134,7 @@
 }
 
 
-+ (NSString*)createFileDirectories:(NSString*)Directories{
++ (NSString*)createDocumentsDirectoryWithName:(NSString*)Directories{
 
     NSString *FilePath                 = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
                           stringByAppendingPathComponent:Directories];
@@ -167,7 +154,7 @@
 
 
 
-+ (NSString*)createTempDirectories:(NSString*)Directories{
++ (NSString*)createTempDirectoriesWithName:(NSString*)Directories{
 
     NSString *FilePath                 = [[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"]
                           stringByAppendingPathComponent:Directories];
@@ -187,7 +174,7 @@
 
 
 
-+ (BOOL)removeItemAtPath:(NSString*)FilePath{
++ (BOOL)removeFileAtPath:(NSString*)FilePath{
 
     NSFileManager *fileManager         = [NSFileManager defaultManager];
 
