@@ -1,8 +1,15 @@
+YUKit
+=========
+iOS轻量级快速开发基础框架
+
+[![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)](https://github.com/c6357/YUKit)
+[![CocoaPods](https://img.shields.io/cocoapods/v/YUKit.svg)](https://github.com/c6357/YUKit)
+
+
 ![image](https://github.com/c6357/YUKit/blob/master/sample.gif)
 </br>
 #![image](https://github.com/c6357/YUKit/blob/master/sample2.gif)
-YUKit
-================= 
+
 ##### YUKit.h (c++封装的常用基础工具)
 ----
 
@@ -17,8 +24,6 @@ YUKit
 * header
 * foundation
 * uikit
-* base
-* services
 * framework
 
 YUKit.h
@@ -29,18 +34,17 @@ YUKit.h
 
 foundation
 =================
-* category (Objective-C 之 Foundation框架的类别)
+* category (Objective-C 之 Foundation框架的扩展类别)
 
-* lib (Objective-C 之 Foundation框架的扩展)
-   * AddressBook       简单获取手机通讯录
-   * map                 地图常用转换
-   * runtime             runtime常用方法
+* lib (Objective-C 之 Foundation框架的封装库)
+	 * map					地图坐标转换
+	 * YUGCDObj			GCD的一个封装
 
 uikit
 =================
-* category (Objective-C 之 UIKit框架的类别)
+* category (Objective-C 之 UIKit框架的扩展类别)
 
-* lib (Objective-C 之 UIKit框架的扩展)
+* lib (Objective-C 之 UIKit框架的封装库)
    * YUSettingCell            自定义cell (仿系统设置)
    * YUTextView               支持placeholder 自适应高度
    * YUAmountTextField        金额输入TextField
@@ -48,26 +52,14 @@ uikit
 
 
 
-base
-=================
-* NavigationController
-* TableView
-* View
-* ViewController
-* ViewModel
 
 
-services
-=================
-*  YUService (AFNetworking 使用示例)
-*  NSJson
-*  Reachability
 
 
 framework
 =================
 * YUDBMOdel.Framework
-https://github.com/c6357/YUDBModel
+
 
  
 
@@ -85,23 +77,12 @@ https://github.com/c6357/YUDBModel
 ![image](https://github.com/c6357/YUKit/blob/master/install.png)
 
 ###Podfile
-    pod 'YUKit', '~> 1.2.2'
-
-    pod 'YUKit', '~> 1.2.2', :inhibit_warnings => true
-
-###dependency
-    pod 'MJRefresh', '~> 3.1.0'
-
-    pod 'Masonry', '~> 1.0.0'
-
-    pod 'AFNetworking' , '~>3.1.0'
-
-    #pod 'BlocksKit', '~> 2.2.5'
+    pod 'YUKit', '~> 2.0.3'
 
 
 系统要求
 =================
-####最低支持 iOS 7.0
+####最低支持 iOS 7.0 或更高版本
  
  
 关于

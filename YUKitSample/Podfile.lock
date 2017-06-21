@@ -35,35 +35,35 @@ PODS:
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
   - YUDBModel (2.0.0)
-  - YUKit (2.0.3):
-    - YUKit/foundation (= 2.0.3)
-    - YUKit/frameworks (= 2.0.3)
-    - YUKit/header (= 2.0.3)
-    - YUKit/uikit (= 2.0.3)
-  - YUKit/foundation (2.0.3):
-    - YUKit/foundation/category (= 2.0.3)
-    - YUKit/foundation/lib (= 2.0.3)
-  - YUKit/foundation/category (2.0.3):
+  - YUKit (2.1.0):
+    - YUKit/foundation (= 2.1.0)
+    - YUKit/frameworks (= 2.1.0)
+    - YUKit/header (= 2.1.0)
+    - YUKit/uikit (= 2.1.0)
+  - YUKit/foundation (2.1.0):
+    - YUKit/foundation/category (= 2.1.0)
+    - YUKit/foundation/lib (= 2.1.0)
+  - YUKit/foundation/category (2.1.0):
     - YUKit/header
-  - YUKit/foundation/lib (2.0.3):
+  - YUKit/foundation/lib (2.1.0):
     - YUKit/foundation/category
     - YUKit/frameworks/Reachability
     - YUKit/header
-  - YUKit/frameworks (2.0.3):
-    - YUKit/frameworks/Reachability (= 2.0.3)
-    - YUKit/frameworks/YUKeychain (= 2.0.3)
-  - YUKit/frameworks/Reachability (2.0.3):
+  - YUKit/frameworks (2.1.0):
+    - YUKit/frameworks/Reachability (= 2.1.0)
+    - YUKit/frameworks/YUKeychain (= 2.1.0)
+  - YUKit/frameworks/Reachability (2.1.0):
     - YUKit/header
-  - YUKit/frameworks/YUKeychain (2.0.3):
+  - YUKit/frameworks/YUKeychain (2.1.0):
     - YUKit/header
-  - YUKit/header (2.0.3)
-  - YUKit/uikit (2.0.3):
-    - YUKit/uikit/category (= 2.0.3)
-    - YUKit/uikit/lib (= 2.0.3)
-  - YUKit/uikit/category (2.0.3):
+  - YUKit/header (2.1.0)
+  - YUKit/uikit (2.1.0):
+    - YUKit/uikit/category (= 2.1.0)
+    - YUKit/uikit/lib (= 2.1.0)
+  - YUKit/uikit/category (2.1.0):
     - YUKit/foundation
     - YUKit/header
-  - YUKit/uikit/lib (2.0.3):
+  - YUKit/uikit/lib (2.1.0):
     - YUKit/foundation
     - YUKit/header
 
@@ -74,7 +74,7 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - YUDBModel
-  - YUKit
+  - YUKit (~> 2.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -83,8 +83,8 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   YUDBModel: e32b245a9c40d1c53bd1e5e4c7df1112971a311b
-  YUKit: d1da3f3207bba0c040e5e541e685cef2ad4ffe1d
+  YUKit: 21d48b948285e5ad439912605d07ce6054cc8204
 
-PODFILE CHECKSUM: cd0d5a1b924f1ca8b3153d2ccef00991d6c16ee9
+PODFILE CHECKSUM: dee51f0f3d6df016950b848c357b8087dc270d36
 
 COCOAPODS: 1.2.1

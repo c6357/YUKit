@@ -10,3 +10,6 @@
 #endif
 #endif
 
+#ifdef DEBUG
+#define TBMB_DEBUG
+#endif

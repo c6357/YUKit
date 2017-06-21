@@ -67,9 +67,9 @@ fprintf(stderr, "");                                              \
     
     [self openConsole];
 
-//    [self afterBlock:^{
+    [self afterBlock:^{
         [self test];
-//    } after:0.1];
+    } after:0.1];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
