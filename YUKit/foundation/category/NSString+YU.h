@@ -131,6 +131,12 @@
 
 
 
+/**
+ md5加密文件
+
+ @return MD5 String
+ */
+-(NSString *)md5FileString;
 
 
 #pragma mark - Encode and decode

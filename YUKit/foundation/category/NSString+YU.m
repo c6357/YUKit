@@ -319,6 +319,15 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
+-(NSString *)md5FileString{
+    
+    if(self == nil || [self length] == 0)
+        return nil;
+    
+    NSData * data = [NSData dataWithContentsOfFile:self];
+    return [data MD5Sum];
+}
+
 
 -(NSString*)AES128EncryToBase64String:(NSString *)password
 {

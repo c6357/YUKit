@@ -14,18 +14,18 @@
     return [self count] == 0 ? YES : NO;
 }
 
-- (NSString *)descriptionWithLocale:(id)locale
-{
-    NSMutableString *strM = [NSMutableString stringWithString:@"{\n"];
-    
-    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [strM appendFormat:@"\t%@ = %@;\n", key, obj];
-    }];
-    
-    [strM appendString:@"}\n"];
-    
-    return strM;
-}
+//- (NSString *)descriptionWithLocale:(id)locale
+//{
+//    NSMutableString *strM = [NSMutableString stringWithString:@"{\n"];
+//    
+//    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+//        [strM appendFormat:@"\t%@ = %@;\n", key, obj];
+//    }];
+//    
+//    [strM appendString:@"}\n"];
+//    
+//    return strM;
+//}
 
 -(NSDictionary*)copyToSelf:(NSDictionary*)dic{
     NSMutableDictionary *returnDic = [NSMutableDictionary new];

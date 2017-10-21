@@ -59,4 +59,12 @@
  */
 - (BOOL)isIPAddress;
 
+
+/**
+ 是否有效身份证
+
+ @return <#return value description#>
+ */
+- (BOOL)isValidateIDNumber;
+
 @end

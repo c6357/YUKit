@@ -35,4 +35,17 @@
 
 - (void)setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left;
 
+
+
+/**
+ <#Description#>
+
+ @param timeLine <#timeLine description#>
+ @param title <#title description#>
+ @param subTitle <#subTitle description#>
+ @param mColor <#mColor description#>
+ @param color <#color description#>
+ @param block <#block description#>
+ */
+- (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color done:(void(^)(void))block;
 @end

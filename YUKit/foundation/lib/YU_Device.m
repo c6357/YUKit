@@ -546,10 +546,13 @@ BOOL isJailbrokenUser()NS_AVAILABLE_IOS(4_0)
     }
     
     // method 3
+    #if TARGET_OS_MAC && !TARGET_OS_IPHONE
     if ( 0 == system("ls") )
     {
         return YES;
     }
+    #endif
+    
     return NO;
 #endif
     return NO;

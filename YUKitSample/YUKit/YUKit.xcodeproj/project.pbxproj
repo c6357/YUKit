@@ -22,7 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		183AB9431EEFD77A005E17E7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183AB9421EEFD77A005E17E7 /* Info.plist */; };
 		183ABA011EEFD785005E17E7 /* NSArray+YU.h in Headers */ = {isa = PBXBuildFile; fileRef = 183AB9471EEFD785005E17E7 /* NSArray+YU.h */; };
 		183ABA021EEFD785005E17E7 /* NSArray+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB9481EEFD785005E17E7 /* NSArray+YU.m */; };
 		183ABA031EEFD785005E17E7 /* NSAttributedString+YU.h in Headers */ = {isa = PBXBuildFile; fileRef = 183AB9491EEFD785005E17E7 /* NSAttributedString+YU.h */; };
@@ -148,9 +147,6 @@
 		183ABA9A1EEFD785005E17E7 /* UIWebView+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB9EE1EEFD785005E17E7 /* UIWebView+YU.m */; };
 		183ABA9B1EEFD785005E17E7 /* UIWindow+YU.h in Headers */ = {isa = PBXBuildFile; fileRef = 183AB9EF1EEFD785005E17E7 /* UIWindow+YU.h */; };
 		183ABA9C1EEFD785005E17E7 /* UIWindow+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB9F01EEFD785005E17E7 /* UIWindow+YU.m */; };
-		183ABA9D1EEFD785005E17E7 /* SettingCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 183AB9F31EEFD785005E17E7 /* SettingCell.h */; };
-		183ABA9E1EEFD785005E17E7 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB9F41EEFD785005E17E7 /* SettingCell.m */; };
-		183ABA9F1EEFD785005E17E7 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183AB9F51EEFD785005E17E7 /* SettingCell.xib */; };
 		183ABAA01EEFD785005E17E7 /* YU_AmountTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 183AB9F61EEFD785005E17E7 /* YU_AmountTextField.h */; };
 		183ABAA11EEFD785005E17E7 /* YU_AmountTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AB9F71EEFD785005E17E7 /* YU_AmountTextField.m */; };
 		183ABAA21EEFD785005E17E7 /* YU_TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 183AB9F81EEFD785005E17E7 /* YU_TableViewCell.h */; };
@@ -166,8 +162,6 @@
 		183ADD1F1EF21F79007A50C1 /* NSData+YUBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ADD1D1EF21F79007A50C1 /* NSData+YUBase64.m */; };
 		183ADD221EF21FC2007A50C1 /* NSString+YUBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 183ADD201EF21FC2007A50C1 /* NSString+YUBase64.h */; };
 		183ADD231EF21FC2007A50C1 /* NSString+YUBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ADD211EF21FC2007A50C1 /* NSString+YUBase64.m */; };
-		183ADD521EF22D6E007A50C1 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 183ADD321EF22D6E007A50C1 /* Reachability.h */; };
-		183ADD531EF22D6E007A50C1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ADD331EF22D6E007A50C1 /* Reachability.m */; };
 		183ADD541EF22D6E007A50C1 /* NSArray+YUException.h in Headers */ = {isa = PBXBuildFile; fileRef = 183ADD351EF22D6E007A50C1 /* NSArray+YUException.h */; };
 		183ADD551EF22D6E007A50C1 /* NSArray+YUException.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ADD361EF22D6E007A50C1 /* NSArray+YUException.m */; };
 		183ADD561EF22D6E007A50C1 /* NSDictionary+YUException.h in Headers */ = {isa = PBXBuildFile; fileRef = 183ADD371EF22D6E007A50C1 /* NSDictionary+YUException.h */; };
@@ -195,6 +189,8 @@
 		183ADD6C1EF22D6E007A50C1 /* VALValet_Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 183ADD4F1EF22D6E007A50C1 /* VALValet_Protected.h */; };
 		183ADD6D1EF22D6E007A50C1 /* YUKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 183ADD501EF22D6E007A50C1 /* YUKeychain.h */; };
 		183ADD6E1EF22D6E007A50C1 /* YUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ADD511EF22D6E007A50C1 /* YUKeychain.m */; };
+		32AB6A221F9B105E0092C430 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 32AB6A201F9B105E0092C430 /* Reachability.h */; };
+		32AB6A231F9B105E0092C430 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AB6A211F9B105E0092C430 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,9 +330,6 @@
 		183AB9EE1EEFD785005E17E7 /* UIWebView+YU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+YU.m"; sourceTree = "<group>"; };
 		183AB9EF1EEFD785005E17E7 /* UIWindow+YU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+YU.h"; sourceTree = "<group>"; };
 		183AB9F01EEFD785005E17E7 /* UIWindow+YU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+YU.m"; sourceTree = "<group>"; };
-		183AB9F31EEFD785005E17E7 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
-		183AB9F41EEFD785005E17E7 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
-		183AB9F51EEFD785005E17E7 /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		183AB9F61EEFD785005E17E7 /* YU_AmountTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YU_AmountTextField.h; sourceTree = "<group>"; };
 		183AB9F71EEFD785005E17E7 /* YU_AmountTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YU_AmountTextField.m; sourceTree = "<group>"; };
 		183AB9F81EEFD785005E17E7 /* YU_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YU_TableViewCell.h; sourceTree = "<group>"; };
@@ -352,8 +345,6 @@
 		183ADD1D1EF21F79007A50C1 /* NSData+YUBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YUBase64.m"; sourceTree = "<group>"; };
 		183ADD201EF21FC2007A50C1 /* NSString+YUBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YUBase64.h"; sourceTree = "<group>"; };
 		183ADD211EF21FC2007A50C1 /* NSString+YUBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YUBase64.m"; sourceTree = "<group>"; };
-		183ADD321EF22D6E007A50C1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		183ADD331EF22D6E007A50C1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		183ADD351EF22D6E007A50C1 /* NSArray+YUException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+YUException.h"; sourceTree = "<group>"; };
 		183ADD361EF22D6E007A50C1 /* NSArray+YUException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+YUException.m"; sourceTree = "<group>"; };
 		183ADD371EF22D6E007A50C1 /* NSDictionary+YUException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YUException.h"; sourceTree = "<group>"; };
@@ -382,6 +373,8 @@
 		183ADD501EF22D6E007A50C1 /* YUKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUKeychain.h; sourceTree = "<group>"; };
 		183ADD511EF22D6E007A50C1 /* YUKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUKeychain.m; sourceTree = "<group>"; };
 		1896121F1DF9544C0019EF52 /* YUKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YUKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32AB6A201F9B105E0092C430 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		32AB6A211F9B105E0092C430 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -621,7 +614,6 @@
 		183AB9F11EEFD785005E17E7 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				183AB9F21EEFD785005E17E7 /* SettingCell */,
 				183AB9F61EEFD785005E17E7 /* YU_AmountTextField.h */,
 				183AB9F71EEFD785005E17E7 /* YU_AmountTextField.m */,
 				183AB9F81EEFD785005E17E7 /* YU_TableViewCell.h */,
@@ -630,26 +622,6 @@
 				183AB9FB1EEFD785005E17E7 /* YU_TextView.m */,
 			);
 			path = lib;
-			sourceTree = "<group>";
-		};
-		183AB9F21EEFD785005E17E7 /* SettingCell */ = {
-			isa = PBXGroup;
-			children = (
-				183AB9F31EEFD785005E17E7 /* SettingCell.h */,
-				183AB9F41EEFD785005E17E7 /* SettingCell.m */,
-				183AB9F51EEFD785005E17E7 /* SettingCell.xib */,
-			);
-			path = SettingCell;
-			sourceTree = "<group>";
-		};
-		183ADD311EF22D6E007A50C1 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				183ADD321EF22D6E007A50C1 /* Reachability.h */,
-				183ADD331EF22D6E007A50C1 /* Reachability.m */,
-			);
-			name = Reachability;
-			path = ../../YUKit/frameworks/Reachability;
 			sourceTree = "<group>";
 		};
 		183ADD341EF22D6E007A50C1 /* YUException */ = {
@@ -724,11 +696,21 @@
 		189613451DF959490019EF52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				183ADD311EF22D6E007A50C1 /* Reachability */,
+				32AB6A1F1F9B105E0092C430 /* Reachability */,
 				183ADD341EF22D6E007A50C1 /* YUException */,
 				183ADD451EF22D6E007A50C1 /* YUKeychain */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32AB6A1F1F9B105E0092C430 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				32AB6A201F9B105E0092C430 /* Reachability.h */,
+				32AB6A211F9B105E0092C430 /* Reachability.m */,
+			);
+			name = Reachability;
+			path = ../../YUKit/frameworks/Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -790,7 +772,6 @@
 				183ABA271EEFD785005E17E7 /* NSTimer+YU.h in Headers */,
 				183ABAA61EEFD785005E17E7 /* YU_UIKit.h in Headers */,
 				183ABA891EEFD785005E17E7 /* UITextField+YU.h in Headers */,
-				183ABA9D1EEFD785005E17E7 /* SettingCell.h in Headers */,
 				183ABA0F1EEFD785005E17E7 /* NSFileManager+YU.h in Headers */,
 				183ADD581EF22D6E007A50C1 /* NSException+YUException.h in Headers */,
 				183ABAA91EEFD785005E17E7 /* YUKitHeader.h in Headers */,
@@ -800,9 +781,9 @@
 				183ABA111EEFD785005E17E7 /* NSNotificationCenter+YU.h in Headers */,
 				183ABAAA1EEFD785005E17E7 /* YUMacro.h in Headers */,
 				183ABA481EEFD785005E17E7 /* GCDTimer.h in Headers */,
+				32AB6A221F9B105E0092C430 /* Reachability.h in Headers */,
 				183ABA7D1EEFD785005E17E7 /* UIPasteboard+YU.h in Headers */,
 				183ABA9B1EEFD785005E17E7 /* UIWindow+YU.h in Headers */,
-				183ADD521EF22D6E007A50C1 /* Reachability.h in Headers */,
 				183ABA8B1EEFD785005E17E7 /* UIView+YU.h in Headers */,
 				183ABA091EEFD785005E17E7 /* NSDate+YU.h in Headers */,
 				183ABA291EEFD785005E17E7 /* NSURL+YU.h in Headers */,
@@ -858,7 +839,7 @@
 		189612161DF9544C0019EF52 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = BruceYu;
 				TargetAttributes = {
 					185C316F1E1F8E78002FC465 = {
@@ -895,8 +876,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				183ABAA81EEFD785005E17E7 /* YUKit.podspec in Resources */,
-				183ABA9F1EEFD785005E17E7 /* SettingCell.xib in Resources */,
-				183AB9431EEFD77A005E17E7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +904,7 @@
 			files = (
 				183ABA411EEFD785005E17E7 /* GCDGroup.m in Sources */,
 				183ADD631EF22D6E007A50C1 /* UncaughtExceptionHandler.m in Sources */,
+				32AB6A231F9B105E0092C430 /* Reachability.m in Sources */,
 				183ABA0C1EEFD785005E17E7 /* NSDictionary+YU.m in Sources */,
 				183ABA1A1EEFD785005E17E7 /* NSObject+YUFile.m in Sources */,
 				183ABA8C1EEFD785005E17E7 /* UIView+YU.m in Sources */,
@@ -948,7 +928,6 @@
 				183ABA451EEFD785005E17E7 /* GCDQueue.m in Sources */,
 				183ABA3A1EEFD785005E17E7 /* YU_Device.m in Sources */,
 				183ABA681EEFD785005E17E7 /* Readme.md in Sources */,
-				183ABA9E1EEFD785005E17E7 /* SettingCell.m in Sources */,
 				183ABA0E1EEFD785005E17E7 /* NSError+YU.m in Sources */,
 				183ABA3F1EEFD785005E17E7 /* YU_System.m in Sources */,
 				183ABA801EEFD785005E17E7 /* UIResponder+YU.m in Sources */,
@@ -985,7 +964,6 @@
 				183ADD231EF21FC2007A50C1 /* NSString+YUBase64.m in Sources */,
 				183ABA821EEFD785005E17E7 /* UIStoryboard+YU.m in Sources */,
 				183ADD5D1EF22D6E007A50C1 /* NSObject+YUException.m in Sources */,
-				183ADD531EF22D6E007A50C1 /* Reachability.m in Sources */,
 				183ABA1E1EEFD785005E17E7 /* NSObject+YULog.m in Sources */,
 				183ABA081EEFD785005E17E7 /* NSData+YU.m in Sources */,
 				183ABA141EEFD785005E17E7 /* NSNull+YU.m in Sources */,
@@ -1040,7 +1018,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1048,7 +1028,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1092,7 +1076,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1100,7 +1086,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;

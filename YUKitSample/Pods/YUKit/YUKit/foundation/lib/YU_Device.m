@@ -112,6 +112,10 @@ NSString *DeviceMachineModelName()
                               @"iPod5,1" : @"iPod touch 5",
                               @"iPod7,1" : @"iPod touch 6",
                               
+                              
+                              /**
+                               iPhone
+                               */
                               @"iPhone1,1" : @"iPhone 1G",
                               @"iPhone1,2" : @"iPhone 3G",
                               @"iPhone2,1" : @"iPhone 3GS",
@@ -132,8 +136,18 @@ NSString *DeviceMachineModelName()
                               @"iPhone9,3" : @"iPhone 7",
                               @"iPhone9,2" : @"iPhone 7 Plus",
                               @"iPhone9,4" : @"iPhone 7 Plus",
+                              @"iPhone10,1": @"iPhone 8",
+                              @"iPhone10,4": @"iPhone 8",
+                              @"iPhone10,2": @"iPhone 8 Plus",
+                              @"iPhone10,5": @"iPhone 8 Plus",
+                              @"iPhone10,3": @"iPhone X",
+                              @"iPhone10,6": @"iPhone X",
                               
                               
+                              
+                              /**
+                               ipad
+                               */
                               @"iPad1,1" : @"iPad 1",
                               @"iPad2,1" : @"iPad 2 (WiFi)",
                               @"iPad2,2" : @"iPad 2 (GSM)",
