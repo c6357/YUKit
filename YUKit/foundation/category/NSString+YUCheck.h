@@ -13,51 +13,51 @@
 /**
  *是否可以使用 空字符串也允许
  */
--(BOOL)isCanBeUse;
+-(BOOL)yu_isCanBeUse;
 
 /**
  *判断字符串是否为空，以及是否全是空格或者换行
  */
-- (BOOL)isBlankString;
+- (BOOL)yu_isBlankString;
 
 /*
  *是否全是空格或者换行
  */
-- (BOOL)isEmptyOrWhitespace;
+- (BOOL)yu_isEmptyOrWhitespace;
 
-- (BOOL)isNormal;
+- (BOOL)yu_isNormal;
 
-- (BOOL)isMobilephone;
+- (BOOL)yu_isMobilephone;
 
-- (BOOL)isTelephone;
+- (BOOL)yu_isTelephone;
 
-- (BOOL)isEmail;
+- (BOOL)yu_isEmail;
 
-- (BOOL)isUrl;
+- (BOOL)yu_isUrl;
 
-- (BOOL)isNumber;
-
-
-- (BOOL)isChinese;
+- (BOOL)yu_isNumber;
 
 
-- (BOOL)isDecimal;
+- (BOOL)yu_isChinese;
+
+
+- (BOOL)yu_isDecimal;
 
 /**
  *是否包含字符串substring
  */
-- (BOOL)isContainString:(NSString*)substring;
+- (BOOL)yu_isContainString:(NSString*)substring;
 
 
 /**
  *有非法字符
  */
-- (BOOL)isContainSpecialCharact;
+- (BOOL)yu_isContainSpecialCharact;
 
 /**
  *
  */
-- (BOOL)isIPAddress;
+- (BOOL)yu_isIPAddress;
 
 
 /**
@@ -65,6 +65,6 @@
 
  @return <#return value description#>
  */
-- (BOOL)isValidateIDNumber;
+- (BOOL)yu_isValidateIDNumber;
 
 @end

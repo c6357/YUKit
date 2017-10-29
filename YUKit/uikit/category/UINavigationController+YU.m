@@ -13,7 +13,7 @@
 #define IS_EARLIER_IOS7 ( CURRENT_VERSION < 7.0)
 
 @implementation UINavigationController (YU)
-- (float) calculateYPosition
+- (float) yu_calculateYPosition
 {
     float yPosition=0;
     

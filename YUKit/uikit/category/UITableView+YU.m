@@ -20,7 +20,7 @@
 float oldOffset;
 static float offsetX = 25;
 
--(void)yuScrollViewDidScroll:(UIScrollView *)scrollView Animation:(BOOL)animation{
+-(void)yu_ScrollViewDidScroll:(UIScrollView *)scrollView Animation:(BOOL)animation{
     
     NSArray *cellArry = [self visibleCells];
     UITableViewCell *cellFirst = [cellArry firstObject];
@@ -39,7 +39,7 @@ static float offsetX = 25;
         {
             CGRect frame = cell.frame;
             frame.origin.x = 0;
-            frame.size.width = AppWidth();
+            frame.size.width = YU_AppWidth();
             cell.frame = frame;
         };
     }
@@ -59,22 +59,22 @@ static float offsetX = 25;
             
             //if (scrollView.contentOffset.y > oldOffset)
             {
-                scale = (py/cellFirst.H);
+                scale = (py/cellFirst.YU_H);
                 cellFirst.alpha = 1-scale;
                 
                 CGRect frame = cellFirst.frame;
                 frame.origin.x = offsetX*scale;
-                frame.size.width = AppWidth()-2*(offsetX*scale);
+                frame.size.width = YU_AppWidth()-2*(offsetX*scale);
                 cellFirst.frame = frame;
             }
             
             {
-                scale = ((cellFirst.H-py)/cellFirst.H);
+                scale = ((cellFirst.YU_H-py)/cellFirst.YU_H);
                 cellLast.alpha = 1-scale;
                 
                 CGRect frame = cellLast.frame;
                 frame.origin.x = offsetX*scale;
-                frame.size.width = AppWidth()-2*(offsetX*scale);
+                frame.size.width = YU_AppWidth()-2*(offsetX*scale);
                 cellLast.frame = frame;
             }
         }
@@ -94,7 +94,7 @@ static float offsetX = 25;
     oldOffset = scrollView.contentOffset.y;
 }
 
-- (CAAnimationGroup*)reloadDataAnimate:(YUAnimation)animation willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath duration:(CFTimeInterval)duration completion:(void(^)())completion{
+- (CAAnimationGroup*)yu_reloadDataAnimate:(YUAnimation)animation willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath duration:(CFTimeInterval)duration completion:(void(^)(void))completion{
 
     float i             = indexPath.row;
 //    cell.layer.opacity = 0;
@@ -163,29 +163,29 @@ static float offsetX = 25;
     return group;
 }
 
--(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+-(void)yu_animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
 }
 
 
 #pragma mark -
 
--(void)yuReloadData
+-(void)yu_ReloadData
 {
-    [self yuReloadData:nil];
+    [self yu_ReloadData:nil];
 }
 
--(void)yuReloadData:(NSString*)message
+-(void)yu_ReloadData:(NSString*)message
 {
     [self reloadData];
     if (self.numberOfSections == 0 || (self.numberOfSections == 1 && [self numberOfRowsInSection:0] == 0)) {
-        [self showEmptyView:message];
+        [self yu_showEmptyView:message];
     }
 }
 
 
 #define emptyViewTag 9999
--(void)showEmptyView:(NSString*)message
+-(void)yu_showEmptyView:(NSString*)message
 {
     UIView *v = [self viewWithTag:emptyViewTag];
     if (!v) {
@@ -196,7 +196,7 @@ static float offsetX = 25;
         }
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 2;
-        if (isSafeString(message)) {
+        if (yu_isSafeString(message)) {
             label.text = message;
         }else{
             label.text = @"亲,没有数据可以显示哦!";
@@ -210,7 +210,7 @@ static float offsetX = 25;
     }
 }
 
--(void)hideEmptyView
+-(void)yu_hideEmptyView
 {
     UIView *v = [self viewWithTag:emptyViewTag];
     if (v) {

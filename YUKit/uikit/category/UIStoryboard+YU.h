@@ -10,6 +10,6 @@
 
 @interface UIStoryboard (YU)
 
-+(UIViewController*)storyboardWithName:(NSString*)identifier;
++(UIViewController*)yu_storyboardWithName:(NSString*)identifier;
 
 @end

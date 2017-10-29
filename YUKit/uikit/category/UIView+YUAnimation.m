@@ -12,28 +12,28 @@
 #define DURATION 0.7f
 
 @implementation UIView (animation)
-+ (void) transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view  duration:(double)duration completion:(void(^)())completion{
++ (void) yu_transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view  duration:(double)duration completion:(void(^)(void))completion{
     
-    [self transitionWithType:type WithSubtype:subtype ForView:view duration:duration];
+    [self yu_transitionWithType:type WithSubtype:subtype ForView:view duration:duration];
     
-    [self afterBlock:^{
+    [self yu_afterBlock:^{
         if (completion) {
             completion();
         }
     } after:duration];
 }
 
-+ (void) transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration completion:(void(^)())completion{
-    [self transitionWithTypeString:type WithSubtype:subtype ForView:view duration:duration];
++ (void) yu_transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration completion:(void(^)(void))completion{
+    [self yu_transitionWithTypeString:type WithSubtype:subtype ForView:view duration:duration];
     
-    [self afterBlock:^{
+    [self yu_afterBlock:^{
         if (completion) {
             completion();
         }
     } after:duration];
 }
 
-+ (void) transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view duration:(double)duration
++ (void) yu_transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view duration:(double)duration
 {
     AnimationType animationType = type;
     
@@ -59,67 +59,67 @@
     
     switch (animationType) {
         case Fade:
-            [self transitionWithTypeString:kCATransitionFade WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:kCATransitionFade WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case Push:
-            [self transitionWithTypeString:kCATransitionPush WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:kCATransitionPush WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case Reveal:
-            [self transitionWithTypeString:kCATransitionReveal WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:kCATransitionReveal WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case MoveIn:
-            [self transitionWithTypeString:kCATransitionMoveIn WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:kCATransitionMoveIn WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case Cube:
-            [self transitionWithTypeString:@"cube" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"cube" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case SuckEffect:
-            [self transitionWithTypeString:@"suckEffect" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"suckEffect" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case OglFlip:
-            [self transitionWithTypeString:@"oglFlip" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"oglFlip" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case RippleEffect:
-            [self transitionWithTypeString:@"rippleEffect" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"rippleEffect" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case PageCurl:
-            [self transitionWithTypeString:@"pageCurl" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"pageCurl" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case PageUnCurl:
-            [self transitionWithTypeString:@"pageUnCurl" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"pageUnCurl" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case CameraIrisHollowOpen:
-            [self transitionWithTypeString:@"cameraIrisHollowOpen" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"cameraIrisHollowOpen" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case CameraIrisHollowClose:
-            [self transitionWithTypeString:@"cameraIrisHollowClose" WithSubtype:subtypeString ForView:view duration:duration];
+            [self yu_transitionWithTypeString:@"cameraIrisHollowClose" WithSubtype:subtypeString ForView:view duration:duration];
             break;
             
         case CurlDown:
-            [self animationWithView:view WithAnimationTransition:UIViewAnimationTransitionCurlDown];
+            [self yu_animationWithView:view WithAnimationTransition:UIViewAnimationTransitionCurlDown];
             break;
             
         case CurlUp:
-            [self animationWithView:view WithAnimationTransition:UIViewAnimationTransitionCurlUp];
+            [self yu_animationWithView:view WithAnimationTransition:UIViewAnimationTransitionCurlUp];
             break;
             
         case FlipFromLeft:
-            [self animationWithView:view WithAnimationTransition:UIViewAnimationTransitionFlipFromLeft];
+            [self yu_animationWithView:view WithAnimationTransition:UIViewAnimationTransitionFlipFromLeft];
             break;
             
         case FlipFromRight:
-            [self animationWithView:view WithAnimationTransition:UIViewAnimationTransitionFlipFromRight];
+            [self yu_animationWithView:view WithAnimationTransition:UIViewAnimationTransitionFlipFromRight];
             break;
             
         default:
@@ -129,7 +129,7 @@
 }
 
 #pragma UIView实现动画
-+ (void) animationWithView : (UIView *)view WithAnimationTransition : (UIViewAnimationTransition) transition
++ (void) yu_animationWithView : (UIView *)view WithAnimationTransition : (UIViewAnimationTransition) transition
 {
     [UIView animateWithDuration:DURATION animations:^{
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -141,7 +141,7 @@
 
 
 #pragma CATransition动画实现
-+ (void) transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration
++ (void) yu_transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration
 {
     //创建CATransition对象
     CATransition *animation = [CATransition animation];

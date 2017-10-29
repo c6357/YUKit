@@ -11,12 +11,12 @@
 
 @interface NSTimer (YU)
 
-+(id)scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats;
++(id)yu_scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats;
 
-+(id)timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats;
++(id)yu_timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats;
 
-- (void)pause;
-- (void)resume;
-- (void)resumeWithTimeInterval:(NSTimeInterval)time;
+- (void)yu_pause;
+- (void)yu_resume;
+- (void)yu_resumeWithTimeInterval:(NSTimeInterval)time;
 
 @end

@@ -11,7 +11,7 @@
 
 
 @implementation UIViewController (YU)
--(UIView*)parentTarget {
+-(UIView*)yu_parentTarget {
     // To make it work with UINav & UITabbar as well
     UIViewController * target = self;
     while (target.parentViewController != nil) {
@@ -20,7 +20,7 @@
     return target.view;
 }
 
--(CAAnimationGroup*)animationGroupForward:(BOOL)_forward {
+-(CAAnimationGroup*)yu_animationGroupForward:(BOOL)_forward {
     // Create animation keys, forwards and backwards
     CATransform3D t1 = CATransform3DIdentity;
     t1.m34 = 1.0/-900;
@@ -29,7 +29,7 @@
     
     CATransform3D t2 = CATransform3DIdentity;
     t2.m34 = t1.m34;
-    t2 = CATransform3DTranslate(t2, 0, [self parentTarget].frame.size.height*-0.08, 0);
+    t2 = CATransform3DTranslate(t2, 0, [self yu_parentTarget].frame.size.height*-0.08, 0);
     t2 = CATransform3DScale(t2, 0.8, 0.8, 1);
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
@@ -58,13 +58,13 @@
 
 @implementation UIViewController (KNSemiModal)
 
--(void)presentSemiViewController:(UIViewController*)vc {
-    [self presentSemiView:vc.view];
+-(void)yu_presentSemiViewController:(UIViewController*)vc {
+    [self yu_presentSemiView:vc.view];
 }
 
--(void)presentSemiView:(UIView*)vc {
+-(void)yu_presentSemiView:(UIView*)vc {
     // Determine target
-    UIView * target = [self parentTarget];
+    UIView * target = [self yu_parentTarget];
     
     if (![target.subviews containsObject:vc]) {
         // Calulate all frames
@@ -94,7 +94,7 @@
         [overlay addSubview:dismissButton];
         
         // Begin overlay animation
-        [ss.layer addAnimation:[self animationGroupForward:YES] forKey:@"pushedBackAnimation"];
+        [ss.layer addAnimation:[self yu_animationGroupForward:YES] forKey:@"pushedBackAnimation"];
         [UIView animateWithDuration:kSemiModalAnimationDuration animations:^{
             ss.alpha = 0.5;
         }];
@@ -115,8 +115,8 @@
     }
 }
 
--(void)dismissSemiModalView {
-    UIView * target = [self parentTarget];
+-(void)yu_dismissSemiModalView {
+    UIView * target = [self yu_parentTarget];
     UIView * modal = [target.subviews objectAtIndex:target.subviews.count-1];
     UIView * overlay = [target.subviews objectAtIndex:target.subviews.count-2];
     [UIView animateWithDuration:kSemiModalAnimationDuration animations:^{
@@ -128,7 +128,7 @@
     
     // Begin overlay animation
     UIImageView * ss = (UIImageView*)[overlay.subviews objectAtIndex:0];
-    [ss.layer addAnimation:[self animationGroupForward:NO] forKey:@"bringForwardAnimation"];
+    [ss.layer addAnimation:[self yu_animationGroupForward:NO] forKey:@"bringForwardAnimation"];
     [UIView animateWithDuration:kSemiModalAnimationDuration animations:^{
         ss.alpha = 1;
     }];

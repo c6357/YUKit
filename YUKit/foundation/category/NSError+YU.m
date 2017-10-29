@@ -13,13 +13,13 @@
 
 @implementation NSError (YU)
 
-+ (NSError *)errorWithMsg:(NSString *)msg
++ (NSError *)yu_errorWithMsg:(NSString *)msg
 {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:msg?:@"发生错误!", NSLocalizedDescriptionKey, nil];
     return [NSError errorWithDomain:YU_ERROR_DOMAIN code:-1000 userInfo:userInfo];
 }
 
-+ (NSError*) errorWithMsg:(NSString*)msg obj:(id)obj
++ (NSError*)yu_errorWithMsg:(NSString*)msg obj:(id)obj
 {
     NSMutableDictionary *userinfo = [NSMutableDictionary dictionaryWithObject:msg?:@"发生错误!" forKey:NSLocalizedDescriptionKey];
     
@@ -30,7 +30,7 @@
 }
 
 
-+ (NSError *)errorWithCode:(int)code
++ (NSError *)yu_errorWithCode:(int)code
 {
     NSString *msg ;
 
@@ -42,7 +42,7 @@
 
 
 
-+ (NSError*) errorWithCode:(NSString*)code msg:(NSString*)msg
++ (NSError*)yu_errorWithCode:(NSString*)code msg:(NSString*)msg
 {
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:msg?:@"发生错误!", NSLocalizedDescriptionKey, nil];
     return [NSError errorWithDomain:YU_ERROR_DOMAIN code:[code integerValue] userInfo:userInfo];
@@ -50,7 +50,7 @@
 
 
 
-+ (NSError*) errorWithCode:(NSString*)code msg:(NSString*)msg obj:(id)obj
++ (NSError*)yu_errorWithCode:(NSString*)code msg:(NSString*)msg obj:(id)obj
 {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:msg?:@"发生错误!", NSLocalizedDescriptionKey, nil];
     if (obj) {

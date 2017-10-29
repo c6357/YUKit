@@ -56,7 +56,7 @@
     
     NSDictionary *dic = @{@"name":errorName,@"reason":errorReason,@"StackSymbols":callStackSymbols};
     
-    YULogWarn(@"%@",dic);
+    YU_LogWarn(@"%@",dic);
     
 #if DEBUG
 //    @throw self;

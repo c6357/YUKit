@@ -11,21 +11,21 @@
 
 @implementation NSTimer (YU)
 
-+(id)scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats
++(id)yu_scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats
 {
     void (^block)(void) = [inBlock copy];
     id ret = [self scheduledTimerWithTimeInterval:inTimeInterval target:self selector:@selector(jdExecuteSimpleBlock:) userInfo:block repeats:inRepeats];
     return ret;
 }
 
-+(id)timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats
++(id)yu_timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats
 {
     void (^block)(void) = [inBlock copy];
     id ret = [self timerWithTimeInterval:inTimeInterval target:self selector:@selector(jdExecuteSimpleBlock:) userInfo:block repeats:inRepeats];
     return ret;
 }
 
-+(void)jdExecuteSimpleBlock:(NSTimer *)inTimer;
++(void)yu_jdExecuteSimpleBlock:(NSTimer *)inTimer;
 {
     if([inTimer userInfo])
     {
@@ -34,17 +34,17 @@
     }
 }
 
-- (void)pause {
+- (void)yu_pause {
     if (!self.isValid) return;
     [self setFireDate:[NSDate distantFuture]];
 }
 
-- (void)resume {
+- (void)yu_resume {
     if (!self.isValid) return;
     [self setFireDate:[NSDate date]];
 }
 
-- (void)resumeWithTimeInterval:(NSTimeInterval)time {
+- (void)yu_resumeWithTimeInterval:(NSTimeInterval)time {
     if (!self.isValid) return;
     [self setFireDate:[NSDate dateWithTimeIntervalSinceNow:time]];
 }

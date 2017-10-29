@@ -8,7 +8,7 @@
 
 #import "TopLeftLabel.h"
 
-@implementation TopLeftLabel
+@implementation YUTopLeftLabel
 
 - (id)initWithFrame:(CGRect)frame {
     return [super initWithFrame:frame];

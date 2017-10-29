@@ -10,18 +10,18 @@
 
 @interface UIPasteboard (YU)
 
-+(void)setString:(NSString*)string;
-+(void)setStrings:(NSArray*)strings;
++(void)yu_setString:(NSString*)string;
++(void)yu_setStrings:(NSArray*)strings;
 
 
-+(void)setImage:(UIImage*)image;
-+(void)setImages:(NSArray*)images;
++(void)yu_setImage:(UIImage*)image;
++(void)yu_setImages:(NSArray*)images;
 
 
-+(void)setColor:(UIColor*)color;
-+(void)setColors:(NSArray*)colors;
++(void)yu_setColor:(UIColor*)color;
++(void)yu_setColors:(NSArray*)colors;
 
-+(void)setUrl:(NSURL*)url;
-+(void)setUrls:(NSArray*)urls;
++(void)yu_setUrl:(NSURL*)url;
++(void)yu_setUrls:(NSArray*)urls;
 
 @end

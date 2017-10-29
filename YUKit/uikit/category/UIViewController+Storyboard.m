@@ -10,7 +10,7 @@
 
 @implementation UIViewController (Storyboard)
 
-+ (instancetype)controllerByDefaultStoryBoard
++ (instancetype)yu_controllerByDefaultStoryBoard
 {
     UIStoryboard *story = [UIStoryboard storyboardWithName:NSStringFromClass([self class]) bundle:nil];
     return [story instantiateInitialViewController];

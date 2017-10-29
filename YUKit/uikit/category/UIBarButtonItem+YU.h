@@ -10,16 +10,16 @@
 
 @interface UIBarButtonItem (YU)
 
-+(UIBarButtonItem *)buttonItemWithImage:(UIImage*)image target:(id)target action:(SEL)action;
++(UIBarButtonItem *)yu_buttonItemWithImage:(UIImage*)image target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title target:(id)target action:(SEL)action;
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor  target:(id)target action:(SEL)action;
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor  target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title font:(UIFont*)font target:(id)target action:(SEL)action;
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title font:(UIFont*)font target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action;
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action;
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment;
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment;
 
 @end

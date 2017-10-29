@@ -11,12 +11,12 @@
 
 @implementation NSArray (YU)
 
-BOOL isSafeArray(NSArray *arry){
+BOOL yu_isSafeArray(NSArray *arry){
     return  ((arry)&&(![(arry) isEqual:[NSNull null]]) &&((arry).count>0));
 }
 
 
-- (BOOL)isEmpty {
+- (BOOL)yu_isEmpty {
     return [self count] == 0 ? YES : NO;
 }
 
@@ -34,7 +34,7 @@ BOOL isSafeArray(NSArray *arry){
 //}
 
 
--(NSMutableArray*)arrayWithKey:(NSString*)key
+-(NSMutableArray*)yu_arrayWithKey:(NSString*)key
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -47,9 +47,9 @@ BOOL isSafeArray(NSArray *arry){
 }
 
 
--(NSMutableDictionary*)dictionaryWithKey:(NSString*)key
+-(NSMutableDictionary*)yu_dictionaryWithKey:(NSString*)key
 {
-    if (!isSafeArray(self)) {
+    if (!yu_isSafeArray(self)) {
         return nil;
     }
     
@@ -65,9 +65,9 @@ BOOL isSafeArray(NSArray *arry){
 }
 
 
--(NSMutableDictionary*)dictionaryWithIntKey:(NSString*)key
+-(NSMutableDictionary*)yu_dictionaryWithIntKey:(NSString*)key
 {
-    if (!isSafeArray(self)) {
+    if (!yu_isSafeArray(self)) {
         return nil;
     }
     
@@ -83,7 +83,7 @@ BOOL isSafeArray(NSArray *arry){
 }
 
 
-+(id)arrayWithCArray:(char**)strs len:(NSInteger)length
++(id)yu_arrayWithCArray:(char**)strs len:(NSInteger)length
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:length];
     for (int  k = 0; k < length; k++) {
@@ -97,14 +97,14 @@ BOOL isSafeArray(NSArray *arry){
 
 @implementation NSMutableArray (YU)
 
-- (id)firstObject {
+- (id)yu_firstObject {
     if ([self count] == 0)
         return nil;
     return [self objectAtIndex:0];
 }
 
 
-- (NSMutableArray *) removeFirstObject
+- (NSMutableArray *)yu_removeFirstObject
 {
     if (self.count) {
        [self removeObjectAtIndex:0];
@@ -112,7 +112,7 @@ BOOL isSafeArray(NSArray *arry){
     return self;
 }
 
-- (NSMutableArray*)addObject:(id)object,...{
+- (NSMutableArray*)yu_addObject:(id)object,...{
     if (!object) return self;
     id obj = object;
     va_list objects;

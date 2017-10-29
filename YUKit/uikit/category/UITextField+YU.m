@@ -13,17 +13,17 @@
 
 #define mark - disablePaste
 static char kDisablePaste;
-- (BOOL)isDisablePaste
+- (BOOL)yu_isDisablePaste
 {
     return [(NSNumber*)objc_getAssociatedObject(self, &kDisablePaste) boolValue];
 }
 
--(void)disablePaste
+-(void)yu_disablePaste
 {
     objc_setAssociatedObject(self, &kDisablePaste, [NSNumber numberWithBool:YES], OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+- (BOOL)yu_canPerformAction:(SEL)action withSender:(id)sender
 {
     if ([self.text length]>0) {
         if (action == @selector(selectAll:) ||action ==@selector(select:) || action == @selector(copy:) || action == @selector(paste:)){

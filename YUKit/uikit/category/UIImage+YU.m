@@ -27,15 +27,15 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 @implementation UIImage (YU)
 #pragma mark -
 #pragma mark - initialize
-UIImage* UIImageWithName(NSString *fileName){
+UIImage* YU_UIImageWithName(NSString *fileName){
     return [UIImage imageNamed:fileName];
 }
 
-UIImage* UIImageNamedWithBundleOFFile(NSString *bundleName,NSString *name,NSString *ext)
+UIImage* YU_UIImageNamedWithBundleOFFile(NSString *bundleName,NSString *name,NSString *ext)
 {
     NSString *_bundleName = bundleName;
 
-    if (-1 == [bundleName lastIndexOf:@".bundle"] ) {
+    if (-1 == [bundleName yu_lastIndexOf:@".bundle"] ) {
         _bundleName = [NSString stringWithFormat:@"%@.bundle",bundleName];
     }
     
@@ -48,20 +48,20 @@ UIImage* UIImageNamedWithBundleOFFile(NSString *bundleName,NSString *name,NSStri
     return [UIImage imageWithContentsOfFile:img_path];
 }
 
-UIImage* UIImageWithContentsOfPNGFile(NSString *fileName){
+UIImage* YU_UIImageWithContentsOfPNGFile(NSString *fileName){
     assert(fileName.length);
-    return UIImageWithContentsOfFile(fileName,@"png");
+    return YU_UIImageWithContentsOfFile(fileName,@"png");
 }
 
-UIImage* UIImageWithContentsOfJPGFile(NSString *fileName){
-    return UIImageWithContentsOfFile(fileName,@"jpg");
+UIImage* YU_UIImageWithContentsOfJPGFile(NSString *fileName){
+    return YU_UIImageWithContentsOfFile(fileName,@"jpg");
 }
 
-UIImage* UIImageWithContentsOfFile(NSString *fileName,NSString *ext){
+UIImage* YU_UIImageWithContentsOfFile(NSString *fileName,NSString *ext){
     return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:fileName ofType:ext]];
 }
 
-+(UIImage *)imageWithView:(UIView*)view{
++(UIImage *)yu_imageWithView:(UIView*)view{
 
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 0);
     CGContextRef currnetContext = UIGraphicsGetCurrentContext();
@@ -72,12 +72,12 @@ UIImage* UIImageWithContentsOfFile(NSString *fileName,NSString *ext){
 }
 
 //根据颜色返回图片
-+(UIImage *)imageWithColor:(UIColor*)color
++(UIImage *)yu_imageWithColor:(UIColor*)color
 {
-    return [self imageWithColor:color size:CGSizeMake(1.0f, 1.0f)];
+    return [self yu_imageWithColor:color size:CGSizeMake(1.0f, 1.0f)];
 }
 
-+(UIImage *)imageWithColor:(UIColor*)color size:(CGSize)size
++(UIImage *)yu_imageWithColor:(UIColor*)color size:(CGSize)size
 {
     CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
     UIGraphicsBeginImageContext(rect.size);
@@ -90,17 +90,17 @@ UIImage* UIImageWithContentsOfFile(NSString *fileName,NSString *ext){
     return img;
 }
 
-- (UIImage *) imageWithTintColor:(UIColor *)tintColor
+- (UIImage *) yu_imageWithTintColor:(UIColor *)tintColor
 {
-    return [self imageWithTintColor:tintColor blendMode:kCGBlendModeDestinationIn];
+    return [self yu_imageWithTintColor:tintColor blendMode:kCGBlendModeDestinationIn];
 }
 
-- (UIImage *) imageWithGradientTintColor:(UIColor *)tintColor
+- (UIImage *) yu_imageWithGradientTintColor:(UIColor *)tintColor
 {
-    return [self imageWithTintColor:tintColor blendMode:kCGBlendModeOverlay];
+    return [self yu_imageWithTintColor:tintColor blendMode:kCGBlendModeOverlay];
 }
 
-- (UIImage *) imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode
+- (UIImage *) yu_imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode
 {
     //We want to keep alpha, set opaque to NO; Use 0.0f for scale to use the scale factor of the device’s main screen.
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
@@ -137,15 +137,15 @@ UIImage* UIImageWithContentsOfFile(NSString *fileName,NSString *ext){
 
 #pragma mark -
 #pragma mark - 
-UIImage* imageWithCapInsets(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right){
+UIImage* YU_ImageWithCapInsets(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right){
     return [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)];
 }
 
-UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right,UIImageResizingMode mode){
+UIImage* YU_ImageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right,UIImageResizingMode mode){
     return [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode];
 }
 
-- (UIImage *)imageByResizeToMultiple:(CGFloat)multiple
+- (UIImage *)yu_imageByResizeToMultiple:(CGFloat)multiple
 {
     UIGraphicsBeginImageContext(CGSizeMake(self.size.width * multiple, self.size.height * multiple));
     [self drawInRect:CGRectMake(0, 0, self.size.width * multiple, self.size.height * multiple)];
@@ -155,7 +155,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     return scaledImage;
 }
 
-- (UIImage *)imageByResizeToSize:(CGSize)size{
+- (UIImage *)yu_imageByResizeToSize:(CGSize)size{
     
     CGFloat newWidth  = size.width;
     CGFloat newHeight = size.height;
@@ -177,7 +177,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     return self;
 }
 
-- (UIImage *)imageByResizeWithBounds:(CGSize)bounds
+- (UIImage *)yu_imageByResizeWithBounds:(CGSize)bounds
 {
     CGFloat horizontalRatio = bounds.width / self.size.width;
     CGFloat verticalRatio = bounds.height / self.size.height;
@@ -200,7 +200,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     return newImage;
 }
 
-- (UIImage *)imageByCropToRect:(CGRect)rect
+- (UIImage *)yu_imageByCropToRect:(CGRect)rect
 {
     CGImageRef imageRef   = CGImageCreateWithImageInRect([self CGImage], rect);
     UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
@@ -209,7 +209,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
 }
 
 //等比，居中剪切
-- (UIImage *)imageByCropCenterToRect:(CGSize)size{
+- (UIImage *)yu_imageByCropCenterToRect:(CGSize)size{
 
     CGFloat scaleW = self.size.width/size.width;
     CGFloat scaleH = self.size.height/size.height;
@@ -219,7 +219,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
             CGSize scaleSize = CGSizeMake(size.width*scaleH, size.height*scaleH);
             //剪切
             CGRect rect      = CGRectMake((self.size.width-scaleSize.width)/2, 0, scaleSize.width, scaleSize.height);
-            UIImage *img     = [self imageByCropToRect:rect];
+            UIImage *img     = [self yu_imageByCropToRect:rect];
             return img;
         }else{
             
@@ -227,19 +227,19 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
             CGSize scaleSize = CGSizeMake(size.width*scaleW, size.height*scaleW);
             //剪切
             CGRect rect      = CGRectMake(0, (self.size.height-scaleSize.width)/2, scaleSize.width, scaleSize.height);
-            UIImage *img     = [self imageByCropToRect:rect];
+            UIImage *img     = [self yu_imageByCropToRect:rect];
             return img;
         }
     }
     return self;
 }
 
-- (UIImage *)imageRotatedByRadians:(CGFloat)radians
+- (UIImage *)yu_imageRotatedByRadians:(CGFloat)radians
 {
-    return [self imageRotatedByDegrees:RadiansToDegrees(radians)];
+    return [self yu_imageRotatedByDegrees:RadiansToDegrees(radians)];
 }
 
-- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees
+- (UIImage *)yu_imageRotatedByDegrees:(CGFloat)degrees
 {
     // calculate the size of the rotated view's containing box for our drawing space
     UIView *rotatedViewBox   = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.size.width, self.size.height)];
@@ -268,7 +268,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     
 }
 
-- (UIImage *)imageRotation:(UIImageOrientation)orientation
+- (UIImage *)yu_imageRotation:(UIImageOrientation)orientation
 {
     long double rotate = 0.0;
     CGRect rect;
@@ -325,7 +325,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     return newPic;
 }
 
--(UIColor*)imageMostColor{
+-(UIColor*)yu_imageMostColor{
     
     //第一步 先把图片缩小 加快计算速度. 但越小结果误差可能越大
     CGSize thumbSize=CGSizeMake(50, 50);
@@ -390,7 +390,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];
 }
 
-- (UIImage*)imageChangeByColor:(UIColor*)color
+- (UIImage*)yu_imageChangeByColor:(UIColor*)color
 {
     UIGraphicsBeginImageContextWithOptions(self.size, YES, [[UIScreen mainScreen] scale]);
     
@@ -441,7 +441,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
 #pragma mark - Code
 // 参考文档
 // https://developer.apple.com/library/mac/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html
-+ (UIImage *)generateQRCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height {
++ (UIImage *)yu_generateQRCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height {
     
     // 生成二维码图片
     CIImage *qrcodeImage;
@@ -459,7 +459,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     return [UIImage imageWithCIImage:transformedImage];
 }
 
-+ (UIImage *)generateQRCode:(NSString *)code image:(UIImage*)image width:(CGFloat)width height:(CGFloat)height {
++ (UIImage *)yu_generateQRCode:(NSString *)code image:(UIImage*)image width:(CGFloat)width height:(CGFloat)height {
     
     //1.生成coreImage框架中的滤镜来生产二维码
     CIFilter *filter=[CIFilter filterWithName:@"CIQRCodeGenerator"];
@@ -521,7 +521,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
 
 
 
-+ (UIImage *)generateBarCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height {
++ (UIImage *)yu_generateBarCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height {
     // 生成条形码图片
     CIImage *barcodeImage;
     NSData *data = [code dataUsingEncoding:NSISOLatin1StringEncoding allowLossyConversion:false];
@@ -540,7 +540,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
 
 
 // 每隔4个字符空两格
-+ (NSString *)imageFormatCode:(NSString *)code {
++ (NSString *)yu_imageFormatCode:(NSString *)code {
     //    NSMutableArray *chars = [[NSMutableArray alloc] init];
     
     NSMutableString *chars = [NSMutableString new];
@@ -578,7 +578,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     //    return temp;
 }
 #pragma mark -
-- (BOOL)imageHasAlpha:(UIImage *)image
+- (BOOL)yu_imageHasAlpha:(UIImage *)image
 {
     CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
     return (alpha == kCGImageAlphaFirst ||
@@ -587,11 +587,11 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
             alpha == kCGImageAlphaPremultipliedLast);
 }
 
-- (NSString *)imageToBase64
+- (NSString *)yu_imageToBase64
 {
     //UIImage图片转成Base64字符串：
     NSData *data;
-    if ([self imageHasAlpha: self]) {
+    if ([self yu_imageHasAlpha: self]) {
         data = UIImagePNGRepresentation(self);
     } else {
         data = UIImageJPEGRepresentation(self, 1.0f);
@@ -602,7 +602,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
     return encodedImageStr;
 }
 
-+ (UIImage *)Base64ToImage:(NSString *)encodedImageStr
++ (UIImage *)yu_base64ToImage:(NSString *)encodedImageStr
 {
     //Base64字符串转UIImage图片：
     NSData *decodedImageData = [[NSData alloc]
@@ -613,7 +613,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
 
 
 
-- (UIImage *)fixOrientation:(UIImage *)aImage {
+- (UIImage *)yu_fixOrientation:(UIImage *)aImage {
     
     // No-op if the orientation is already correct
     if (aImage.imageOrientation == UIImageOrientationUp)
@@ -692,7 +692,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
 
 
 
-- (NSString*)saveImagewithName:(NSString *)imageName
+- (NSString*)yu_saveImagewithName:(NSString *)imageName
 {
     NSData *imageData = UIImageJPEGRepresentation(self, 0.1);
     // 获取沙盒目录

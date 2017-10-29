@@ -11,34 +11,34 @@
 @implementation UIPasteboard (YU)
 
 
-+(void)setString:(NSString*)string{
-    [self setStrings:@[string]];
++(void)yu_setString:(NSString*)string{
+    [self yu_setStrings:@[string]];
 }
-+(void)setStrings:(NSArray*)strings{
++(void)yu_setStrings:(NSArray*)strings{
     [[UIPasteboard generalPasteboard] setStrings:strings];
 }
 
 
-+(void)setImage:(UIImage*)image{
-    [self setImages:@[image]];
++(void)yu_setImage:(UIImage*)image{
+    [self yu_setImages:@[image]];
 }
-+(void)setImages:(NSArray*)images{
++(void)yu_setImages:(NSArray*)images{
     [[UIPasteboard generalPasteboard] setImages:images];
 }
 
 
-+(void)setColor:(UIColor*)color{
-    [self setColors:@[color]];
++(void)yu_setColor:(UIColor*)color{
+    [self yu_setColors:@[color]];
 }
-+(void)setColors:(NSArray*)colors{
++(void)yu_setColors:(NSArray*)colors{
     [[UIPasteboard generalPasteboard] setColors:colors];
 }
 
 
-+(void)setUrl:(NSURL*)url{
-    [self setUrls:@[url]];
++(void)yu_setUrl:(NSURL*)url{
+    [self yu_setUrls:@[url]];
 }
-+(void)setUrls:(NSArray*)urls{
++(void)yu_setUrls:(NSArray*)urls{
     [[UIPasteboard generalPasteboard] setURLs:urls];
 }
 @end

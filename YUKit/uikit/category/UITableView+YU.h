@@ -15,14 +15,14 @@ typedef NS_ENUM(NSInteger,YUAnimation) {
 
 @interface UITableView (YU)
 
--(void)yuScrollViewDidScroll:(UIScrollView *)scrollView Animation:(BOOL)animation;
+-(void)yu_ScrollViewDidScroll:(UIScrollView *)scrollView Animation:(BOOL)animation;
 
-- (CAAnimationGroup*)reloadDataAnimate:(YUAnimation)animation willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath duration:(CFTimeInterval)duration completion:(void(^)())completion;
+- (CAAnimationGroup*)yu_reloadDataAnimate:(YUAnimation)animation willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath duration:(CFTimeInterval)duration completion:(void(^)(void))completion;
 
--(void)yuReloadData;
--(void)yuReloadData:(NSString*)message;
+-(void)yu_ReloadData;
+-(void)yu_ReloadData:(NSString*)message;
 
--(void)showEmptyView:(NSString*)message;
--(void)hideEmptyView;
+-(void)yu_showEmptyView:(NSString*)message;
+-(void)yu_hideEmptyView;
 
 @end

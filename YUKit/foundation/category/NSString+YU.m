@@ -16,34 +16,34 @@
 
 @implementation NSString (YU)
 
-NSString* checkString(NSString *string){
+NSString* YU_CheckString(NSString *string){
     
     NSString *s = string;
     if (![s isKindOfClass:[NSString class]]) {
-        s = stringWithFormat(string);
+        s = YU_StringWithFormat(string);
     }
     return s;
 }
 
 
 
-BOOL isSafeString(NSString* string){
+BOOL yu_isSafeString(NSString* string){
 
-    string = checkString(string);
-    return [string isCanBeUse]&& ![string isBlankString];
+    string = YU_CheckString(string);
+    return [string yu_isCanBeUse]&& ![string yu_isBlankString];
 }
 
-NSString* SafeString(NSString* string){
+NSString* YU_SafeString(NSString* string){
     
-    string = checkString(string);
+    string = YU_CheckString(string);
     
-    if ([string isCanBeUse]) {
+    if ([string yu_isCanBeUse]) {
         return string;
     }
     return @"";
 }
 
-NSString* ComboString(NSString* format,...){
+NSString* YU_ComboString(NSString* format,...){
     
     va_list args;
     va_start(args, format);
@@ -53,13 +53,13 @@ NSString* ComboString(NSString* format,...){
     return string;
 }
 
-NSString* AppendString(NSString* str1,NSString* str2){
+NSString* YU_AppendString(NSString* str1,NSString* str2){
     
     return [NSString stringWithFormat:@"%@%@",str1,str2];
     
 }
 
-+(NSString*)uuidString
++(NSString*)yu_uuidString
 {
     CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
     CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
@@ -69,7 +69,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
--(NSInteger)indexOf:(NSString*)search{
+-(NSInteger)yu_indexOf:(NSString*)search{
     
     NSRange r=[self rangeOfString:search];
     if (r.location!=NSNotFound) {
@@ -78,7 +78,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
     return -1;
 }
 
--(NSInteger)lastIndexOf:(NSString*)search{
+-(NSInteger)yu_lastIndexOf:(NSString*)search{
     
     NSRange r=[self rangeOfString:search options:NSBackwardsSearch];
     if (r.location!=NSNotFound) {
@@ -88,7 +88,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
--(NSString*)trim{
+-(NSString*)yu_trim{
     if (self) {
         return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
@@ -96,9 +96,9 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
--(NSString *)stringFilter{
+-(NSString *)yu_stringFilter{
     
-    if ([self isCanBeUse]) {
+    if ([self yu_isCanBeUse]) {
         
         NSUInteger len = self.length;
         
@@ -111,20 +111,20 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
--(NSString *)phoneFilter{
-    if ([self isCanBeUse]) {
+-(NSString *)yu_phoneFilter{
+    if ([self yu_isCanBeUse]) {
         
         NSUInteger len = self.length;
         
         NSMutableString *str = [NSMutableString stringWithString:self];
-        [str replaceCharactersInRange:NSMakeRange(MIN(len, 4), self.length-MIN(len, 8)) withString:[self stringFilterWithLenth:len-8]];
+        [str replaceCharactersInRange:NSMakeRange(MIN(len, 4), self.length-MIN(len, 8)) withString:[self yu_stringFilterWithLenth:len-8]];
         
         return str;
     }
     return @"";
 }
 
--(NSString*)stringFilterWithLenth:(NSInteger)lenth{
+-(NSString*)yu_stringFilterWithLenth:(NSInteger)lenth{
     
     NSMutableString *string = [NSMutableString new];
     
@@ -138,14 +138,14 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
--(NSString *)nameFilter{
+-(NSString *)yu_nameFilter{
     
-    if ([self isCanBeUse]) {
+    if ([self yu_isCanBeUse]) {
         
         NSUInteger len = self.length;
         
         NSMutableString *str = [NSMutableString stringWithString:self];
-        [str replaceCharactersInRange:NSMakeRange(MIN(len, 1), self.length-MIN(len, 1)) withString:[self stringFilterWithLenth:len-1]];
+        [str replaceCharactersInRange:NSMakeRange(MIN(len, 1), self.length-MIN(len, 1)) withString:[self yu_stringFilterWithLenth:len-1]];
         
         return str;
     }
@@ -153,13 +153,13 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
--(NSString *)idNoFilter{
-    if ([self isCanBeUse]) {
+-(NSString *)yu_idNoFilter{
+    if ([self yu_isCanBeUse]) {
         
         NSUInteger len = self.length;
         
         NSMutableString *str = [NSMutableString stringWithString:self];
-        [str replaceCharactersInRange:NSMakeRange(MIN(len, 3), self.length-MIN(len, 7)) withString:[self stringFilterWithLenth:len-7]];
+        [str replaceCharactersInRange:NSMakeRange(MIN(len, 3), self.length-MIN(len, 7)) withString:[self yu_stringFilterWithLenth:len-7]];
         
         return str;
     }
@@ -169,9 +169,9 @@ NSString* AppendString(NSString* str1,NSString* str2){
 
 
 
--(NSString *)stringFilterByString:(NSString *)string{
+-(NSString *)yu_stringFilterByString:(NSString *)string{
         
-    if ([string isCanBeUse]) {
+    if ([string yu_isCanBeUse]) {
         
         NSUInteger len = string.length;
         
@@ -184,9 +184,9 @@ NSString* AppendString(NSString* str1,NSString* str2){
     return @"";
 }
 
-- (NSString *)stringToCodeStyle{
+- (NSString *)yu_stringToCodeStyle{
     
-    if ([self isCanBeUse]) {
+    if ([self yu_isCanBeUse]) {
         NSMutableString *chars = [NSMutableString new];
         
         for (int i = 0; i < [self length]; i++) {
@@ -206,7 +206,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
-- (NSString *)stringToCommaStyle{
+- (NSString *)yu_stringToCommaStyle{
     
     NSString *string = [NSString stringWithFormat:@"%.2f",[self doubleValue]];
     
@@ -238,7 +238,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
     return sStr;
 }
 
-- (NSString *)URLEncodedParameterString {
+- (NSString *)yu_URLEncodedParameterString {
     
     NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                                              (CFStringRef)self,
@@ -249,7 +249,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
-- (NSString *)URLDecodedString {
+- (NSString *)yu_URLDecodedString {
     return ( NSString *)CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
                                                                                                   ( CFStringRef)self,
                                                                                                   CFSTR(""),
@@ -257,7 +257,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
-- (NSDictionary*)queryDictionaryUsingEncoding{
+- (NSDictionary*)yu_queryDictionaryUsingEncoding{
     
     NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
     NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
@@ -279,7 +279,7 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
-- (NSString*)stringByAddingQueryDictionary:(NSDictionary*)query {
+- (NSString*)yu_stringByAddingQueryDictionary:(NSDictionary*)query {
     NSMutableArray* pairs = [NSMutableArray array];
     for (NSString* key in [query keyEnumerator]) {
         NSString* value = [query objectForKey:key];
@@ -298,65 +298,65 @@ NSString* AppendString(NSString* str1,NSString* str2){
 }
 
 
-- (NSString *)md5String{
+- (NSString *)yu_md5String{
     if(self == nil || [self length] == 0)
         return nil;
-   return [[self dataUsingEncoding:NSUTF8StringEncoding] MD5Sum];
+   return [[self dataUsingEncoding:NSUTF8StringEncoding] yu_MD5Sum];
 }
 
 
-- (NSString *)SHA1Sum {
+- (NSString *)yu_SHA1Sum {
     const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *data = [NSData dataWithBytes:cstr length:self.length];
-    return [data SHA1Sum];
+    return [data yu_SHA1Sum];
 }
 
 
-- (NSString *)SHA256Sum {
+- (NSString *)yu_SHA256Sum {
     const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *data = [NSData dataWithBytes:cstr length:self.length];
-    return [data SHA256Sum];
+    return [data yu_SHA256Sum];
 }
 
 
--(NSString *)md5FileString{
+-(NSString *)yu_md5FileString{
     
     if(self == nil || [self length] == 0)
         return nil;
     
     NSData * data = [NSData dataWithContentsOfFile:self];
-    return [data MD5Sum];
+    return [data yu_MD5Sum];
 }
 
 
--(NSString*)AES128EncryToBase64String:(NSString *)password
+-(NSString*)yu_AES128EncryToBase64String:(NSString *)password
 {
     
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
-    data = [data AES128Operation:kCCEncrypt key:password];
-    return [data base64EncodedString];
+    data = [data yu_AES128Operation:kCCEncrypt key:password];
+    return [data yu_base64EncodedString];
 }
 
 
--(NSString*)AES128DecryptWithKey:(NSString*)password
+-(NSString*)yu_AES128DecryptWithKey:(NSString*)password
 {
-    NSData *data = [self base64DecodedData];
-    data = [data AES128Operation:kCCDecrypt key:password];
+    NSData *data = [self yu_base64DecodedData];
+    data = [data yu_AES128Operation:kCCDecrypt key:password];
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
--(NSString*)DESEncryToBase64String:(NSString *)password
+-(NSString*)yu_DESEncryToBase64String:(NSString *)password
 {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
-    data = [data DESEncryptWithKey:password];
-    return [data base64EncodedString];
+    data = [data yu_DESEncryptWithKey:password];
+    return [data yu_base64EncodedString];
 }
 
 
--(NSString*)DESDecryptWithKey:(NSString*)password
+-(NSString*)yu_DESDecryptWithKey:(NSString*)password
 {
-    NSData *data = [self base64DecodedData];
-    data = [data DESDecryptWithKey:password];
+    NSData *data = [self yu_base64DecodedData];
+    data = [data yu_DESDecryptWithKey:password];
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 

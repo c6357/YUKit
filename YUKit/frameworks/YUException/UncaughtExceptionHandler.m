@@ -93,7 +93,7 @@ void InstallUncaughtExceptionHandler(void);
 
 - (void)validateAndSaveCriticalApplicationData:(NSException *)exception
 {
-	YULog(@"%@",[exception reason]);
+	YU_Log(@"%@",[exception reason]);
     
     if (self.unknownException) {
         self.unknownException(exception,&_dismissed);

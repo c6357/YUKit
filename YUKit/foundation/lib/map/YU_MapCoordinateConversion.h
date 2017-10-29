@@ -10,10 +10,10 @@
 #define YU_MapCoordinateConversion_hpp
 
 
-void bd_encrypt(double gg_lat, double gg_lon, double &bd_lat, double &bd_lon);
+void yu_encrypt(double gg_lat, double gg_lon, double &bd_lat, double &bd_lon);
 
 
-void bd_decrypt(double bd_lat, double bd_lon, double &gg_lat, double &gg_lon);
+void yu_decrypt(double bd_lat, double bd_lon, double &gg_lat, double &gg_lon);
 
 
 

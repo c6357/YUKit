@@ -28,7 +28,7 @@ lineBreakMode:mode] : CGSizeZero;
 
 @implementation UIView (YU)
 
-+(UIView *)viewWithTitle:(NSString*)title{
++(UIView *)yu_viewWithTitle:(NSString*)title{
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, title.length*24, 44)];
     lab.text = title;
     lab.font = [UIFont boldSystemFontOfSize:16];
@@ -36,7 +36,7 @@ lineBreakMode:mode] : CGSizeZero;
     return lab;
 }
 
-- (UIImage *)imageFromView{
+- (UIImage *)yu_imageFromView{
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -45,7 +45,7 @@ lineBreakMode:mode] : CGSizeZero;
 }
 
 
-- (CAGradientLayer *)addLinearGradientWithColor:(UIColor *)theColor transparentToOpaque:(BOOL)transparentToOpaque
+- (CAGradientLayer *)yu_addLinearGradientWithColor:(UIColor *)theColor transparentToOpaque:(BOOL)transparentToOpaque
 {
     CAGradientLayer *gradient = [CAGradientLayer layer];
     
@@ -79,7 +79,7 @@ lineBreakMode:mode] : CGSizeZero;
     return gradient;
 }
 
-- (UIView *)addOpacityWithColor:(UIColor *)theColor
+- (UIView *)yu_addOpacityWithColor:(UIColor *)theColor
 {
     UIView *shadowView = [[UIView alloc] initWithFrame:self.bounds];
     
@@ -90,7 +90,7 @@ lineBreakMode:mode] : CGSizeZero;
     return shadowView;
 }
 
-- (UIImageView *) imageInNavController: (UINavigationController *) navController
+- (UIImageView *) yu_imageInNavController: (UINavigationController *) navController
 {
     [self.layer setContentsScale:[[UIScreen mainScreen] scale]];
     
@@ -104,7 +104,7 @@ lineBreakMode:mode] : CGSizeZero;
     UIImageView *currentView = [[UIImageView alloc] initWithImage: img];
     
     //Fix the position to handle status bar and navigation bar
-    float yPosition = [navController calculateYPosition];
+    float yPosition = [navController yu_calculateYPosition];
     [currentView setFrame:CGRectMake(0, yPosition, currentView.frame.size.width, currentView.frame.size.height)];
     
     return currentView;
@@ -112,7 +112,7 @@ lineBreakMode:mode] : CGSizeZero;
 
 
 
-+(id)XIBView
++(id)yu_xibView
 {
     id obj = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithUTF8String:object_getClassName(self)] owner:nil options:nil] objectAtIndex:0];
     return obj;
@@ -120,10 +120,10 @@ lineBreakMode:mode] : CGSizeZero;
 
 
 
--(id)replacementForXibView
+-(id)yu_replacementForXibView
 {
     UIView *old = self;
-    UIView *new = [[self class] XIBView];
+    UIView *new = [[self class] yu_xibView];
     [new setFrame:old.frame];
     [old.superview addSubview:new];
     [old removeFromSuperview];
@@ -132,7 +132,7 @@ lineBreakMode:mode] : CGSizeZero;
 
 
 #pragma mark - ws
--(CAGradientLayer*)gradientLayer
+-(CAGradientLayer*)yu_gradientLayer
 {
     static NSString *layerIdentifier = @"gradient layer";
     
@@ -149,12 +149,12 @@ lineBreakMode:mode] : CGSizeZero;
 }
 
 
--(void)setBackgroundWithGradientColor:(NSArray*)colors
+-(void)yu_setBackgroundWithGradientColor:(NSArray*)colors
 {
     static NSString* layerName = @"gradient layer";
     
     self.backgroundColor = Nil;
-    CAGradientLayer *gradientLayer = [self gradientLayer];
+    CAGradientLayer *gradientLayer = [self yu_gradientLayer];
     
     if (!gradientLayer) {
         gradientLayer = [CAGradientLayer layer];
@@ -177,7 +177,7 @@ lineBreakMode:mode] : CGSizeZero;
     
 }
 
--(void)setFrame:(CGRect)frame animation:(BOOL)animated completion:(void(^)(BOOL))completion
+-(void)yu_setFrame:(CGRect)frame animation:(BOOL)animated completion:(void(^)(BOOL))completion
 {
     if (!animated) {
         [self setFrame:frame];
@@ -188,7 +188,7 @@ lineBreakMode:mode] : CGSizeZero;
     }
 }
 
--(void)move:(float)offset direct:(Direction)direction animation:(BOOL)animated
+-(void)yu_move:(float)offset direct:(Direction)direction animation:(BOOL)animated
 {
     CGRect rect = self.frame;
     switch (direction) {
@@ -206,34 +206,34 @@ lineBreakMode:mode] : CGSizeZero;
             break;
     }
     
-    [self setFrame:rect animation:animated completion:nil];
+    [self yu_setFrame:rect animation:animated completion:nil];
 }
 
--(void)moveUp:(NSNumber*)offset animation:(BOOL)animated
+-(void)yu_moveUp:(NSNumber*)offset animation:(BOOL)animated
 {
-    [self move:[offset floatValue] direct:Direct_Up animation:animated];
+    [self yu_move:[offset floatValue] direct:Direct_Up animation:animated];
 }
 
--(void)moveDown:(NSNumber*)offset animation:(BOOL)animated
+-(void)yu_moveDown:(NSNumber*)offset animation:(BOOL)animated
 {
-    [self move:[offset floatValue] direct:Direct_Down animation:animated];
+    [self yu_move:[offset floatValue] direct:Direct_Down animation:animated];
 }
 
--(void)moveDown:(NSNumber*)offset
+-(void)yu_moveDown:(NSNumber*)offset
 {
-    [self move:[offset floatValue] direct:Direct_Down animation:false];
+    [self yu_move:[offset floatValue] direct:Direct_Down animation:false];
 }
 
--(void)moevrTo:(CGPoint)nPoint animation:(BOOL)animated
+-(void)yu_moevrTo:(CGPoint)nPoint animation:(BOOL)animated
 {
     CGRect rect = self.frame;
     rect.origin.x = nPoint.x;
     rect.origin.y = nPoint.y;
     
-    [self setFrame:rect animation:animated completion:nil];
+    [self yu_setFrame:rect animation:animated completion:nil];
 }
 
--(void)moveToShowHide:(float)offset direct:(Direction)direction animation:(BOOL)animated
+-(void)yu_moveToShowHide:(float)offset direct:(Direction)direction animation:(BOOL)animated
 {
     CGRect rect = self.frame;
     switch (direction) {
@@ -271,17 +271,17 @@ lineBreakMode:mode] : CGSizeZero;
     }
 }
 
--(void)moveToHCenter:(BOOL)animated
+-(void)yu_moveToHCenter:(BOOL)animated
 {
     UIView *pv = self.superview;
     float width = pv.frame.size.width;
     
     float offset = (width - self.frame.size.width) /2 - self.frame.origin.x;
     
-    [self move:offset direct:Direct_Right animation:animated];
+    [self yu_move:offset direct:Direct_Right animation:animated];
 }
 
--(void)strechTo:(CGSize)nSize animation:(BOOL)animated
+-(void)yu_strechTo:(CGSize)nSize animation:(BOOL)animated
 {
     float widtih = nSize.width;
     float height = nSize.height;
@@ -290,10 +290,10 @@ lineBreakMode:mode] : CGSizeZero;
     rect.size.width = widtih ;
     rect.size.height =height ;
     
-    [self setFrame:rect animation:animated completion:nil];
+    [self yu_setFrame:rect animation:animated completion:nil];
 }
 
--(void)strech:(float)offset direct:(Direction)direction animation:(BOOL)animated
+-(void)yu_strech:(float)offset direct:(Direction)direction animation:(BOOL)animated
 {
     CGRect rect = self.frame;
     switch (direction) {
@@ -313,22 +313,22 @@ lineBreakMode:mode] : CGSizeZero;
             break;
     }
     
-    [self setFrame:rect animation:animated completion:nil];
+    [self yu_setFrame:rect animation:animated completion:nil];
 }
 
--(void)setToSuperCenter
+-(void)yu_setToSuperCenter
 {
     CGPoint center = self.superview.center;
     center = [self.superview convertPoint:center fromView:self.superview.superview];
     [self setCenter:center];
 }
 
--(void)setHidden:(BOOL)hidden animation:(BOOL)animation
+-(void)yu_setHidden:(BOOL)hidden animation:(BOOL)animation
 {
-    [self setHidden:hidden animation:animation completion:nil];
+    [self yu_setHidden:hidden animation:animation completion:nil];
 }
 
--(void)setHidden:(BOOL)hidden animation:(BOOL)animation completion:(void (^)(void))handler
+-(void)yu_setHidden:(BOOL)hidden animation:(BOOL)animation completion:(void (^)(void))handler
 {
     if (!animation) {
         [self setHidden:hidden];
@@ -422,9 +422,9 @@ lineBreakMode:mode] : CGSizeZero;
 static char kClickGecognizer;
 
 
--(void)addClickGesture:(void (^)(void))handler
+-(void)yu_addClickGesture:(void (^)(void))handler
 {
-    [self removeClickGesture];
+    [self yu_removeClickGesture];
 #if 1
     UIControl *maskControl = [[UIControl alloc] initWithFrame:self.bounds];
     [self addSubview:maskControl];
@@ -460,12 +460,12 @@ static char kClickGecognizer;
 #endif
 }
 
--(id)clickGesture
+-(id)yu_clickGesture
 {
     return objc_getAssociatedObject(self, &kClickGecognizer);
 }
 
--(void)removeClickGesture
+-(void)yu_removeClickGesture
 {
 #if 0
     if([self clickGesture]){
@@ -481,7 +481,7 @@ static char kClickGecognizer;
 #endif
 }
 
--(void)setWidth:(float)width
+-(void)yu_setWidth:(float)width
 {
     CGRect rect = self.frame;
     rect.size.width = width;
@@ -490,14 +490,14 @@ static char kClickGecognizer;
     self.center = center;
 }
 
--(void)setHeight:(float)height
+-(void)yu_setHeight:(float)height
 {
     CGRect rect = self.frame;
     rect.size.height = height;
     self.frame = rect;
 }
 
--(void)setHeight:(float)height animation:(BOOL)animtated
+-(void)yu_setHeight:(float)height animation:(BOOL)animtated
 {
     if (animtated) {
         [UIView animateWithDuration:CMM_AnimatePerior animations:^{
@@ -514,7 +514,7 @@ static char kClickGecognizer;
     
 }
 
--(void)setOrigin:(CGPoint)orgin
+-(void)yu_setOrigin:(CGPoint)orgin
 {
     CGRect rect = self.frame;
     rect.origin = orgin;
@@ -523,23 +523,23 @@ static char kClickGecognizer;
 
 static char kIndexPath;
 
--(NSIndexPath*)IndexPath
+-(NSIndexPath*)yu_idexPath
 {
     return (NSIndexPath*)objc_getAssociatedObject(self, &kIndexPath);
 }
 
--(void)setIndexPath:(NSIndexPath*)indexPath
+-(void)yu_setIndexPath:(NSIndexPath*)indexPath
 {
     objc_setAssociatedObject(self, &kIndexPath, indexPath, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 static char KYu_Obj;
--(id)Obj
+-(id)yu_obj
 {
     return (NSIndexPath*)objc_getAssociatedObject(self, &KYu_Obj);
 }
 
--(void)setObj:(id)obj{
+-(void)yu_setObj:(id)obj{
     objc_setAssociatedObject(self, &KYu_Obj, obj, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
@@ -549,14 +549,14 @@ static char kChangeWithMe;
 static bool hadExchanged = FALSE;
 
 
--(BOOL)autoSizeToFitContent
+-(BOOL)yu_autoSizeToFitContent
 {
     return (BOOL)[objc_getAssociatedObject(self, &kAutoSize) boolValue];
 }
 
--(void)setAutoSizeToFitContent:(BOOL)autoFit
+-(void)yu_setAutoSizeToFitContent:(BOOL)autoFit
 {
-    if ([self autoSizeToFitContent] == autoFit) {
+    if ([self yu_autoSizeToFitContent] == autoFit) {
         return;
     }
     if (!hadExchanged) {
@@ -593,12 +593,12 @@ static bool hadExchanged = FALSE;
     }
 }
 
--(BOOL)changeWithMe
+-(BOOL)yu_changeWithMe
 {
     return (BOOL)[objc_getAssociatedObject(self, &kChangeWithMe) boolValue];
 }
 
--(void)setchangeWithMe:(BOOL)autoFit
+-(void)yu_setchangeWithMe:(BOOL)autoFit
 {
     objc_setAssociatedObject(self, &kChangeWithMe, [NSNumber numberWithBool:autoFit], OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
@@ -606,9 +606,9 @@ static bool hadExchanged = FALSE;
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([keyPath isEqualToString:@"frame"] && ![self changeWithMe]) {
+    if ([keyPath isEqualToString:@"frame"] && ![self yu_changeWithMe]) {
         
-        [self setchangeWithMe:YES];
+        [self yu_setchangeWithMe:YES];
         
         CGRect old = [[change valueForKey:NSKeyValueChangeOldKey] CGRectValue];
         CGRect new = [[change valueForKey:NSKeyValueChangeNewKey] CGRectValue];
@@ -624,17 +624,17 @@ static bool hadExchanged = FALSE;
                 subV.frame = newSubRect;
             }
         }
-        [self strechTo:CGSizeMake(self.frame.size.width, self.frame.size.height + diff.height) animation:FALSE];
-        [self setchangeWithMe:FALSE];
+        [self yu_strechTo:CGSizeMake(self.frame.size.width, self.frame.size.height + diff.height) animation:FALSE];
+        [self yu_setchangeWithMe:FALSE];
         
     }
 }
 
 
--(void)addMySubview:(UIView *)view
+-(void)yu_addMySubview:(UIView *)view
 {
-    [self addMySubview:view];
-    if ([self autoSizeToFitContent]) {
+    [self yu_addMySubview:view];
+    if ([self yu_autoSizeToFitContent]) {
         [view addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:Nil];
         //        [view setAutoSizeToFitContent:YES];
     }
@@ -642,8 +642,8 @@ static bool hadExchanged = FALSE;
 
 -(void)removeFromMySuperview
 {
-    if ([self.superview autoSizeToFitContent]) {
-        if (self.superview && [self.superview autoSizeToFitContent]) {
+    if ([self.superview yu_autoSizeToFitContent]) {
+        if (self.superview && [self.superview yu_autoSizeToFitContent]) {
             [self removeObserver:self.superview forKeyPath:@"frame"];
         }
         //    [self setAutoSizeToFitContent:FALSE];

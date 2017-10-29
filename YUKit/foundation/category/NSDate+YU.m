@@ -16,9 +16,9 @@
  
  */
 
-NSString * const  dateFormatNill = @"0000-00-00 00:00:00.000";
-NSString * const  dateDefaultFormat =  @"yyyy-MM-dd HH:mm:ss";
-NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
+NSString * const  yu_dateFormatNill = @"0000-00-00 00:00:00.000";
+NSString * const  yu_dateDefaultFormat =  @"yyyy-MM-dd HH:mm:ss";
+NSString * const  yu_dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
 
 //NSString * const  dateDefaultFormat =  @"yyyy/MM/dd";
 
@@ -44,58 +44,58 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
 
 @implementation NSDate (YU)
 
--(NSUInteger)day
+-(NSUInteger)yu_day
 {
-    return [NSCalendar getDayWithDate:self];
+    return [NSCalendar yu_getDayWithDate:self];
 }
 
--(NSUInteger)month
+-(NSUInteger)yu_month
 {
-    return [NSCalendar getMonthWithDate:self];
+    return [NSCalendar yu_getMonthWithDate:self];
 }
 
--(NSUInteger)year
+-(NSUInteger)yu_year
 {
-    return [NSCalendar getYearWithDate:self];
+    return [NSCalendar yu_getYearWithDate:self];
 }
 
--(NSUInteger)next
+-(NSUInteger)yu_next
 {
     NSDate *date = [self dateByAddingTimeInterval:kOneDayInterval];
-    return date.day;
+    return date.yu_day;
 }
 
--(NSUInteger)pre
+-(NSUInteger)yu_pre
 {
     NSDate *date = [self dateByAddingTimeInterval:-kOneDayInterval];
-    return date.day;
+    return date.yu_day;
     
 }
 
 
 #pragma mark - day
--(NSDate*)nextDay
+-(NSDate*)yu_nextDay
 {
     return [self dateByAddingTimeInterval:kOneDayInterval];
 }
 
--(NSDate*)preDay
+-(NSDate*)yu_preDay
 {
     return [self dateByAddingTimeInterval:-kOneDayInterval];
 }
 
--(NSDate*)daybegin
+-(NSDate*)yu_daybegin
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.hour = 0;
     comp.minute = 0;
     comp.second = 0;
     return [[NSCalendar currentCalendar] dateFromComponents:comp];
 }
 
--(NSDate*)dayEnd
+-(NSDate*)yu_dayEnd
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.hour = 23;
     comp.minute = 59;
     comp.second = 59;
@@ -103,19 +103,19 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
 }
 
 #pragma mark - Week
--(NSDate*)nextWeek
+-(NSDate*)yu_nextWeek
 {
     return [self dateByAddingTimeInterval:7 * kOneDayInterval];
 }
 
--(NSDate*)preWeek
+-(NSDate*)yu_preWeek
 {
     return [self dateByAddingTimeInterval:-7 * kOneDayInterval];
 }
 
--(NSDate*)weekMonday
+-(NSDate*)yu_weekMonday
 {
-    int weekDay = [NSCalendar getWeekdayWithDate:self];
+    int weekDay = [NSCalendar yu_getWeekdayWithDate:self];
     int offset = 0;
     if (weekDay == 1) {
         offset = -6;
@@ -126,29 +126,29 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return date;
 }
 
--(NSDate*)weekBegin
+-(NSDate*)yu_weekBegin
 {
-    int weekDay = [NSCalendar getWeekdayWithDate:self];
+    int weekDay = [NSCalendar yu_getWeekdayWithDate:self];
     int offset = weekDay - 1;
     
     NSDate *date = [self dateByAddingTimeInterval:-(kOneDayInterval * offset)];
     return date;
 }
 
--(NSDate*)weekEnd
+-(NSDate*)yu_weekEnd
 {
-    int week = [NSCalendar getWeekOfYearWithDate:self];
-    if (week == 1 && self.month == 12) {
-        return self.yearEnd;
+    int week = [NSCalendar yu_getWeekOfYearWithDate:self];
+    if (week == 1 && self.yu_month == 12) {
+        return self.yu_yearEnd;
     } else {
-        return self.weekBegin.nextWeek.preDay;
+        return self.yu_weekBegin.yu_nextWeek.yu_preDay;
     }
 }
 
 #pragma mark - month
--(NSDate*)nextMonth
+-(NSDate*)yu_nextMonth
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.month = (comp.month + 1) % 13 + (comp.month + 1) / 13;
     comp.day = 1;
     if (comp.month == 1) {
@@ -157,9 +157,9 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return [[NSCalendar currentCalendar] dateFromComponents:comp];
 }
 
--(NSDate*)preMonth
+-(NSDate*)yu_preMonth
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     int month = (comp.month - 1) % 13;
     int year = (int)comp.year;
     if (month == 0) {
@@ -173,23 +173,23 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
 }
 
 
--(NSDate*)monthBegin
+-(NSDate*)yu_monthBegin
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.day = 1;
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comp];
     return date;
 }
 
 
--(NSDate*)monthEnd{
+-(NSDate*)yu_monthEnd{
     return nil;
 }
 
 
--(NSDate*)nextYear
+-(NSDate*)yu_nextYear
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.year++;
     comp.month = comp.day = 1;
     comp.hour = comp.second = comp.minute = 0;
@@ -197,9 +197,9 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return date;
 }
 
--(NSDate*)preYear
+-(NSDate*)yu_preYear
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.year--;
     comp.month = comp.day = 1;
     comp.hour = comp.second = comp.minute = 0;
@@ -207,39 +207,39 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return date;
 }
 
--(NSDate*)yearBegin
+-(NSDate*)yu_yearBegin
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.month = 1;
     comp.day = 1;
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comp];
     return date;
 }
 
--(NSDate*)yearEnd
+-(NSDate*)yu_yearEnd
 {
-    NSDateComponents *comp = [NSCalendar dateComponentsWithDate:self];
+    NSDateComponents *comp = [NSCalendar yu_dateComponentsWithDate:self];
     comp.month = 12;
     comp.day = 31;
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comp];
     return date;
 }
 
--(NSDate*)yearLastWeekMonday
+-(NSDate*)yu_yearLastWeekMonday
 {
-    NSDate *date = self.yearEnd;
-    int week = [NSCalendar getWeekdayWithDate:date];
+    NSDate *date = self.yu_yearEnd;
+    int week = [NSCalendar yu_getWeekdayWithDate:date];
     date = [date dateByAddingTimeInterval:-(week - 1) * kOneDayInterval];
     return date;
 }
 
 #pragma mark - 比较
 //大于date  返回yes
--(BOOL)compareDate:(NSDate*)date{
+-(BOOL)yu_compareDate:(NSDate*)date{
     return [[self earlierDate:date] isEqualToDate:date];
 }
 
--(BOOL)comparewithDate:(NSDate *)date{
+-(BOOL)yu_comparewithDate:(NSDate *)date{
     NSComparisonResult result = [self compare:date];
     BOOL isbig = NO;
     if (result==NSOrderedDescending) {//大于
@@ -248,7 +248,7 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return isbig;
 }
 
-- (NSString *)compareWithAnDate:(NSDate *)anDate
+- (NSString *)yu_compareWithAnDate:(NSDate *)anDate
 {
     NSCalendar *chineseClendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSUInteger unitFlags =  NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
@@ -285,38 +285,38 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return [NSString stringWithFormat:@"%@:%@:%@",diffHourStr,diffMinuteStr,diffSecondStr];
 }
 
-- (BOOL)isDateInToday:(NSDate *)date NS_AVAILABLE(10_9, 8_0){
+- (BOOL)yu_isDateInToday:(NSDate *)date NS_AVAILABLE(10_9, 8_0){
     
     return [[NSCalendar currentCalendar] isDateInToday:date];
 }
 
 
--(BOOL)isEqualDay:(NSDate*)date{
-    return ([NSCalendar getYearWithDate:self] == [NSCalendar getYearWithDate:date] &&
-            [NSCalendar getMonthWithDate:self] == [NSCalendar getMonthWithDate:date] &&
-            [NSCalendar getDayWithDate:self] == [NSCalendar getDayWithDate:date])
+-(BOOL)yu_isEqualDay:(NSDate*)date{
+    return ([NSCalendar yu_getYearWithDate:self] == [NSCalendar yu_getYearWithDate:date] &&
+            [NSCalendar yu_getMonthWithDate:self] == [NSCalendar yu_getMonthWithDate:date] &&
+            [NSCalendar yu_getDayWithDate:self] == [NSCalendar yu_getDayWithDate:date])
     ;
 }
 
--(BOOL)isEqualWeek:(NSDate*)date{
-    BOOL isEqual =  ([NSCalendar getYearWithDate:self] == [NSCalendar getYearWithDate:date] &&
-                     [NSCalendar getMonthWithDate:self] == [NSCalendar getMonthWithDate:date] && [NSCalendar getWeekOfYearWithDate2:self]== [NSCalendar getWeekOfYearWithDate2:date]);
+-(BOOL)yu_isEqualWeek:(NSDate*)date{
+    BOOL isEqual =  ([NSCalendar yu_getYearWithDate:self] == [NSCalendar yu_getYearWithDate:date] &&
+                     [NSCalendar yu_getMonthWithDate:self] == [NSCalendar yu_getMonthWithDate:date] && [NSCalendar yu_getWeekOfYearWithDate2:self]== [NSCalendar yu_getWeekOfYearWithDate2:date]);
     return isEqual;
     
 }
 
--(BOOL)isEqualMonth:(NSDate*)date{
-    return ([NSCalendar getYearWithDate:self] == [NSCalendar getYearWithDate:date] &&
-            [NSCalendar getMonthWithDate:self] == [NSCalendar getMonthWithDate:date])
+-(BOOL)yu_isEqualMonth:(NSDate*)date{
+    return ([NSCalendar yu_getYearWithDate:self] == [NSCalendar yu_getYearWithDate:date] &&
+            [NSCalendar yu_getMonthWithDate:self] == [NSCalendar yu_getMonthWithDate:date])
     ;
 }
 
--(BOOL)isEqualYear:(NSDate*)date{
-    return [NSCalendar getYearWithDate:self] == [NSCalendar getYearWithDate:date];
+-(BOOL)yu_isEqualYear:(NSDate*)date{
+    return [NSCalendar yu_getYearWithDate:self] == [NSCalendar yu_getYearWithDate:date];
 }
 
 #pragma mark -转换
--(NSDate*)dateWithAFewDay:(NSInteger)dayNum{
+-(NSDate*)yu_dateWithAFewDay:(NSInteger)dayNum{
     
     NSCalendar *_greCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponentsAsTimeQantum = [[NSDateComponents alloc] init];
@@ -327,7 +327,7 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
 }
 
 
--(NSDate *)dateFromString:(NSString *)formatString{
+-(NSDate *)yu_dateFromString:(NSString *)formatString{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
     [dateFormatter setDateFormat:formatString];
@@ -335,11 +335,11 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return [dateFormatter dateFromString:dateTime];
 }
 
-+ (NSDate *)dateFromString:(NSString *)dateString formatString:(NSString *)formatString{
-    return [self dateFromString:dateString formatString:formatString isLocal:YES];
++ (NSDate *)yu_dateFromString:(NSString *)dateString formatString:(NSString *)formatString{
+    return [self yu_dateFromString:dateString formatString:formatString isLocal:YES];
 }
 
-+ (NSDate *)dateFromString:(NSString *)dateString formatString:(NSString *)formatString isLocal:(BOOL)isLocal
++ (NSDate *)yu_dateFromString:(NSString *)dateString formatString:(NSString *)formatString isLocal:(BOOL)isLocal
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:formatString];
@@ -350,21 +350,21 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return [dateFormatter dateFromString:dateString];
 }
 
-+(NSString*)timeInterval{
++(NSString*)yu_timeIntervalString{
     NSTimeInterval timeInterval =[[NSDate date] timeIntervalSince1970];
     
     return [NSString stringWithFormat:@"%.0f",timeInterval*1000];
 }
 
-+(NSString*)stringFromTimeInterval:(NSString*)timeString formatString:(NSString*)formatString{
++(NSString*)yu_stringFromTimeInterval:(NSString*)timeString formatString:(NSString*)formatString{
     
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]/ 1000.0];
-    NSString* dateString = [date stringFromDateWithFormat:formatString];
+    NSString* dateString = [date yu_stringFromDateWithFormat:formatString];
     
     return dateString;
 }
 
--(NSString*)stringFromDateWithFormat:(NSString*)formatString
+-(NSString*)yu_stringFromDateWithFormat:(NSString*)formatString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:formatString];
@@ -372,15 +372,15 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return  destDateString;
 }
 
-+(NSString *)stringFromDate:(NSDate*)date formatString:(NSString*)formatString{
-    return [date stringFromDateWithFormat:formatString];
++(NSString *)yu_stringFromDate:(NSDate*)date formatString:(NSString*)formatString{
+    return [date yu_stringFromDateWithFormat:formatString];
 }
 
-+(NSString *)stringFromDateCheckToday:(NSDate*)date DateFormat:(NSString*)formatString{
++(NSString *)yu_stringFromDateCheckToday:(NSDate*)date DateFormat:(NSString*)formatString{
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setLocale:[NSLocale currentLocale]];
     NSString *str = nil;
-    if ([date isEqualDay:[NSDate date]]) {
+    if ([date yu_isEqualDay:[NSDate date]]) {
         NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
         [outputFormatter setLocale:[NSLocale currentLocale]];
         [outputFormatter setDateFormat:@"HH:mm"];
@@ -395,7 +395,7 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
 }
 
 
-+(NSString *)stringFromDateString:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString{
++(NSString *)yu_stringFromDateString:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString{
     
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setLocale:[NSLocale currentLocale]];
@@ -411,7 +411,7 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return str;
 }
 
-+(NSString *)stringFromDateString2Simplify:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString{
++(NSString *)yu_stringFromDateString2Simplify:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString{
     
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setLocale:[NSLocale currentLocale]];
@@ -426,11 +426,11 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     [outputFormatter setDateFormat:@"HH:mm"];
     
     NSDate *otherDate = [[NSDate date] dateByAddingTimeInterval:-24*60*60];
-    if ([otherDate isEqualDay:inputDate]) {
+    if ([otherDate yu_isEqualDay:inputDate]) {
         
         str = [NSString stringWithFormat:@"昨天 %@",[outputFormatter stringFromDate:inputDate]];
         
-    }else if ([inputDate isEqualDay:[NSDate date]]) {
+    }else if ([inputDate yu_isEqualDay:[NSDate date]]) {
 
         str = [NSString stringWithFormat:@"今天 %@",[outputFormatter stringFromDate:inputDate]];
     }else{
@@ -447,11 +447,11 @@ NSString * const  dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
 //仅限本地操作有效
 #define YU_NotDisturbDateBefore @"YYYY-MM-DD 08:00:00" //早上 XXX 之前免打扰
 #define YU_NotDisturbDateAfter  @"YYYY-MM-DD 19:00:00" //晚上 XXX 之后免打扰
--(BOOL)isNotDisturb{
-    NSDate *NotDisturbStartDate = [[NSDate date] dateFromString:YU_NotDisturbDateBefore];
-    NSDate *NotDisturbEndDate = [[NSDate date] dateFromString:YU_NotDisturbDateAfter];
+-(BOOL)yu_isNotDisturb{
+    NSDate *NotDisturbStartDate = [[NSDate date] yu_dateFromString:YU_NotDisturbDateBefore];
+    NSDate *NotDisturbEndDate = [[NSDate date] yu_dateFromString:YU_NotDisturbDateAfter];
     //>08 && < 19 非打扰
-    if ([self compareDate:NotDisturbStartDate] && ![self compareDate:NotDisturbEndDate]){
+    if ([self yu_compareDate:NotDisturbStartDate] && ![self yu_compareDate:NotDisturbEndDate]){
         return NO;
     }
     return YES;

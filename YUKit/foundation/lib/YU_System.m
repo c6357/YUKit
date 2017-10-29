@@ -11,19 +11,19 @@
 
 
 
-void system_vibrate(){
+void yu_system_vibrate(){
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
 #define SOUNDID  1012  //1012 -iphone   1152 ipad  1109 ipad
-void system_sound()
+void yu_system_sound()
 {
     AudioServicesPlaySystemSound(SOUNDID);
 }
 
 
 static UIWebView *phoneCallWebView;
-void system_call(NSString *phoneNo)
+void yu_system_call(NSString *phoneNo)
 {
     NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phoneNo]];
     
@@ -40,7 +40,7 @@ void system_call(NSString *phoneNo)
  打开一个网址
  @param  inUrl http://www.iteye.com/blogs/tag/iOS
  */
-void system_openURL(NSString *url){
+void yu_system_openURL(NSString *url){
 #ifndef TARGET_IS_EXTENSION
     if ([url hasPrefix:@"http://"] || [url hasPrefix:@"https://"]) {
         NSURL *cleanURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", url]];
@@ -54,7 +54,7 @@ void system_openURL(NSString *url){
 }
 
 
-void system_playSound(NSString *fName,NSString *ext)
+void yu_system_playSound(NSString *fName,NSString *ext)
 {
     NSString *path  = [[NSBundle mainBundle] pathForResource: fName ofType :ext];
     SystemSoundID audioEffect;
@@ -71,14 +71,14 @@ void system_playSound(NSString *fName,NSString *ext)
     }    
 }
 
-void system_soundCompleteCallback(SystemSoundID soundID,void * clientData){
+void yu_system_soundCompleteCallback(SystemSoundID soundID,void * clientData){
     NSLog(@"播放完成...");
     //停止播放音效
     AudioServicesDisposeSystemSoundID(soundID);
 }
 
 
-SystemSoundID system_creatSoundIDWithSoundName(NSString *soundName){
+SystemSoundID yu_system_creatSoundIDWithSoundName(NSString *soundName){
     
     NSString *audioFile = [[NSBundle mainBundle]pathForResource:soundName ofType:nil];
     NSURL *fileUrl=[NSURL fileURLWithPath:audioFile];
@@ -95,23 +95,23 @@ SystemSoundID system_creatSoundIDWithSoundName(NSString *soundName){
     }
     
     //如果需要在播放完之后执行某些操作，可以调用如下方法注册一个播放完成回调函数
-    AudioServicesAddSystemSoundCompletion(soundID, NULL, NULL, system_soundCompleteCallback, NULL);
+    AudioServicesAddSystemSoundCompletion(soundID, NULL, NULL, yu_system_soundCompleteCallback, NULL);
     return soundID;
 }
 
-void system_playSoundWithSoundID(SystemSoundID soundID){
+void yu_system_playSoundWithSoundID(SystemSoundID soundID){
     //2.播放音频
     AudioServicesPlaySystemSound(soundID);//播放音效
     //    AudioServicesPlayAlertSound(self.soundID);//播放音效并震动
 }
 
-void system_stopSoundWithSoundID(SystemSoundID soundID){
+void yu_system_stopSoundWithSoundID(SystemSoundID soundID){
     //停止播放音效
     AudioServicesDisposeSystemSoundID(soundID);
 }
 
 
-CTCarrier* system_carrier()
+CTCarrier* yu_system_carrier()
 {
     CTTelephonyNetworkInfo *telephonyInfo = [[CTTelephonyNetworkInfo alloc] init];
     
@@ -122,9 +122,9 @@ CTCarrier* system_carrier()
     return carrier;
 }
 
-NSString* system_carrierName(){
+NSString* yu_system_carrierName(){
     
-    NSString * mobileNetworkCode = system_carrier().mobileNetworkCode;
+    NSString * mobileNetworkCode = yu_system_carrier().mobileNetworkCode;
 
     NSDictionary *MNCDic = @{@"00":@"中国移动",
                              @"01":@"中国联通",

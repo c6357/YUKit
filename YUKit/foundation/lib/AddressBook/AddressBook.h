@@ -10,11 +10,11 @@
 #import "AddressBookObj.h"
 #import "YU_Singleton.h"
 
-@interface AddressBook : NSObject
+@interface YUAddressBook : NSObject
 
 
 
-YUSingletonH(AddressBook)
+YUSingletonH(YUAddressBook)
 
 /**
  * 返回通讯录对象

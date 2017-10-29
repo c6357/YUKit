@@ -11,7 +11,7 @@
 #define TAG_IMAGE_VIEW 999
 
 @implementation UIImageView (YU)
-- (UIImageView *) createCrop: (CGRect) crop
+- (UIImageView *) yu_createCrop: (CGRect) crop
 {
     CGImageRef imageRef = CGImageCreateWithImageInRect(self.image.CGImage, crop);
     UIImageView *imageViewCropped = [[UIImageView alloc] initWithImage:[UIImage imageWithCGImage:imageRef]];
@@ -25,7 +25,7 @@
     return imageViewCropped;
 }
 
-- (UIView *)createView
+- (UIView *)yu_createView
 {
     UIView *newView = [[UIView alloc] initWithFrame:self.frame];
     [self setTag:TAG_IMAGE_VIEW];

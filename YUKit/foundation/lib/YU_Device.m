@@ -22,12 +22,12 @@
 #import "YUKit.h"
 #import "Reachability.h"
 
-NSString *DeviceCurrentLanguage()
+NSString *YU_DeviceCurrentLanguage()
 {
     return [[NSLocale preferredLanguages] objectAtIndex:0];
 }
 
-NSString *DeviceModel()
+NSString *YU_DeviceModel()
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     return [UIDevice currentDevice].model;
@@ -36,12 +36,12 @@ NSString *DeviceModel()
 #endif
 }
 
-NSString *DeviceUuid()
+NSString *YU_DeviceUuid()
 {
     return nil;
 }
 
-NSString *DeviceLocalhost(){
+NSString *YU_DeviceLocalhost(){
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
@@ -72,7 +72,7 @@ NSString *DeviceLocalhost(){
     return address;
 }
 
-NSString *DeviceMachineModel()
+NSString *YU_DeviceMachineModel()
 {
     static dispatch_once_t one;
     static NSString *model;
@@ -89,7 +89,7 @@ NSString *DeviceMachineModel()
 
 //Models
 //https://www.theiphonewiki.com/wiki/Models
-NSString *DeviceMachineModelName()
+NSString *YU_DeviceMachineModelName()
 {
 //    struct utsname systemInfo;
 //    uname(&systemInfo);
@@ -99,7 +99,7 @@ NSString *DeviceMachineModelName()
     static dispatch_once_t one;
     static NSString *name;
     dispatch_once(&one, ^{
-        NSString *model = DeviceMachineModel();
+        NSString *model = YU_DeviceMachineModel();
         if (!model) return;
         NSDictionary *dic = @{
                               @"Watch1,1" : @"Apple Watch",
@@ -176,7 +176,7 @@ NSString *DeviceMachineModelName()
     return name;
 }
 
-NSString *DeviceSystemUptime()
+NSString *YU_DeviceSystemUptime()
 {
     NSInteger ti = (NSInteger)[[NSProcessInfo processInfo] systemUptime];
     NSInteger seconds = ti % 60;
@@ -190,7 +190,7 @@ NSString *DeviceSystemUptime()
 
 #pragma mark -
 #pragma mark - Network Information
-NSString *DeviceMacAddress(){
+NSString *YU_DeviceMacAddress(){
     int                 mgmtInfoBase[6];
     char                *msgBuffer = NULL;
     size_t              length;
@@ -252,7 +252,7 @@ NSString *DeviceMacAddress(){
     return macAddressString;
 }
 
-NSString *DeviceIpAddressWifi()
+NSString *YU_DeviceIpAddressWifi()
 {
     NSString *address = nil;
     struct ifaddrs *addrs = NULL;
@@ -272,7 +272,7 @@ NSString *DeviceIpAddressWifi()
     freeifaddrs(addrs);
     return address;
 }
-NSString *DeviceIpAddressCell()
+NSString *YU_DeviceIpAddressCell()
 {
     NSString *address = nil;
     struct ifaddrs *addrs = NULL;
@@ -315,7 +315,7 @@ BOOL isConnectedVia3G (){
 
 #pragma mark -
 #pragma mark - Disk Space
-int64_t DeviceDiskSpace()
+int64_t YU_DeviceDiskSpace()
 {
     NSError *error = nil;
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
@@ -324,7 +324,7 @@ int64_t DeviceDiskSpace()
     if (space < 0) space = -1;
     return space;
 }
-int64_t DeviceDiskSpaceFree()
+int64_t YU_DeviceDiskSpaceFree()
 {
     NSError *error = nil;
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
@@ -333,10 +333,10 @@ int64_t DeviceDiskSpaceFree()
     if (space < 0) space = -1;
     return space;
 }
-int64_t DeviceDiskSpaceUsed()
+int64_t YU_DeviceDiskSpaceUsed()
 {
-    int64_t total = DeviceDiskSpace();
-    int64_t free = DeviceDiskSpaceFree();
+    int64_t total = YU_DeviceDiskSpace();
+    int64_t free = YU_DeviceDiskSpaceFree();
     if (total < 0 || free < 0) return -1;
     int64_t used = total - free;
     if (used < 0) used = -1;
@@ -345,13 +345,13 @@ int64_t DeviceDiskSpaceUsed()
 
 #pragma mark -
 #pragma mark - Memory Information
-int64_t DeviceMemoryTotal()
+int64_t YU_DeviceMemoryTotal()
 {
     int64_t mem = [[NSProcessInfo processInfo] physicalMemory];
     if (mem < -1) mem = -1;
     return mem;
 }
-int64_t DeviceMemoryUsed()
+int64_t YU_DeviceMemoryUsed()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -365,7 +365,7 @@ int64_t DeviceMemoryUsed()
     if (kern != KERN_SUCCESS) return -1;
     return page_size * (vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count);
 }
-int64_t DeviceMemoryFree()
+int64_t YU_DeviceMemoryFree()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -379,7 +379,7 @@ int64_t DeviceMemoryFree()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.free_count * page_size;
 }
-int64_t DeviceMemoryActive()
+int64_t YU_DeviceMemoryActive()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -393,7 +393,7 @@ int64_t DeviceMemoryActive()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.active_count * page_size;
 }
-int64_t DeviceMemoryInactive()
+int64_t YU_DeviceMemoryInactive()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -407,7 +407,7 @@ int64_t DeviceMemoryInactive()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.inactive_count * page_size;
 }
-int64_t DeviceMemoryWired()
+int64_t YU_DeviceMemoryWired()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -421,7 +421,7 @@ int64_t DeviceMemoryWired()
     if (kern != KERN_SUCCESS) return -1;
     return vm_stat.wire_count * page_size;
 }
-int64_t DeviceMemoryPurgable()
+int64_t YU_DeviceMemoryPurgable()
 {
     mach_port_t host_port = mach_host_self();
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -438,12 +438,12 @@ int64_t DeviceMemoryPurgable()
 
 #pragma mark -
 #pragma mark - CPU Information
-NSInteger DeviceCpuCount()
+NSInteger YU_DeviceCpuCount()
 {
     return [NSProcessInfo processInfo].activeProcessorCount;
 }
 
-NSArray *DeviceCpuUsagePerProcessor()
+NSArray *YU_DeviceCpuUsagePerProcessor()
 {
     processor_info_array_t _cpuInfo, _prevCPUInfo = nil;
     mach_msg_type_number_t _numCPUInfo, _numPrevCPUInfo = 0;
@@ -490,10 +490,10 @@ NSArray *DeviceCpuUsagePerProcessor()
         return nil;
     }
 }
-CGFloat DeviceCpuUsage()
+CGFloat YU_DeviceCpuUsage()
 {
     float cpu = 0;
-    NSArray *cpus = DeviceCpuUsagePerProcessor();
+    NSArray *cpus = YU_DeviceCpuUsagePerProcessor();
     if (cpus.count == 0) return -1;
     for (NSNumber *n in cpus) {
         cpu += n.doubleValue;
@@ -501,7 +501,7 @@ CGFloat DeviceCpuUsage()
     return cpu;
 }
 
-NSString *DeviceSystemVersion()
+NSString *YU_DeviceSystemVersion()
 {
     return [[UIDevice currentDevice] systemVersion];
 }
@@ -596,7 +596,7 @@ BOOL isSimulator()
     static dispatch_once_t one;
     static BOOL simu = NO;
     dispatch_once(&one, ^{
-        NSString *model = DeviceMachineModel();
+        NSString *model = YU_DeviceMachineModel();
         if ([model isEqualToString:@"x86_64"] || [model isEqualToString:@"i386"]) {
             simu = YES;
         }
@@ -669,23 +669,23 @@ BOOL isScreenSizeEqualTo(CGSize size);
 
 
 BOOL isScreen640x960(){
-    return isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(640, 960));
+    return yu_isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(640, 960));
 }
 
 BOOL isScreen640x1136(){
-    return isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(640, 1136));
+    return yu_isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(640, 1136));
 }
 
 BOOL isScreen750x1334(){
-     return isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(750, 1334));
+     return yu_isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(750, 1334));
 }
 
 BOOL isScreen1242x2208(){
-    return isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(1242, 2208));
+    return yu_isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(1242, 2208));
 }
 
 BOOL isScreen1125x2001(){
-    return isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(1125, 2001));
+    return yu_isiPad()?NO:isScreenSizeEqualTo(CGSizeMake(1125, 2001));
 }
 
 BOOL isScreen768x1024(){
@@ -702,7 +702,7 @@ BOOL isScreen1536x2048(){
     return NO;
 }
 BOOL isScreen320x480(){
-    if ( isiPad())
+    if ( yu_isiPad())
     {
         if (isRequiresPhoneOS() && isScreen768x1024() )
         {

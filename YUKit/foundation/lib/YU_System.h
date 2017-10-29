@@ -20,13 +20,13 @@ typedef void (^NillBlock_Asset)(ALAsset* obj);
 /**
  *系统震动
  */
-UIKIT_EXTERN  void system_vibrate();
+UIKIT_EXTERN  void yu_system_vibrate();
 
 
 /**
  *系统声音
  */
-UIKIT_EXTERN  void system_sound();
+UIKIT_EXTERN  void yu_system_sound();
 
 
 /**
@@ -34,7 +34,7 @@ UIKIT_EXTERN  void system_sound();
 
  @param phoneNo 电话号码
  */
-UIKIT_EXTERN  void system_call(NSString *phoneNo);
+UIKIT_EXTERN  void yu_system_call(NSString *phoneNo);
 
 
 /**
@@ -42,7 +42,7 @@ UIKIT_EXTERN  void system_call(NSString *phoneNo);
 
  @param url 网址
  */
-UIKIT_EXTERN  void system_openURL(NSString *url);
+UIKIT_EXTERN  void yu_system_openURL(NSString *url);
 
 
 /**
@@ -51,7 +51,7 @@ UIKIT_EXTERN  void system_openURL(NSString *url);
  @param  fName  @"MusicName"
  @param  ext  @"wav"@"mp3"..
  */
-UIKIT_EXTERN  void system_playSound(NSString *fName,NSString *ext);
+UIKIT_EXTERN  void yu_system_playSound(NSString *fName,NSString *ext);
 
 
 
@@ -60,21 +60,21 @@ UIKIT_EXTERN  void system_playSound(NSString *fName,NSString *ext);
  @param soundName soundName
  @Returns a SystemSoundID.
  */
-UIKIT_EXTERN  SystemSoundID system_creatSoundIDWithSoundName(NSString *soundName);
+UIKIT_EXTERN  SystemSoundID yu_system_creatSoundIDWithSoundName(NSString *soundName);
 
 
 /**
  *播放音效
  @param soundID soundID
  */
-UIKIT_EXTERN  void system_playSoundWithSoundID(SystemSoundID soundID);
+UIKIT_EXTERN  void yu_system_playSoundWithSoundID(SystemSoundID soundID);
 
 
 /**
  *停止播放音效
  @param soundID soundID
  */
-UIKIT_EXTERN  void system_stopSoundWithSoundID(SystemSoundID soundID);
+UIKIT_EXTERN  void yu_system_stopSoundWithSoundID(SystemSoundID soundID);
 
 
 /**
@@ -83,7 +83,7 @@ UIKIT_EXTERN  void system_stopSoundWithSoundID(SystemSoundID soundID);
  *mobileCountryCode(MCC)和mobileNetworkCode(MNC)可以参考：3166-1
  @return CTCarrier
  */
-UIKIT_EXTERN  CTCarrier* system_carrier();
+UIKIT_EXTERN  CTCarrier* yu_system_carrier(void);
 
 
 /**
@@ -91,7 +91,7 @@ UIKIT_EXTERN  CTCarrier* system_carrier();
 
  @return 运营商名字
  */
-UIKIT_EXTERN  NSString* system_carrierName();
+UIKIT_EXTERN  NSString* yu_system_carrierName(void);
 
 
 

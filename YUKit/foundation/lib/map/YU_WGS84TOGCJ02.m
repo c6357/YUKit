@@ -16,10 +16,10 @@ const double pi = 3.14159265358979324;
 
 @implementation YU_WGS84TOGCJ02
 
-+(CLLocationCoordinate2D)transformFromWGSToGCJ:(CLLocationCoordinate2D)wgsLoc
++(CLLocationCoordinate2D)yu_transformFromWGSToGCJ:(CLLocationCoordinate2D)wgsLoc
 {
     CLLocationCoordinate2D adjustLoc;
-    if([self isLocationOutOfChina:wgsLoc]){
+    if([self yu_isLocationOutOfChina:wgsLoc]){
         adjustLoc = wgsLoc;
     }else{
         double adjustLat = [self transformLatWithX:wgsLoc.longitude - 105.0 withY:wgsLoc.latitude - 35.0];
@@ -37,7 +37,7 @@ const double pi = 3.14159265358979324;
 }
 
 //判断是不是在中国
-+(BOOL)isLocationOutOfChina:(CLLocationCoordinate2D)location
++(BOOL)yu_isLocationOutOfChina:(CLLocationCoordinate2D)location
 {
     if (location.longitude < 72.004 || location.longitude > 137.8347 || location.latitude < 0.8293 || location.latitude > 55.8271)
         return YES;

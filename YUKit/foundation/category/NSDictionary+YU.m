@@ -10,7 +10,7 @@
 
 @implementation NSDictionary (YU)
 
-- (BOOL)isEmpty {
+- (BOOL)yu_isEmpty {
     return [self count] == 0 ? YES : NO;
 }
 
@@ -27,7 +27,7 @@
 //    return strM;
 //}
 
--(NSDictionary*)copyToSelf:(NSDictionary*)dic{
+-(NSDictionary*)yu_copyToSelf:(NSDictionary*)dic{
     NSMutableDictionary *returnDic = [NSMutableDictionary new];
     for (NSString *key in dic.allKeys) {
         if ([self.allKeys containsObject:key]) {
@@ -37,7 +37,7 @@
     return returnDic;
 }
 
-- (NSDictionary *)dictionaryByReplacingNullsWithStrings {
+- (NSDictionary *)yu_dictionaryByReplacingNullsWithStrings {
     
     const NSMutableDictionary *replaced = [NSMutableDictionary dictionaryWithDictionary: self];
     const id nul = [NSNull null];
@@ -55,33 +55,33 @@
             [replaced setObject: blank forKey: key];
         
         else if ([object isKindOfClass: [NSDictionary class]]) {
-            [replaced setObject: [(NSDictionary *) object dictionaryByReplacingNullsWithStrings] forKey: key];
+            [replaced setObject: [(NSDictionary *) object yu_dictionaryByReplacingNullsWithStrings] forKey: key];
         }
     }
     return [NSDictionary dictionaryWithDictionary:(NSDictionary*)replaced];
 }
 
-- (BOOL)getBoolValueForKey:(NSString *)key defaultValue:(BOOL)defaultValue {
+- (BOOL)yu_getBoolValueForKey:(NSString *)key defaultValue:(BOOL)defaultValue {
     return [self objectForKey:key] == [NSNull null] ? defaultValue
     : [[self objectForKey:key] boolValue];
 }
 
-- (int)getIntValueForKey:(NSString *)key defaultValue:(int)defaultValue {
+- (int)yu_getIntValueForKey:(NSString *)key defaultValue:(int)defaultValue {
     return [self objectForKey:key] == [NSNull null]
 				? defaultValue : [[self objectForKey:key] intValue];
 }
 
-- (long long)getLongLongValueValueForKey:(NSString *)key defaultValue:(long long)defaultValue {
+- (long long)yu_getLongLongValueValueForKey:(NSString *)key defaultValue:(long long)defaultValue {
     return [self objectForKey:key] == [NSNull null]
     ? defaultValue : [[self objectForKey:key] longLongValue];
 }
 
-- (NSString *)getStringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue {
+- (NSString *)yu_getStringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue {
     return [self objectForKey:key] == nil || [self objectForKey:key] == [NSNull null]
 				? defaultValue : [self objectForKey:key];
 }
 
-- (time_t)getTimeValueForKey:(NSString *)key defaultValue:(time_t)defaultValue {
+- (time_t)yu_getTimeValueForKey:(NSString *)key defaultValue:(time_t)defaultValue {
     NSString *stringTime   = [self objectForKey:key];
     if ((id)stringTime == [NSNull null]) {
         stringTime = @"";

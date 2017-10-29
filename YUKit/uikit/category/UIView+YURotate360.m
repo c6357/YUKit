@@ -10,7 +10,7 @@
 
 @implementation UIView (YURotate360)
 
-- (void)rotate360WithDuration:(CGFloat)aDuration repeatCount:(CGFloat)aRepeatCount timingMode:(enum i7Rotate360TimingMode)aMode {
+- (void)yu_rotate360WithDuration:(CGFloat)aDuration repeatCount:(CGFloat)aRepeatCount timingMode:(enum i7Rotate360TimingMode)aMode {
     CAKeyframeAnimation *theAnimation = [CAKeyframeAnimation animation];
     theAnimation.values = [NSArray arrayWithObjects:
                            [NSValue valueWithCATransform3D:CATransform3DMakeRotation(0, 0,1,0)],
@@ -35,12 +35,12 @@
     [self.layer addAnimation:theAnimation forKey:@"transform"];
 }
 
-- (void)rotate360WithDuration:(CGFloat)aDuration timingMode:(enum i7Rotate360TimingMode)aMode {
-    [self rotate360WithDuration:aDuration repeatCount:1 timingMode:aMode];
+- (void)yu_rotate360WithDuration:(CGFloat)aDuration timingMode:(enum i7Rotate360TimingMode)aMode {
+    [self yu_rotate360WithDuration:aDuration repeatCount:1 timingMode:aMode];
 }
 
-- (void)rotate360WithDuration:(CGFloat)aDuration {
-    [self rotate360WithDuration:aDuration repeatCount:1 timingMode:i7Rotate360TimingModeEaseInEaseOut];
+- (void)yu_rotate360WithDuration:(CGFloat)aDuration {
+    [self yu_rotate360WithDuration:aDuration repeatCount:1 timingMode:i7Rotate360TimingModeEaseInEaseOut];
 }
 
 @end

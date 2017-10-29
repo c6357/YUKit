@@ -10,59 +10,59 @@
 
 @implementation UIView (YUFrame)
 
-CGFloat VIEW_W(UIView* view){
-    return FRAME_W(view.frame);
+CGFloat YU_VIEW_W(UIView* view){
+    return YU_FRAME_W(view.frame);
 }
-CGFloat VIEW_H(UIView* view){
-    return FRAME_H(view.frame);
+CGFloat YU_VIEW_H(UIView* view){
+    return YU_FRAME_H(view.frame);
 }
-CGFloat VIEW_TX(UIView* view){
-    return FRAME_TX(view.frame);
+CGFloat YU_VIEW_TX(UIView* view){
+    return YU_FRAME_TX(view.frame);
 }
-CGFloat VIEW_TY(UIView* view){
-    return FRAME_TY(view.frame);
+CGFloat YU_VIEW_TY(UIView* view){
+    return YU_FRAME_TY(view.frame);
 }
-CGFloat VIEW_BX(UIView* view){
-    return FRAME_BX(view.frame);
+CGFloat YU_VIEW_BX(UIView* view){
+    return YU_FRAME_BX(view.frame);
 }
-CGFloat VIEW_BY(UIView* view){
-    return FRAME_BY(view.frame);
+CGFloat YU_VIEW_BY(UIView* view){
+    return YU_FRAME_BY(view.frame);
 }
-CGFloat FRAME_W(CGRect frame){
+CGFloat YU_FRAME_W(CGRect frame){
     return frame.size.width;
 }
-CGFloat FRAME_H(CGRect frame){
+CGFloat YU_FRAME_H(CGRect frame){
     return frame.size.height;
 }
-CGFloat FRAME_TX(CGRect frame){
+CGFloat YU_FRAME_TX(CGRect frame){
     return frame.origin.x;
 }
-CGFloat FRAME_TY(CGRect frame){
+CGFloat YU_FRAME_TY(CGRect frame){
     return frame.origin.y;
 }
-CGFloat FRAME_BX(CGRect frame){
+CGFloat YU_FRAME_BX(CGRect frame){
     return frame.origin.x + frame.size.width;
 }
-CGFloat FRAME_BY(CGRect frame){
+CGFloat YU_FRAME_BY(CGRect frame){
     return frame.origin.y + frame.size.height;
 }
--(CGFloat)W{
-    return VIEW_W(self);
+-(CGFloat)YU_W{
+    return YU_VIEW_W(self);
 }
--(CGFloat)H{
-    return VIEW_H(self);
+-(CGFloat)YU_H{
+    return YU_VIEW_H(self);
 }
--(CGFloat)TX{
-    return VIEW_TX(self);
+-(CGFloat)YU_TX{
+    return YU_VIEW_TX(self);
 }
--(CGFloat)TY{
-    return VIEW_TY(self);
+-(CGFloat)YU_TY{
+    return YU_VIEW_TY(self);
 }
--(CGFloat)BX{
-    return VIEW_BX(self);
+-(CGFloat)YU_BX{
+    return YU_VIEW_BX(self);
 }
--(CGFloat)BY{
-    return VIEW_BY(self);
+-(CGFloat)YU_BY{
+    return YU_VIEW_BY(self);
 }
 
 

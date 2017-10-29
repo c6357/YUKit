@@ -16,9 +16,9 @@
 @class DebugView;
 @interface UIView (Debug)
 
--(void)showViewFrames;
+-(void)yu_showViewFrames;
 
--(void)showViewFrameSize;
+-(void)yu_showViewFrameSize;
 
 @end
 

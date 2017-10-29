@@ -13,21 +13,21 @@
 //+ (void)writeLog:(id)log;
 
 
-FOUNDATION_EXPORT void YULogError(NSString *format, ...);
+FOUNDATION_EXPORT void YU_LogError(NSString *format, ...);
 
-FOUNDATION_EXPORT void YULogWarn(NSString *format, ...);
+FOUNDATION_EXPORT void YU_LogWarn(NSString *format, ...);
 
-FOUNDATION_EXPORT void YULogInfo(NSString *format, ...);
+FOUNDATION_EXPORT void YU_LogInfo(NSString *format, ...);
 
-FOUNDATION_EXPORT void YULogCrash();
+FOUNDATION_EXPORT void YU_LogCrash();
 
-FOUNDATION_EXPORT void YULog(NSString* format, ...);
+FOUNDATION_EXPORT void YU_Log(NSString* format, ...);
 
 
 @end
 
 @interface NSString (YULog)
 
-- (NSString *)nsLogFileName;
+- (NSString *)yu_nsLogFileName;
 
 @end

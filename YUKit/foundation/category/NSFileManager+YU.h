@@ -10,14 +10,14 @@
 
 @interface NSFileManager (YU)
 
-+ (NSString *)pathForItemNamed:(NSString *)fname inFolder:(NSString *)path;
-+ (NSString *)pathForDocumentNamed:(NSString *)fname;
-+ (NSString *)pathForBundleDocumentNamed:(NSString *)fname;
++ (NSString *)yu_pathForItemNamed:(NSString *)fname inFolder:(NSString *)path;
++ (NSString *)yu_pathForDocumentNamed:(NSString *)fname;
++ (NSString *)yu_pathForBundleDocumentNamed:(NSString *)fname;
 
-+ (NSArray *)pathsForItemsMatchingExtension:(NSString *)ext inFolder:(NSString *)path;
-+ (NSArray *)pathsForDocumentsMatchingExtension:(NSString *)ext;
-+ (NSArray *)pathsForBundleDocumentsMatchingExtension:(NSString *)ext;
++ (NSArray *)yu_pathsForItemsMatchingExtension:(NSString *)ext inFolder:(NSString *)path;
++ (NSArray *)yu_pathsForDocumentsMatchingExtension:(NSString *)ext;
++ (NSArray *)yu_pathsForBundleDocumentsMatchingExtension:(NSString *)ext;
 
-+ (NSArray *)filesInFolder:(NSString *)path;
++ (NSArray *)yu_filesInFolder:(NSString *)path;
 
 @end

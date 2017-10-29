@@ -11,7 +11,7 @@
 
 @implementation UIControl (YU)
 static CGRect oldframe;
-+(void)showImage:(UIButton*)headBtn{
++(void)yu_showImage:(UIButton*)headBtn{
     
     UIImage *image = headBtn.currentBackgroundImage;
     if (!image) {
@@ -44,7 +44,7 @@ static CGRect oldframe;
     
     
     
-    NillBlock_Nill ShowImg = ^{
+    YU_VoidBlock ShowImg = ^{
         imageView.frame=CGRectMake(imageView.frame.origin.x,imageView.frame.origin.y, 0, 0);
         [UIView animateWithDuration:0.35 animations:^{
             imageView.frame=CGRectMake(0,([UIScreen mainScreen].bounds.size.height-image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width)/2, [UIScreen mainScreen].bounds.size.width, image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width);

@@ -15,43 +15,43 @@ typedef void (^runtime_Block_KeyValueForArray)(NSString *key,NSString *value,BOO
 @interface NSObject (YURuntime)
 
 //混合
-- (void)swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector;
+- (void)yu_swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector;
 
 
 //查看调用栈
-+ (NSArray *)callstack:(NSUInteger)depth;
++ (NSArray *)yu_callstack:(NSUInteger)depth;
 
 
 //成员变量
-+ (NSArray *)allIvar;
++ (NSArray *)yu_allIvar;
 
 
 //协议
-+ (NSArray *)allProtocol;
-+ (NSArray *)classesWithProtocol:(NSString *)protocolName;
++ (NSArray *)yu_allProtocol;
++ (NSArray *)yu_classesWithProtocol:(NSString *)protocolName;
 
 
 //all subClass
-+ (NSArray *)allSubClasses;
++ (NSArray *)yu_allSubClasses;
 //all methods
-+ (NSArray *)allMethods;
++ (NSArray *)yu_allMethods;
 
 
 //all properties
-+ (NSArray *)allProperties;
-+ (NSArray *)allProperties:(Class)baseClass;
-+ (NSArray *)allProperties:(Class)baseClass prefix:(NSString *)prefix;
-+ (NSArray *)allProperties_each:(runtime_Block_KeyForArray)enumeration;
-+ (NSArray *)allProperties_each:(Class)baseClass
++ (NSArray *)yu_allProperties;
++ (NSArray *)yu_allProperties:(Class)baseClass;
++ (NSArray *)yu_allProperties:(Class)baseClass prefix:(NSString *)prefix;
++ (NSArray *)yu_allProperties_each:(runtime_Block_KeyForArray)enumeration;
++ (NSArray *)yu_allProperties_each:(Class)baseClass
                    enumeration:(runtime_Block_KeyForArray)enumeration;
 
-- (NSArray *)allProperties_each:(runtime_Block_KeyValueForArray)enumeration;
-- (NSArray *)allProperties_each:(Class)baseClass
+- (NSArray *)yu_allProperties_each:(runtime_Block_KeyValueForArray)enumeration;
+- (NSArray *)yu_allProperties_each:(Class)baseClass
                     enumeration:(runtime_Block_KeyValueForArray)enumeration;
 
 
-- (void)addProperty:(NSString *)propertyName withValue:(id)value;
-- (id  )getPropertyValue:(NSString *)propertyName;
+- (void)yu_addProperty:(NSString *)propertyName withValue:(id)value;
+- (id  )yu_getPropertyValue:(NSString *)propertyName;
 
 @end
 

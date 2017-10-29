@@ -8,29 +8,29 @@
 
 #import "UIColor+YU.h"
 
-UIColor* RGB(CGFloat red, CGFloat green, CGFloat blue){
-    return UIColorWithRGBA(red, green, blue, 1.f);
+UIColor* YU_RGB(CGFloat red, CGFloat green, CGFloat blue){
+    return YU_UIColorWithRGBA(red, green, blue, 1.f);
 }
 
-UIColor* RGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha){
-    return UIColorWithRGBA(red, green, blue, alpha);
+UIColor* YU_RGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha){
+    return YU_UIColorWithRGBA(red, green, blue, alpha);
 }
 
-UIColor* UIColorWithRGB(CGFloat red, CGFloat green, CGFloat blue){
-    return UIColorWithRGBA(red, green, blue, 1.f);
+UIColor* YU_UIColorWithRGB(CGFloat red, CGFloat green, CGFloat blue){
+    return YU_UIColorWithRGBA(red, green, blue, 1.f);
 }
 
-UIColor* UIColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha){
+UIColor* YU_UIColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha){
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
 }
 
-UIColor* UIColorWithHex(unsigned int hex){
-    return [UIColor colorWithHex:hex];
+UIColor* YU_UIColorWithHex(unsigned int hex){
+    return [UIColor yu_colorWithHex:hex];
 }
 
 
 @implementation UIColor (YU)
-- (CGFloat)red {
+- (CGFloat)yu_red {
     CGColorRef color          = self.CGColor;
     if (CGColorSpaceGetModel(CGColorGetColorSpace(color)) != kCGColorSpaceModelRGB) {
         return -1.0f;
@@ -39,7 +39,7 @@ UIColor* UIColorWithHex(unsigned int hex){
     return components[0];
 }
 
-- (CGFloat)green {
+- (CGFloat)yu_green {
     CGColorRef color          = self.CGColor;
     if (CGColorSpaceGetModel(CGColorGetColorSpace(color)) != kCGColorSpaceModelRGB) {
         return -1.0f;
@@ -48,7 +48,7 @@ UIColor* UIColorWithHex(unsigned int hex){
     return components[1];
 }
 
-- (CGFloat)blue {
+- (CGFloat)yu_blue {
     CGColorRef color          = self.CGColor;
     if (CGColorSpaceGetModel(CGColorGetColorSpace(color)) != kCGColorSpaceModelRGB) {
         return -1.0f;
@@ -57,26 +57,26 @@ UIColor* UIColorWithHex(unsigned int hex){
     return components[2];
 }
 
-- (CGFloat)alpha {
+- (CGFloat)yu_alpha {
     return CGColorGetAlpha(self.CGColor);
 }
 
 
-+ (UIColor*)whiteColorWithAlpha:(CGFloat)alphaValue
++ (UIColor*)yu_whiteColorWithAlpha:(CGFloat)alphaValue
 {
-    return [UIColor colorWithHex:0xffffff alpha:alphaValue];
+    return [UIColor yu_colorWithHex:0xffffff alpha:alphaValue];
 }
 
-+ (UIColor*)blackColorWithAlpha:(CGFloat)alphaValue
++ (UIColor*)yu_blackColorWithAlpha:(CGFloat)alphaValue
 {
-    return [UIColor colorWithHex:0x000000 alpha:alphaValue];
+    return [UIColor yu_colorWithHex:0x000000 alpha:alphaValue];
 }
 
-+ (UIColor*) colorWithHex:(unsigned int)hex{
-    return [UIColor colorWithHex:hex alpha:1];
++ (UIColor*) yu_colorWithHex:(unsigned int)hex{
+    return [UIColor yu_colorWithHex:hex alpha:1];
 }
 
-+ (UIColor*) colorWithHex:(unsigned int)hex alpha:(CGFloat)alpha{
++ (UIColor*) yu_colorWithHex:(unsigned int)hex alpha:(CGFloat)alpha{
     
     return [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0
                            green:((float)((hex & 0xFF00) >> 8)) / 255.0
@@ -84,7 +84,7 @@ UIColor* UIColorWithHex(unsigned int hex){
                            alpha:alpha];
 }
 
-+(UIColor*)colorWithHexString:(NSString *)colorString
++(UIColor*)yu_colorWithHexString:(NSString *)colorString
 {
     NSString *cString = [[colorString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     // String should be 6 or 8 characters
@@ -118,7 +118,7 @@ UIColor* UIColorWithHex(unsigned int hex){
                            alpha:1.0f];
 }
 
-+ (UIColor*) randomColor{
++ (UIColor*) yu_randomColor{
 
     int r                     = arc4random() % 255;
     int g                     = arc4random() % 255;

@@ -10,10 +10,10 @@
 
 @interface UITableViewCell (YU)
 
-+(id)XIBView;
++(id)yu_xibView;
 
-+(id)XIBCellFor:(UITableView*)tableView;
++(id)yu_xibCellFor:(UITableView*)tableView;
 
-+(void)registerForTable:(UITableView*)tableView;
++(void)yu_registerForTable:(UITableView*)tableView;
 
 @end

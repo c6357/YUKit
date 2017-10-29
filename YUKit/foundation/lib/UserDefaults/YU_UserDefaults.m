@@ -8,17 +8,17 @@
 
 #import "YU_UserDefaults.h"
 
-@implementation UserDefaults
+@implementation YUUserDefaults
 
-+ (void)setObject:(nullable id)value forKey:(NSString *)defaultName{
++ (void)yu_setObject:(nullable id)value forKey:(NSString *)defaultName{
     
-    [[UserDefaults standardUserDefaults] setObject:value forKey:defaultName];
-    [[UserDefaults standardUserDefaults]  synchronize];
+    [[YUUserDefaults standardUserDefaults] setObject:value forKey:defaultName];
+    [[YUUserDefaults standardUserDefaults]  synchronize];
 }
 
-+ (nullable id)objectForKey:(NSString *)defaultName{
++ (nullable id)yu_objectForKey:(NSString *)defaultName{
     
-    return [[UserDefaults standardUserDefaults] objectForKey:defaultName];
+    return [[YUUserDefaults standardUserDefaults] objectForKey:defaultName];
 }
 
 @end

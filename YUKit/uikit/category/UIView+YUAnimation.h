@@ -39,12 +39,12 @@ typedef enum : NSUInteger {
 } Animationsubtype;
 
 
-+ (void) transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view  duration:(double)duration;
++ (void) yu_transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view  duration:(double)duration;
 
-+ (void) transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration;
++ (void) yu_transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration;
 
-+ (void) transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view  duration:(double)duration completion:(void(^)())completion;
++ (void) yu_transitionWithType:(AnimationType)type WithSubtype:(Animationsubtype)subtype ForView : (UIView *) view  duration:(double)duration completion:(void(^)(void))completion;
 
-+ (void) transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration completion:(void(^)())completion;
++ (void) yu_transitionWithTypeString:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view duration:(double)duration completion:(void(^)(void))completion;
 
 @end

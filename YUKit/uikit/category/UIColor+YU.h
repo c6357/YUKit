@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-UIKIT_EXTERN UIColor* RGB(CGFloat red, CGFloat green, CGFloat blue);
+UIKIT_EXTERN UIColor* YU_RGB(CGFloat red, CGFloat green, CGFloat blue);
 
-UIKIT_EXTERN UIColor* RGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha);
+UIKIT_EXTERN UIColor* YU_RGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha);
 
-UIKIT_EXTERN UIColor* UIColorWithRGB(CGFloat red, CGFloat green, CGFloat blue);
+UIKIT_EXTERN UIColor* YU_UIColorWithRGB(CGFloat red, CGFloat green, CGFloat blue);
 
-UIKIT_EXTERN UIColor* UIColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha);
+UIKIT_EXTERN UIColor* YU_UIColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha);
 
-UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
+UIKIT_EXTERN UIColor* YU_UIColorWithHex(unsigned int hex);
 
 
 @interface UIColor (YU)
@@ -26,7 +26,7 @@ UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
  The value of this property is a floating-point number in the range `0.0` to `1.0`. `-1.0` is returned if the color is
  not in the RGB colorspace.
  */
-@property (nonatomic, assign, readonly) CGFloat red;
+@property (nonatomic, assign, readonly) CGFloat yu_red;
 
 /**
  The receiver's green component value. (read-only)
@@ -34,7 +34,7 @@ UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
  The value of this property is a floating-point number in the range `0.0` to `1.0`. `-1.0` is returned if the color is
  not in the RGB colorspace.
  */
-@property (nonatomic, assign, readonly) CGFloat green;
+@property (nonatomic, assign, readonly) CGFloat yu_green;
 
 /**
  The receiver's blue component value. (read-only)
@@ -42,7 +42,7 @@ UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
  The value of this property is a floating-point number in the range `0.0` to `1.0`. `-1.0` is returned if the color is
  not in the RGB colorspace.
  */
-@property (nonatomic, assign, readonly) CGFloat blue;
+@property (nonatomic, assign, readonly) CGFloat yu_blue;
 
 /**
  The receiver's alpha value. (read-only)
@@ -50,7 +50,7 @@ UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
  The value of this property is a floating-point number in the range `0.0` to `1.0`, where `0.0` represents totally
  transparent and `1.0` represents totally opaque.
  */
-@property (nonatomic, assign, readonly) CGFloat alpha;
+@property (nonatomic, assign, readonly) CGFloat yu_alpha;
 
 
 
@@ -60,7 +60,7 @@ UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
  @param alphaValue <#alphaValue description#>
  @return <#return value description#>
  */
-+ (UIColor*)whiteColorWithAlpha:(CGFloat)alphaValue;
++ (UIColor*)yu_whiteColorWithAlpha:(CGFloat)alphaValue;
 
 
 /**
@@ -69,22 +69,22 @@ UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
  @param alphaValue <#alphaValue description#>
  @return <#return value description#>
  */
-+ (UIColor*)blackColorWithAlpha:(CGFloat)alphaValue;
++ (UIColor*)yu_blackColorWithAlpha:(CGFloat)alphaValue;
 
 
 /**
  *十六进制取颜色（0xFF0000）
  @param hex 十六进制
  */
-+ (UIColor*) colorWithHex:(unsigned int)hex;
++ (UIColor*) yu_colorWithHex:(unsigned int)hex;
 
-+ (UIColor*) colorWithHex:(unsigned int)hex alpha:(CGFloat)alpha;
++ (UIColor*) yu_colorWithHex:(unsigned int)hex alpha:(CGFloat)alpha;
 
 /**
  *十六进制字符串取颜色（@"#0xFF0000"）
  @param colorString 十六进制
  */
-+ (UIColor*)colorWithHexString:(NSString *)colorString;
++ (UIColor*)yu_colorWithHexString:(NSString *)colorString;
 
 
 /**
@@ -92,6 +92,6 @@ UIKIT_EXTERN UIColor* UIColorWithHex(unsigned int hex);
 
  @return <#return value description#>
  */
-+ (UIColor*) randomColor;
++ (UIColor*) yu_randomColor;
 
 @end

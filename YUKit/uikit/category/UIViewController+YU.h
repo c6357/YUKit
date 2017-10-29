@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (YU)
--(UIView*)parentTarget;
--(CAAnimationGroup*)animationGroupForward:(BOOL)_forward;
+-(UIView*)yu_parentTarget;
+-(CAAnimationGroup*)yu_animationGroupForward:(BOOL)_forward;
 
 
 
@@ -19,11 +19,11 @@
 
 
 @interface UIViewController (KNSemiModal)
--(void)presentSemiViewController:(UIViewController*)vc;
+-(void)yu_presentSemiViewController:(UIViewController*)vc;
 
--(void)presentSemiView:(UIView*)vc;
+-(void)yu_presentSemiView:(UIView*)vc;
 
--(void)dismissSemiModalView;
+-(void)yu_dismissSemiModalView;
 
 
 @end

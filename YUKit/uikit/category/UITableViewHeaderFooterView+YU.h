@@ -10,8 +10,8 @@
 
 @interface UITableViewHeaderFooterView (YU)
 
-+(void)registerForTableHeaderFooter:(UITableView*)table;
++(void)yu_registerForTableHeaderFooter:(UITableView*)table;
 
-+(id)XIBViewForTableHeaderFooter:(UITableView*)table;
++(id)yu_xibViewForTableHeaderFooter:(UITableView*)table;
 
 @end

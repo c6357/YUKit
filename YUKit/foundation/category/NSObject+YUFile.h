@@ -21,7 +21,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  *  @return <#return value description#>
  */
-+(NSString*)fileStringWithName:(NSString*)name ext:(NSString*)ext;
++(NSString*)yu_fileStringWithName:(NSString*)name ext:(NSString*)ext;
 
 
 /**
@@ -32,7 +32,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  *  @return <#return value description#>
  */
-+(NSDictionary*)fileDictionaryWithName:(NSString*)name ext:(NSString*)ext;
++(NSDictionary*)yu_fileDictionaryWithName:(NSString*)name ext:(NSString*)ext;
 
 
 /**
@@ -43,7 +43,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  *  @return <#return value description#>
  */
-+(NSArray*)fileArrayWithName:(NSString*)name ext:(NSString*)ext;
++(NSArray*)yu_fileArrayWithName:(NSString*)name ext:(NSString*)ext;
 
 
 
@@ -56,7 +56,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return (bool)
  **/
-+(NSString*)modifyFileName:(NSString*)resourceFileName NewFileName:(NSString*)name Path:(NSString*)path;
++(NSString*)yu_modifyFileName:(NSString*)resourceFileName NewFileName:(NSString*)name Path:(NSString*)path;
 
 
 
@@ -67,7 +67,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回文件大小
  **/
-+(long long) fileSizeAtPath:(NSString*) filePath;
++(long long) yu_fileSizeAtPath:(NSString*) filePath;
 
 
 
@@ -78,7 +78,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  *  @return 返回文件夹大小(多少M)
  */
-+ (float ) folderSizeAtPath:(NSString*) folderPath;
++ (float ) yu_folderSizeAtPath:(NSString*) folderPath;
 
 
 
@@ -87,7 +87,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回所有文件属性dic
  **/
-+ (NSMutableArray*)filePathInDocumentsDir:(NSString*)path;
++ (NSMutableArray*)yu_filePathInDocumentsDir:(NSString*)path;
 
 
 
@@ -98,7 +98,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回创建成功的文件夹路径
  **/
-+ (NSString*)createDocumentsDirectoryWithName:(NSString*)Directories;
++ (NSString*)yu_createDocumentsDirectoryWithName:(NSString*)Directories;
 
 
 
@@ -109,7 +109,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回创建成功的文件夹路径
  **/
-+ (NSString*)createTempDirectoriesWithName:(NSString*)Directories;
++ (NSString*)yu_createTempDirectoriesWithName:(NSString*)Directories;
 
 
 
@@ -120,7 +120,7 @@ typedef void (^FileObjectBlock)(NSString* m_filePath,BOOL StatusCode);
  *
  * @return 返回操作结果(bool)
  **/
-+ (BOOL)removeFileAtPath:(NSString*)FilePath;
++ (BOOL)yu_removeFileAtPath:(NSString*)FilePath;
 
 
 @end

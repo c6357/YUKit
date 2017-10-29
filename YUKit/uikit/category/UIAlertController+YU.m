@@ -10,7 +10,7 @@
 
 @implementation UIAlertController (YU)
 
-+ (void)defaultAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void (^)(UIAlertAction *action))cancelBlock submitTitle:(NSString *)submitTitle submitBlock:(void (^)(UIAlertAction *action))submitBlock completedBlock:(void (^)(void))completedBlock
++ (void)yu_defaultAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void (^)(UIAlertAction *action))cancelBlock submitTitle:(NSString *)submitTitle submitBlock:(void (^)(UIAlertAction *action))submitBlock completedBlock:(void (^)(void))completedBlock
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
@@ -21,10 +21,10 @@
     [alertController addAction:cancel];
     [alertController addAction:submit];
     
-    [alertController presentViewController:[self lastPresentedViewController] animated:YES completion:completedBlock];
+    [alertController presentViewController:[self yu_lastPresentedViewController] animated:YES completion:completedBlock];
 }
 
-+ (void)defaultAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void (^)(UIAlertAction * ))cancelBlock completedBlock:(void (^)(void))completedBlock
++ (void)yu_defaultAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void (^)(UIAlertAction * ))cancelBlock completedBlock:(void (^)(void))completedBlock
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
@@ -32,21 +32,21 @@
     
     [alertController addAction:cancel];
     
-    [alertController presentViewController:[self lastPresentedViewController] animated:YES completion:completedBlock];
+    [alertController presentViewController:[self yu_lastPresentedViewController] animated:YES completion:completedBlock];
 }
 
-+ (UIViewController*)lastPresentedViewController
++ (UIViewController*)yu_lastPresentedViewController
 {
-    UIViewController *presentedViewController = [self getChildPresentViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    UIViewController *presentedViewController = [self yu_getChildPresentViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
     return presentedViewController;
 }
 
-+ (UIViewController*)getChildPresentViewController:(UIViewController *)vc
++ (UIViewController*)yu_getChildPresentViewController:(UIViewController *)vc
 {
     if (!vc.presentedViewController) {
         return vc;
     } else {
-        return [self getChildPresentViewController:vc.presentedViewController];
+        return [self yu_getChildPresentViewController:vc.presentedViewController];
     }
 }
 

@@ -10,7 +10,7 @@
 
 @interface UIWebView (YU)
 
-+(NSString *)htmlTitleWithUrlString:(NSString*)urlString;
++(NSString *)yu_htmlTitleWithUrlString:(NSString*)urlString;
 
 
 @end

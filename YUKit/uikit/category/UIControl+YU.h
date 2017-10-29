@@ -14,7 +14,7 @@
  *	@brief	浏览头像
  *	@param 	headBtn 	头像所在的View
  */
-+(void)showImage:(UIButton*)headBtn;
++(void)yu_showImage:(UIButton*)headBtn;
 
 //+ (void) transitionWithType:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view;
 

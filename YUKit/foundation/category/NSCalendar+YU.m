@@ -10,13 +10,13 @@
 
 @implementation NSCalendar (YU)
 
-+(NSDateComponents*)currentDateComponents{
++(NSDateComponents*)yu_currentDateComponents{
     
-    return [self dateComponentsWithDate:[NSDate date]];
+    return [self yu_dateComponentsWithDate:[NSDate date]];
 }
 
 static NSDateComponents *comps;
-+(NSDateComponents*)dateComponentsWithDate:(NSDate*)date{
++(NSDateComponents*)yu_dateComponentsWithDate:(NSDate*)date{
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear ;
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     comps = [gregorian components:unitFlags fromDate:date];
@@ -27,7 +27,7 @@ static NSDateComponents *comps;
  *  周一为一周开始
  *  @return (NSDateComponents)
  */
-+(NSDateComponents*)GetDateComponentsWithDate2:(NSDate*)date{
++(NSDateComponents*)yu_GetDateComponentsWithDate2:(NSDate*)date{
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear ;
     
     NSCalendar *gregorian = [NSCalendar currentCalendar];
@@ -38,7 +38,7 @@ static NSDateComponents *comps;
 }
 
 
-+ (int)currentSec
++ (int)yu_currentSec
 {
     time_t ct = time(NULL);
     struct tm *dt = localtime(&ct);
@@ -46,7 +46,7 @@ static NSDateComponents *comps;
     return sec;
 }
 
-+ (int)currentMin
++ (int)yu_currentMin
 {
     time_t ct = time(NULL);
     struct tm *dt = localtime(&ct);
@@ -54,7 +54,7 @@ static NSDateComponents *comps;
     return min;
 }
 
-+ (int)currentHour
++ (int)yu_currentHour
 {
     time_t ct = time(NULL);
     struct tm *dt = localtime(&ct);
@@ -62,7 +62,7 @@ static NSDateComponents *comps;
     return hour;
 }
 
-+ (int)currentDay
++ (int)yu_currentDay
 {
     time_t ct = time(NULL);
     struct tm *dt = localtime(&ct);
@@ -70,7 +70,7 @@ static NSDateComponents *comps;
     return day;
 }
 
-+ (int)currentWeek
++ (int)yu_currentWeek
 {
     time_t ct = time(NULL);
     struct tm *dt = localtime(&ct);
@@ -78,7 +78,7 @@ static NSDateComponents *comps;
     return day;
 }
 
-+ (int)currentMonth
++ (int)yu_currentMonth
 {
     time_t ct = time(NULL);
     struct tm *dt = localtime(&ct);
@@ -86,7 +86,7 @@ static NSDateComponents *comps;
     return month;
 }
 
-+ (int)currentYear
++ (int)yu_currentYear
 {
     time_t ct = time(NULL);
     struct tm *dt = localtime(&ct);
@@ -97,48 +97,48 @@ static NSDateComponents *comps;
 /** 一个月中的第几周
  *  @return (int)
  */
-+ (int)currentweekOfMonth
++ (int)yu_currentweekOfMonth
 {
     // 此方法默认从星期日
-    int weekOfMonth = (int)[self dateComponentsWithDate:[NSDate date]].weekOfMonth;
+    int weekOfMonth = (int)[self yu_dateComponentsWithDate:[NSDate date]].weekOfMonth;
     return weekOfMonth;
 }
 
 /** 当前时间一年中的第几周
  *  @return (int)
  */
-+ (int)currentweekOfYear
++ (int)yu_currentweekOfYear
 {
-    int weekOfYear = (int)[self dateComponentsWithDate:[NSDate date]].weekOfYear;
+    int weekOfYear = (int)[self yu_dateComponentsWithDate:[NSDate date]].weekOfYear;
     return weekOfYear;
 }
 
 
 
-+ (int)getYearWithDate:(NSDate*)date
++ (int)yu_getYearWithDate:(NSDate*)date
 {
-    int year = (int)[self dateComponentsWithDate:date ? date:[NSDate date]].year;
+    int year = (int)[self yu_dateComponentsWithDate:date ? date:[NSDate date]].year;
     return year;
 }
 
 
-+ (int)getMonthWithDate:(NSDate*)date
++ (int)yu_getMonthWithDate:(NSDate*)date
 {
-    int month = (int)[self dateComponentsWithDate:date ? date:[NSDate date]].month;
+    int month = (int)[self yu_dateComponentsWithDate:date ? date:[NSDate date]].month;
     return month;
 }
 
 
-+ (int)getDayWithDate:(NSDate*)date
++ (int)yu_getDayWithDate:(NSDate*)date
 {
-    int day = (int)[self dateComponentsWithDate:date ? date:[NSDate date]].day;
+    int day = (int)[self yu_dateComponentsWithDate:date ? date:[NSDate date]].day;
     return day;
 }
 
 
-+ (int)getWeekdayWithDate:(NSDate*)date
++ (int)yu_getWeekdayWithDate:(NSDate*)date
 {
-    int weekday = (int)[self dateComponentsWithDate:date ? date:[NSDate date]].weekday;
+    int weekday = (int)[self yu_dateComponentsWithDate:date ? date:[NSDate date]].weekday;
     return weekday;
 }
 
@@ -147,9 +147,9 @@ static NSDateComponents *comps;
 /** 指定时间一年中的周几
  *  @return (int)
  */
-+ (int)getWeekOfYearWithDate:(NSDate*)date
++ (int)yu_getWeekOfYearWithDate:(NSDate*)date
 {
-    int weekOfYear = (int)[self dateComponentsWithDate:date ? date:[NSDate date]].weekOfYear;
+    int weekOfYear = (int)[self yu_dateComponentsWithDate:date ? date:[NSDate date]].weekOfYear;
     
     return weekOfYear;
 }
@@ -158,9 +158,9 @@ static NSDateComponents *comps;
  *  周一为一周开始
  *  @return (int)
  */
-+ (int)getWeekOfYearWithDate2:(NSDate*)date
++ (int)yu_getWeekOfYearWithDate2:(NSDate*)date
 {
-    int weekOfYear = (int)[self GetDateComponentsWithDate2:date ? date:[NSDate date]].weekOfYear;
+    int weekOfYear = (int)[self yu_GetDateComponentsWithDate2:date ? date:[NSDate date]].weekOfYear;
     
     return weekOfYear;
 }
@@ -168,9 +168,9 @@ static NSDateComponents *comps;
 /** 一月中的第几天
  *  @return (int)
  */
-+ (int)numberOfDaysInMonth{
++ (int)yu_numberOfDaysInMonth{
     
-    return [self getNumberOfDaysInMonth:[self currentMonth] year:[self currentYear]];
+    return [self yu_getNumberOfDaysInMonth:[self yu_currentMonth] year:[self yu_currentYear]];
 }
 
 
@@ -181,9 +181,9 @@ static NSDateComponents *comps;
  *
  * @return (NSInteger)
  **/
-+ (int)getNumberOfDaysInMonth:(NSInteger)month
++ (int)yu_getNumberOfDaysInMonth:(NSInteger)month
 {
-    return [self getNumberOfDaysInMonth:month year:[self currentYear]];
+    return [self yu_getNumberOfDaysInMonth:month year:[self yu_currentYear]];
 }
 
 
@@ -196,7 +196,7 @@ static NSDateComponents *comps;
  *
  * @return (NSInteger)
  **/
-+ (int)getNumberOfDaysInMonth:(NSInteger)month year:(NSInteger) year
++ (int)yu_getNumberOfDaysInMonth:(NSInteger)month year:(NSInteger) year
 {
     NSAssert(!(month < 1||month > 12), @"invalid month number");
     NSAssert(!(year < 1), @"invalid year number");
@@ -207,7 +207,7 @@ static NSDateComponents *comps;
      * feb
      */
     if (month == 1) {
-        if ([self isLeapYear:year]) {
+        if ([self yu_isLeapYear:year]) {
             days = 29;
         }
         else {
@@ -218,7 +218,7 @@ static NSDateComponents *comps;
 }
 
 
--(NSInteger)weekDate:(NSDate*)date
+-(NSInteger)yu_weekDate:(NSDate*)date
 {
     NSCalendar *_calendar=[NSCalendar currentCalendar];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekday | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear ;
@@ -271,13 +271,13 @@ static NSDateComponents *comps;
 
 
 
-+(NSMutableArray*)switchDay
++(NSMutableArray*)yu_switchDay
 {
     NSMutableArray* array = [[NSMutableArray alloc]init];
     
     int head = 0;
     int foot = 0;
-    switch ([self currentWeek]) {
+    switch ([self yu_currentWeek]) {
         case 1:{
             head = 0;
             foot = 6;
@@ -323,16 +323,16 @@ static NSDateComponents *comps;
 
     for (int i = -head; i < 0; i++)
     {
-        NSString* str = [NSString stringWithFormat:@"%d", [self getDayWithDate:[self dateSinceNowWithInterval:i]]];
+        NSString* str = [NSString stringWithFormat:@"%d", [self yu_getDayWithDate:[self yu_dateSinceNowWithInterval:i]]];
         [array addObject:str];
     }
     
-    [array addObject:[NSString stringWithFormat:@"%d", [self getDayWithDate:[self dateSinceNowWithInterval:0]]]];
+    [array addObject:[NSString stringWithFormat:@"%d", [self yu_getDayWithDate:[self yu_dateSinceNowWithInterval:0]]]];
     
     //sy 添加日期
     for (int i = 0; i < foot; i++)
     {
-        NSString* str = [NSString stringWithFormat:@"%d", [self getDayWithDate:[self dateSinceNowWithInterval:i+1]]];
+        NSString* str = [NSString stringWithFormat:@"%d", [self yu_getDayWithDate:[self yu_dateSinceNowWithInterval:i+1]]];
         [array addObject:str];
     }
     
@@ -347,12 +347,12 @@ static NSDateComponents *comps;
  *
  * @return (NSInteger)
  **/
-+ (NSString*)getWeekWithDate:(NSDate*)date
++ (NSString*)yu_getWeekWithDate:(NSDate*)date
 {
     if (!date) {
         return @"";
     }
-    int weekday = (int)[self dateComponentsWithDate:date ? date:[NSDate date]].weekday;
+    int weekday = (int)[self yu_dateComponentsWithDate:date ? date:[NSDate date]].weekday;
     //    NSString *_dayNum;
     
     NSArray *weekArry = @[@"周日",@"周一",@"周二",@"周三",@"周四",@"周五",@"周六",];
@@ -362,7 +362,7 @@ static NSDateComponents *comps;
 
 
 //闰年？
-+ (BOOL)isLeapYear:(NSInteger)year
++ (BOOL)yu_isLeapYear:(NSInteger)year
 {
     NSAssert(!(year < 1), @"invalid year number");
     BOOL leap = FALSE;
@@ -381,15 +381,15 @@ static NSDateComponents *comps;
 
 @implementation NSCalendar (NSDate)
 
-+ (NSDate*)dateSinceNowWithInterval:(NSInteger)dayInterval{
++ (NSDate*)yu_dateSinceNowWithInterval:(NSInteger)dayInterval{
     return [NSDate dateWithTimeIntervalSinceNow:dayInterval*24*60*60];
 }
 
-+ (NSDate*)dateWithTimeInterval:(NSInteger)dayInterval sinceDate:(NSDate*)date{
++ (NSDate*)yu_dateWithTimeInterval:(NSInteger)dayInterval sinceDate:(NSDate*)date{
     return [NSDate dateWithTimeInterval:dayInterval*24*60*60 sinceDate:date ? date :[NSDate date]];
 }
 
-+(NSDate*)dateWithAFewMinute:(NSInteger)Num{
++(NSDate*)yu_dateWithAFewMinute:(NSInteger)Num{
     NSCalendar *_greCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponentsAsTimeQantum = [[NSDateComponents alloc] init];
     [dateComponentsAsTimeQantum setMinute:Num];
@@ -398,11 +398,11 @@ static NSDateComponents *comps;
 }
 
 
-+(NSDate*)dateWithAFewHour:(NSInteger)hourNum{
-    return [self dateWithAFewHour:hourNum Date:[NSDate date]];
++(NSDate*)yu_dateWithAFewHour:(NSInteger)hourNum{
+    return [self yu_dateWithAFewHour:hourNum Date:[NSDate date]];
 }
 
-+(NSDate*)dateWithAFewHour:(NSInteger)hourNum Date:(NSDate*)date{
++(NSDate*)yu_dateWithAFewHour:(NSInteger)hourNum Date:(NSDate*)date{
     NSCalendar *_greCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponentsAsTimeQantum = [[NSDateComponents alloc] init];
     [dateComponentsAsTimeQantum setHour:hourNum];
@@ -411,11 +411,11 @@ static NSDateComponents *comps;
 }
 
 
-+(NSDate*)dateWithAFewDay:(NSInteger)dayNum{
-    return [self dateWithAFewDay:dayNum Date:[NSDate date]];
++(NSDate*)yu_dateWithAFewDay:(NSInteger)dayNum{
+    return [self yu_dateWithAFewDay:dayNum Date:[NSDate date]];
 }
 
-+(NSDate*)dateWithAFewDay:(NSInteger)dayNum Date:(NSDate*)date{
++(NSDate*)yu_dateWithAFewDay:(NSInteger)dayNum Date:(NSDate*)date{
     NSCalendar *_greCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponentsAsTimeQantum = [[NSDateComponents alloc] init];
     [dateComponentsAsTimeQantum setDay:dayNum];
@@ -423,7 +423,7 @@ static NSDateComponents *comps;
     return dateFromDateComponentsAsTimeQantum;
 }
 
-+(NSDate*)dateWithAFewWeek:(NSInteger)weekNum{
++(NSDate*)yu_dateWithAFewWeek:(NSInteger)weekNum{
     NSCalendar *_greCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponentsAsTimeQantum = [[NSDateComponents alloc] init];
     [dateComponentsAsTimeQantum setWeekOfMonth:weekNum];
@@ -431,7 +431,7 @@ static NSDateComponents *comps;
     return dateFromDateComponentsAsTimeQantum;
 }
 
-+(NSDate*)dateWithAFewMonth:(NSInteger)monthNum{
++(NSDate*)yu_dateWithAFewMonth:(NSInteger)monthNum{
     NSCalendar *_greCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponentsAsTimeQantum = [[NSDateComponents alloc] init];
     [dateComponentsAsTimeQantum setMonth:monthNum];
@@ -439,7 +439,7 @@ static NSDateComponents *comps;
     return dateFromDateComponentsAsTimeQantum;
 }
 
-+(NSDate*)dateWithAFewYea:(NSInteger)yeaNum{
++(NSDate*)yu_dateWithAFewYea:(NSInteger)yeaNum{
     NSCalendar *_greCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponentsAsTimeQantum = [[NSDateComponents alloc] init];
     [dateComponentsAsTimeQantum setYear:yeaNum];

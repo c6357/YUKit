@@ -12,10 +12,10 @@
 @interface YU_WGS84TOGCJ02 : NSObject
 
 //判断是否已经超出中国范围
-+(BOOL)isLocationOutOfChina:(CLLocationCoordinate2D)location;
++(BOOL)yu_isLocationOutOfChina:(CLLocationCoordinate2D)location;
 
 
 //转GCJ-02
-+(CLLocationCoordinate2D)transformFromWGSToGCJ:(CLLocationCoordinate2D)wgsLoc;
++(CLLocationCoordinate2D)yu_transformFromWGSToGCJ:(CLLocationCoordinate2D)wgsLoc;
 
 @end

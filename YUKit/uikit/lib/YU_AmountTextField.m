@@ -38,7 +38,7 @@
         return NO;
     }
     
-    if ([futureString isDecimal] || [string length] == 0 || ([string isEqualToString:@"."] && [textField.text rangeOfString:@"."].location == NSNotFound)) {
+    if ([futureString yu_isDecimal] || [string length] == 0 || ([string isEqualToString:@"."] && [textField.text rangeOfString:@"."].location == NSNotFound)) {
         return YES;
     }
     return NO;

@@ -10,60 +10,60 @@
 
 @interface NSDate (YU)
 
--(NSUInteger)day;
--(NSUInteger)month;
--(NSUInteger)year;
+-(NSUInteger)yu_day;
+-(NSUInteger)yu_month;
+-(NSUInteger)yu_year;
 
--(NSUInteger)next;
--(NSUInteger)pre;
+-(NSUInteger)yu_next;
+-(NSUInteger)yu_pre;
 
 #pragma mark - day
 /**
  明天的当前时间
  */
--(NSDate*)nextDay;
+-(NSDate*)yu_nextDay;
 
 /**
   昨天的当前时间
  */
--(NSDate*)preDay;
+-(NSDate*)yu_preDay;
 
 /**
  今天的00:00:00
  */
--(NSDate*)daybegin;
+-(NSDate*)yu_daybegin;
 
 /**
  今天的23:59:59
  */
--(NSDate*)dayEnd;
+-(NSDate*)yu_dayEnd;
 
 
 #pragma mark - Week
 /**
  7天后的日期
  */
--(NSDate*)nextWeek;
+-(NSDate*)yu_nextWeek;
 
 /**
  7天前的日期
  */
--(NSDate*)preWeek;
+-(NSDate*)yu_preWeek;
 
 /**
  周一
  */
--(NSDate*)weekMonday;
+-(NSDate*)yu_weekMonday;
 
 /**
  周日作为一个星期的开始
  */
--(NSDate*)weekBegin;
+-(NSDate*)yu_weekBegin;
 
 /**
  周六作为一个星期的结束
  */
--(NSDate*)weekEnd;
+-(NSDate*)yu_weekEnd;
 
 
 
@@ -71,74 +71,74 @@
 /**
  下一个月的一号
  */
--(NSDate*)nextMonth;
+-(NSDate*)yu_nextMonth;
 
 /**
   上一个月的一号
  */
--(NSDate*)preMonth;
+-(NSDate*)yu_preMonth;
 
 /**
  当月的第一天
  */
--(NSDate*)monthBegin;
+-(NSDate*)yu_monthBegin;
 
 
 /**
  当月的最后一天
  */
--(NSDate*)monthEnd;
+-(NSDate*)yu_monthEnd;
 
 
 #pragma mark - year
 /**
  下一年
  */
--(NSDate*)nextYear;
+-(NSDate*)yu_nextYear;
 /**
  上一年
  */
--(NSDate*)preYear;
+-(NSDate*)yu_preYear;
 
 /**
  当年的年初
  */
--(NSDate*)yearBegin;
+-(NSDate*)yu_yearBegin;
 
 /**
  当年的年末
  */
--(NSDate*)yearEnd;
+-(NSDate*)yu_yearEnd;
 
 /**
  当年的最后一个星期一
  */
--(NSDate*)yearLastWeekMonday;
+-(NSDate*)yu_yearLastWeekMonday;
 
 
 #pragma mark - 比较
 //大于date  返回yes
--(BOOL)compareDate:(NSDate*)date;
+-(BOOL)yu_compareDate:(NSDate*)date;
 
 //大于date  返回yes
--(BOOL)comparewithDate:(NSDate *)date;
+-(BOOL)yu_comparewithDate:(NSDate *)date;
 
 // 比较 与 目标相差多久,返回值格式为 HH:MM:SS
-- (NSString *)compareWithAnDate:(NSDate *)anDate;
+- (NSString *)yu_compareWithAnDate:(NSDate *)anDate;
 
 //是否是今天
-- (BOOL)isDateInToday:(NSDate *)date NS_AVAILABLE(10_9, 8_0);
+- (BOOL)yu_isDateInToday:(NSDate *)date NS_AVAILABLE(10_9, 8_0);
 
 /**
  判断是否是同一天 周 月 年
  */
--(BOOL)isEqualDay:(NSDate*)date;
+-(BOOL)yu_isEqualDay:(NSDate*)date;
 
--(BOOL)isEqualWeek:(NSDate*)date;
+-(BOOL)yu_isEqualWeek:(NSDate*)date;
 
--(BOOL)isEqualMonth:(NSDate*)date;
+-(BOOL)yu_isEqualMonth:(NSDate*)date;
 
--(BOOL)isEqualYear:(NSDate*)date;
+-(BOOL)yu_isEqualYear:(NSDate*)date;
 
 #pragma mark -转换
 
@@ -149,13 +149,13 @@
  @param dayNum <#dayNum description#>
  @return <#return value description#>
  */
--(NSDate*)dateWithAFewDay:(NSInteger)dayNum;
+-(NSDate*)yu_dateWithAFewDay:(NSInteger)dayNum;
 
 /**
  * 取得日期
  * @param formatString 　   规则｜格式
  **/
--(NSDate *)dateFromString:(NSString *)formatString;
+-(NSDate *)yu_dateFromString:(NSString *)formatString;
 
 
 /**
@@ -164,7 +164,7 @@
  @param dateString 字符串String
  @param formatString 格式可以为yyyy-MM-dd HH:mm:ss
  */
-+ (NSDate *)dateFromString:(NSString *)dateString formatString:(NSString *)formatString;
++ (NSDate *)yu_dateFromString:(NSString *)dateString formatString:(NSString *)formatString;
 
 /**
  根据String返回Date:
@@ -173,19 +173,19 @@
  @param formatString 格式可以为yyyy-MM-dd HH:mm:ss
  @param isLocal 表示该String的时间是否为local时间
  */
-+ (NSDate *)dateFromString:(NSString *)dateString formatString:(NSString *)formatString isLocal:(BOOL)isLocal;
++ (NSDate *)yu_dateFromString:(NSString *)dateString formatString:(NSString *)formatString isLocal:(BOOL)isLocal;
 
 /***
  *获取当前时间戳
  *@return 毫秒
  **/
-+(NSString*)timeIntervalString;
++(NSString*)yu_timeIntervalString;
 
 
 /***
  *时间戳转换成时间字符串
  **/
-+(NSString*)stringFromTimeInterval:(NSString*)timeString formatString:(NSString*)formatString;
++(NSString*)yu_stringFromTimeInterval:(NSString*)timeString formatString:(NSString*)formatString;
 
 
 /**
@@ -193,7 +193,7 @@
  @param formatString <#formatString description#>
  @return <#return value description#>
  */
--(NSString*)stringFromDateWithFormat:(NSString*)formatString;
+-(NSString*)yu_stringFromDateWithFormat:(NSString*)formatString;
 
 
 /**
@@ -203,7 +203,7 @@
  **/
 
 
-+(NSString *)stringFromDate:(NSDate*)date formatString:(NSString*)formatString;
++(NSString *)yu_stringFromDate:(NSDate*)date formatString:(NSString*)formatString;
 
 
 /**
@@ -211,7 +211,7 @@
  @param date 日期
  @param formatString 规则｜格式
  */
-+(NSString *)stringFromDateCheckToday:(NSDate*)date formatString:(NSString*)formatString;
++(NSString *)yu_stringFromDateCheckToday:(NSDate*)date formatString:(NSString*)formatString;
 
 
 /**
@@ -221,7 +221,7 @@
  *@param destinationFormatString 　    新规则｜格式
  **/
 
-+(NSString *)stringFromDateString:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString;
++(NSString *)yu_stringFromDateString:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString;
 
 
 /**
@@ -230,6 +230,6 @@
  *@param sourceFormatString     原规则｜格式
  *@param destinationFormatString 　    新规则｜格式
  **/
-+(NSString *)stringFromDateString2Simplify:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString;
++(NSString *)yu_stringFromDateString2Simplify:(NSString*)dateString sourceFormat:(NSString*)sourceFormatString destinationFormat:(NSString*)destinationFormatString;
 
 @end

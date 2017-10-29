@@ -10,8 +10,8 @@
 
 @interface NSURL (YU)
 
-- (BOOL) isEqualToURL:(NSURL*)otherURL;
+- (BOOL) yu_isEqualToURL:(NSURL*)otherURL;
 
-- (NSDictionary *)queryDictionary;
+- (NSDictionary *)yu_queryDictionary;
 
 @end

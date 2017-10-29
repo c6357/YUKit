@@ -29,18 +29,18 @@
     });
 }
 
-id SafeObj(id obj){
+id YU_SafeObj(id obj){
     
    return (((obj)==nil)||([(obj) isEqual:[NSNull null]]))?@"":(obj);
 }
 
 
-BOOL isSafeObj(id obj){
+BOOL yu_isSafeObj(id obj){
     return (obj&&(![(obj) isEqual:[NSNull null]]));
 }
 
 
-- (BOOL)runUntilBlock:(BOOL(^)())block timeout:(NSTimeInterval)timeout
+- (BOOL)yu_runUntilBlock:(BOOL(^)(void))block timeout:(NSTimeInterval)timeout
 {
     __block Boolean fulfilled = NO;
     void (^beforeWaiting) (CFRunLoopObserverRef observer, CFRunLoopActivity activity) =
@@ -63,20 +63,20 @@ BOOL isSafeObj(id obj){
     return fulfilled;
 }
 
-+(void)afterBlock:(dispatch_block_t)block after:(float)time
++(void)yu_afterBlock:(dispatch_block_t)block after:(float)time
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         block();
     });
 }
 
--(void)afterBlock:(dispatch_block_t)block after:(float)time
+-(void)yu_afterBlock:(dispatch_block_t)block after:(float)time
 {
-    [NSObject afterBlock:block after:time];
+    [NSObject yu_afterBlock:block after:time];
 }
 
 
-- (void)performBlock:(void (^)(void))block
+- (void)yu_performBlock:(void (^)(void))block
           afterDelay:(NSTimeInterval)delay
 {
     block = [block copy];
@@ -85,11 +85,11 @@ BOOL isSafeObj(id obj){
                afterDelay:delay];
 }
 
-- (void)fireBlockAfterDelay:(void (^)(void))block {
+- (void)yu_fireBlockAfterDelay:(void (^)(void))block {
     block();
 }
 
-- (void)performAfterDelay:(float)delay thisBlock:(void (^)(BOOL finished))completion{
+- (void)yu_performAfterDelay:(float)delay thisBlock:(void (^)(BOOL finished))completion{
     
     [UIView animateWithDuration:delay
                      animations: ^{
@@ -102,7 +102,7 @@ BOOL isSafeObj(id obj){
                      }];
 }
 
-- (void)performBlockInBackground:(NSObjectPerformBlock)performBlock completion:(NSObjectPerformBlock)completionBlock userObject:(id)userObject
+- (void)yu_performBlockInBackground:(NSObjectPerformBlock)performBlock completion:(NSObjectPerformBlock)completionBlock userObject:(id)userObject
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         performBlock(userObject);
@@ -114,7 +114,7 @@ BOOL isSafeObj(id obj){
     });
 }
 
--(void)countdDown :(NSInteger)timeOut Done:(NillBlock_Nill)done Time:(NillBlock_Integer)time {
+-(void)yu_countdDown :(NSInteger)timeOut Done:(YU_VoidBlock)done Time:(YU_VoidBlock_Int)time {
     __block int timeout = (int)timeOut;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
@@ -137,48 +137,48 @@ BOOL isSafeObj(id obj){
 
 #pragma mark - 
 #pragma mark - NSNotification
--(void)addNotification:(SEL)aSelector name:(NSNotificationName)aName{
+-(void)yu_addNotification:(SEL)aSelector name:(NSNotificationName)aName{
     
-    [self addNotification:aSelector name:aName object:nil];
+    [self yu_addNotification:aSelector name:aName object:nil];
 }
 
--(void)addNotification:(SEL)aSelector name:(NSNotificationName)aName object:(id)anObject{
+-(void)yu_addNotification:(SEL)aSelector name:(NSNotificationName)aName object:(id)anObject{
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:(aSelector) name:(aName) object:anObject];
 }
 
-- (void)postNotificationName:(NSNotificationName)aName{
+- (void)yu_postNotificationName:(NSNotificationName)aName{
     
     [[NSNotificationCenter defaultCenter] postNotificationName:aName object:nil];
 }
 
-- (void)postNotificationName:(NSNotificationName)aName object:(id)anObject{
+- (void)yu_postNotificationName:(NSNotificationName)aName object:(id)anObject{
     
     [[NSNotificationCenter defaultCenter] postNotificationName:aName object:anObject];
 }
 
-- (void)postNotificationName:(NSNotificationName)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo{
+- (void)yu_postNotificationName:(NSNotificationName)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo{
     
     [[NSNotificationCenter defaultCenter] postNotificationName:aName object:anObject userInfo:aUserInfo];
 }
 
-- (void)removeNotification:(NSNotificationName)aName{
+- (void)yu_removeNotification:(NSNotificationName)aName{
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:aName object:nil];
 }
 
-- (void)removeNotification:(NSNotificationName)aName object:(id)anObject{
+- (void)yu_removeNotification:(NSNotificationName)aName object:(id)anObject{
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:aName object:anObject];
 }
 
-- (void)removeAllNotification{
+- (void)yu_removeAllNotification{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 
 #pragma mark - associated
-+ (void)swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector {
++ (void)yu_swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector {
     
     Class class = clazz;
     
@@ -195,48 +195,48 @@ BOOL isSafeObj(id obj){
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
 }
-- (id)getAssociatedObjectForKey:(const char *)key
+- (id)yu_getAssociatedObjectForKey:(const char *)key
 {
     id currValue = objc_getAssociatedObject( self, key);
     return currValue;
 }
 
-- (id)setAssociatedObject:(id)obj forKey:(const char *)key policy:(objc_AssociationPolicy)policy
+- (id)yu_setAssociatedObject:(id)obj forKey:(const char *)key policy:(objc_AssociationPolicy)policy
 {
     id oldValue = objc_getAssociatedObject( self, key );
     objc_setAssociatedObject( self, key, obj, policy );
     return oldValue;
 }
 
-- (void)removeAssociatedObjectForKey:(const char *)key policy:(objc_AssociationPolicy)policy
+- (void)yu_removeAssociatedObjectForKey:(const char *)key policy:(objc_AssociationPolicy)policy
 {
     objc_setAssociatedObject( self, key, nil, policy );
 }
 
-- (void)removeAllAssociatedObjects
+- (void)yu_removeAllAssociatedObjects
 {
     objc_removeAssociatedObjects( self );
 }
 
-+ (id)getAssociatedObjectForKey:(const char *)key
++ (id)yu_getAssociatedObjectForKey:(const char *)key
 {
     id currValue = objc_getAssociatedObject( self, key);
     return currValue;
 }
 
-+ (id)setAssociatedObject:(id)obj forKey:(const char *)key policy:(objc_AssociationPolicy)policy
++ (id)yu_setAssociatedObject:(id)obj forKey:(const char *)key policy:(objc_AssociationPolicy)policy
 {
     id oldValue = objc_getAssociatedObject( self, key );
     objc_setAssociatedObject( self, key, obj, policy );
     return oldValue;
 }
 
-+ (void)removeAssociatedObjectForKey:(const char *)key policy:(objc_AssociationPolicy)policy
++ (void)yu_removeAssociatedObjectForKey:(const char *)key policy:(objc_AssociationPolicy)policy
 {
     objc_setAssociatedObject( self, key, nil, policy );
 }
 
-+ (void)removeAllAssociatedObjects
++ (void)yu_removeAllAssociatedObjects
 {
     objc_removeAssociatedObjects( self );
 }

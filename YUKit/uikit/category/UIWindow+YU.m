@@ -76,7 +76,7 @@
     layer.borderWidth = W/2;
     layer.borderColor = [UIColor colorWithWhite:.5 alpha:.9].CGColor;
     
-    [self afterBlock:^{
+    [self yu_afterBlock:^{
         [UIView animateWithDuration:.4 animations:^{
             layer.borderWidth = 0.;
         } completion:^(BOOL finished) {
@@ -156,13 +156,13 @@
 }
 
 
--(void)showViewFrames{
+-(void)yu_showViewFrames{
     self.layer.borderColor = [UIColor redColor].CGColor;
     self.layer.borderWidth = 1.f/[UIScreen mainScreen].scale;
 }
 
 
--(void)showViewFrameSize{
+-(void)yu_showViewFrameSize{
     
     DebugView *debugView = [[DebugView alloc]initWithFrame:self.bounds];
     [self addSubview:debugView];

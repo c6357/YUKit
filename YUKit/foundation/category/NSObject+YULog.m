@@ -26,12 +26,12 @@ const char *errorStr = "\n\n❌❌❌错误";
 
 @implementation NSObject (YULog)
 FOUNDATION_EXPORT NSString *DFILE(){
-    return  [[NSString stringWithFormat:@"%s",__FILE__] nsLogFileName];
+    return  [[NSString stringWithFormat:@"%s",__FILE__] yu_nsLogFileName];
 }
 
 
 
-FOUNDATION_EXPORT void YULogError(NSString *format, ...){
+FOUNDATION_EXPORT void YU_LogError(NSString *format, ...){
 #ifndef __OPTIMIZE__
     fprintf( stderr, "%s",errorStr);
     va_list args;
@@ -42,7 +42,7 @@ FOUNDATION_EXPORT void YULogError(NSString *format, ...){
 #endif
 }
 
-FOUNDATION_EXPORT void YULogWarn(NSString *format, ...){
+FOUNDATION_EXPORT void YU_LogWarn(NSString *format, ...){
 #ifndef __OPTIMIZE__
     fprintf( stderr, "%s",warnStr);
     va_list args;
@@ -53,7 +53,7 @@ FOUNDATION_EXPORT void YULogWarn(NSString *format, ...){
 #endif
 }
 
-FOUNDATION_EXPORT void YULogInfo(NSString *format, ...){
+FOUNDATION_EXPORT void YU_LogInfo(NSString *format, ...){
 #ifndef __OPTIMIZE__
     format = [NSString stringWithFormat:@"[文件名:%@]\n[函数名:%s]\n[行号:%d] %@",DFILE(),__FUNCTION__,__LINE__,format];
     va_list args;
@@ -63,13 +63,13 @@ FOUNDATION_EXPORT void YULogInfo(NSString *format, ...){
 #endif
 }
 
-FOUNDATION_EXPORT void YULogCrash(){
+FOUNDATION_EXPORT void YU_LogCrash(){
     NSString *format = [NSString stringWithFormat:@"\
                         \n[文件名:%@]\n[函数名:%s]\n[行号:%d] Crash：%@\n",DFILE(),__FUNCTION__,__LINE__,[NSThread callStackSymbols]];
     NSLog(@"%@",format);
 }
 
-FOUNDATION_EXPORT void YULog(NSString* format, ...){
+FOUNDATION_EXPORT void YU_Log(NSString* format, ...){
 #ifndef __OPTIMIZE__
     fprintf( stderr, "%s",lineStr);
     va_list args;
@@ -136,7 +136,7 @@ FOUNDATION_EXPORT void YULog(NSString* format, ...){
 
 @implementation NSString (YULog)
 
-- (NSString *)nsLogFileName
+- (NSString *)yu_nsLogFileName
 {
     
     NSString *file = [[NSString alloc]initWithString:self];

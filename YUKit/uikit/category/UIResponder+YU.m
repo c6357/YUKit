@@ -11,7 +11,7 @@
 
 @implementation UIResponder (YU)
 
-- (UIViewController *)recentlyController
+- (UIViewController *)yu_recentlyController
 {
     UIViewController *controller = (UIViewController *)[self objectInResponder:self.nextResponder class:[UIViewController class]];
     
@@ -19,7 +19,7 @@
 }
 
 
-- (UINavigationController *)recentlyNavigationContoller
+- (UINavigationController *)yu_recentlyNavigationContoller
 {
     UINavigationController *controller = (UINavigationController *)[self objectInResponder:self.nextResponder class:[UINavigationController class]];
     

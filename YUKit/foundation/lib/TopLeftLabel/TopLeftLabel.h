@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopLeftLabel : UILabel
+@interface YUTopLeftLabel : UILabel
 
 @end

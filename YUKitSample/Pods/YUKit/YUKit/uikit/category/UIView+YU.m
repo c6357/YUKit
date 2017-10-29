@@ -654,13 +654,13 @@ static bool hadExchanged = FALSE;
 
 static char kBorderStyle,kBorderWidth;
 
--(void)setViewBorderStyle:(NSInteger)viewBorderStyle
+-(void)yu_setViewBorderStyle:(NSInteger)viewBorderStyle
 {
     objc_setAssociatedObject(self, &kBorderStyle, [NSNumber numberWithInt:(int)viewBorderStyle], OBJC_ASSOCIATION_COPY_NONATOMIC);
     
 }
 
--(void)setViewBorderLineWidth:(NSInteger)viewBorderLineWidth
+-(void)yu_setViewBorderLineWidth:(NSInteger)viewBorderLineWidth
 {
     objc_setAssociatedObject(self, &kBorderWidth, [NSNumber numberWithInt:(int)viewBorderLineWidth], OBJC_ASSOCIATION_COPY_NONATOMIC);
     

@@ -24,16 +24,16 @@ static char dictCustomerPropertyKey;
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self setAssociatedObject:[NSMutableDictionary new] forKey:&dictCustomerPropertyKey policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
+        [self yu_setAssociatedObject:[NSMutableDictionary new] forKey:&dictCustomerPropertyKey policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
     });
 }
 
 
-- (void)swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector {
-    [NSObject swizzleSelectorWithClass:clazz originalSelector:originalSelector withSelector:swizzledSelector];
+- (void)yu_swizzleSelectorWithClass:(Class)clazz originalSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector {
+    [NSObject yu_swizzleSelectorWithClass:clazz originalSelector:originalSelector withSelector:swizzledSelector];
 }
 
-+ (NSArray *)callstack:(NSUInteger)depth
++ (NSArray *)yu_callstack:(NSUInteger)depth
 {
     NSMutableArray * array = [NSMutableArray new];
     
@@ -73,7 +73,7 @@ static char dictCustomerPropertyKey;
     return array;
 }
 
-+ (NSArray *)allIvar{
++ (NSArray *)yu_allIvar{
     
     Class class = self;
     unsigned int count;
@@ -103,7 +103,7 @@ static char dictCustomerPropertyKey;
     return result;
 }
 
-+ (NSArray *)allProtocol{
++ (NSArray *)yu_allProtocol{
     
     Class class = self;
     unsigned int count;
@@ -134,12 +134,12 @@ static char dictCustomerPropertyKey;
     return result;
 }
 
-+ (NSArray *)classesWithProtocol:(NSString *)protocolName
++ (NSArray *)yu_classesWithProtocol:(NSString *)protocolName
 {
     NSMutableArray *results = [NSMutableArray new];
     
     Protocol * protocol = NSProtocolFromString(protocolName);
-    for ( NSString *className in [self allClassNames] )
+    for ( NSString *className in [self yu_allClassNames] )
     {
         Class classType = NSClassFromString( className );
         if ( classType == self )
@@ -153,11 +153,11 @@ static char dictCustomerPropertyKey;
     return results;
 }
 
-+ (NSArray *)allSubClasses
++ (NSArray *)yu_allSubClasses
 {
     NSMutableArray *results = [NSMutableArray new];
     
-    for ( NSString *className in [self allClassNames] )
+    for ( NSString *className in [self yu_allClassNames] )
     {
         Class class = NSClassFromString( className );
         
@@ -173,7 +173,7 @@ static char dictCustomerPropertyKey;
 }
 
 
-+ (NSArray *)allMethods
++ (NSArray *)yu_allMethods
 {
     static NSMutableArray * methodNames = nil;
     
@@ -211,18 +211,18 @@ static char dictCustomerPropertyKey;
     return methodNames;
 }
 
-+ (NSArray *)allProperties{
-    return [self allProperties:[NSObject superclass]];
++ (NSArray *)yu_allProperties{
+    return [self yu_allProperties:[NSObject superclass]];
 }
 
-+ (NSArray *)allProperties:(Class)baseClass
++ (NSArray *)yu_allProperties:(Class)baseClass
 {
-    return [self allProperties_each:baseClass enumeration:nil];
+    return [self yu_allProperties_each:baseClass enumeration:nil];
 }
 
-+ (NSArray *)allProperties:(Class)baseClass prefix:(NSString *)prefix
++ (NSArray *)yu_allProperties:(Class)baseClass prefix:(NSString *)prefix
 {
-    NSArray * properties = [self allProperties_each:baseClass enumeration:nil];
+    NSArray * properties = [self yu_allProperties_each:baseClass enumeration:nil];
 
     if ( nil == properties || 0 == properties.count)
     {
@@ -253,12 +253,12 @@ static char dictCustomerPropertyKey;
     return result;
 }
 
-+ (NSArray *)allProperties_each:(runtime_Block_KeyForArray)enumeration{
-    return [self allProperties_each:[NSObject superclass] enumeration:enumeration];
++ (NSArray *)yu_allProperties_each:(runtime_Block_KeyForArray)enumeration{
+    return [self yu_allProperties_each:[NSObject superclass] enumeration:enumeration];
  
 }
 
-+ (NSArray *)allProperties_each:(Class)baseClass
++ (NSArray *)yu_allProperties_each:(Class)baseClass
 enumeration:(runtime_Block_KeyForArray)enumeration{
     
     baseClass = baseClass ?: [NSObject class];
@@ -299,16 +299,16 @@ enumeration:(runtime_Block_KeyForArray)enumeration{
     return propertyNames;
 }
 
-- (NSArray *)allProperties_each:(runtime_Block_KeyValueForArray)enumeration{
+- (NSArray *)yu_allProperties_each:(runtime_Block_KeyValueForArray)enumeration{
     
-    return [self allProperties_each:[self superclass] enumeration:enumeration];
+    return [self yu_allProperties_each:[self superclass] enumeration:enumeration];
     
 }
 
-- (NSArray *)allProperties_each:(Class)baseClass
+- (NSArray *)yu_allProperties_each:(Class)baseClass
                     enumeration:(runtime_Block_KeyValueForArray)enumeration{
     
-    return [[self class] allProperties_each:baseClass
+    return [[self class] yu_allProperties_each:baseClass
                             enumeration:^(NSString *key, BOOL *stop1) {
                                 BOOL stop = NO;
                                 id value = nil;
@@ -330,7 +330,7 @@ enumeration:(runtime_Block_KeyForArray)enumeration{
 
 
 
-+ (void)addProperty:(NSString *)propertyName withValue:(id)value {
++ (void)yu_addProperty:(NSString *)propertyName withValue:(id)value {
     Class class = [self class];
 
     Ivar ivar = class_getInstanceVariable(class, [[NSString stringWithFormat:@"_%@", propertyName] UTF8String]);
@@ -349,7 +349,7 @@ enumeration:(runtime_Block_KeyForArray)enumeration{
     }
 }
 
-- (void)addProperty:(NSString *)propertyName withValue:(id)value {
+- (void)yu_addProperty:(NSString *)propertyName withValue:(id)value {
 
     Class class = [self class];
 //    Ivar ivar = class_getInstanceVariable(class, [[NSString stringWithFormat:@"_%@", dictCustomerPropertyStr] UTF8String]);
@@ -383,7 +383,7 @@ enumeration:(runtime_Block_KeyForArray)enumeration{
     }
 }
 
-- (id)getPropertyValue:(NSString *)propertyName {
+- (id)yu_getPropertyValue:(NSString *)propertyName {
     
     Class class = [self class];
     
@@ -397,7 +397,7 @@ enumeration:(runtime_Block_KeyForArray)enumeration{
     ivar = class_getInstanceVariable(class, [[NSString stringWithFormat:@"_%@",dictCustomerPropertyStr] UTF8String]);
     NSMutableDictionary *dict = object_getIvar(self, ivar);
 #else
-    NSMutableDictionary *dict = [self getAssociatedObjectForKey:&dictCustomerPropertyKey];
+    NSMutableDictionary *dict = [self yu_getAssociatedObjectForKey:&dictCustomerPropertyKey];
 #endif
     if (dict && [dict objectForKey:propertyName])
     {
@@ -418,7 +418,7 @@ id getter(id self1, SEL _cmd1)
     NSMutableDictionary *dictCustomerProperty = object_getIvar(self1, ivar);
     return [dictCustomerProperty objectForKey:key];
 #else
-    NSMutableDictionary *dictCustomerProperty  = [self1 getAssociatedObjectForKey:&dictCustomerPropertyKey];
+    NSMutableDictionary *dictCustomerProperty  = [self1 yu_getAssociatedObjectForKey:&dictCustomerPropertyKey];
     return [dictCustomerProperty objectForKey:key];
 #endif
 }
@@ -445,17 +445,17 @@ void setter(id self1, SEL _cmd1, id newValue)
         object_setIvar(self1, ivar, dictCustomerProperty);
     }
 #else
-    NSMutableDictionary *dictCustomerProperty  = [self1 getAssociatedObjectForKey:&dictCustomerPropertyKey];
+    NSMutableDictionary *dictCustomerProperty  = [self1 yu_getAssociatedObjectForKey:&dictCustomerPropertyKey];
     if (!dictCustomerProperty) {
         dictCustomerProperty = [NSMutableDictionary dictionary];
     }
 #endif
     
     [dictCustomerProperty setObject:newValue forKey:key];
-    [self1 setAssociatedObject:dictCustomerProperty forKey:&dictCustomerPropertyKey policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
+    [self1 yu_setAssociatedObject:dictCustomerProperty forKey:&dictCustomerPropertyKey policy:OBJC_ASSOCIATION_RETAIN_NONATOMIC];
 }
 
-+ (NSArray *)allClassNames
++ (NSArray *)yu_allClassNames
 {
     static NSMutableArray *classNames = nil;
     

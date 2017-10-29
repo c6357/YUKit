@@ -19,31 +19,31 @@
  
  p1 = (TX,TY) p2 = (BX,TY) p3 = (TX,BY) p4 = (BX,BY)
  */
-UIKIT_EXTERN CGFloat VIEW_W(UIView*);
-UIKIT_EXTERN CGFloat VIEW_H(UIView*);
-UIKIT_EXTERN CGFloat VIEW_TX(UIView*);
-UIKIT_EXTERN CGFloat VIEW_TY(UIView*);
-UIKIT_EXTERN CGFloat VIEW_BX(UIView*);
-UIKIT_EXTERN CGFloat VIEW_BY(UIView*);
+UIKIT_EXTERN CGFloat YU_VIEW_W(UIView*);
+UIKIT_EXTERN CGFloat YU_VIEW_H(UIView*);
+UIKIT_EXTERN CGFloat YU_VIEW_TX(UIView*);
+UIKIT_EXTERN CGFloat YU_VIEW_TY(UIView*);
+UIKIT_EXTERN CGFloat YU_VIEW_BX(UIView*);
+UIKIT_EXTERN CGFloat YU_VIEW_BY(UIView*);
 
-UIKIT_EXTERN CGFloat FRAME_W(CGRect);
-UIKIT_EXTERN CGFloat FRAME_H(CGRect);
-UIKIT_EXTERN CGFloat FRAME_TX(CGRect);
-UIKIT_EXTERN CGFloat FRAME_TY(CGRect);
-UIKIT_EXTERN CGFloat FRAME_BX(CGRect);
-UIKIT_EXTERN CGFloat FRAME_BY(CGRect);
+UIKIT_EXTERN CGFloat YU_FRAME_W(CGRect);
+UIKIT_EXTERN CGFloat YU_FRAME_H(CGRect);
+UIKIT_EXTERN CGFloat YU_FRAME_TX(CGRect);
+UIKIT_EXTERN CGFloat YU_FRAME_TY(CGRect);
+UIKIT_EXTERN CGFloat YU_FRAME_BX(CGRect);
+UIKIT_EXTERN CGFloat YU_FRAME_BY(CGRect);
 
 //得到视图的尺寸:宽度、高度
--(CGFloat)W;
--(CGFloat)H;
+-(CGFloat)YU_W;
+-(CGFloat)YU_H;
 
 //得到视图的left top的X,Y坐标点
--(CGFloat)TX;
--(CGFloat)TY;
+-(CGFloat)YU_TX;
+-(CGFloat)YU_TY;
 
 //得到视图的right bottom的X,Y坐标点
--(CGFloat)BX;
--(CGFloat)BY;
+-(CGFloat)YU_BX;
+-(CGFloat)YU_BY;
 
 
 @property (nonatomic,assign) CGSize size;

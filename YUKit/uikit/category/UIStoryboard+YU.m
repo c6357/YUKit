@@ -10,7 +10,7 @@
 
 @implementation UIStoryboard (YU)
 
-+(UIViewController*)storyboardWithName:(NSString*)identifier{
++(UIViewController*)yu_storyboardWithName:(NSString*)identifier{
     
   return  [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:identifier];
     

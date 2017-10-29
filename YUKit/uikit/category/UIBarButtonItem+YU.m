@@ -13,34 +13,34 @@
 
 @implementation UIBarButtonItem (YU)
 
-+(UIBarButtonItem *)buttonItemWithImage:(UIImage*)image target:(id)target action:(SEL)action{
++(UIBarButtonItem *)yu_buttonItemWithImage:(UIImage*)image target:(id)target action:(SEL)action{
     
     return [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:target action:action];
 }
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title target:(id)target action:(SEL)action{
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title target:(id)target action:(SEL)action{
     
-    return [self buttonItemWithTitle:title font:[UIFont systemFontOfSize:13] target:target action:action];
+    return [self yu_buttonItemWithTitle:title font:[UIFont systemFontOfSize:13] target:target action:action];
 }
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor  target:(id)target action:(SEL)action{
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor  target:(id)target action:(SEL)action{
     
-    return [self buttonItemWithTitle:title titleColor:titleColor font:[UIFont systemFontOfSize:13] target:target action:action];
+    return [self yu_buttonItemWithTitle:title titleColor:titleColor font:[UIFont systemFontOfSize:13] target:target action:action];
 }
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title font:(UIFont*)font target:(id)target action:(SEL)action{
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title font:(UIFont*)font target:(id)target action:(SEL)action{
     
-    return [self buttonItemWithTitle:title titleColor:[UIColor blackColor] font:font target:target action:action];
+    return [self yu_buttonItemWithTitle:title titleColor:[UIColor blackColor] font:font target:target action:action];
 }
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action{
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action{
     
-    return [[UIBarButtonItem alloc] initWithCustomView:[UIButton buttonWithTitle:title titleColor:titleColor font:font target:target action:action]];
+    return [[UIBarButtonItem alloc] initWithCustomView:[UIButton yu_buttonWithTitle:title titleColor:titleColor font:font target:target action:action]];
 }
 
-+(UIBarButtonItem *)buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment{
++(UIBarButtonItem *)yu_buttonItemWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment{
 
-    UIButton *button = [UIButton buttonWithTitle:title titleColor:titleColor font:font target:target action:action];
+    UIButton *button = [UIButton yu_buttonWithTitle:title titleColor:titleColor font:font target:target action:action];
     button.contentHorizontalAlignment = contentHorizontalAlignment;
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }

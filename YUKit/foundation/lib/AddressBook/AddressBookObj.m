@@ -8,7 +8,7 @@
 
 #import "AddressBookObj.h"
 
-@implementation AddressBookObj
+@implementation YUAddressBookObj
 -(NSMutableDictionary *)phoneInfo
 {
     if(_phoneInfo == nil)

@@ -13,16 +13,16 @@
 
 @interface NSString (YUSize)
 
-- (CGSize)getStringSizeWithfont:(UIFont *)font;
+- (CGSize)yu_getStringSizeWithfont:(UIFont *)font;
 
 
-- (CGSize)getStringSizeWithfont:(UIFont *)font width:(CGFloat)width;
+- (CGSize)yu_getStringSizeWithfont:(UIFont *)font width:(CGFloat)width;
 
 
-- (CGSize)getStringSizeWithWidth:(CGFloat)width attributes:(NSDictionary *)attributes;
+- (CGSize)yu_getStringSizeWithWidth:(CGFloat)width attributes:(NSDictionary *)attributes;
 
 
-- (CGSize)getStringSizeWithfont:(UIFont *)font height:(CGFloat)height;
+- (CGSize)yu_getStringSizeWithfont:(UIFont *)font height:(CGFloat)height;
 
 
 /**
@@ -34,6 +34,6 @@
  *
  *  @return 富文本高度
  */
-- (CGSize)getAttributesStringSizeWithFont:(UIFont*)font lineSpeace:(CGFloat)lineSpeace withWidth:(CGFloat)width;
+- (CGSize)yu_getAttributesStringSizeWithFont:(UIFont*)font lineSpeace:(CGFloat)lineSpeace withWidth:(CGFloat)width;
 
 @end

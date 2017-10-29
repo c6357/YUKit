@@ -12,19 +12,19 @@
 
 @implementation NSString (YUSize)
 
-- (CGSize)getStringSizeWithfont:(UIFont *)font{
+- (CGSize)yu_getStringSizeWithfont:(UIFont *)font{
     
-    return [self getStringSizeWithfont:font width:AppWidth()];
+    return [self yu_getStringSizeWithfont:font width:YU_AppWidth()];
 }
 
-- (CGSize)getStringSizeWithfont:(UIFont *)font width:(CGFloat)width
+- (CGSize)yu_getStringSizeWithfont:(UIFont *)font width:(CGFloat)width
 {
     CGSize size = [self boundingRectWithSize:CGSizeMake(width, 0)  options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
     
     return CGSizeMake(ceilf(size.width), ceilf(size.height));
 }
 
-- (CGSize)getStringSizeWithfont:(UIFont *)font height:(CGFloat)height
+- (CGSize)yu_getStringSizeWithfont:(UIFont *)font height:(CGFloat)height
 {
     CGSize size = [self boundingRectWithSize:CGSizeMake(0, height)  options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
     
@@ -32,7 +32,7 @@
 }
 
 
-- (CGSize)getStringSizeWithWidth:(CGFloat)width attributes:(NSDictionary *)attributes
+- (CGSize)yu_getStringSizeWithWidth:(CGFloat)width attributes:(NSDictionary *)attributes
 {
     CGSize size = [self boundingRectWithSize:CGSizeMake(width, 0)  options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
     
@@ -40,7 +40,7 @@
 }
 
 
-- (CGSize)getAttributesStringSizeWithFont:(UIFont*)font lineSpeace:(CGFloat)lineSpeace withWidth:(CGFloat)width{
+- (CGSize)yu_getAttributesStringSizeWithFont:(UIFont*)font lineSpeace:(CGFloat)lineSpeace withWidth:(CGFloat)width{
     
     NSString *str = self?self:@"";
     

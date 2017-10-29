@@ -10,8 +10,11 @@
 #include <CommonCrypto/CommonDigest.h>
 
 @implementation NSData (YU)
+- (BOOL)yu_isEmpty {
+    return [self length] <= 0 ? YES : NO;
+}
 
-- (NSString *)MD5Sum {
+- (NSString *)yu_MD5Sum {
     unsigned char digest[CC_MD5_DIGEST_LENGTH], i;
     CC_MD5(self.bytes, (CC_LONG)self.length, digest);
     NSMutableString *ms = [NSMutableString string];
@@ -22,7 +25,7 @@
 }
 
 //安全哈希算法（Secure Hash Algorithm）
-- (NSString *)SHA1Sum {
+- (NSString *)yu_SHA1Sum {
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(self.bytes, (CC_LONG)self.length, digest);
@@ -31,7 +34,7 @@
     }
     return output;
 }
-- (NSString *)SHA256Sum {
+- (NSString *)yu_SHA256Sum {
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
     uint8_t digest[CC_SHA256_DIGEST_LENGTH];
     CC_SHA256([self bytes], (CC_LONG)[self length], digest);
@@ -45,7 +48,7 @@
 
 
 
-- (NSData *)AES128Operation:(CCOperation)operation key:(NSString *)key
+- (NSData *)yu_AES128Operation:(CCOperation)operation key:(NSString *)key
 {
     char keyPtr[kCCKeySizeAES128 + 1];
     memset(keyPtr, 0, sizeof(keyPtr));
@@ -90,7 +93,7 @@
  *
  *  @return (NSData *)
  */
-- (NSData *)DESEncryptWithKey:(NSString *)key
+- (NSData *)yu_DESEncryptWithKey:(NSString *)key
 {
     char keyPtr[kCCKeySizeAES256+1];
     bzero(keyPtr, sizeof(keyPtr));
@@ -126,7 +129,7 @@
  *
  *  @return (NSData *)
  */
-- (NSData *)DESDecryptWithKey:(NSString *)key
+- (NSData *)yu_DESDecryptWithKey:(NSString *)key
 {
     char keyPtr[kCCKeySizeAES256+1];
     bzero(keyPtr, sizeof(keyPtr));

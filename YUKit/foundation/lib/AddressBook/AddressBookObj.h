@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AddressBookObj : NSObject
+@interface YUAddressBookObj : NSObject
 @property (nonatomic,assign) int recordID;
 @property (nonatomic,strong) NSString *compositeName;
 @property (nonatomic,strong) NSString *pbone;

@@ -65,7 +65,7 @@
         
     }
     
-    YULogWarn(@"[%@ %@ %@]:unrecognized selector",self,cls,NSStringFromSelector(anInvocation.selector));
+    YU_LogWarn(@"[%@ %@ %@]:unrecognized selector",self,cls,NSStringFromSelector(anInvocation.selector));
     //    YULogWarn(@"%@",[NSThread callStackSymbols]);
     
 #else

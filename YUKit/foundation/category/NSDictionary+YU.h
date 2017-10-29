@@ -13,21 +13,21 @@
 /*
  * Checks to see if the dictionary is empty
  */
-@property(nonatomic,readonly,getter=isEmpty) BOOL empty;
+@property(nonatomic,readonly,getter=yu_isEmpty) BOOL empty;
 
 
--(NSDictionary*)copyToSelf:(NSDictionary*)dic;
+-(NSDictionary*)yu_copyToSelf:(NSDictionary*)dic;
 
-- (NSDictionary *)dictionaryByReplacingNullsWithStrings;
+- (NSDictionary *)yu_dictionaryByReplacingNullsWithStrings;
 
-- (BOOL)getBoolValueForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
+- (BOOL)yu_getBoolValueForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
 
-- (int)getIntValueForKey:(NSString *)key defaultValue:(int)defaultValue;
+- (int)yu_getIntValueForKey:(NSString *)key defaultValue:(int)defaultValue;
 
-- (long long)getLongLongValueValueForKey:(NSString *)key defaultValue:(long long)defaultValue;
+- (long long)yu_getLongLongValueValueForKey:(NSString *)key defaultValue:(long long)defaultValue;
 
-- (NSString *)getStringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue;
+- (NSString *)yu_getStringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue;
 
-- (time_t)getTimeValueForKey:(NSString *)key defaultValue:(time_t)defaultValue;
+- (time_t)yu_getTimeValueForKey:(NSString *)key defaultValue:(time_t)defaultValue;
 
 @end

@@ -13,7 +13,7 @@
 
 #pragma mark -
 #pragma mark - NSObject
-- (NSString *)jsonString
+- (NSString *)yu_jsonString
 {
     NSError *__autoreleasing error = nil;
     NSData *result = [NSJSONSerialization dataWithJSONObject:self
@@ -25,7 +25,7 @@
     
 //    NSLog(@"jsonStr  3 %@",jsonStr);
     
-    return SafeString(jsonStr);
+    return YU_SafeString(jsonStr);
 }
 
 
@@ -33,15 +33,15 @@
 #pragma mark - NSString
 - (NSDictionary *)jsonDictionary
 {
-    return [self jsonValue];
+    return [self yu_jsonValue];
 }
 
 - (NSArray *)jsonArray
 {
-    return [self jsonValue];
+    return [self yu_jsonValue];
 }
 
-- (id)jsonValue
+- (id)yu_jsonValue
 {
     if (![self isKindOfClass:[NSString class]]) {
 //        NSLog(@"%@：%@",self,self.class);

@@ -12,14 +12,14 @@
 //    return num==-1?@"":[NSString stringWithFormat:@"%@",@(num)];
 //}
 
-static inline NSString* numberToString(NSUInteger num){
+static inline NSString* YU_NumberToString(NSUInteger num){
     
     return num==-1?@"":[NSString stringWithFormat:@"%@",@(num)];
     
 }
 
 
-static inline NSString* stringWithFormat(id obj){
+static inline NSString* YU_StringWithFormat(id obj){
     
     return (obj==nil||[obj isEqual:[NSNull null]])?@"":[NSString stringWithFormat:@"%@",obj];
 }
@@ -27,17 +27,17 @@ static inline NSString* stringWithFormat(id obj){
 
 @interface NSNumber (YU)
 
-NSNumber*   __INT(NSInteger __x);
+NSNumber*   YU_INT(NSInteger __x);
 
-NSNumber*   __UINT(NSUInteger __x);
+NSNumber*   YU_UINT(NSUInteger __x);
 
-NSNumber*   __FLOAT(float __x);
+NSNumber*   YU_FLOAT(float __x);
 
-NSNumber*   __DOUBLE(double __x);
+NSNumber*   YU_DOUBLE(double __x);
 
-NSNumber*   __BOOL(BOOL __x);
+NSNumber*   YU_BOOL(BOOL __x);
 
 
-- (NSString*)toString;
+-(NSString*)yu_toString;
 
 @end

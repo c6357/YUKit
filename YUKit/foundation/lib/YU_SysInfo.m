@@ -98,7 +98,7 @@
 //}
 
 
-NSString *AppBundleSeedID()
+NSString *YU_AppBundleSeedID()
 {
     NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
                            (__bridge id)(kSecClassGenericPassword), kSecClass,
@@ -119,7 +119,7 @@ NSString *AppBundleSeedID()
     return bundleSeedID;
 }
 
-NSString *AppSchemaWithName(NSString *name)
+NSString *YU_AppSchemaWithName(NSString *name)
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     NSArray * array = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
@@ -157,14 +157,14 @@ NSString *AppSchemaWithName(NSString *name)
 #endif
 }
 
-NSString *AppSchema()
+NSString *YU_AppSchema()
 {
-    return AppSchemaWithName(nil);
+    return YU_AppSchemaWithName(nil);
 }
 
 
 
-int64_t AppMemoryUsage()
+int64_t YU_AppMemoryUsage()
 {
     struct task_basic_info info;
     mach_msg_type_number_t size = sizeof(info);
@@ -173,7 +173,7 @@ int64_t AppMemoryUsage()
     return info.resident_size;
 }
 
-CGFloat AppCpuUsage()
+CGFloat YU_AppCpuUsage()
 {
     kern_return_t kr;
     task_info_data_t tinfo;

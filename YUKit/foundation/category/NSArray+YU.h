@@ -13,16 +13,16 @@
 /*
  * Checks to see if the array is empty
  */
-@property(nonatomic,readonly,getter=isEmpty) BOOL empty;
+@property(nonatomic,readonly,getter=yu_isEmpty) BOOL empty;
 
 
--(NSMutableArray*)arrayWithKey:(NSString*)key;
+-(NSMutableArray*)yu_arrayWithKey:(NSString*)key;
 
--(NSMutableDictionary*)dictionaryWithKey:(NSString*)key;
+-(NSMutableDictionary*)yu_dictionaryWithKey:(NSString*)key;
 
--(NSMutableDictionary*)dictionaryWithIntKey:(NSString*)key;
+-(NSMutableDictionary*)yu_dictionaryWithIntKey:(NSString*)key;
 
-+(id)arrayWithCArray:(char**)strs len:(NSInteger)length;
++(id)yu_arrayWithCArray:(char**)strs len:(NSInteger)length;
 
 @end
 
@@ -31,8 +31,8 @@
 
 - (id)firstObject;
 
-- (NSMutableArray *) removeFirstObject;
+- (NSMutableArray *)yu_removeFirstObject;
 
-- (NSMutableArray*)addObject:(id)object,...;
+- (NSMutableArray*)yu_addObject:(id)object,...;
 
 @end

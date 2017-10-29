@@ -11,31 +11,31 @@
 @interface UIView (YU)
 
 
-+(UIView *)viewWithTitle:(NSString*)title;
++(UIView *)yu_viewWithTitle:(NSString*)title;
 
 
-- (UIImage *)imageFromView;
+- (UIImage *)yu_imageFromView;
 
 
 
 /**
  Method that adds a gradient sublayer inthat view
  */
-- (CAGradientLayer *)addLinearGradientWithColor:(UIColor *)theColor transparentToOpaque:(BOOL)transparentToOpaque;
+- (CAGradientLayer *)yu_addLinearGradientWithColor:(UIColor *)theColor transparentToOpaque:(BOOL)transparentToOpaque;
 /**
  Methot that capture a image from that view
  */
-- (UIImageView *) imageInNavController: (UINavigationController *) navController;
+- (UIImageView *) yu_imageInNavController: (UINavigationController *) navController;
 /**
  Method that adds a view with color in that view
  */
-- (UIView *)addOpacityWithColor:(UIColor *)theColor;
+- (UIView *)yu_addOpacityWithColor:(UIColor *)theColor;
 
 
-+(id)XIBView;
++(id)yu_xibView;
 
 
--(id)replacementForXibView;
+-(id)yu_replacementForXibView;
 
 
 #pragma mark - ws
@@ -47,42 +47,42 @@ typedef enum{
 }Direction;
 
 //by W.S
--(CAGradientLayer*)gradientLayer;
--(void)setBackgroundWithGradientColor:(NSArray*)colors;
--(void)setFrame:(CGRect)frame animation:(BOOL)animated completion:(void(^)(BOOL))completion;
--(void)move:(float)offset direct:(Direction)direction animation:(BOOL)animated;
--(void)moveUp:(NSNumber*)offset animation:(BOOL)animated;
--(void)moveDown:(NSNumber*)offset animation:(BOOL)animated;
--(void)moveDown:(NSNumber*)offset;
--(void)moevrTo:(CGPoint)nPoint animation:(BOOL)animated;
--(void)moveToShowHide:(float)offset direct:(Direction)direction animation:(BOOL)animated;
--(void)moveToHCenter:(BOOL)animated;
--(void)strechTo:(CGSize)nSize animation:(BOOL)animated;
--(void)strech:(float)offset direct:(Direction)direction animation:(BOOL)animated;
--(void)setHidden:(BOOL)hidden animation:(BOOL)animation;
--(void)setHeight:(float)height;
--(void)setHeight:(float)height animation:(BOOL)animtated;
+-(CAGradientLayer*)yu_gradientLayer;
+-(void)yu_setBackgroundWithGradientColor:(NSArray*)colors;
+-(void)yu_setFrame:(CGRect)frame animation:(BOOL)animated completion:(void(^)(BOOL))completion;
+-(void)yu_move:(float)offset direct:(Direction)direction animation:(BOOL)animated;
+-(void)yu_moveUp:(NSNumber*)offset animation:(BOOL)animated;
+-(void)yu_moveDown:(NSNumber*)offset animation:(BOOL)animated;
+-(void)yu_moveDown:(NSNumber*)offset;
+-(void)yu_moevrTo:(CGPoint)nPoint animation:(BOOL)animated;
+-(void)yu_moveToShowHide:(float)offset direct:(Direction)direction animation:(BOOL)animated;
+-(void)yu_moveToHCenter:(BOOL)animated;
+-(void)yu_strechTo:(CGSize)nSize animation:(BOOL)animated;
+-(void)yu_strech:(float)offset direct:(Direction)direction animation:(BOOL)animated;
+-(void)yu_setHidden:(BOOL)hidden animation:(BOOL)animation;
+-(void)yu_setHeight:(float)height;
+-(void)yu_setHeight:(float)height animation:(BOOL)animtated;
 
--(void)setWidth:(float)width;
--(void)setOrigin:(CGPoint)orgin;
--(float)reAliginFollow:(UILabel*)label direct:(Direction)direction;
+-(void)yu_setWidth:(float)width;
+-(void)yu_setOrigin:(CGPoint)orgin;
+-(float)yu_reAliginFollow:(UILabel*)label direct:(Direction)direction;
 
--(void)setToSuperCenter;
-
-
--(NSIndexPath*)IndexPath;
--(void)setIndexPath:(NSIndexPath*)indexPath;
+-(void)yu_setToSuperCenter;
 
 
--(id)Obj;
--(void)setObj:(NSIndexPath *)obj;
+-(NSIndexPath*)yu_indexPath;
+-(void)yu_setIndexPath:(NSIndexPath*)indexPath;
 
 
--(BOOL)autoSizeToFitContent;
--(void)setAutoSizeToFitContent:(BOOL)autoFit;
+-(id)yu_obj;
+-(void)yu_setObj:(NSIndexPath *)obj;
 
--(void)addClickGesture:(void (^)(void))handler;
--(void)removeClickGesture;
+
+-(BOOL)yu_autoSizeToFitContent;
+-(void)yu_setAutoSizeToFitContent:(BOOL)autoFit;
+
+-(void)yu_addClickGesture:(void (^)(void))handler;
+-(void)yu_removeClickGesture;
 
 enum {
     BorderTop = 0x01,
@@ -92,8 +92,8 @@ enum {
 };
 //@property (nonatomic,assign) NSInteger viewBorderStyle;
 //@property (nonatomic,assign) NSInteger viewBorderLineWidth;
--(void)setViewBorderStyle:(NSInteger)viewBorderStyle;
--(void)setViewBorderLineWidth:(NSInteger)viewBorderLineWidth;
+-(void)yu_setViewBorderStyle:(NSInteger)viewBorderStyle;
+-(void)yu_setViewBorderLineWidth:(NSInteger)viewBorderLineWidth;
 
 
 @end

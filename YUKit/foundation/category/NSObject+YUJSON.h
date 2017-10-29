@@ -11,13 +11,13 @@
 
 #pragma mark -
 #pragma mark - NSObject
-- (NSString *)jsonString;
+- (NSString *)yu_jsonString;
 
 
 #pragma mark -
 #pragma mark - NSString
-- (NSDictionary *)jsonDictionary;
+- (NSDictionary *)yu_jsonDictionary;
 
-- (NSArray *)jsonArray;
+- (NSArray *)yu_jsonArray;
 
 @end

@@ -11,15 +11,15 @@
 #import "AddressBook.h"
 #import "YUKit.h"
 
-@interface AddressBook(){
+@interface YUAddressBook(){
     NSString *_privateName;
 }
 @property (assign,nonatomic)ABAddressBookRef addressBooksRef;
 @property (strong,nonatomic)NSMutableArray *addressBooksArr;
 @end
 
-@implementation AddressBook
-YUSingletonM(AddressBook)
+@implementation YUAddressBook
+YUSingletonM(YUAddressBook)
 
 - (id)init
 {
@@ -93,14 +93,14 @@ YUSingletonM(AddressBook)
         {
             ABRecordRef record = (__bridge ABRecordRef)[contacts objectAtIndex:i];
             
-            AddressBookObj * addressBookObj = [[AddressBookObj alloc] init];
+            YUAddressBookObj * addressBookObj = [[YUAddressBookObj alloc] init];
             
             //取得联系人的ID
             addressBookObj.recordID = (int)ABRecordGetRecordID(record);
             
             //完整姓名
             CFStringRef compositeNameRef = ABRecordCopyCompositeName(record);
-            addressBookObj.compositeName = SafeString((__bridge NSString *)compositeNameRef);
+            addressBookObj.compositeName = YU_SafeString((__bridge NSString *)compositeNameRef);
             compositeNameRef != NULL ? CFRelease(compositeNameRef) : NULL;
             
             
@@ -120,7 +120,7 @@ YUSingletonM(AddressBook)
                 NSString *phone = [phoneNumber stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [phoneNumber length])];
                 
                 if (i == 0) {
-                    addressBookObj.pbone = SafeString(phone);
+                    addressBookObj.pbone = YU_SafeString(phone);
                 }
                 [addressBookObj.phoneInfo setValue:localizedPhoneLabel forKey:phone];
                 
@@ -132,7 +132,7 @@ YUSingletonM(AddressBook)
             if(phones != NULL) CFRelease(phones);
             
             
-            if (isSafeString(addressBookObj.pbone)) {
+            if (yu_isSafeString(addressBookObj.pbone)) {
                 [_addressBooksArr addObject:addressBookObj];
             }
             
@@ -146,14 +146,14 @@ YUSingletonM(AddressBook)
 
 +(NSMutableArray*)addressBooks{
     
-    return [AddressBook sharedAddressBook].addressBooksArr;
+    return [YUAddressBook sharedYUAddressBook].addressBooksArr;
     
 }
 
 
 +(BOOL)containPhoneNum:(NSString*)phoneNum{
     
-    for (AddressBookObj *obj in [AddressBook sharedAddressBook].addressBooksArr) {
+    for (YUAddressBookObj *obj in [YUAddressBook sharedYUAddressBook].addressBooksArr) {
         
         return [obj.phoneInfo[phoneNum] boolValue];
         

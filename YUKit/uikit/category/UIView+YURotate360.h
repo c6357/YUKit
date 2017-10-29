@@ -16,10 +16,10 @@ enum i7Rotate360TimingMode {
 
 @interface UIView (YURotate360)
 
-- (void)rotate360WithDuration:(CGFloat)aDuration repeatCount:(CGFloat)aRepeatCount timingMode:(enum i7Rotate360TimingMode)aMode;
+- (void)yu_rotate360WithDuration:(CGFloat)aDuration repeatCount:(CGFloat)aRepeatCount timingMode:(enum i7Rotate360TimingMode)aMode;
 
-- (void)rotate360WithDuration:(CGFloat)aDuration timingMode:(enum i7Rotate360TimingMode)aMode;
+- (void)yu_rotate360WithDuration:(CGFloat)aDuration timingMode:(enum i7Rotate360TimingMode)aMode;
 
-- (void)rotate360WithDuration:(CGFloat)aDuration;
+- (void)yu_rotate360WithDuration:(CGFloat)aDuration;
 
 @end

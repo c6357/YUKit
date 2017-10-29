@@ -12,32 +12,32 @@
 
 @implementation NSNotificationCenter (YU)
 
-- (void) postNotificationOnMainThread:(NSNotification *) notification {
+- (void)yu_postNotificationOnMainThread:(NSNotification *) notification {
     
     if( pthread_main_np() ) return [self postNotification:notification];
-    [self postNotificationOnMainThread:notification waitUntilDone:NO];
+    [self yu_postNotificationOnMainThread:notification waitUntilDone:NO];
 }
 
-- (void) postNotificationOnMainThread:(NSNotification *) notification waitUntilDone:(BOOL) wait {
+- (void)yu_postNotificationOnMainThread:(NSNotification *) notification waitUntilDone:(BOOL) wait {
     if( pthread_main_np() ) return [self postNotification:notification];
-    [[self class] performSelectorOnMainThread:@selector( _postNotification: ) withObject:notification waitUntilDone:wait];
+    [[self class] performSelectorOnMainThread:@selector( yu_postNotification: ) withObject:notification waitUntilDone:wait];
 }
 
-+ (void) _postNotification:(NSNotification *) notification {
++ (void)yu_postNotification:(NSNotification *) notification {
     [[self defaultCenter] postNotification:notification];
 }
 
-- (void) postNotificationOnMainThreadWithName:(NSString *) name object:(id) object {
+- (void)yu_postNotificationOnMainThreadWithName:(NSString *) name object:(id) object {
     if( pthread_main_np() ) return [self postNotificationName:name object:object userInfo:nil];
-    [self postNotificationOnMainThreadWithName:name object:object userInfo:nil waitUntilDone:NO];
+    [self yu_postNotificationOnMainThreadWithName:name object:object userInfo:nil waitUntilDone:NO];
 }
 
-- (void) postNotificationOnMainThreadWithName:(NSString *) name object:(id) object userInfo:(NSDictionary *) userInfo {
+- (void)yu_postNotificationOnMainThreadWithName:(NSString *) name object:(id) object userInfo:(NSDictionary *) userInfo {
     if( pthread_main_np() ) return [self postNotificationName:name object:object userInfo:userInfo];
-    [self postNotificationOnMainThreadWithName:name object:object userInfo:userInfo waitUntilDone:NO];
+    [self yu_postNotificationOnMainThreadWithName:name object:object userInfo:userInfo waitUntilDone:NO];
 }
 
-- (void) postNotificationOnMainThreadWithName:(NSString *) name object:(id) object userInfo:(NSDictionary *) userInfo waitUntilDone:(BOOL) wait {
+- (void)yu_postNotificationOnMainThreadWithName:(NSString *) name object:(id) object userInfo:(NSDictionary *) userInfo waitUntilDone:(BOOL) wait {
     if( pthread_main_np() ) return [self postNotificationName:name object:object userInfo:userInfo];
     
     NSMutableDictionary *info = [[NSMutableDictionary allocWithZone:nil] initWithCapacity:3];
@@ -45,10 +45,10 @@
     if( object ) [info setObject:object forKey:@"object"];
     if( userInfo ) [info setObject:userInfo forKey:@"userInfo"];
     
-    [[self class] performSelectorOnMainThread:@selector( _postNotificationName: ) withObject:info waitUntilDone:wait];
+    [[self class] performSelectorOnMainThread:@selector( yu_postNotificationName: ) withObject:info waitUntilDone:wait];
 }
 
-+ (void) _postNotificationName:(NSDictionary *) info {
++ (void)yu_postNotificationName:(NSDictionary *) info {
     NSString *name = [info objectForKey:@"name"];
     id object = [info objectForKey:@"object"];
     NSDictionary *userInfo = [info objectForKey:@"userInfo"];

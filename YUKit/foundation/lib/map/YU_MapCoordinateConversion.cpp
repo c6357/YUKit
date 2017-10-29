@@ -47,7 +47,7 @@
 
 const double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
 //火星转百度
-void bd_encrypt(double gg_lat, double gg_lon, double &bd_lat, double &bd_lon)
+void yu_encrypt(double gg_lat, double gg_lon, double &bd_lat, double &bd_lon)
 {
     double x = gg_lon, y = gg_lat;
     double z = sqrt(x * x + y * y) + 0.00002 * sin(y * x_pi);
@@ -58,7 +58,7 @@ void bd_encrypt(double gg_lat, double gg_lon, double &bd_lat, double &bd_lon)
 
 
 //百度转火星
-void bd_decrypt(double bd_lat, double bd_lon, double &gg_lat, double &gg_lon)
+void yu_decrypt(double bd_lat, double bd_lon, double &gg_lat, double &gg_lon)
 {
     double x = bd_lon - 0.0065, y = bd_lat - 0.006;
     double z = sqrt(x * x + y * y) - 0.00002 * sin(y * x_pi);

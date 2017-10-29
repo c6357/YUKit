@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (YUBase64)
-+ (NSString *)stringWithBase64EncodedString:(NSString *)string;
-- (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
-- (NSString *)base64EncodedString;
-- (NSString *)base64DecodedString;
-- (NSData *)base64DecodedData;
++ (NSString *)yu_stringWithBase64EncodedString:(NSString *)string;
+- (NSString *)yu_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
+- (NSString *)yu_base64EncodedString;
+- (NSString *)yu_base64DecodedString;
+- (NSData *)yu_base64DecodedData;
 @end

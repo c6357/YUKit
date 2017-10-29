@@ -11,12 +11,12 @@
 
 @implementation UIAlertView (YU)
 
-+(void)showMsg:(NSString*)msg{
++(void)yu_showMsg:(NSString*)msg{
     
     [[[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil] show];
 }
 
-+(void)showInfo:(NSString*)title time:(CGFloat)time
++(void)yu_showInfo:(NSString*)title time:(CGFloat)time
 {
     #ifndef TARGET_IS_EXTENSION
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
@@ -27,14 +27,14 @@
     [alert show];
     alert.backgroundColor = [UIColor blackColor];
     
-    [self afterBlock:^{
+    [self yu_afterBlock:^{
          [alert dismissWithClickedButtonIndex:0 animated:YES];
     } after:time?time:0.];
     #endif
 }
 
 
-+(UIAlertView*)showConfirmInfo:(NSString*)title delegate:(id)delegate
++(UIAlertView*)yu_showConfirmInfo:(NSString*)title delegate:(id)delegate
 {
     #ifndef TARGET_IS_EXTENSION
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title

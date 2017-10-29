@@ -11,11 +11,11 @@
 
 @interface UIAlertView (YU)
 
-+(void)showMsg:(NSString*)msg;
++(void)yu_showMsg:(NSString*)msg;
 
-+(void)showInfo:(NSString*)title time:(CGFloat)time;
++(void)yu_showInfo:(NSString*)title time:(CGFloat)time;
 
-+(UIAlertView*)showConfirmInfo:(NSString*)title delegate:(id)delegate;
++(UIAlertView*)yu_showConfirmInfo:(NSString*)title delegate:(id)delegate;
 
 //+ (void)alertView:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void(^)())cancelBlock;
 //

@@ -12,7 +12,7 @@
 
 NSMutableData* receivedData;
 
-+(NSString *)htmlTitleWithUrlString:(NSString*)urlString{
++(NSString *)yu_htmlTitleWithUrlString:(NSString*)urlString{
     
     NSString *UrlStr = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     if(!UrlStr){

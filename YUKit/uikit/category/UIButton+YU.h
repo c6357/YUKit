@@ -10,17 +10,17 @@
 
 @interface UIButton (YU)
 
-+(UIButton*)buttonWithImage:(UIImage*)image  target:(id)target action:(SEL)action;
++(UIButton*)yu_buttonWithImage:(UIImage*)image  target:(id)target action:(SEL)action;
 
-+(UIButton*)buttonWithImage:(UIImage*)image frame:(CGRect)frame  target:(id)target action:(SEL)action;
++(UIButton*)yu_buttonWithImage:(UIImage*)image frame:(CGRect)frame  target:(id)target action:(SEL)action;
 
-+(UIButton *)buttonWithTitle:(NSString*)title target:(id)target action:(SEL)action;
++(UIButton *)yu_buttonWithTitle:(NSString*)title target:(id)target action:(SEL)action;
 
-+(UIButton *)buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor target:(id)target action:(SEL)action;
++(UIButton *)yu_buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor target:(id)target action:(SEL)action;
 
-+(UIButton *)buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action;
++(UIButton *)yu_buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action;
 
-+(UIButton*)buttonWithFrame:(CGRect)frame title:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action;
++(UIButton*)yu_buttonWithFrame:(CGRect)frame title:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action;
 
 
 /**
@@ -31,9 +31,9 @@
  
  */
 
-- (void)setEnlargeEdge:(CGFloat) size;
+- (void)yu_setEnlargeEdge:(CGFloat) size;
 
-- (void)setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left;
+- (void)yu_setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left;
 
 
 
@@ -47,5 +47,5 @@
  @param color <#color description#>
  @param block <#block description#>
  */
-- (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color done:(void(^)(void))block;
+- (void)yu_startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color done:(void(^)(void))block;
 @end

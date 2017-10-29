@@ -20,7 +20,7 @@ static char buttonKey;
 static int  sfd;
 @implementation UIViewController (Console)
 
--(void)openConsole{
+-(void)yu_openConsole{
     sfd = dup(STDOUT_FILENO);
     self.pipe =  [NSPipe pipe];
     self.fileHandleForReading = [self.pipe fileHandleForReading];
@@ -31,12 +31,12 @@ static int  sfd;
         UITextView *textView = [UITextView new];
         textView.editable = NO;
         textView.font = [UIFont boldSystemFontOfSize:16];
-        textView.textColor = [UIColor colorWithHexString:@"#0c6ce2"];
+        textView.textColor = [UIColor yu_colorWithHexString:@"#0c6ce2"];
         textView.backgroundColor = [UIColor blackColor];
         textView;
     });
     [self.view addSubview:self.textView];
-    self.textView.frame = CGRectMake(0, 0, AppWidth(), AppHeight());
+    self.textView.frame = CGRectMake(0, 0, YU_AppWidth(), YU_AppHeight());
 
 
 //    [self addBack];
@@ -59,7 +59,7 @@ static int  sfd;
 }
 
 
--(void)closeConsole{
+-(void)yu_closeConsole{
 //    [self resume];
     if (self.pipe) {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleReadCompletionNotification object:self.fileHandleForReading];
@@ -116,7 +116,7 @@ static int  sfd;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)setLandscape{
+-(void)yu_setLandscape{
     [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
     [self.view setTransform:CGAffineTransformMakeRotation(M_PI/2)];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -125,7 +125,7 @@ static int  sfd;
     [self addBack];
 }
 
--(void)resume{
+-(void)yu_resume{
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
@@ -154,23 +154,23 @@ static int  sfd;
 
 #pragma mark - getter / setter
 -(NSPipe*)pipe{
-    return [self getAssociatedObjectForKey:&pipeKey];
+    return [self yu_getAssociatedObjectForKey:&pipeKey];
 }
 -(NSFileHandle*)fileHandleForReading{
-    return [self getAssociatedObjectForKey:&fileHandleForReadingKey];
+    return [self yu_getAssociatedObjectForKey:&fileHandleForReadingKey];
 }
 -(NSFileHandle*)fileHandleForWriting{
-    return [self getAssociatedObjectForKey:&fileHandleForWritingKey];
+    return [self yu_getAssociatedObjectForKey:&fileHandleForWritingKey];
 }
 -(NSNumber*)fileHandleForWritingDescriptor{
-    return [self getAssociatedObjectForKey:&fileHandleForWritingDescriptorKey];
+    return [self yu_getAssociatedObjectForKey:&fileHandleForWritingDescriptorKey];
 }
 -(UITextView *)textView
 {
-    return [self getAssociatedObjectForKey:&textViewKey];
+    return [self yu_getAssociatedObjectForKey:&textViewKey];
 }
 -(UIButton *)button{
-    return [self getAssociatedObjectForKey:&buttonKey];
+    return [self yu_getAssociatedObjectForKey:&buttonKey];
 }
 -(void)setPipe:(NSPipe *)pipe{
     objc_setAssociatedObject(self, &pipeKey, pipe, OBJC_ASSOCIATION_COPY_NONATOMIC);

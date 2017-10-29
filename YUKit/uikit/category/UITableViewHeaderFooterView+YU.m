@@ -10,14 +10,14 @@
 
 @implementation UITableViewHeaderFooterView (YU)
 
-+(void)registerForTableHeaderFooter:(UITableView*)table
++(void)yu_registerForTableHeaderFooter:(UITableView*)table
 {
     NSString *cellIdentifier = NSStringFromClass([self class]);
     UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [table registerNib:nib forHeaderFooterViewReuseIdentifier:cellIdentifier];
 }
 
-+(id)XIBViewForTableHeaderFooter:(UITableView*)table
++(id)yu_xibViewForTableHeaderFooter:(UITableView*)table
 {
     
     NSString *cellIdentifier = NSStringFromClass([self class]);

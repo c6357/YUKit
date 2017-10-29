@@ -12,7 +12,7 @@
 
 @implementation NSAttributedString (YU)
 
-+(CTParagraphStyleRef)paragraphStyleRef{
++(CTParagraphStyleRef)yu_paragraphStyleRef{
     
     CTParagraphStyleSetting lineBreakMode;
     CTLineBreakMode lineBreak = kCTLineBreakByCharWrapping;

@@ -10,27 +10,27 @@
 
 @implementation NSNumber (YU)
 
-NSNumber*   __INT(NSInteger __x){
+NSNumber*   YU_INT(NSInteger __x){
     return [NSNumber numberWithInteger:__x];
 }
 
-NSNumber*   __UINT(NSUInteger __x){
+NSNumber*   YU_UINT(NSUInteger __x){
     return [NSNumber numberWithUnsignedInteger:__x];
 }
 
-NSNumber*   __FLOAT(float __x){
+NSNumber*   YU_FLOAT(float __x){
     return [NSNumber numberWithFloat:__x];
 }
 
-NSNumber*   __DOUBLE(double __x){
+NSNumber*   YU_DOUBLE(double __x){
     return [NSNumber numberWithDouble:__x];
 }
 
-NSNumber*  __BOOL(BOOL __x){
+NSNumber*  YU_BOOL(BOOL __x){
     return [NSNumber numberWithBool:__x];
 }
 
--(NSString*)toString{
+-(NSString*)yu_toString{
     return [NSString stringWithFormat:@"%@",self];
 }
 

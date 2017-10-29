@@ -10,12 +10,12 @@
 
 @interface UIViewController (Console)
 
--(void)openConsole;
+-(void)yu_openConsole;
 
--(void)closeConsole;
+-(void)yu_closeConsole;
 
 
--(void)setLandscape;
--(void)resume;
+-(void)yu_setLandscape;
+-(void)yu_resume;
 
 @end

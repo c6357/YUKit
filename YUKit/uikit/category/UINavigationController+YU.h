@@ -13,7 +13,7 @@
 /**
  Method that calculate the origin.y of the contain view
  */
-- (float) calculateYPosition;
+- (float) yu_calculateYPosition;
 
 
 

@@ -15,7 +15,7 @@
 
  @return <#return value description#>
  */
-- (UIViewController*)recentlyController;
+- (UIViewController*)yu_recentlyController;
 
 
 /**
@@ -23,6 +23,6 @@
 
  @return <#return value description#>
  */
-- (UINavigationController*)recentlyNavigationContoller;
+- (UINavigationController*)yu_recentlyNavigationContoller;
 
 @end

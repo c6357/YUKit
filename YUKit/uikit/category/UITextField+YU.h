@@ -10,7 +10,7 @@
 
 @interface UITextField (YU)
 
--(void)disablePaste;
+-(void)yu_disablePaste;
 
 
 @end

@@ -10,52 +10,52 @@
 
 @interface NSCalendar (YU)
 
-+(NSDateComponents*)currentDateComponents;
++(NSDateComponents*)yu_currentDateComponents;
 
-+(NSDateComponents*)dateComponentsWithDate:(NSDate*)date;
++(NSDateComponents*)yu_dateComponentsWithDate:(NSDate*)date;
 
-+ (int)currentSec;
++ (int)yu_currentSec;
 
-+ (int)currentMin;
++ (int)yu_currentMin;
 
-+ (int)currentHour;
++ (int)yu_currentHour;
 
-+ (int)currentDay;
++ (int)yu_currentDay;
 
-+ (int)currentWeek;
++ (int)yu_currentWeek;
 
-+ (int)currentMonth;
++ (int)yu_currentMonth;
 
-+ (int)currentYear;
++ (int)yu_currentYear;
 
-+ (int)currentweekOfMonth;
++ (int)yu_currentweekOfMonth;
 
-+ (int)currentweekOfYear;
-
-
-+ (int)getYearWithDate:(NSDate*)date;
-
-+ (int)getMonthWithDate:(NSDate*)date;
-
-+ (int)getDayWithDate:(NSDate*)date;
-
-+ (int)getWeekdayWithDate:(NSDate*)date;
-
-+ (int)getWeekOfYearWithDate:(NSDate*)date;
-
-+ (int)getWeekOfYearWithDate2:(NSDate*)date;
++ (int)yu_currentweekOfYear;
 
 
-+ (int)getNumberOfDaysInMonth;
++ (int)yu_getYearWithDate:(NSDate*)date;
 
-+ (int)getNumberOfDaysInMonth:(NSInteger)month;
++ (int)yu_getMonthWithDate:(NSDate*)date;
 
-+ (int)getNumberOfDaysInMonth:(NSInteger)month year:(NSInteger) year;
++ (int)yu_getDayWithDate:(NSDate*)date;
+
++ (int)yu_getWeekdayWithDate:(NSDate*)date;
+
++ (int)yu_getWeekOfYearWithDate:(NSDate*)date;
+
++ (int)yu_getWeekOfYearWithDate2:(NSDate*)date;
 
 
-+ (NSString*)getWeekWithDate:(NSDate*)date;
++ (int)yu_getNumberOfDaysInMonth;
 
-+ (BOOL)isLeapYear:(NSInteger)year;
++ (int)yu_getNumberOfDaysInMonth:(NSInteger)month;
+
++ (int)yu_getNumberOfDaysInMonth:(NSInteger)month year:(NSInteger) year;
+
+
++ (NSString*)yu_yu_getWeekWithDate:(NSDate*)date;
+
++ (BOOL)yu_isLeapYear:(NSInteger)year;
 
 @end
 
@@ -63,27 +63,27 @@
 
 @interface NSCalendar (NSDate)
 
-+(NSDate*)dateSinceNowWithInterval:(NSInteger)dayInterval;
++(NSDate*)yu_dateSinceNowWithInterval:(NSInteger)dayInterval;
 
-+(NSDate*)dateWithTimeInterval:(NSInteger)dayInterval sinceDate:(NSDate*)date;
-
-
-+(NSDate*)dateWithAFewMinute:(NSInteger)Num;
-
-+(NSDate*)dateWithAFewHour:(NSInteger)hourNum;
-
-+(NSDate*)dateWithAFewHour:(NSInteger)hourNum Date:(NSDate*)date;
-
-+(NSDate*)dateWithAFewDay:(NSInteger)dayNum;
-
-+(NSDate*)dateWithAFewDay:(NSInteger)dayNum Date:(NSDate*)date;
++(NSDate*)yu_dateWithTimeInterval:(NSInteger)dayInterval sinceDate:(NSDate*)date;
 
 
++(NSDate*)yu_dateWithAFewMinute:(NSInteger)Num;
 
-+(NSDate*)dateWithAFewWeek:(NSInteger)weekNum;
++(NSDate*)yu_dateWithAFewHour:(NSInteger)hourNum;
 
-+(NSDate*)dateWithAFewMonth:(NSInteger)monthNum;
++(NSDate*)yu_dateWithAFewHour:(NSInteger)hourNum Date:(NSDate*)date;
 
-+(NSDate*)dateWithAFewYea:(NSInteger)yeaNum;
++(NSDate*)yu_dateWithAFewDay:(NSInteger)dayNum;
+
++(NSDate*)yu_dateWithAFewDay:(NSInteger)dayNum Date:(NSDate*)date;
+
+
+
++(NSDate*)yu_dateWithAFewWeek:(NSInteger)weekNum;
+
++(NSDate*)yu_dateWithAFewMonth:(NSInteger)monthNum;
+
++(NSDate*)yu_dateWithAFewYea:(NSInteger)yeaNum;
 
 @end

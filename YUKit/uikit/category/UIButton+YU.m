@@ -15,12 +15,12 @@ static char bottomNameKey;
 static char leftNameKey;
 @implementation UIButton (YU)
 
-+(UIButton*)buttonWithImage:(UIImage*)image  target:(id)target action:(SEL)action
++(UIButton*)yu_buttonWithImage:(UIImage*)image  target:(id)target action:(SEL)action
 {
-   return [self buttonWithImage:image frame:CGRectMake(0, 0, image.size.width, image.size.height) target:target action:action];
+   return [self yu_buttonWithImage:image frame:CGRectMake(0, 0, image.size.width, image.size.height) target:target action:action];
 }
 
-+(UIButton*)buttonWithImage:(UIImage*)image frame:(CGRect)frame  target:(id)target action:(SEL)action
++(UIButton*)yu_buttonWithImage:(UIImage*)image frame:(CGRect)frame  target:(id)target action:(SEL)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = frame;
@@ -30,22 +30,22 @@ static char leftNameKey;
     return button;
 }
 
-+(UIButton *)buttonWithTitle:(NSString*)title target:(id)target action:(SEL)action{
++(UIButton *)yu_buttonWithTitle:(NSString*)title target:(id)target action:(SEL)action{
     
-    return [self buttonWithTitle:title titleColor:[UIColor blackColor] target:target action:action];
+    return [self yu_buttonWithTitle:title titleColor:[UIColor blackColor] target:target action:action];
 }
 
-+(UIButton *)buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor target:(id)target action:(SEL)action
++(UIButton *)yu_buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor target:(id)target action:(SEL)action
 {
-    return [self buttonWithFrame:CGRectMake(0, 0, 22*title.length, 44) title:title titleColor:titleColor font:[UIFont systemFontOfSize:13] target:target action:action];
+    return [self yu_buttonWithFrame:CGRectMake(0, 0, 22*title.length, 44) title:title titleColor:titleColor font:[UIFont systemFontOfSize:13] target:target action:action];
 }
 
-+(UIButton *)buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action
++(UIButton *)yu_buttonWithTitle:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action
 {
-    return [self buttonWithFrame:CGRectMake(0, 0, 22*title.length, 44) title:title titleColor:titleColor font:font target:target action:action];
+    return [self yu_buttonWithFrame:CGRectMake(0, 0, 22*title.length, 44) title:title titleColor:titleColor font:font target:target action:action];
 }
 
-+(UIButton*)buttonWithFrame:(CGRect)frame title:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action
++(UIButton*)yu_buttonWithFrame:(CGRect)frame title:(NSString*)title titleColor:(UIColor*)titleColor font:(UIFont*)font target:(id)target action:(SEL)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = frame;
@@ -60,7 +60,7 @@ static char leftNameKey;
 
 
 
-- (void)setEnlargeEdge:(CGFloat) size
+- (void)yu_setEnlargeEdge:(CGFloat) size
 {
     objc_setAssociatedObject(self, &topNameKey, [NSNumber numberWithFloat:size], OBJC_ASSOCIATION_COPY_NONATOMIC);
     objc_setAssociatedObject(self, &rightNameKey, [NSNumber numberWithFloat:size], OBJC_ASSOCIATION_COPY_NONATOMIC);
@@ -68,7 +68,7 @@ static char leftNameKey;
     objc_setAssociatedObject(self, &leftNameKey, [NSNumber numberWithFloat:size], OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (void)setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left
+- (void)yu_setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left
 {
     objc_setAssociatedObject(self, &topNameKey, [NSNumber numberWithFloat:top], OBJC_ASSOCIATION_COPY_NONATOMIC);
     objc_setAssociatedObject(self, &rightNameKey, [NSNumber numberWithFloat:right], OBJC_ASSOCIATION_COPY_NONATOMIC);
@@ -78,7 +78,7 @@ static char leftNameKey;
 
 #pragma mark - 
 #pragma mark - private
-- (CGRect)enlargedRect
+- (CGRect)yu_enlargedRect
 {
     NSNumber* topEdge = objc_getAssociatedObject(self, &topNameKey);
     NSNumber* rightEdge = objc_getAssociatedObject(self, &rightNameKey);
@@ -96,9 +96,9 @@ static char leftNameKey;
         return self.bounds;
     }
 }
-- (UIView*)hitTest:(CGPoint) point withEvent:(UIEvent*) event
+- (UIView*)yu_hitTest:(CGPoint) point withEvent:(UIEvent*) event
 {
-    CGRect rect = [self enlargedRect];
+    CGRect rect = [self yu_enlargedRect];
     if (CGRectEqualToRect(rect, self.bounds))
     {
         return [super hitTest:point withEvent:event];
@@ -107,7 +107,7 @@ static char leftNameKey;
 }
 
 
-- (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color done:(void(^)(void))block{
+- (void)yu_startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color done:(void(^)(void))block{
     
     __weak typeof(self) weakSelf = self;
     //倒计时时间

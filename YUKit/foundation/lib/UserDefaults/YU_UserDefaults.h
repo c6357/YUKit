@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserDefaults : NSUserDefaults
+@interface YUUserDefaults : NSUserDefaults
 
 //+ (void)setObject:(nullable id)value forKey:(NSString *)defaultName;
 //

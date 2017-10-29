@@ -11,7 +11,7 @@
 
 @implementation NSString (YUCheck)
 
--(BOOL)isCanBeUse{
+-(BOOL)yu_isCanBeUse{
     NSString *a = self;
     return (
         (a != nil)
@@ -23,7 +23,7 @@
         );
 }
 
-- (BOOL)isBlankString{
+- (BOOL)yu_isBlankString{
     
     if (self == nil) {
         return YES;
@@ -44,11 +44,11 @@
     return NO;
 }
 
-- (BOOL)isEmptyOrWhitespace {
+- (BOOL)yu_isEmptyOrWhitespace {
    return  [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0;
 }
 
-- (BOOL)isNormal
+- (BOOL)yu_isNormal
 {
     NSString *		regex = @"([^%&',;=!~?$]+)";
     NSPredicate *	pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
@@ -56,42 +56,42 @@
     return [pred evaluateWithObject:self];
 }
 
-- (BOOL)isMobilephone
+- (BOOL)yu_isMobilephone
 {
     BOOL ret = FALSE;
     NSString *regex =  @"^(\\+86|(\\(\\+86\\)))?(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+[0-9]{8})$";
     
-    if (isSafeString(self)) {
+    if (yu_isSafeString(self)) {
         NSPredicate * pred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         ret = [pred evaluateWithObject:self];
     }
     return  ret;
 }
 
-- (BOOL)isTelephone
+- (BOOL)yu_isTelephone
 {
     BOOL ret = FALSE;
     NSString *regex =  @"^((\\+86)|(\\(\\+86\\)))?\\D?((((010|021|022|023|024|025|026|027|028|029|852)|(\\(010\\)|\\(021\\)|\\(022\\)|\\(023\\)|\\(024\\)|\\(025\\)|\\(026\\)|\\(027\\)|\\(028\\)|\\(029\\)|\\(852\\)))\\D?\\d{8}|((0[3-9][1-9]{2})|(\\(0[3-9][1-9]{2}\\)))\\D?\\d{7,8}))(\\D?\\d{1,4})?$";
     
-    if (isSafeString(self)) {
+    if (yu_isSafeString(self)) {
         NSPredicate * pred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         ret = [pred evaluateWithObject:self];
     }
     return  ret;
 }
 
-- (BOOL)isEmail
+- (BOOL)yu_isEmail
 {
     NSString *regex = @"[a-zA-Z_]{1,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}" ;
     BOOL ret = FALSE;
-    if (isSafeString(self)) {
+    if (yu_isSafeString(self)) {
         NSPredicate * pred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         ret = [pred evaluateWithObject:self];
     }
     return  ret;
 }
 
-- (BOOL)isUrl
+- (BOOL)yu_isUrl
 {
     NSString *		regex = @"http(s)?:\\/\\/([\\w-]+\\.)+[\\w-]+(\\/[\\w- .\\/?%&=]*)?";
     NSPredicate *	pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
@@ -99,19 +99,19 @@
     return [pred evaluateWithObject:self];
 }
 
-- (BOOL)isNumber
+- (BOOL)yu_isNumber
 {
     BOOL ret = FALSE;
     
     NSString *regex = @"^[0-9]*$";
-    if (isSafeString(self)) {
+    if (yu_isSafeString(self)) {
         NSPredicate * pred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         ret = [pred evaluateWithObject:self];
     }
     return ret;
 }
 
-- (BOOL)isChinese
+- (BOOL)yu_isChinese
 {
     NSString *		regex = @"(^[\u4e00-\u9fa5]{2,16}$)";
     NSPredicate *	pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
@@ -120,35 +120,35 @@
 }
 
 
--(BOOL)isNumberic
+-(BOOL)yu_isNumberic
 {
     BOOL ret = FALSE;
     
     NSString *regex = @"^[0-9]*$";
-    if (isSafeString(self)) {
+    if (yu_isSafeString(self)) {
         NSPredicate * pred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         ret = [pred evaluateWithObject:self];
     }
     return ret;
 }
 
--(BOOL)isDecimal
+-(BOOL)yu_isDecimal
 {
     BOOL ret = FALSE;
     
     NSString *regex = @"^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$";
-    if (isSafeString(self)) {
+    if (yu_isSafeString(self)) {
         NSPredicate * pred  = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
         ret = [pred evaluateWithObject:self];
     }
     return ret;
 }
 
-- (BOOL)isContainString:(NSString*)substring{
+- (BOOL)yu_isContainString:(NSString*)substring{
     return !([self rangeOfString:substring].location == NSNotFound);
 }
 
-- (BOOL)isContainSpecialCharact{
+- (BOOL)yu_isContainSpecialCharact{
     NSRange urgentRange = [self rangeOfCharacterFromSet: [NSCharacterSet characterSetWithCharactersInString: @"~￥#&*<>《》()[]{}【】^@/￡¤￥|§¨「」『』￠￢￣~@#￥&*（）——+|《》$_€"]];
     if (urgentRange.location == NSNotFound)
     {
@@ -157,7 +157,7 @@
     return YES;
 }
 
-- (BOOL)isIPAddress
+- (BOOL)yu_isIPAddress
 {
     NSArray *			components = [self componentsSeparatedByString:@"."];
     NSCharacterSet *	invalidCharacters = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
@@ -188,9 +188,9 @@
 }
 
 
-- (BOOL)isValidateIDNumber{
+- (BOOL)yu_isValidateIDNumber{
     
-    if(!isSafeString(self)){
+    if(!yu_isSafeString(self)){
         return NO;
     }
     
@@ -238,6 +238,5 @@
     }
     return YES;
 }
-
 
 @end

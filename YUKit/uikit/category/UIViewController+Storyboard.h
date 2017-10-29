@@ -10,6 +10,6 @@
 
 @interface UIViewController (Storyboard)
 
-+ (instancetype)controllerByDefaultStoryBoard;
++ (instancetype)yu_controllerByDefaultStoryBoard;
 
 @end

@@ -16,7 +16,7 @@
  加载图片,加载时会缓存图片
  @param fileName 图片名
  */
-UIKIT_EXTERN UIImage* UIImageWithName(NSString *fileName);
+UIKIT_EXTERN UIImage* YU_UIImageWithName(NSString *fileName);
 
 /**
  从Bundle资源文件中获取UIImage
@@ -25,36 +25,36 @@ UIKIT_EXTERN UIImage* UIImageWithName(NSString *fileName);
  @param name 资源名字。可能有子文件夹
  @param ext 文件后缀
  */
-UIKIT_EXTERN UIImage* UIImageNamedWithBundleOFFile(NSString *bundleName,NSString *name,NSString *ext);
+UIKIT_EXTERN UIImage* YU_UIImageNamedWithBundleOFFile(NSString *bundleName,NSString *name,NSString *ext);
 
 
 /**
  加载PNG图片，图像数据不会缓存
  */
-UIKIT_EXTERN UIImage* UIImageWithContentsOfPNGFile(NSString *fileName);
+UIKIT_EXTERN UIImage* YU_UIImageWithContentsOfPNGFile(NSString *fileName);
 
 
 /**
  加载JPG图片，图像数据不会缓存
  */
-UIKIT_EXTERN UIImage* UIImageWithContentsOfJPGFile(NSString *fileName);
+UIKIT_EXTERN UIImage* YU_UIImageWithContentsOfJPGFile(NSString *fileName);
 
 /**
  加载图片，图像数据不会缓存
  @param fileName 图片名
  @param ext 图片后缀
  */
-UIKIT_EXTERN UIImage* UIImageWithContentsOfFile(NSString *fileName,NSString *ext);
+UIKIT_EXTERN UIImage* YU_UIImageWithContentsOfFile(NSString *fileName,NSString *ext);
 
 //返回view的快照
-+ (UIImage *)imageWithView:(UIView*)view;
++ (UIImage *)yu_imageWithView:(UIView*)view;
 
 //获得纯色图片
 //根据颜色返回图片
-+ (UIImage *)imageWithColor:(UIColor*)color;
++ (UIImage *)yu_imageWithColor:(UIColor*)color;
 
 //根据颜色返回图片
-+ (UIImage *)imageWithColor:(UIColor*)color size:(CGSize)size;
++ (UIImage *)yu_imageWithColor:(UIColor*)color size:(CGSize)size;
 
 
 /**
@@ -63,7 +63,7 @@ UIKIT_EXTERN UIImage* UIImageWithContentsOfFile(NSString *fileName,NSString *ext
  @param tintColor <#tintColor description#>
  @return <#return value description#>
  */
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor;
+- (UIImage *)yu_imageWithTintColor:(UIColor *)tintColor;
 
 #pragma mark -
 #pragma mark -
@@ -77,7 +77,7 @@ UIKIT_EXTERN UIImage* UIImageWithContentsOfFile(NSString *fileName,NSString *ext
  @param right <#right description#>
  @return <#return value description#>
  */
-UIImage* imageWithCapInsets(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right);
+UIImage* YU_ImageWithCapInsets(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right);
 
 
 /**
@@ -91,7 +91,7 @@ UIImage* imageWithCapInsets(NSString *name,CGFloat top,CGFloat left,CGFloat bott
  @param mode <#mode description#>
  @return <#return value description#>
  */
-UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right,UIImageResizingMode mode);
+UIImage* YU_ImageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat left,CGFloat bottom,CGFloat right,UIImageResizingMode mode);
 
 
 
@@ -101,7 +101,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param multiple <#multiple description#>
  @return <#return value description#>
  */
-- (UIImage *)imageByResizeToMultiple:(CGFloat)multiple;
+- (UIImage *)yu_imageByResizeToMultiple:(CGFloat)multiple;
 
 /**
  * 对图片进行缩放
@@ -109,7 +109,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param size <#size description#>
  @return <#return value description#>
  */
-- (UIImage *)imageByResizeToSize:(CGSize)size;
+- (UIImage *)yu_imageByResizeToSize:(CGSize)size;
 
 
 /**
@@ -119,7 +119,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param bounds <#bounds description#>
  @return <#return value description#>
  */
-- (UIImage *)imageByResizeWithBounds:(CGSize)bounds;
+- (UIImage *)yu_imageByResizeWithBounds:(CGSize)bounds;
 
 
 /**
@@ -128,7 +128,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param rect <#rect description#>
  @return <#return value description#>
  */
-- (UIImage *)imageByCropToRect:(CGRect)rect;
+- (UIImage *)yu_imageByCropToRect:(CGRect)rect;
 
 
 /**
@@ -137,7 +137,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param size <#size description#>
  @return <#return value description#>
  */
-- (UIImage *)imageByCropCenterToRect:(CGSize)size;
+- (UIImage *)yu_imageByCropCenterToRect:(CGSize)size;
 
 
 
@@ -147,7 +147,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param radians <#radians description#>
  @return <#return value description#>
  */
-- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+- (UIImage *)yu_imageRotatedByRadians:(CGFloat)radians;
 
 
 /**
@@ -156,7 +156,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param degrees <#degrees description#>
  @return <#return value description#>
  */
-- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+- (UIImage *)yu_imageRotatedByDegrees:(CGFloat)degrees;
 
 
 /**
@@ -164,7 +164,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param orientation <#orientation description#>
  @return <#return value description#>
  */
-- (UIImage *)imageRotation:(UIImageOrientation)orientation;
+- (UIImage *)yu_imageRotation:(UIImageOrientation)orientation;
 
 
 
@@ -172,7 +172,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  *获取该图片的大概颜色
  @return <#return value description#>
  */
-- (UIColor*)imageMostColor;
+- (UIColor*)yu_imageMostColor;
 
 
 
@@ -182,7 +182,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param color <#color description#>
  @return <#return value description#>
  */
-- (UIImage*)imageChangeByColor:(UIColor*)color;
+- (UIImage*)yu_imageChangeByColor:(UIColor*)color;
 
 
 #pragma mark -
@@ -195,7 +195,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param height <#height description#>
  @return <#return value description#>
  */
-+ (UIImage *)generateQRCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height;
++ (UIImage *)yu_generateQRCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height;
 
 
 /**
@@ -207,7 +207,7 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param height <#height description#>
  @return <#return value description#>
  */
-+ (UIImage *)generateQRCode:(NSString *)code image:(UIImage*)image width:(CGFloat)width height:(CGFloat)height;
++ (UIImage *)yu_generateQRCode:(NSString *)code image:(UIImage*)image width:(CGFloat)width height:(CGFloat)height;
 
 
 /**
@@ -218,21 +218,21 @@ UIImage* imageWithCapInsetsAndResizingMode(NSString *name,CGFloat top,CGFloat le
  @param height <#height description#>
  @return <#return value description#>
  */
-+ (UIImage *)generateBarCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height;
++ (UIImage *)yu_generateBarCode:(NSString *)code width:(CGFloat)width height:(CGFloat)height;
 
 
 
 
 #pragma mark -
-- (BOOL)imageHasAlpha:(UIImage *)image;
+- (BOOL)yu_imageHasAlpha:(UIImage *)image;
 
-- (NSString *)imageToBase64;
+- (NSString *)yu_imageToBase64;
 
-+ (UIImage *)Base64ToImage:(NSString *)encodedImageStr;
-
-
++ (UIImage *)yu_base64ToImage:(NSString *)encodedImageStr;
 
 
-- (UIImage *)fixOrientation:(UIImage *)aImage;
-- (NSString*)saveImagewithName:(NSString *)imageName;
+
+
+- (UIImage *)yu_fixOrientation:(UIImage *)aImage;
+- (NSString*)yu_saveImagewithName:(NSString *)imageName;
 @end

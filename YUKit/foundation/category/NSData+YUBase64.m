@@ -11,7 +11,7 @@
 
 @implementation NSData (YUBase64)
 
-+ (NSData *)dataWithBase64EncodedString:(NSString *)string
++ (NSData *)yu_dataWithBase64EncodedString:(NSString *)string
 {
     if (![string length]) return nil;
     
@@ -34,7 +34,7 @@
     return [decoded length]? decoded: nil;
 }
 
-- (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth
+- (NSString *)yu_base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth
 {
     if (![self length]) return nil;
     
@@ -89,9 +89,9 @@
     return result;
 }
 
-- (NSString *)base64EncodedString
+- (NSString *)yu_base64EncodedString
 {
-    return [self base64EncodedStringWithWrapWidth:0];
+    return [self yu_base64EncodedStringWithWrapWidth:0];
 }
 
 @end

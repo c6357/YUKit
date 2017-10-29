@@ -12,11 +12,11 @@
 /**
  Methot that create a crop image from that imageView
  */
-- (UIImageView *) createCrop: (CGRect) crop;
+- (UIImageView *) yu_createCrop: (CGRect) crop;
 
 /**
  Method that crates a view that contains that ImageView
  */
-- (UIView *)createView;
+- (UIView *)yu_createView;
 
 @end

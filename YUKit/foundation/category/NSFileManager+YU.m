@@ -11,7 +11,7 @@
 
 @implementation NSFileManager (YU)
 
-+ (NSString *) pathForItemNamed: (NSString *) fname inFolder: (NSString *) path
++ (NSString *)yu_pathForItemNamed: (NSString *) fname inFolder: (NSString *) path
 {
     NSString *file;
     NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:path];
@@ -21,17 +21,17 @@
     return nil;
 }
 
-+ (NSString *) pathForDocumentNamed: (NSString *) fname
++ (NSString *)yu_pathForDocumentNamed: (NSString *) fname
 {
-    return [NSFileManager pathForItemNamed:fname inFolder:AppDocumentsPath()];
+    return [NSFileManager yu_pathForItemNamed:fname inFolder:YU_AppDocumentsPath()];
 }
 
-+ (NSString *) pathForBundleDocumentNamed: (NSString *) fname
++ (NSString *)yu_pathForBundleDocumentNamed: (NSString *) fname
 {
-    return [NSFileManager pathForItemNamed:fname inFolder:AppBundlePath()];
+    return [NSFileManager yu_pathForItemNamed:fname inFolder:YU_AppBundlePath()];
 }
 
-+ (NSArray *) filesInFolder: (NSString *) path
++ (NSArray *)yu_filesInFolder: (NSString *) path
 {
     NSString *file;
     NSMutableArray *results = [NSMutableArray array];
@@ -46,7 +46,7 @@
 }
 
 // Case insensitive compare, with deep enumeration
-+ (NSArray *) pathsForItemsMatchingExtension: (NSString *) ext inFolder: (NSString *) path
++ (NSArray *)yu_pathsForItemsMatchingExtension: (NSString *) ext inFolder: (NSString *) path
 {
     NSString *file;
     NSMutableArray *results = [NSMutableArray array];
@@ -57,15 +57,15 @@
     return results;
 }
 
-+ (NSArray *) pathsForDocumentsMatchingExtension: (NSString *) ext
++ (NSArray *)yu_pathsForDocumentsMatchingExtension: (NSString *) ext
 {
-    return [NSFileManager pathsForItemsMatchingExtension:ext inFolder:AppDocumentsPath()];
+    return [NSFileManager yu_pathsForItemsMatchingExtension:ext inFolder:YU_AppDocumentsPath()];
 }
 
 // Case insensitive compare
-+ (NSArray *) pathsForBundleDocumentsMatchingExtension: (NSString *) ext
++ (NSArray *)yu_pathsForBundleDocumentsMatchingExtension: (NSString *) ext
 {
-    return [NSFileManager pathsForItemsMatchingExtension:ext inFolder:AppBundlePath()];
+    return [NSFileManager yu_pathsForItemsMatchingExtension:ext inFolder:YU_AppBundlePath()];
 }
 
 

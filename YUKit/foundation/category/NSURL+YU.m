@@ -10,13 +10,13 @@
 
 @implementation NSURL (YU)
 
-- (BOOL) isEqualToURL:(NSURL*)otherURL {
+- (BOOL) yu_isEqualToURL:(NSURL*)otherURL {
     return [[self absoluteURL] isEqual:[otherURL absoluteURL]] ||
     ([self isFileURL] && [otherURL isFileURL] && [[self path] isEqual:[otherURL path]]);
 }
 
 
-- (NSDictionary *)queryDictionary
+- (NSDictionary *)yu_queryDictionary
 {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
