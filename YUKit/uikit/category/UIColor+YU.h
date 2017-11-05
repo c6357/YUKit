@@ -17,6 +17,8 @@ UIKIT_EXTERN UIColor* YU_UIColorWithRGB(CGFloat red, CGFloat green, CGFloat blue
 UIKIT_EXTERN UIColor* YU_UIColorWithRGBA(CGFloat red, CGFloat green, CGFloat blue ,CGFloat alpha);
 
 UIKIT_EXTERN UIColor* YU_UIColorWithHex(unsigned int hex);
+UIKIT_EXTERN UIColor* YU_UIColorWithHexString(NSString* hexString);
+
 
 
 @interface UIColor (YU)

@@ -117,7 +117,7 @@ NSString* YU_AppendString(NSString* str1,NSString* str2){
         NSUInteger len = self.length;
         
         NSMutableString *str = [NSMutableString stringWithString:self];
-        [str replaceCharactersInRange:NSMakeRange(MIN(len, 4), self.length-MIN(len, 8)) withString:[self yu_stringFilterWithLenth:len-8]];
+        [str replaceCharactersInRange:NSMakeRange(MIN(len, 4), self.length-MIN(len, 7)) withString:[self yu_stringFilterWithLenth:len-7]];
         
         return str;
     }

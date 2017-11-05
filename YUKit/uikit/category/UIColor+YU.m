@@ -28,6 +28,10 @@ UIColor* YU_UIColorWithHex(unsigned int hex){
     return [UIColor yu_colorWithHex:hex];
 }
 
+UIColor* YU_UIColorWithHexString(NSString* hexString){
+    return [UIColor yu_colorWithHexString:hexString];
+}
+
 
 @implementation UIColor (YU)
 - (CGFloat)yu_red {
