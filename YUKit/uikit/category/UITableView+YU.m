@@ -218,4 +218,20 @@ static float offsetX = 25;
     }
 }
 
+
+-(void)yu_registerNibWithCell:(UITableViewCell*)cell
+{
+    NSString *cellIdentifier = NSStringFromClass([cell class]);
+    UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
+    [self registerNib:nib forCellReuseIdentifier:cellIdentifier];
+}
+
+
+-(void)yu_registerClassWithCell:(UITableViewCell*)cell
+{
+    NSString *cellIdentifier = NSStringFromClass([cell class]);
+    [self registerClass:[cell class] forCellReuseIdentifier:cellIdentifier];
+}
+
+
 @end

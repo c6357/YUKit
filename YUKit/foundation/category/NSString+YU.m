@@ -167,6 +167,24 @@ NSString* YU_AppendString(NSString* str1,NSString* str2){
 }
 
 
+-(NSString *)yu_bankCardNoFilter{
+    if ([self yu_isCanBeUse]) {
+        
+        NSUInteger len = self.length;
+        NSInteger section = 0;
+        if (len%4 == 0) {
+            section = len/4;
+        }else{
+            section = len/4+1;
+        }
+        NSInteger replaceNum = MAX(section-2, 0);
+        
+        NSMutableString *str = [NSMutableString stringWithString:self];
+        [str replaceCharactersInRange:NSMakeRange(MIN(len, 4), MIN(len, replaceNum*4)) withString:[self yu_stringFilterWithLenth:MIN(len, replaceNum*4)]];
+        return [str yu_stringToCodeStyle];
+    }
+    return @"";
+}
 
 
 -(NSString *)yu_stringFilterByString:(NSString *)string{

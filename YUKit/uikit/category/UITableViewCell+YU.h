@@ -14,6 +14,6 @@
 
 +(id)yu_xibCellFor:(UITableView*)tableView;
 
-+(void)yu_registerForTable:(UITableView*)tableView;
++(void)yu_registerNibForTableView:(UITableView*)tableView;
 
 @end

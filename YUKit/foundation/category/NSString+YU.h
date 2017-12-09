@@ -60,6 +60,12 @@
 -(NSString *)yu_idNoFilter;
 
 
+/**
+ <#Description#>
+
+ @return <#return value description#>
+ */
+-(NSString *)yu_bankCardNoFilter;
 
 
 -(NSString *)yu_stringFilterByString:(NSString *)string;

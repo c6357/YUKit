@@ -27,7 +27,7 @@
     
 }
 
-+(void)yu_registerForTable:(UITableView*)tableView
++(void)yu_registerNibForTableView:(UITableView*)tableView
 {
     NSString *cellIdentifier = NSStringFromClass([self class]);
     UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];

@@ -25,4 +25,7 @@ typedef NS_ENUM(NSInteger,YUAnimation) {
 -(void)yu_showEmptyView:(NSString*)message;
 -(void)yu_hideEmptyView;
 
+
+-(void)yu_registerNibWithCell:(UITableViewCell*)cell;
+-(void)yu_registerClassWithCell:(UITableViewCell*)cell;
 @end
