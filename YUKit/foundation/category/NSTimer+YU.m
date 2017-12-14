@@ -14,14 +14,14 @@
 +(id)yu_scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats
 {
     void (^block)(void) = [inBlock copy];
-    id ret = [self scheduledTimerWithTimeInterval:inTimeInterval target:self selector:@selector(jdExecuteSimpleBlock:) userInfo:block repeats:inRepeats];
+    id ret = [self scheduledTimerWithTimeInterval:inTimeInterval target:self selector:@selector(yu_jdExecuteSimpleBlock:) userInfo:block repeats:inRepeats];
     return ret;
 }
 
 +(id)yu_timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats
 {
     void (^block)(void) = [inBlock copy];
-    id ret = [self timerWithTimeInterval:inTimeInterval target:self selector:@selector(jdExecuteSimpleBlock:) userInfo:block repeats:inRepeats];
+    id ret = [self timerWithTimeInterval:inTimeInterval target:self selector:@selector(yu_jdExecuteSimpleBlock:) userInfo:block repeats:inRepeats];
     return ret;
 }
 

@@ -376,7 +376,7 @@ NSString * const  yu_dateDefaultFormat_SSS =  @"yyyyMMddHHmmssSSS";
     return [date yu_stringFromDateWithFormat:formatString];
 }
 
-+(NSString *)yu_stringFromDateCheckToday:(NSDate*)date DateFormat:(NSString*)formatString{
++(NSString *)yu_stringFromDateCheckToday:(NSDate*)date formatString:(NSString*)formatString{
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setLocale:[NSLocale currentLocale]];
     NSString *str = nil;

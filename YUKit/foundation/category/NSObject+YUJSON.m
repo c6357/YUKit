@@ -31,12 +31,12 @@
 
 #pragma mark -
 #pragma mark - NSString
-- (NSDictionary *)jsonDictionary
+- (NSDictionary *)yu_jsonDictionary
 {
     return [self yu_jsonValue];
 }
 
-- (NSArray *)jsonArray
+- (NSArray *)yu_jsonArray
 {
     return [self yu_jsonValue];
 }

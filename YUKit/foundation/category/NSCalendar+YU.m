@@ -168,7 +168,7 @@ static NSDateComponents *comps;
 /** 一月中的第几天
  *  @return (int)
  */
-+ (int)yu_numberOfDaysInMonth{
++ (int)yu_getNumberOfDaysInMonth{
     
     return [self yu_getNumberOfDaysInMonth:[self yu_currentMonth] year:[self yu_currentYear]];
 }

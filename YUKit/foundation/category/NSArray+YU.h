@@ -29,7 +29,7 @@
 
 @interface NSMutableArray(YU)
 
-- (id)firstObject;
+- (id)yu_firstObject;
 
 - (NSMutableArray *)yu_removeFirstObject;
 

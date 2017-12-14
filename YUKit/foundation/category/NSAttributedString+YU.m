@@ -43,7 +43,7 @@
     //行距
     CGFloat _linespace = 0.0f;
     CTParagraphStyleSetting lineSpaceSetting;
-    lineSpaceSetting.spec = kCTParagraphStyleSpecifierLineSpacing;
+//    lineSpaceSetting.spec = kCTParagraphStyleSpecifierLineSpacing;
     lineSpaceSetting.value = &_linespace;
     lineSpaceSetting.valueSize = sizeof(float);
     

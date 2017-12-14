@@ -521,28 +521,6 @@ static char kClickGecognizer;
     self.frame = rect;
 }
 
-static char kIndexPath;
-
--(NSIndexPath*)yu_idexPath
-{
-    return (NSIndexPath*)objc_getAssociatedObject(self, &kIndexPath);
-}
-
--(void)yu_setIndexPath:(NSIndexPath*)indexPath
-{
-    objc_setAssociatedObject(self, &kIndexPath, indexPath, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-static char KYu_Obj;
--(id)yu_obj
-{
-    return (NSIndexPath*)objc_getAssociatedObject(self, &KYu_Obj);
-}
-
--(void)yu_setObj:(id)obj{
-    objc_setAssociatedObject(self, &KYu_Obj, obj, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
 
 static char kAutoSize;
 static char kChangeWithMe;
@@ -562,7 +540,7 @@ static bool hadExchanged = FALSE;
     if (!hadExchanged) {
         hadExchanged = TRUE;
         Method ori_Method =  class_getInstanceMethod([UIView class], @selector(addSubview:));
-        Method my_Method = class_getInstanceMethod([UIView class], @selector(addMySubview:));
+        Method my_Method = class_getInstanceMethod([UIView class], @selector(yu_addMySubview:));
         method_exchangeImplementations(ori_Method, my_Method);
         
         ori_Method =  class_getInstanceMethod([UIView class], @selector(removeFromSuperview));

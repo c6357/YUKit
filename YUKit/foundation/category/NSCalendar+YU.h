@@ -53,7 +53,7 @@
 + (int)yu_getNumberOfDaysInMonth:(NSInteger)month year:(NSInteger) year;
 
 
-+ (NSString*)yu_yu_getWeekWithDate:(NSDate*)date;
++ (NSString*)yu_getWeekWithDate:(NSDate*)date;
 
 + (BOOL)yu_isLeapYear:(NSInteger)year;
 

@@ -19,7 +19,7 @@ FOUNDATION_EXPORT void YU_LogWarn(NSString *format, ...);
 
 FOUNDATION_EXPORT void YU_LogInfo(NSString *format, ...);
 
-FOUNDATION_EXPORT void YU_LogCrash();
+FOUNDATION_EXPORT void YU_LogCrash(void);
 
 FOUNDATION_EXPORT void YU_Log(NSString* format, ...);
 

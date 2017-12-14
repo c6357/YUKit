@@ -80,7 +80,7 @@ BOOL yu_isSafeObj(id obj){
           afterDelay:(NSTimeInterval)delay
 {
     block = [block copy];
-    [self performSelector:@selector(fireBlockAfterDelay:)
+    [self performSelector:@selector(yu_fireBlockAfterDelay:)
                withObject:block
                afterDelay:delay];
 }

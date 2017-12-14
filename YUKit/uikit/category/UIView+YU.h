@@ -70,14 +70,6 @@ typedef enum{
 -(void)yu_setToSuperCenter;
 
 
--(NSIndexPath*)yu_indexPath;
--(void)yu_setIndexPath:(NSIndexPath*)indexPath;
-
-
--(id)yu_obj;
--(void)yu_setObj:(NSIndexPath *)obj;
-
-
 -(BOOL)yu_autoSizeToFitContent;
 -(void)yu_setAutoSizeToFitContent:(BOOL)autoFit;
 
@@ -90,6 +82,8 @@ enum {
     BorderBottom = 0x04,
     BorderRight = 0x08
 };
+
+
 //@property (nonatomic,assign) NSInteger viewBorderStyle;
 //@property (nonatomic,assign) NSInteger viewBorderLineWidth;
 -(void)yu_setViewBorderStyle:(NSInteger)viewBorderStyle;

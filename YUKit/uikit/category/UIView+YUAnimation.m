@@ -158,7 +158,7 @@
     }
     
     //设置运动速度
-    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+//    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
     
     animation.removedOnCompletion = YES;
     

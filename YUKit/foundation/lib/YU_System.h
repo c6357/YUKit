@@ -20,13 +20,13 @@ typedef void (^NillBlock_Asset)(ALAsset* obj);
 /**
  *系统震动
  */
-UIKIT_EXTERN  void yu_system_vibrate();
+UIKIT_EXTERN  void yu_system_vibrate(void);
 
 
 /**
  *系统声音
  */
-UIKIT_EXTERN  void yu_system_sound();
+UIKIT_EXTERN  void yu_system_sound(void);
 
 
 /**
