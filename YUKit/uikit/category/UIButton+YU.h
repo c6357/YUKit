@@ -10,6 +10,9 @@
 
 @interface UIButton (YU)
 
+- (void)yu_centerImageAndTitle:(float)space;
+- (void)yu_centerImageAndTitle;
+
 +(UIButton*)yu_buttonWithImage:(UIImage*)image  target:(id)target action:(SEL)action;
 
 +(UIButton*)yu_buttonWithImage:(UIImage*)image frame:(CGRect)frame  target:(id)target action:(SEL)action;

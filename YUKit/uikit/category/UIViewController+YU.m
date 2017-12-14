@@ -54,6 +54,22 @@
     [group setAnimations:[NSArray arrayWithObjects:animation,animation2, nil]];
     return group;
 }
+
+- (UIViewController *)yu_lastPresentedViewController
+{
+    return [self yu_getChildPresentViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
+- (UIViewController *)yu_getChildPresentViewController:(UIViewController *)parentViewController
+{
+    if (parentViewController.presentedViewController == nil) {
+        return parentViewController;
+    } else {
+        return [self yu_getChildPresentViewController:parentViewController.presentedViewController];
+    }
+}
+
+
 @end
 
 @implementation UIViewController (KNSemiModal)
@@ -88,7 +104,7 @@
         // Dismiss button
         // Don't use UITapGestureRecognizer to avoid complex handling
         UIButton * dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [dismissButton addTarget:self action:@selector(dismissSemiModalView) forControlEvents:UIControlEventTouchUpInside];
+        [dismissButton addTarget:self action:@selector(yu_dismissSemiModalView) forControlEvents:UIControlEventTouchUpInside];
         dismissButton.backgroundColor = [UIColor clearColor];
         dismissButton.frame = of;
         [overlay addSubview:dismissButton];

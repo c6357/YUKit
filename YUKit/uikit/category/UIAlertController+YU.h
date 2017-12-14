@@ -9,11 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @interface UIAlertController (YU)
+/**
+ alertController title
+ */
+@property (nonatomic, strong) UILabel *yu_titleLabel;
 
-+ (void)yu_defaultAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void (^)(UIAlertAction *action))cancelBlock submitTitle:(NSString *)submitTitle submitBlock:(void (^)(UIAlertAction *action))submitBlock completedBlock:(void (^)(void))completedBlock;
+/**
+ alertController message
+ */
+@property (nonatomic, strong) UILabel *yu_messageLabel;
 
-+ (void)yu_defaultAlert:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void (^)(UIAlertAction * ))cancelBlock completedBlock:(void (^)(void))completedBlock;
 
-+ (UIViewController*)yu_lastPresentedViewController;
++ (UIAlertController*)yu_alertControllerWithTitle:(NSString *)title message:(NSString *)message cancelTitle:(NSString *)cancelTitle cancelBlock:(void(^)(void))cancelBlock;
+
+
++ (UIAlertController*)yu_alertControllerWithTitle:(NSString *)title message:(NSString *)message submitTitle:(NSString *)submitTitle submitBlock:(void(^)(void))submitBlock cancelTitle:(NSString *)cancelTitle cancelBlock:(void(^)(void))cancelBlock;
 
 @end

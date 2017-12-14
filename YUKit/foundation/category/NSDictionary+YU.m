@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+YU.h"
+#import "NSNumber+YU.h"
 
 @implementation NSDictionary (YU)
 
@@ -98,5 +99,59 @@
     return defaultValue;
 }
 
+-(NSDictionary*)yu_valueToString{
+    if (!self) {
+        return [NSDictionary new];
+    }
+    return [self yu_valueToString:nil];
+}
 
+-(NSMutableDictionary*)yu_valueToString:(NSMutableDictionary *)dictSource{
+    
+    NSMutableDictionary *newDic = dictSource;
+    
+    if (nil == dictSource) {
+        newDic = [NSMutableDictionary new];
+    }
+    
+    [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        
+        [self yu_setValue:obj forKey:key dictSource:newDic];
+        
+    }];
+    
+    return newDic;
+}
+
+-(NSMutableDictionary *)yu_setValue:(id)obj forKey:(NSString*)key dictSource:(NSMutableDictionary *)dictSource{
+    
+    if ([obj isKindOfClass:[NSString class]]) {
+        [dictSource setObject:obj forKey:key];
+    }
+    
+    else if ([obj isKindOfClass:[NSArray class]]) {
+        NSMutableArray *arry = [NSMutableArray new];
+        for (id subObj in obj) {
+            NSMutableDictionary *newDict = [NSMutableDictionary new];
+            NSDictionary* subDic = [newDict yu_setValue:subObj forKey:key dictSource:newDict];
+            //            NSLog(@"subDic %@",subDic);
+            [arry addObject:subDic];
+        }
+        [dictSource setObject:arry forKey:key];
+    }
+    
+    else if ([obj isKindOfClass:[NSDictionary class]]) {
+        [obj yu_valueToString:dictSource];
+    }
+    
+    else if ([obj isKindOfClass:[NSNumber class]]) {
+        [dictSource setObject:[obj yu_toString] forKey:key];
+    }
+    
+    else{
+        [dictSource setObject:@"" forKey:key];
+    }
+    
+    return dictSource;
+}
 @end

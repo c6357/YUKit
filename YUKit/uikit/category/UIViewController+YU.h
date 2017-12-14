@@ -11,10 +11,7 @@
 @interface UIViewController (YU)
 -(UIView*)yu_parentTarget;
 -(CAAnimationGroup*)yu_animationGroupForward:(BOOL)_forward;
-
-
-
-
+-(UIViewController *)yu_lastPresentedViewController;
 @end
 
 

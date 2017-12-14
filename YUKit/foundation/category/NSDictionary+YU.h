@@ -16,6 +16,8 @@
 @property(nonatomic,readonly,getter=yu_isEmpty) BOOL empty;
 
 
+
+
 -(NSDictionary*)yu_copyToSelf:(NSDictionary*)dic;
 
 - (NSDictionary *)yu_dictionaryByReplacingNullsWithStrings;
@@ -29,5 +31,8 @@
 - (NSString *)yu_getStringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue;
 
 - (time_t)yu_getTimeValueForKey:(NSString *)key defaultValue:(time_t)defaultValue;
+
+
+-(NSDictionary*)yu_valueToString;
 
 @end

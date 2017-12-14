@@ -191,6 +191,7 @@
 		183ADD6E1EF22D6E007A50C1 /* YUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ADD511EF22D6E007A50C1 /* YUKeychain.m */; };
 		32AB6A221F9B105E0092C430 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 32AB6A201F9B105E0092C430 /* Reachability.h */; };
 		32AB6A231F9B105E0092C430 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AB6A211F9B105E0092C430 /* Reachability.m */; };
+		955A97EB1FE2720B00C6C20A /* UIViewController+SeparatorInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A97EA1FE2720A00C6C20A /* UIViewController+SeparatorInset.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,6 +376,8 @@
 		1896121F1DF9544C0019EF52 /* YUKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YUKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AB6A201F9B105E0092C430 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		32AB6A211F9B105E0092C430 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		955A97E91FE2720A00C6C20A /* UIViewController+SeparatorInset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SeparatorInset.h"; sourceTree = "<group>"; };
+		955A97EA1FE2720A00C6C20A /* UIViewController+SeparatorInset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SeparatorInset.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,8 +429,6 @@
 				183AB94E1EEFD785005E17E7 /* NSData+YU.m */,
 				183ADD1C1EF21F79007A50C1 /* NSData+YUBase64.h */,
 				183ADD1D1EF21F79007A50C1 /* NSData+YUBase64.m */,
-				183ADD201EF21FC2007A50C1 /* NSString+YUBase64.h */,
-				183ADD211EF21FC2007A50C1 /* NSString+YUBase64.m */,
 				183AB94F1EEFD785005E17E7 /* NSDate+YU.h */,
 				183AB9501EEFD785005E17E7 /* NSDate+YU.m */,
 				183AB9511EEFD785005E17E7 /* NSDictionary+YU.h */,
@@ -454,6 +455,8 @@
 				183AB9661EEFD785005E17E7 /* NSObject+YURuntime.m */,
 				183AB9671EEFD785005E17E7 /* NSString+YU.h */,
 				183AB9681EEFD785005E17E7 /* NSString+YU.m */,
+				183ADD201EF21FC2007A50C1 /* NSString+YUBase64.h */,
+				183ADD211EF21FC2007A50C1 /* NSString+YUBase64.m */,
 				183AB9691EEFD785005E17E7 /* NSString+YUCheck.h */,
 				183AB96A1EEFD785005E17E7 /* NSString+YUCheck.m */,
 				183AB96B1EEFD785005E17E7 /* NSString+YUSize.h */,
@@ -603,6 +606,8 @@
 				183AB9EA1EEFD785005E17E7 /* UIViewController+Storyboard.m */,
 				183AB9EB1EEFD785005E17E7 /* UIViewController+YU.h */,
 				183AB9EC1EEFD785005E17E7 /* UIViewController+YU.m */,
+				955A97E91FE2720A00C6C20A /* UIViewController+SeparatorInset.h */,
+				955A97EA1FE2720A00C6C20A /* UIViewController+SeparatorInset.m */,
 				183AB9ED1EEFD785005E17E7 /* UIWebView+YU.h */,
 				183AB9EE1EEFD785005E17E7 /* UIWebView+YU.m */,
 				183AB9EF1EEFD785005E17E7 /* UIWindow+YU.h */,
@@ -974,6 +979,7 @@
 				183ABA9C1EEFD785005E17E7 /* UIWindow+YU.m in Sources */,
 				183ABA3D1EEFD785005E17E7 /* YU_SysInfo.m in Sources */,
 				183ABA7E1EEFD785005E17E7 /* UIPasteboard+YU.m in Sources */,
+				955A97EB1FE2720B00C6C20A /* UIViewController+SeparatorInset.m in Sources */,
 				183ABA061EEFD785005E17E7 /* NSCalendar+YU.m in Sources */,
 				183ABA281EEFD785005E17E7 /* NSTimer+YU.m in Sources */,
 				183ABA961EEFD785005E17E7 /* UIViewController+Storyboard.m in Sources */,
