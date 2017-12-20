@@ -218,20 +218,26 @@ static float offsetX = 25;
     }
 }
 
-
--(void)yu_registerNibWithCell:(UITableViewCell*)cell
+-(id)yu_cellWithIdentifie:(Class)cellClass
 {
-    NSString *cellIdentifier = NSStringFromClass([cell class]);
+    NSString *cellIdentifier = NSStringFromClass(cellClass);
+    return [self dequeueReusableCellWithIdentifier:cellIdentifier];
+}
+
+-(void)yu_registerNibWithCell:(Class)cellClass
+{
+    NSString *cellIdentifier = NSStringFromClass(cellClass);
     UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self registerNib:nib forCellReuseIdentifier:cellIdentifier];
 }
 
-
--(void)yu_registerClassWithCell:(UITableViewCell*)cell
+-(void)yu_registerClassWithCell:(Class)cellClass
 {
-    NSString *cellIdentifier = NSStringFromClass([cell class]);
-    [self registerClass:[cell class] forCellReuseIdentifier:cellIdentifier];
+    NSString *cellIdentifier = NSStringFromClass(cellClass);
+    [self registerClass:cellClass forCellReuseIdentifier:cellIdentifier];
 }
+
+
 
 
 @end
