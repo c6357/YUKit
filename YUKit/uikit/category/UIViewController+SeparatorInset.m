@@ -49,6 +49,9 @@ static NSString *ES_INSETS_ASS_KEY = @"ES_INSETS_ASS_KEY";
     }
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+}
+
 - (void)yu_setSeparatorInsetZeroWithTableView:(UITableView *)tableView{
     [self yu_setSeparatorInsetWithTableView:tableView inset:UIEdgeInsetsZero];
 }
