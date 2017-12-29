@@ -293,7 +293,7 @@ NSString *YU_DeviceIpAddressCell()
     return address;
 }
 
-BOOL isConnectedViaWiFi () {
+BOOL yu_isConnectedViaWiFi () {
     Reachability *reachability = [Reachability reachabilityForInternetConnection];
     [reachability startNotifier];
     NetworkStatus status = [reachability currentReachabilityStatus];
@@ -303,7 +303,7 @@ BOOL isConnectedViaWiFi () {
         return NO;
 }
 
-BOOL isConnectedVia3G (){
+BOOL yu_isConnectedVia3G (){
     Reachability *reachability = [Reachability reachabilityForInternetConnection];
     [reachability startNotifier];
     NetworkStatus status = [reachability currentReachabilityStatus];
